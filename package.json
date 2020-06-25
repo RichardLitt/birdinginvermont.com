@@ -1,0 +1,54 @@
+{
+  "name": "vtbird",
+  "homepage": "https://richardlitt.github.io/vtbird/",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "bootstrap": "^4.4.1",
+    "compare-latlong": "^1.0.4",
+    "d3": "^5.15.1",
+    "d3-geo": "^1.12.0",
+    "d3-selection": "^1.4.1",
+    "geojson-geometries-lookup": "^0.3.1",
+    "lodash": "^4.17.15",
+    "moment": "^2.24.0",
+    "node-sass": "^4.13.1",
+    "papaparse": "^5.2.0",
+    "react": "^16.13.1",
+    "react-bootstrap": "^1.0.0",
+    "react-csv-reader": "^3.0.5",
+    "react-dom": "^16.13.1",
+    "react-scripts": "3.4.1",
+    "remove-blank-lines": "^1.4.0",
+    "topojson": "^3.0.2"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "gh-pages": "^2.2.0"
+  }
+}

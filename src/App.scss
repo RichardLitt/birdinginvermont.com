@@ -1,0 +1,50 @@
+// .App {
+//   text-align: center;
+// }
+//
+// .App-header {
+//   background-color: #282c34;
+//   min-height: 100vh;
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   justify-content: center;
+//   font-size: calc(20px + 2vmin);
+//   color: white;
+// }
+//
+// .App-link {
+//   color: #61dafb;
+// }
+
+svg {
+    font: 10px sans-serif;
+    display: inline;
+}
+
+.key path {
+    display: none;
+}
+
+.key line {
+    stroke: #000;
+    shape-rendering: crispEdges;
+}
+
+.key text {
+    font-size: 10px;
+}
+#map, #list-container {
+  display: inline-block;
+  float: left;
+}
+#list-container {
+  width: 300px;
+}
+#town-name {
+  text-transform: capitalize;
+}
+
+span.nav-link {
+ cursor: pointer;
+}
