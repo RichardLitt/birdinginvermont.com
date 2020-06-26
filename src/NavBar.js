@@ -46,7 +46,7 @@ class NavBar extends Component {
               </span>
             </li>
             <li className='nav-item'>
-              <a class="nav-link" href="/vtbird/subspecies/index.html">Subspecies</a>
+              <a class="nav-link" href="/subspecies/index.html">Subspecies</a>
             </li>
           </ul>
         </div>
