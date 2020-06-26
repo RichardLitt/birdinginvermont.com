@@ -31,18 +31,18 @@ class NavBar extends Component {
                 Biophsyical Regions
               </span>
             </li>
-            <li className={(this.props.active === 'needs') ? 'nav-item active' : 'nav-item' }>
+            {/* <li className={(this.props.active === 'needs') ? 'nav-item active' : 'nav-item' }>
               <span className="nav-link"
               onClick={() => this.props.changeActiveView('needs')}>
                 Wash Co. Needs
               </span>
-            </li>
+            </li> */}
             <li className={(this.props.active === 'radial') ? 'nav-item active' : 'nav-item' }>
               <span
                 className="nav-link"
                 onClick={() => this.props.changeActiveView('radial')}
               >
-                Radial Search
+                10 Mile Search
               </span>
             </li>
             <li className='nav-item'>

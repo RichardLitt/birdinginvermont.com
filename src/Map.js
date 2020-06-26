@@ -191,11 +191,11 @@ class Map extends Component {
 
           // TODO Why is Enosburg 'undefined'?
           d3.select('#list')
-          .html((d.properties.species && d.properties.species.length > 0) ? `<li>${d.properties.species.join('</li><li>')}</li>` : 'No species logged.')
+          .html((d.properties.species && d.properties.species.length > 0) ? `<b>Seen:</b> <li>${d.properties.species.join('</li><li>')}</li>` : 'No species logged.')
 
           // The functionality is here, but the UI is overwhelming
           d3.select('#notSeen')
-          .html((d.properties.notSeen && d.properties.notSeen.length > 0) ? `${d.properties.notSeen.join(', ')}` : '')
+          .html((d.properties.notSeen && d.properties.notSeen.length > 0) ? `<b>You have not seen these species, which you've seen elsewhere in Vermont:</b> ${d.properties.notSeen.join(', ')}` : '')
         }
       })
       .on('mouseout', function (d) {
