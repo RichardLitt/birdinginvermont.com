@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/vtbird/static/css/main.4263e2ec.chunk.css",
+    "main.js": "/vtbird/static/js/main.922f5bf1.chunk.js",
+    "main.js.map": "/vtbird/static/js/main.922f5bf1.chunk.js.map",
+    "runtime-main.js": "/vtbird/static/js/runtime-main.4f8a4b11.js",
+    "runtime-main.js.map": "/vtbird/static/js/runtime-main.4f8a4b11.js.map",
+    "static/js/2.65e2d6a1.chunk.js": "/vtbird/static/js/2.65e2d6a1.chunk.js",
+    "static/js/2.65e2d6a1.chunk.js.map": "/vtbird/static/js/2.65e2d6a1.chunk.js.map",
+    "index.html": "/vtbird/index.html",
+    "precache-manifest.0daa7221e14658367a15364bc7c4a675.js": "/vtbird/precache-manifest.0daa7221e14658367a15364bc7c4a675.js",
+    "service-worker.js": "/vtbird/service-worker.js",
+    "static/css/main.4263e2ec.chunk.css.map": "/vtbird/static/css/main.4263e2ec.chunk.css.map",
+    "static/js/2.65e2d6a1.chunk.js.LICENSE.txt": "/vtbird/static/js/2.65e2d6a1.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.4f8a4b11.js",
+    "static/js/2.65e2d6a1.chunk.js",
+    "static/css/main.4263e2ec.chunk.css",
+    "static/js/main.922f5bf1.chunk.js"
+  ]
+}
