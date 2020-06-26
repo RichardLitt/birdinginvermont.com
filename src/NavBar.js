@@ -45,6 +45,9 @@ class NavBar extends Component {
                 Radial Search
               </span>
             </li>
+            <li className='nav-item'>
+              <a class="nav-link" href="/vtbird/subspecies/index.html">Subspecies</a>
+            </li>
           </ul>
         </div>
       </nav>
