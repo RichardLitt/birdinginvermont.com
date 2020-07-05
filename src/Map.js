@@ -177,16 +177,16 @@ class Map extends Component {
           d3.select(this)
             .style('fill', '#509e2f')
 
-          function capitalizeFirstLetter(string) {
-            return string.charAt(0).toUpperCase() + string.slice(1);
+          function capitalizeFirstLetters(string) {
+            return string.split(' ').map(x => x.charAt(0).toUpperCase() + x.slice(1)).join(' ')
           }
 
           if (active === 'towns') {
             d3.select('#locale')
-            .text([capitalizeFirstLetter(d.properties.town.toLowerCase())])
+            .text([capitalizeFirstLetters(d.properties.town.toLowerCase())])
           } else if (active === 'regions') {
             d3.select('#locale')
-            .text([capitalizeFirstLetter(d.properties.name.toLowerCase())])
+            .text([capitalizeFirstLetters(d.properties.name.toLowerCase())])
           }
 
           // TODO Why is Enosburg 'undefined'?
