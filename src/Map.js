@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import vt from './ebird-ext/vermont.json'
 import Biophsyical_regions from './ebird-ext/Polygon_VT_Biophysical_Regions.json'
 import { select } from 'd3-selection'
+import { withRouter } from 'react-router'
+import UploadButton from './UploadButton'
 const d3 = require('d3')
 const d3Geo = require('d3-geo')
 const topojson = require('topojson')
@@ -17,27 +19,27 @@ class Map extends Component {
     this.createMap()
   }
 
-  componentDidUpdate() {
+  componentDidUpdate(prevProps) {
     this.createMap()
+    if (this.props.location !== prevProps.location) {
+      this.onRouteChanged();
+    }
+  }
+
+  onRouteChanged() {
+    this.setState({data: ''})
   }
 
   createMap() {
     function colorArea (speciesTotal) {
-      if (speciesTotal) {
-        return color(speciesTotal)
-      } else {
-        console.log('What')
-        return '#ddd'
-      }
+      return (speciesTotal) ? color(speciesTotal) : '#ddd'
     }
 
     const data = this.props.data
     const node = this.node
-    const width = this.props.size[0]
-    const height = this.props.size[1]
-
-    // TODO Make this change with the App level flag
-    const active = this.props.active
+    const width = 750
+    const height = 800
+    const pathname = this.props.location.pathname
 
     // Define map projection
     var projection = d3Geo
@@ -74,37 +76,37 @@ class Map extends Component {
     var vermont, i, j
 
     // Load TopoJSON
-    if (active === 'towns') {
-      for (i = 0; i < data.length; i++) {
-        var dataTown = data[i].town
-        var speciesTotals = parseFloat(data[i].speciesTotal)
+    if (this.props.location.pathname === '/towns') {
+      for (i = 0; i < data.towns.length; i++) {
+        var dataTown = data.towns[i].town
+        var speciesTotals = parseFloat(data.towns[i].speciesTotal)
 
         for (j = 0; j < vt.objects.vt_towns.geometries.length; j++) {
           var jsonTown = vt.objects.vt_towns.geometries[j].properties.town
 
           if (dataTown.toUpperCase() === jsonTown) {
             vt.objects.vt_towns.geometries[j].properties.speciesTotal = speciesTotals
-            vt.objects.vt_towns.geometries[j].properties.species = data[i].species
-            vt.objects.vt_towns.geometries[j].properties.notSeen = data[i].notSeen
+            vt.objects.vt_towns.geometries[j].properties.species = data.towns[i].species
+            vt.objects.vt_towns.geometries[j].properties.notSeen = data.towns[i].notSeen
             break
           }
         }
       }
 
       vermont = topojson.feature(vt, vt.objects.vt_towns)
-    } else if (active === 'regions') {
+    } else if (this.props.location.pathname === '/regions') {
       vermont = Biophsyical_regions
 
       // Add region counts to regions
-      for (i = 0; i < data.length; i++) {
-        var dataRegion = data[i].region
-        var speciesTotal = parseFloat(data[i].speciesTotal)
+      for (i = 0; i < data.regions.length; i++) {
+        var dataRegion = data.regions[i].region
+        var speciesTotal = parseFloat(data.regions[i].speciesTotal)
 
         for (j = 0; j < vermont.features.length; j++) {
           var jsonRegion = vermont.features[j].properties.name
           if (dataRegion === jsonRegion) {
             vermont.features[j].properties.speciesTotal = speciesTotal
-            vermont.features[j].properties.species = data[i].species
+            vermont.features[j].properties.species = data.regions[i].species
             break
           }
         }
@@ -182,12 +184,12 @@ class Map extends Component {
             return string.split(' ').map(x => x.charAt(0).toUpperCase() + x.slice(1)).join(' ')
           }
 
-          if (active === 'towns') {
+          if (pathname === '/towns') {
             d3.select('#locale')
-            .text([capitalizeFirstLetters(d.properties.town.toLowerCase())])
-          } else if (active === 'regions') {
+              .text([capitalizeFirstLetters(d.properties.town.toLowerCase())])
+          } else if (pathname === '/regions') {
             d3.select('#locale')
-            .text([capitalizeFirstLetters(d.properties.name.toLowerCase())])
+              .text([capitalizeFirstLetters(d.properties.name.toLowerCase())])
           }
 
           // TODO Why is Enosburg 'undefined'?
@@ -253,8 +255,9 @@ class Map extends Component {
     return (
       <div className="container-md">
         <div className="row">
+          <UploadButton handleChange={this.props.handleChange} data={this.props.data} />
           <div id="map" className="col-sm">
-            <svg ref={node => this.node = node} width={750} height={750}></svg>
+            <svg ref={node => this.node = node} width={750} height={800}></svg>
           </div>
           <div className="col-sm" id="list-container">
             <h4 id="locale">{/* empty h4 */}</h4>
@@ -267,4 +270,4 @@ class Map extends Component {
   }
 }
 
-export default Map
+export default withRouter(Map)

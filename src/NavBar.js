@@ -1,14 +1,13 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
 class NavBar extends Component {
   render() {
     return (
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        <span
-          className="navbar-brand"
-        >
+        <Link className="navbar-brand" to="/">
           Birding in Vermont
-        </span>
+        </Link>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
@@ -16,37 +15,45 @@ class NavBar extends Component {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mr-auto">
             <li className={(this.props.active === 'towns') ? 'nav-item active' : 'nav-item' }>
-              <span
+              <Link
                 className="nav-link"
-                onClick={() => this.props.changeActiveView('towns')}
+                to="/about"
               >
-                Towns <span className="sr-only">(current)</span>
-              </span>
+                About
+              </Link>
+            </li>
+            <li className={(this.props.active === 'towns') ? 'nav-item active' : 'nav-item' }>
+              <Link
+                className="nav-link"
+                to="/towns"
+              >
+                Towns
+              </Link>
             </li>
             <li className={(this.props.active === 'regions') ? 'nav-item active' : 'nav-item' }>
-              <span
+              <Link
                 className="nav-link"
-                onClick={() => this.props.changeActiveView('regions')}
+                to="/regions"
               >
                 Biophsyical Regions
-              </span>
+              </Link>
             </li>
             {/* <li className={(this.props.active === 'needs') ? 'nav-item active' : 'nav-item' }>
               <span className="nav-link"
               onClick={() => this.props.changeActiveView('needs')}>
                 Wash Co. Needs
               </span>
-            </li> */}
+            </li>
             <li className={(this.props.active === 'radial') ? 'nav-item active' : 'nav-item' }>
-              <span
+              <Link
                 className="nav-link"
-                onClick={() => this.props.changeActiveView('radial')}
+                to="/radial"
               >
                 10 Mile Search
-              </span>
-            </li>
+              </Link>
+            </li> */}
             <li className='nav-item'>
-              <a class="nav-link" href="/subspecies/index.html">Subspecies</a>
+              <Link className="nav-link" to="/subspecies">Subspecies</Link>
             </li>
           </ul>
         </div>
