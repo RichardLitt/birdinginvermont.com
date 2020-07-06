@@ -58,12 +58,6 @@ class Map extends Component {
       .attr('width', width)
       .attr('height', height)
 
-    // Define scale to sort data values into color buckets
-    var color = d3
-      .scaleQuantize()
-      .domain([0, 112]) // TODO Change this to match highest
-      .range(['#fff7ec', '#fee8c8', '#fdd49e', '#fdbb84', '#fc8d59', '#ef6548', '#d7301f', '#b30000', '#7f0000'])
-
     // Legend Stuff
 
     // var y = d3.scaleSqrt()
@@ -73,13 +67,18 @@ class Map extends Component {
     // var yAxis = d3.axisLeft(y)
     //     .tickValues(color.domain())
 
-    var vermont, i, j
+    var vermont, i, j, color, speciesTotals
+    let highestTotalSpeciesTowns = 0
+    let highestTotalSpeciesRegions = 0
 
     // Load TopoJSON
     if (this.props.location.pathname === '/towns') {
       for (i = 0; i < data.towns.length; i++) {
         var dataTown = data.towns[i].town
-        var speciesTotals = parseFloat(data.towns[i].speciesTotal)
+        speciesTotals = parseFloat(data.towns[i].speciesTotal)
+        if (speciesTotals > highestTotalSpeciesTowns) {
+          highestTotalSpeciesTowns = speciesTotals
+        }
 
         for (j = 0; j < vt.objects.vt_towns.geometries.length; j++) {
           var jsonTown = vt.objects.vt_towns.geometries[j].properties.town
@@ -94,23 +93,41 @@ class Map extends Component {
       }
 
       vermont = topojson.feature(vt, vt.objects.vt_towns)
+      // Define scale to sort data values into color buckets
+      color = d3
+        .scaleQuantize()
+        .domain([0, highestTotalSpeciesTowns])
+        .range(['#fff7ec', '#fee8c8', '#fdd49e', '#fdbb84', '#fc8d59', '#ef6548', '#d7301f', '#b30000', '#7f0000'])
+
     } else if (this.props.location.pathname === '/regions') {
       vermont = Biophsyical_regions
 
       // Add region counts to regions
       for (i = 0; i < data.regions.length; i++) {
         var dataRegion = data.regions[i].region
-        var speciesTotal = parseFloat(data.regions[i].speciesTotal)
+        speciesTotals = parseFloat(data.regions[i].speciesTotal)
+        if (speciesTotals > highestTotalSpeciesRegions) {
+          console.log('highestTotalSpeciesRegions', highestTotalSpeciesRegions)
+          console.log('speciesTotals', speciesTotals)
+          highestTotalSpeciesRegions = speciesTotals
+        }
 
         for (j = 0; j < vermont.features.length; j++) {
           var jsonRegion = vermont.features[j].properties.name
           if (dataRegion === jsonRegion) {
-            vermont.features[j].properties.speciesTotal = speciesTotal
+            vermont.features[j].properties.speciesTotal = speciesTotals
             vermont.features[j].properties.species = data.regions[i].species
             break
           }
         }
       }
+
+      // Define scale to sort data values into color buckets
+      color = d3
+        .scaleQuantize()
+        .domain([0, highestTotalSpeciesRegions])
+        .range(['#fff7ec', '#fee8c8', '#fdd49e', '#fdbb84', '#fc8d59', '#ef6548', '#d7301f', '#b30000', '#7f0000'])
+
     }
 
     svg.append('path')
@@ -192,13 +209,12 @@ class Map extends Component {
               .text([capitalizeFirstLetters(d.properties.name.toLowerCase())])
           }
 
-          // TODO Why is Enosburg 'undefined'?
           d3.select('#list')
-          .html((d.properties.species && d.properties.species.length > 0) ? `<b>Seen:</b> <li>${taxonomicSort(d.properties.species).join('</li><li>')}</li>` : 'No species logged.')
+            .html((d.properties.species && d.properties.species.length > 0) ? `<b>Seen:</b> <li>${taxonomicSort(d.properties.species).join('</li><li>')}</li>` : 'No species logged.')
 
           // The functionality is here, but the UI is overwhelming
           d3.select('#notSeen')
-          .html((d.properties.notSeen && d.properties.notSeen.length > 0) ? `<b>You have not seen these species, which you've seen elsewhere in Vermont:</b> ${taxonomicSort(d.properties.notSeen).join(', ')}` : '')
+            .html((d.properties.notSeen && d.properties.notSeen.length > 0) ? `<b>You have not seen these species, which you've seen elsewhere in Vermont:</b> ${taxonomicSort(d.properties.notSeen).join(', ')}` : '')
         }
       })
       .on('mouseout', function (d) {
@@ -208,14 +224,7 @@ class Map extends Component {
           d3.select(this)
           .transition()
           .duration(250)
-          .style('fill', function (d) {
-            var speciesTotal = d.properties.speciesTotal
-            if (speciesTotal) {
-              return color(speciesTotal)
-            } else {
-              return '#ddd'
-            }
-          })
+          .style('fill', (d) => (d.properties.speciesTotal) ? color(d.properties.speciesTotal) : '#ddd')
 
           d3.select('#locale')
           .text()
