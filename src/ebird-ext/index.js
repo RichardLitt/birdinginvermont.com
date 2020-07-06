@@ -290,7 +290,7 @@ async function regions (opts) {
       })
     })
     r.speciesTotal = i
-    console.log(`Region: ${r.region}. Species count: ${r.speciesTotal}.`)
+    // console.log(`Region: ${r.region}. Species count: ${r.speciesTotal}.`)
   })
 
   return regions

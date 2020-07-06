@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import vt from './ebird-ext/vermont.json'
-import Biophsyical_regions from './ebird-ext/Polygon_VT_Biophysical_Regions.json'
+import VermontTowns from './ebird-ext/vermont.json'
+import BiophysicalRegions from './ebird-ext/Polygon_VT_Biophysical_Regions.json'
 import { select } from 'd3-selection'
 import { withRouter } from 'react-router'
 import UploadButton from './UploadButton'
@@ -73,6 +73,8 @@ class Map extends Component {
 
     // Load TopoJSON
     if (this.props.location.pathname === '/towns') {
+      vermont = topojson.feature(VermontTowns, VermontTowns.objects.vt_towns)
+
       for (i = 0; i < data.towns.length; i++) {
         var dataTown = data.towns[i].town
         speciesTotals = parseFloat(data.towns[i].speciesTotal)
@@ -80,35 +82,32 @@ class Map extends Component {
           highestTotalSpeciesTowns = speciesTotals
         }
 
-        for (j = 0; j < vt.objects.vt_towns.geometries.length; j++) {
-          var jsonTown = vt.objects.vt_towns.geometries[j].properties.town
+        for (j = 0; j < VermontTowns.objects.vt_towns.geometries.length; j++) {
+          var jsonTown = VermontTowns.objects.vt_towns.geometries[j].properties.town
 
           if (dataTown.toUpperCase() === jsonTown) {
-            vt.objects.vt_towns.geometries[j].properties.speciesTotal = speciesTotals
-            vt.objects.vt_towns.geometries[j].properties.species = data.towns[i].species
-            vt.objects.vt_towns.geometries[j].properties.notSeen = data.towns[i].notSeen
+            VermontTowns.objects.vt_towns.geometries[j].properties.speciesTotal = speciesTotals
+            VermontTowns.objects.vt_towns.geometries[j].properties.species = data.towns[i].species
+            VermontTowns.objects.vt_towns.geometries[j].properties.notSeen = data.towns[i].notSeen
             break
           }
         }
       }
 
-      vermont = topojson.feature(vt, vt.objects.vt_towns)
-      // Define scale to sort data values into color buckets
+      // Set the color after you've calculated the highest total species
       color = d3
         .scaleQuantize()
         .domain([0, highestTotalSpeciesTowns])
         .range(['#fff7ec', '#fee8c8', '#fdd49e', '#fdbb84', '#fc8d59', '#ef6548', '#d7301f', '#b30000', '#7f0000'])
 
     } else if (this.props.location.pathname === '/regions') {
-      vermont = Biophsyical_regions
+      vermont = BiophysicalRegions
 
       // Add region counts to regions
       for (i = 0; i < data.regions.length; i++) {
         var dataRegion = data.regions[i].region
         speciesTotals = parseFloat(data.regions[i].speciesTotal)
         if (speciesTotals > highestTotalSpeciesRegions) {
-          console.log('highestTotalSpeciesRegions', highestTotalSpeciesRegions)
-          console.log('speciesTotals', speciesTotals)
           highestTotalSpeciesRegions = speciesTotals
         }
 
@@ -122,7 +121,7 @@ class Map extends Component {
         }
       }
 
-      // Define scale to sort data values into color buckets
+      // Set the color after you've calculated the highest total species
       color = d3
         .scaleQuantize()
         .domain([0, highestTotalSpeciesRegions])
@@ -253,7 +252,7 @@ class Map extends Component {
 
     // Color lakes
     svg.append('path')
-      .datum(topojson.feature(vt, vt.objects.lake))
+      .datum(topojson.feature(VermontTowns, VermontTowns.objects.lake))
       .attr('d', path)
       .style('stroke', '#89b6ef')
       .style('stroke-width', '1px')
