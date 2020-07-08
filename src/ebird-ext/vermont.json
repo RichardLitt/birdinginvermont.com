@@ -145,7 +145,7 @@
                         [51, 52, 53, -29, -51]
                     ],
                     "properties": {
-                        "town": "WARRENS GORE",
+                        "town": "WARREN'S GORE",
                         "county": 9
                     }
                 }, {
@@ -208,7 +208,7 @@
                         [72, 73, -56, -6, -11, -19, 74]
                     ],
                     "properties": {
-                        "town": "ENOSBURG",
+                        "town": "ENOSBURGH",
                         "county": 11
                     }
                 }, {

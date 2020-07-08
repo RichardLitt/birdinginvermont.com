@@ -70,14 +70,27 @@ class Map extends Component {
     var vermont, i, j, color, speciesTotals
     let highestTotalSpeciesTowns = 0
     let highestTotalSpeciesRegions = 0
+    const shimTownNames = {
+      'Newport Town': 'Newport',
+      'Newport City': 'Newport',
+      "St. Albans Town": "St. Albans",
+      "St. Albans City": "St. Albans",
+      "Warren Gore": "Warren's Gore",
+      "Warners Grant": "Warner's Grant"
+    }
 
     // Load TopoJSON
     if (this.props.location.pathname === '/towns') {
       vermont = topojson.feature(VermontTowns, VermontTowns.objects.vt_towns)
 
       for (i = 0; i < data.towns.length; i++) {
-        var dataTown = data.towns[i].town
+        let dataTown = data.towns[i].town
+        // console.log((data.towns[i].town.includes('lbans')) ? data.towns[i].town : false)
+        if (shimTownNames[dataTown]) {
+          dataTown = shimTownNames[dataTown]
+        }
         speciesTotals = parseFloat(data.towns[i].speciesTotal)
+        // Calculate the highest town, for use in coloring
         if (speciesTotals > highestTotalSpeciesTowns) {
           highestTotalSpeciesTowns = speciesTotals
         }
@@ -89,6 +102,8 @@ class Map extends Component {
             VermontTowns.objects.vt_towns.geometries[j].properties.speciesTotal = speciesTotals
             VermontTowns.objects.vt_towns.geometries[j].properties.species = data.towns[i].species
             VermontTowns.objects.vt_towns.geometries[j].properties.notSeen = data.towns[i].notSeen
+            // TODO Add together St. Albans Town and St. Albans City
+            if (dataTown[2] === '.') { console.log(VermontTowns.objects.vt_towns.geometries[j].properties) }
             break
           }
         }
@@ -202,7 +217,7 @@ class Map extends Component {
 
           if (pathname === '/towns') {
             d3.select('#locale')
-              .text([capitalizeFirstLetters(d.properties.town.toLowerCase())])
+              .text([capitalizeFirstLetters(d.properties.town.toLowerCase()) + ` (${d.properties.speciesTotal})`])
           } else if (pathname === '/regions') {
             d3.select('#locale')
               .text([capitalizeFirstLetters(d.properties.name.toLowerCase())])
