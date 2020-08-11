@@ -38,6 +38,14 @@ class NavBar extends Component {
                 Biophsyical Regions
               </Link>
             </li>
+            <li className={(this.props.active === 'nfc') ? 'nav-item active' : 'nav-item' }>
+              <Link
+                className="nav-link"
+                to="/nfc"
+              >
+                NFCs
+              </Link>
+            </li>
             {/* <li className={(this.props.active === 'needs') ? 'nav-item active' : 'nav-item' }>
               <span className="nav-link"
               onClick={() => this.props.changeActiveView('needs')}>
