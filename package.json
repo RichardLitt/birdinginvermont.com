@@ -27,6 +27,7 @@
     "react-bootstrap": "^1.0.0",
     "react-csv-reader": "^3.0.5",
     "react-dom": "^16.13.1",
+    "react-markdown": "^4.3.1",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",

@@ -6,6 +6,7 @@ import Map from './Map'
 import NavBar from './NavBar'
 import Subspecies from './Subspecies'
 import NFC from './NFC'
+import BAWW from './nfc-species/baww'
 // import RadialView from './RadialView'
 import Footer from './Footer'
 import { withRouter } from 'react-router'
@@ -46,6 +47,7 @@ class App extends Component {
         <Route exact path='/towns' render={(props) => (<Map {...props} component={Map} data={this.state.data} handleChange={this.handleChange} />)} />
         <Route exact path='/regions' render={(props) => (<Map {...props} component={Map} data={this.state.data} handleChange={this.handleChange} />)} />
         <Route exact path='/nfc' component={NFC} />
+        <Route exact path='/nfc-species/baww' component={BAWW} />
         <Route exact path='/subspecies' component={Subspecies} />
         {/* <Route exact path='/10-mile' component={RadialView} data={this.state.data.radial} /> */}
         <Footer />
