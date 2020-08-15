@@ -32,7 +32,7 @@ It is unclear to me wehterh the tsit or tseep described in Stiles and Skutch (19
 
 ### Example calls
 
-The best call that is involves a bird that was seen, recorded, and commented upon in the checklist is here: https://ebird.org/checklist/S62295811.
+The best call that involves a bird which was seen, recorded, and commented upon in the checklist is here: https://ebird.org/checklist/S62295811.
 
 Other calls:
 
