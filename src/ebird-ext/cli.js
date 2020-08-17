@@ -22,6 +22,7 @@ const cli = meow(`
     first-day     Show your first lists
     towns         Show your town counts
     regions       Show your region counts
+    rare          Show which rarities to report to records committee
 
   Options
     --input, -i The input file
@@ -76,6 +77,8 @@ const cli = meow(`
 // TODO Make input automatic based on file location
 // TODO This is ugly. Make it better.
 
+// WARNING: This doesn't work at the moment with the index.js file, because it is now a module. Damn.
+
 async function run () {
   if (cli.input[0] === 'quad') {
     await main.quadBirds(cli.flags)
@@ -83,6 +86,8 @@ async function run () {
     await main.towns(cli.flags)
   } else if (cli.input[0] === 'regions') {
     await main.regions(cli.flags)
+  } else if (cli.input[0] === 'rare') {
+    await main.rare(cli.flags)
   } else if (cli.input[0] === 'big') {
     cli.flags.list = undefined
     let timespan = 'year'

@@ -42,6 +42,14 @@ async function getData (input) {
   return removeSpuh(input)
 }
 
+async function importCsv (input) {
+  if (fs) {
+    input = await fs.readFile(input, 'utf8')
+    input = Papa.parse(input, { header: true })
+    return input.data
+  }
+}
+
 function parseDateformat (timespan) {
   let dateFormat
   if (timespan === 'year') {
@@ -395,6 +403,74 @@ async function quadBirds (opts) {
   console.log(`You saw, photographed, and recorded audio for a total of ${completionDates.length} species in ${opts.year}.`)
 }
 
+async function rare (opts) {
+  const geojsonTowns = Town_boundaries
+  const townlookup = new GeoJsonGeometriesLookup(geojsonTowns)
+  const geojsonRegions = Vermont_regions
+  const regionlookup = new GeoJsonGeometriesLookup(geojsonRegions)
+  if (!opts.year) {
+    opts.year = moment().format('YYYY')
+  }
+  opts.state = 'Vermont'
+  // Use only data from this year, from Vermont
+  const data = dateFilter(locationFilter(await getData(opts.input), opts), opts)
+  const recordList = await importCsv('recordlist.csv')
+  const reporting = recordList.filter(x => x.Reporting)
+  const speciesToReport = reporting.map(x => x['Scientific Name'])
+  const output = {
+    'Breeding': [],
+    'Vermont': [],
+    'Burlington': [],
+    'Champlain': [],
+    'NEK': []
+  }
+  data.forEach(e => {
+    let species = e['Scientific Name']
+    if (speciesToReport.includes(species)) {
+      let recordEntry = reporting.find(x => x['Scientific Name'] === species)
+      // TODO Document this. Could also check Observation Details or Checklist Comments
+      if (recordEntry.Reporting === 'N' && (e['Breeding Code'])) {
+        output.Breeding.push(e)
+      } else if (recordEntry.Reporting === 'V') {
+        // Anyhwere in Vermont
+        output.Vermont.push(e)
+      } else if (recordEntry.Reporting === 'B') {
+        // Outside of Burlington
+        const towns = ['Burlington', 'South Burlington', 'Essex', 'Colchester', 'Winooski', 'Shelburne']
+        let point = {type: "Point", coordinates: [e.Longitude, e.Latitude]}
+        let town = townlookup.getContainers(point)
+        if (town.features[0].properties.TOWNNAMEMC) {
+          e.Town = town.features[0].properties.TOWNNAMEMC
+        }
+        if (!towns.includes(e.Town)) {
+          output.Burlington.push(e)
+        }
+      } else if (recordEntry.Reporting === 'C') {
+        // Outside of Lake Champlain Basin
+        let point = {type: "Point", coordinates: [e.Longitude, e.Latitude]}
+        let region = regionlookup.getContainers(point)
+        // Move it just below the border. This is likely to be the main issue with this map.
+        if (!region.features[0]) {
+          point = {type: "Point", coordinates: [e.Longitude, 45-(Math.abs(parseFloat(e.Latitude))-45).toString()]}
+          region = regionlookup.getContainers(point)
+        }
+        e.Region = region.features[0].properties.name
+        if (e.Region !== 'Champlain Valley') {
+          output.Champlain.push(e)
+        }
+      } else if (recordEntry.Reporting === 'K') {
+        // Outside of the NEK
+        const counties = ['Essex', 'Caledonia', 'Orleans']
+        if (!counties.includes(e.County)) {
+          output.NEK.push(e)
+        }
+      }
+    }
+  })
+
+  return output
+}
+
 // async function today (opts) {
   // I want to know:
   // - Was today a big day?
@@ -407,12 +483,13 @@ async function quadBirds (opts) {
 // }
 
 export {
-  firstTimes,
   biggestTime,
   firstTimeList,
+  firstTimes,
   quadBirds,
-  towns,
-  regions,
   radialSearch,
-  removeSpuh
+  rare,
+  regions,
+  removeSpuh,
+  towns
 }
