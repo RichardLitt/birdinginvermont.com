@@ -24,11 +24,15 @@ Evans (2002) notes:
 
 > **Spectrographic description:** Measured calls (N=13) were 56-87.5 (68.3) mS in duration and in the 6.6-10.8 (7.2-9.3) kHz frequency range. The frequency track was single or double-banded, typically with an initial relatively short section of descent followed by a longer variably rising and downward-arched section. It was modulated with a spacing of 3.5-4.1 (3.8) mS between humps and a depth of 0.7-1.2 (1) kHz.
 
+Sibley (2016) writes:
+
+> Flight call a high, hissing, rising _fsss._
+
 Birds of the World notes (Kricher 2020):
 
 > Call note is a sharp chip or pit, similar to that of Blackpoll Warbler (Griscom and Sprunt 1957, Terres 1980b), with many variations (Allison in Bent 1953b). During breeding, females call when close to mate and away from nest. Paired males also call sometimes, probably to keep in contact with female. On wintering grounds, call note is a thin, weak tsit or tseep, reportedly difficult for humans to hear (Stiles and Skutch 1989).
 
-It is unclear to me wehterh the tsit or tseep described in Stiles and Skutch (1989) is different from the chip or pit calls. There is no mention of NFCs in BotW.
+It is unclear to me whether the tsit or tseep described in Stiles and Skutch (1989) is different from the chip or pit calls. There is no mention of NFCs in BotW. I also don't know exactly what Sibley was referring to with his _fsss_.
 
 ### Example calls
 
@@ -106,8 +110,9 @@ When describing this call in comments on an NFC checklist, try and add as many s
 ### References
 
 * Evans, W. R. and O’Brien, M. (2002) _Flight Calls of Migratory Birds Eastern North American Landbirds_. Old Bird Inc. [CD-ROM]. [Online] http://oldbird.org
-* Kricher, J. C. (2020). _Black-and-white Warbler (Mniotilta varia)_, version 1.0. In Birds of the World (A. F. Poole, Editor). Cornell Lab of Ornithology, Ithaca, NY, USA. https://doi.org/10.2173/bow.bawwar.01
+* Kricher, J. C. (2020) _Black-and-white Warbler (Mniotilta varia)_, version 1.0. In Birds of the World (A. F. Poole, Editor). Cornell Lab of Ornithology, Ithaca, NY, USA. https://doi.org/10.2173/bow.bawwar.01
 * Pieplow, Nathan (2017) _Peterson Field Guide to Bird Sounds of Eastern North America_. Houghton Mifflin Harcourt: New York.
+* Sibley, David (2016) _Sibley Birds East_. Knopf: New York.
 
 #### Referenced but not yet verified
 
