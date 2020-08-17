@@ -61,51 +61,53 @@ The following species were noted as being similar by the cited experts. Any note
 
 When describing this call in comments on an NFC checklist, try and add as many salient notes as possible and refer to this page for justification. If there are any species which seem similar, please get in touch so we can add them here. The intent here is to have a full list of differences for each possible similar call.
 
+All notes for speceies are coming from Evans (2002), unless where noted.
+
 - Northern Waterthrush (Pieplow)
-  - Always rising (Evans 2002)
-  - Not two-parted (Evans 2002)
-  - Longer spacing between humps: averages 11.2mS (Evans 2002)
-  - Depth can be shallower: 0.4-1.3 (0.7) kHz (Evans 2002)
-  - 3-9 humps (Evans 2002)
+  - Always rising
+  - Not two-parted
+  - Longer spacing between humps: averages 11.2mS
+  - Depth can be shallower: 0.4-1.3 (0.7) kHz
+  - 3-9 humps
 - Louisiana Waterthrush (Pieplow)
-  - LOWA not two-parted (Evans 2002)
-  - LOWA level or slightly rising (Evans 2002)
-  - LOWA humps spaced longer: 13.6-17 (15.6) mS (Evans 2002)
-  - LOWA has almost identical depth to BAWW (Evans 2002)
-  - LOWA has an average of 4.5 humps (Evans 2002), to the BAWW's 20 or so (No citation)
+  - LOWA not two-parted
+  - LOWA level or slightly rising
+  - LOWA humps spaced longer: 13.6-17 (15.6) mS
+  - LOWA has almost identical depth to BAWW
+  - LOWA has an average of 4.5 humps
 - Kentucky Warbler (Pieplow)
-  - Single banded (Evans 2002)
-  - Slightly rising (Evans 2002)
-  - 6 humps (Evans 2002) compared to BAWW 20 or so (No citation)
-  - Longer spacing: averages 9.2mS to BAWW 3.8mS (Evans 2002)
-  - Depth similar, but depth for KEWA increases over the course of the call (Evans 2002)
-  - Duration similar (Evans 2002)
-- Blue-winged Warbler (Evans 2002)
-  - Shorter than 70mS (Evans 2002)
-  - Lower than 8.7mS, averaging 5.7-8.2kHz (Evans 2002)
-  - Lower frequency tail at end, lacking in BAWW (Evans 2002)
-  - Average longer space between humps (5.8mS). Can go down to 3.6mS in spacing. (Evans 2002)
-  - Depth averages lower, not larger than 860kHz (Evans 2002)
+  - Single banded
+  - Slightly rising
+  - 6 humps
+  - Longer spacing: averages 9.2mS to BAWW 3.8mS
+  - Depth similar, but depth for KEWA increases over the course of the call
+  - Duration similar
+- Blue-winged Warbler
+  - Shorter than 70mS
+  - Lower than 8.7mS, averaging 5.7-8.2kHz
+  - Lower frequency tail at end, lacking in BAWW
+  - Average longer space between humps (5.8mS). Can go down to 3.6mS in spacing.
+  - Depth averages lower, not larger than 860kHz
 - Golden-winged Warbler (Evans)
-  - Can be two parted, but this was due to a switch in modulation from a spacing of 3.7mS, depth 250kHz to 7mS, depth 920kHz. (Evans 2002)
-  - GWWA call not longer than 64mS (Evans 2002), so some overlap for short calls, but not for longer ones.
-  - Single banded (Evans 2002)
-  - Rising (Evans 2002)
-  - Calls not rising above 8kHz range (Evans 2002)
+  - Can be two parted, but this was due to a switch in modulation from a spacing of 3.7mS, depth 250kHz to 7mS, depth 920kHz.
+  - GWWA call not longer than 64mS, so some overlap for short calls, but not for longer ones.
+  - Single banded
+  - Rising
+  - Calls not rising above 8kHz range
 - Chestnut-sided warbler (Evans)
   - BAWW and CSWA similar in length and generally even modulation
   - Not two parted
-  - Also monotone, descending, or arched downward (Evans 2002)
-  - Lower on average: highest call is 8kHz. (Evans 2002)
-  - Hump spacing longer and not overlapping:  5.5-7.1 (6.5) mS between humps (Evans 2002)
-  - Can be shallower: .5-1kHz depth, compared to BAWW .7-1.2kHz (Evans 2002)
+  - Also monotone, descending, or arched downward
+  - Lower on average: highest call is 8kHz.
+  - Hump spacing longer and not overlapping:  5.5-7.1 (6.5) mS between humps
+  - Can be shallower: .5-1kHz depth, compared to BAWW .7-1.2kHz
 - Blackpoll Warbler (Kricher 2020)
-  - Generally shorter, at 40-59.9 (50.2) mS in duration. (Evans 2002)
-  - Lower: not registered above 9.1khZ (Evans 2002)
-  - Single banded (Evans 2002)
-  - 2-4 humps (Evans 2002)
-  - Longer wavelength: averaging 14.6mS (Evans 2002)
-  - Depth can go up to 1.8kHz (Evans 2002)
+  - Generally shorter, at 40-59.9 (50.2) mS in duration.
+  - Lower: not registered above 9.1khZ
+  - Single banded
+  - 2-4 humps
+  - Longer wavelength: averaging 14.6mS
+  - Depth can go up to 1.8kHz
 
 ### References
 
