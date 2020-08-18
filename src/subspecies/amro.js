@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
-import bawwPath from './baww.md'
+import amroPath from './amro.md'
 const ReactMarkdown = require('react-markdown')
 
 // TODO Take input from files and display it dynamically for each file
 
-class Baww extends Component {
+class Amro extends Component {
   constructor(props) {
     super(props)
 
@@ -12,7 +12,7 @@ class Baww extends Component {
   }
 
   componentWillMount() {
-    fetch(bawwPath).then((response) => response.text()).then((text) => {
+    fetch(amroPath).then((response) => response.text()).then((text) => {
       this.setState({ text: text })
     })
   }
@@ -28,4 +28,4 @@ class Baww extends Component {
   }
 }
 
-export default Baww
+export default Amro

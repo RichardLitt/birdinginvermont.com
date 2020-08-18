@@ -7,6 +7,7 @@ import NavBar from './NavBar'
 import Subspecies from './Subspecies'
 import NFC from './NFC'
 import BAWW from './nfc-species/baww'
+import Amro from './subspecies/amro'
 import Rarities from './Rarities'
 // import RadialView from './RadialView'
 import Footer from './Footer'
@@ -53,6 +54,7 @@ class App extends Component {
         <Route exact path='/nfc' component={NFC} />
         <Route exact path='/nfc-species/baww' component={BAWW} />
         <Route exact path='/subspecies' component={Subspecies} />
+        <Route exact path='/subspecies/amro' component={Amro} />
         <Route exact path='/rarities' render={(props) =>(<Rarities {...props} component={Rarities} data={this.state.data} handleChange={this.handleChange} />)} />
         {/* <Route exact path='/10-mile' component={RadialView} data={this.state.data.radial} /> */}
         <Footer />
