@@ -43,14 +43,6 @@ async function getData (input) {
   return removeSpuh(input)
 }
 
-async function importCsv (input) {
-  if (fs) {
-    input = await fs.readFile(input, 'utf8')
-    input = Papa.parse(input, { header: true })
-    return input.data
-  }
-}
-
 function parseDateformat (timespan) {
   let dateFormat
   if (timespan === 'year') {
