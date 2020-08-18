@@ -45,6 +45,13 @@ svg {
   text-transform: capitalize;
 }
 
+#rarities {
+  max-width: 1000px;
+  >.row {
+    padding: 0px 20px;
+  }
+}
+
 span.nav-link {
  cursor: pointer;
 }
@@ -56,6 +63,15 @@ blockquote {
 
 h1 {
   padding-bottom: 50px;
+}
+
+h2 {
+  padding-bottom: 20px;
+}
+
+.table-row {
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 div.page {

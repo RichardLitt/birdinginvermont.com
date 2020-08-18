@@ -7,7 +7,7 @@ import NavBar from './NavBar'
 import Subspecies from './Subspecies'
 import NFC from './NFC'
 import BAWW from './nfc-species/baww'
-// import Rarities from './Rarities'
+import Rarities from './Rarities'
 // import RadialView from './RadialView'
 import Footer from './Footer'
 import { withRouter } from 'react-router'
@@ -20,7 +20,8 @@ class App extends Component {
       data: {
         towns: '',
         regions: '',
-        radial: ''
+        rarities: ''
+        // radial: '',
       }
     }
     this.handleChange = this.handleChange.bind(this);
@@ -29,11 +30,13 @@ class App extends Component {
   async handleChange(e) {
     let towns = await ebird.towns({all: true, input: e})
     let regions = await ebird.regions({all: true, input: e})
+    let rarities = await ebird.rare({input: e}) // Input?
     // let radial = await ebird.radialSearch({input: e, coordinates: [44.259548, -72.575882]})
     this.setState({
       data: {
         towns: towns,
-        regions: regions
+        regions: regions,
+        rarities: rarities
         // radial: radial
       }
     })
@@ -50,7 +53,7 @@ class App extends Component {
         <Route exact path='/nfc' component={NFC} />
         <Route exact path='/nfc-species/baww' component={BAWW} />
         <Route exact path='/subspecies' component={Subspecies} />
-        {/* }<Route exact path='/rarities' render={(props) => (<Map {...props} component={Rarities} data={this.state.data} handleChange={this.handleChange} />)} />
+        <Route exact path='/rarities' render={(props) =>(<Rarities {...props} component={Rarities} data={this.state.data} handleChange={this.handleChange} />)} />
         {/* <Route exact path='/10-mile' component={RadialView} data={this.state.data.radial} /> */}
         <Footer />
       </div>

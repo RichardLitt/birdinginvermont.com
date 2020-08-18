@@ -1,5 +1,6 @@
 import Town_boundaries from './VT_Data__Town_Boundaries'
 import Vermont_regions from './Polygon_VT_Biophysical_Regions'
+import VermontRecords from './vermont_records.json'
 const fs = require('fs').promises
 const _ = require('lodash')
 const Papa = require('papaparse')
@@ -414,15 +415,16 @@ async function rare (opts) {
   opts.state = 'Vermont'
   // Use only data from this year, from Vermont
   const data = dateFilter(locationFilter(await getData(opts.input), opts), opts)
-  const recordList = await importCsv('recordlist.csv')
-  const reporting = recordList.filter(x => x.Reporting)
-  const speciesToReport = reporting.map(x => x['Scientific Name'])
+  const reporting = VermontRecords
+  const allSpecies = VermontRecords.map(x => x['Scientific Name'])
+  const speciesToReport = reporting.filter(x => x.Reporting).map(x => x['Scientific Name'])
   const output = {
     'Breeding': [],
     'Vermont': [],
     'Burlington': [],
     'Champlain': [],
-    'NEK': []
+    'NEK': [],
+    'Unknown': []
   }
   data.forEach(e => {
     let species = e['Scientific Name']
@@ -465,6 +467,8 @@ async function rare (opts) {
           output.NEK.push(e)
         }
       }
+    } else if (!allSpecies.includes(species) && species !== 'Troglodytes hiemalis') {
+      output.Unknown.push(e)
     }
   })
 
