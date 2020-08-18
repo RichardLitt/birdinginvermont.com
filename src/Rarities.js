@@ -17,6 +17,21 @@ function SpeciesRow (props) {
   )
 }
 
+function SubspeciesRow (props) {
+  let species = props.data
+  let index = props.index
+  return (
+    <tr key={index}>
+      <td>{index+1}</td>
+      <td>{species['Common Name']}</td>
+      <td><i>{species['Subspecies']}</i></td>
+      <td>{species.Location}</td>
+      <td>{species.Date}</td>
+      <td><a href={`https://ebird.org/checklist/${species['Submission ID']}`} >{species['Submission ID']}</a></td>
+    </tr>
+  )
+}
+
 function SpeciesTable (props) {
   let data = props.data
   return (
@@ -32,9 +47,15 @@ function SpeciesTable (props) {
       </thead>
       <tbody>
         {data.map((data, index) => {
-          return (
-            <SpeciesRow data={data} index={index} />
-          )
+          if (data['Subspecies Notes']) {
+            return (
+              <SubspeciesRow data={data} index={index} />
+            )
+          } else {
+            return (
+              <SpeciesRow data={data} index={index} />
+            )
+          }
         })}
       </tbody>
     </Table>
@@ -66,7 +87,7 @@ class Rarities extends Component {
         <div id="rarities" className="container-md">
           <div className="row">
             <h1>Vermont Bird Records Checker</h1>
-            <p>This tool will check your eBird checklists for this year for any birds which ought to be reported to the VBRC. You can find out more on <a href="https://vtecostudies.org/wildlife/wildlife-watching/vbrc/">the VBRC site</a>. This will only check submissions to your eBird account; you will have to submit any other observations on your own. <a href="https://vtecostudies.org/wildlife/wildlife-watching/vbrc/races/">Subspecies</a> checking has not yet been enabled.</p>
+            <p>This tool will check your eBird checklists for this year for any birds which ought to be reported to the VBRC. You can find out more on <a href="https://vtecostudies.org/wildlife/wildlife-watching/vbrc/">the VBRC site</a>. This will only check submissions to your eBird account. It checks for Vermont-wide rare birds, breeding birds of note, birds outside of the Burlington Area, Lake Champlain, or the NEK, extreme rarities, and subspecies of note.</p>
             <p>First, <a href="https://ebird.org/downloadMyData">download your data from eBird.</a> Then, load the unzipped .csv file here. Your data is not stored on this site in any way. This site is not affiliated with VCE or VBRC.</p>
             <TableRow title={"Vermont Records"} data={rarities.Vermont} text={"These birds should be submitted to the VBRC if seen anywhere in Vermont."}/>
             <TableRow title={"Breeding Records"} data={rarities.Breeding} text={"These records should be submitted if you haved noted breeding behavior. This checker looks for any breeding code used for a particular sighting. Use your discretion as to which are relevant to submit."} />
@@ -74,6 +95,7 @@ class Rarities extends Component {
             <TableRow title={"Outside of the Champlain Valley"} data={rarities.Champlain} text={"These birds shoud be submitted if seen outside of the Champlain Valley. This checks against the Champlain Valley bioregion, used in the Vermont Breeding Birds Atlas."} />
             <TableRow title={"Outside of the NEK"} data={rarities.NEK} text={"Theses birds should be submitted if seen outside of the Caledonia, Essex, or Orleans counties."} />
             <TableRow title={"Extreme rarities"} data={rarities.Unknown} text={"Theses birds were not on the lists of birds seen in Vermont before, and should also probably be submitted."} />
+            <TableRow title={"Subspecies"} data={rarities.Subspecies} text={["These subspecies are of note, and may also need to be submitted. Consult with ", <a href={"https://vtecostudies.org/wildlife/wildlife-watching/vbrc/races/"}>the VBRC Subspecies list</a>, "."]} />
           </div>
         </div>
       )
@@ -82,7 +104,7 @@ class Rarities extends Component {
         <div id="rarities" className="container-md">
           <div className="row">
             <h1>Vermont Bird Records Checker</h1>
-            <p>This tool will check your eBird checklists for this year for any birds which ought to be reported to the VBRC. You can find out more on <a href="https://vtecostudies.org/wildlife/wildlife-watching/vbrc/">the VBRC site</a>. This will only check submissions to your eBird account; you will have to submit any other observations on your own. <a href="https://vtecostudies.org/wildlife/wildlife-watching/vbrc/races/">Subspecies</a> checking has not yet been enabled.</p>
+            <p>This tool will check your eBird checklists for this year for any birds which ought to be reported to the VBRC. You can find out more on <a href="https://vtecostudies.org/wildlife/wildlife-watching/vbrc/">the VBRC site</a>. This will only check submissions to your eBird account. It checks for Vermont-wide rare birds, breeding birds of note, birds outside of the Burlington Area, Lake Champlain, or the NEK, extreme rarities, and subspecies of note.</p>
             <p>First, <a href="https://ebird.org/downloadMyData">download your data from eBird.</a> Then, load the unzipped .csv file here. Your data is not stored on this site in any way. This site is not affiliated with VCE or VBRC.</p>
             <UploadButton handleChange={this.props.handleChange} data={this.props.data} />
           </div>

@@ -1,6 +1,7 @@
 import Town_boundaries from './VT_Data__Town_Boundaries'
 import Vermont_regions from './Polygon_VT_Biophysical_Regions'
 import VermontRecords from './vermont_records.json'
+import VermontSubspecies from './vermont_records_subspecies.json'
 const fs = require('fs').promises
 const _ = require('lodash')
 const Papa = require('papaparse')
@@ -11,7 +12,6 @@ const difference = require('compare-latlong')
 function removeSpuh (arr) {
   const newArr = []
   for (var i in arr) {
-    // TODO Mixed results comparing MyEBirdData and Audio and Video data
     if (arr[i]['Scientific Name'] &&
       !arr[i]['Scientific Name'].includes('sp.') &&
       !arr[i]['Scientific Name'].includes(' x ') && // Get rid of hybrids
@@ -22,9 +22,14 @@ function removeSpuh (arr) {
       // !arr[i]['Scientific Name'].includes('/')
     ) {
       // Remove subspecies only entries
+      // For some reason, simply copying over the field before redefining it doesn't work.
+      // Probably due to JavaScript reference errors.
       const specie = arr[i]
+      if (specie['Scientific Name'].split(' ').slice(2).length !== 0) {
+        arr[i]['Subspecies'] = _.clone(arr[i]['Scientific Name'])
+      }
       specie['Scientific Name'] = specie['Scientific Name'].split(' ').slice(0, 2).join(' ')
-      newArr.push(arr[i])
+      newArr.push(specie)
     } else {
       // Use this to find excluded entries
       // console.log(arr[i]['Scientific Name'])
@@ -407,21 +412,22 @@ async function rare (opts) {
   opts.state = 'Vermont'
   // Use only data from this year, from Vermont
   const data = dateFilter(locationFilter(await getData(opts.input), opts), opts)
-  const reporting = VermontRecords
   const allSpecies = VermontRecords.map(x => x['Scientific Name'])
-  const speciesToReport = reporting.filter(x => x.Reporting).map(x => x['Scientific Name'])
+  const speciesToReport = VermontRecords.filter(x => x.Reporting).map(x => x['Scientific Name'])
+  // TODO Update needs JSON file
   const output = {
     'Breeding': [],
     'Vermont': [],
     'Burlington': [],
     'Champlain': [],
     'NEK': [],
-    'Unknown': []
+    'Unknown': [],
+    'Subspecies': []
   }
   data.forEach(e => {
     let species = e['Scientific Name']
     if (speciesToReport.includes(species)) {
-      let recordEntry = reporting.find(x => x['Scientific Name'] === species)
+      let recordEntry = VermontRecords.find(x => x['Scientific Name'] === species)
       // TODO Document this. Could also check Observation Details or Checklist Comments
       if (recordEntry.Reporting === 'N' && (e['Breeding Code'])) {
         output.Breeding.push(e)
@@ -461,6 +467,22 @@ async function rare (opts) {
       }
     } else if (!allSpecies.includes(species) && species !== 'Troglodytes hiemalis') {
       output.Unknown.push(e)
+    }
+
+    if (e.Subspecies) {
+      let species = VermontSubspecies.find(x => e['Scientific Name'] === x['Scientific Name'])
+      if (species && species['Target Subspecies'].includes(e.Subspecies)) {
+        e['Subspecies Notes'] = species
+        output.Subspecies.push(e)
+      } else if (species && !species['Vermont Subspecies'].includes(e.Subspecies)) {
+        if (species['Target Subspecies'][0] === "") {
+          e['Subspecies Notes'] = species
+          output.Subspecies.push(e)
+        } else {
+          e['Subspecies Notes'] = species
+          output.Subspecies.push(e)
+        }
+      }
     }
   })
 
