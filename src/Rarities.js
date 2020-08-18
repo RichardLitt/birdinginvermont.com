@@ -82,7 +82,6 @@ function TableRow (props) {
 function AllRows (props) {
   let rarities = props.data
   if (!Object.keys(rarities).every(key => {
-    console.log(rarities[key].length === 0)
     return rarities[key].length === 0
   })) {
     return (
@@ -97,7 +96,6 @@ function AllRows (props) {
       </div>
     )
   } else {
-    console.log('Why not here?')
     return (
       <div>
         <hr />
