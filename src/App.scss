@@ -83,3 +83,15 @@ div.page {
   max-width: 100%;
   margin-bottom: 30px;
 }
+
+.container-md {
+  padding-top: 20px;
+}
+
+.navbar-light {
+  background-color: #98B8CF;
+  // color: black;
+  .navbar-nav .nav-link {
+    color: black;
+  }
+}

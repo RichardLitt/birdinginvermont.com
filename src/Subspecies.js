@@ -5,6 +5,7 @@ class Subspecies extends Component {
     return (
       <div className="container-md">
         <div className="row" style={{'display': 'block'}} >
+          <h1>Subspecies in Vermont</h1>
           <p>A page for each subspecies is forthcoming, as is better styling.</p>
           <ul>
             <li><a href="/subspecies/amro">American Robin (AMRO)</a></li>
