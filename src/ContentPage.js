@@ -1,10 +1,7 @@
 import React, { Component } from 'react'
-import amroPath from './amro.md'
 const ReactMarkdown = require('react-markdown')
 
-// TODO Take input from files and display it dynamically for each file
-
-class Amro extends Component {
+class ContentPage extends Component {
   constructor(props) {
     super(props)
 
@@ -12,7 +9,8 @@ class Amro extends Component {
   }
 
   componentWillMount() {
-    fetch(amroPath).then((response) => response.text()).then((text) => {
+    const path = this.props.data
+    fetch(path).then((response) => response.text()).then((text) => {
       this.setState({ text: text })
     })
   }
@@ -28,4 +26,4 @@ class Amro extends Component {
   }
 }
 
-export default Amro
+export default ContentPage
