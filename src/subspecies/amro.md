@@ -1,6 +1,6 @@
 # American Robin
 
-<iframe width="640" height="518" src="https://macaulaylibrary.org/asset/239725621/embed/640" frameborder="0" allowfullscreen style="width:640px;"></iframe>
+<iframe width="640" height="518" src="https://macaulaylibrary.org/asset/239725621/embed/640" frameborder="0" allowfullscreen style="width:640px;max-width:100%;"></iframe>
 
 **Banding Code:** AMRO
 

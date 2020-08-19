@@ -1,6 +1,6 @@
 # NFCs: Canada Warbler
 
-<iframe width="640" height="518" src="https://macaulaylibrary.org/asset/242800411/embed/640" frameborder="0" allowfullscreen style="width:640px;"></iframe>
+<iframe width="640" height="518" src="https://macaulaylibrary.org/asset/242800411/embed/640" frameborder="0" allowfullscreen style="width:6040px;max-width:100%;"></iframe>
 
 The Canada Warbler has a distinctive NFC call. Pieplow (2017) notes three different types of calls: the _tswit_, _tink_, and _chip_ call. The NFC call most easily identified is the _tswit_ flight call, also called a _pcht_ call by Evans (2002), or a _zzee_ call by Reitsma et al. (2020).
 
