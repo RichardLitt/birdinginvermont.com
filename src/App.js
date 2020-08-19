@@ -13,6 +13,7 @@ import NFC from './NFC'
 
 // Specific NFC species
 import bawwPath from './nfc-species/baww.md'
+import cawaPath from './nfc-species/cawa.md'
 
 // Specific Subspecies
 import amroPath from './subspecies/amro.md'
@@ -60,6 +61,7 @@ class App extends Component {
         <Route exact path='/regions' render={(props) => (<Map {...props} component={Map} data={this.state.data} handleChange={this.handleChange} />)} />
         <Route exact path='/nfc' component={NFC} />
         <Route exact path='/nfc-species/baww' render={(props) => (<ContentPage {...props} component={ContentPage} data={bawwPath} />)} />
+        <Route exact path='/nfc-species/cawa' render={(props) => (<ContentPage {...props} component={ContentPage} data={cawaPath} />)} />
         <Route exact path='/subspecies' component={Subspecies} />
         <Route exact path='/subspecies/amro' render={(props) => (<ContentPage {...props} component={ContentPage} data={amroPath} />)} />
         <Route exact path='/subspecies/wbnu' render={(props) => (<ContentPage {...props} component={ContentPage} data={wbnuPath} />)} />
