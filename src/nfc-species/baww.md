@@ -1,5 +1,7 @@
 # NFCs: Black-and-white Warbler
 
+<iframe width="640" height="518" src="https://macaulaylibrary.org/asset/171075931/embed/640" frameborder="0" allowfullscreen style="width:640px;"></iframe>
+
 The Black-and-white Warbler has a distinctive and, most often, an easily recognizable NFC. All of the following information refers to the _dzit_ or _dzinn_ call. This call is given both diurnally and nocturnally (Evans 2002, Pieplow 2017, Kricher 2020).
 
 ### Published References
