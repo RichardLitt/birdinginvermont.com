@@ -5,7 +5,7 @@ class About extends Component {
     return (
       <div className="container-md">
         <div className="row">
-          <div className="col-8 text-left">
+          <div className="col-md-8 col-sm-12 text-left">
             <img class="banner-image" src="rbgr.png" alt="Rose-breasted Grosbeak. © 2020 Richard Littauer"/>
             <p style={{backgroundColor:"#FFFF00"}}><b>Notice:</b> This site is a work in construction. Eventually, we'll have a nice landing page.</p>
             <p>For now, there are a few things we have here. First, <b>the map below</b> can be populated with <a href="https://ebird.org/downloadMyData">your eBird data</a> to show you what species you've seen in each town in Vermont. You can also upload your data regarding your photo or audio submissions to the Macaulay library. The <b>Biophysical Regions</b> tabs shows you what you've sene in each region of Vermont. Clicking and unclicking on a town once you've loaded your data allows you to move your mouse and look around some more.</p>

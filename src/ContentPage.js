@@ -19,7 +19,7 @@ class ContentPage extends Component {
     return (
       <div className="container-md page">
         <div className="row">
-          <div className="col-8 text-left">
+          <div className="col-md-8 col-sm-12 text-left">
             <ReactMarkdown source={this.state.text} escapeHtml={false} />
           </div>
         </div>
