@@ -13,6 +13,7 @@ My goal for this website is to showcase what birds we've seen, what birds we hav
 ## Species
 
 - [Black-and-white Warbler](/nfc-species/baww)
+- [Canada Warbler](/nfc-species/cawa)
 `
 
 class NFC extends Component {
