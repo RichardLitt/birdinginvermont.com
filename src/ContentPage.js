@@ -18,8 +18,10 @@ class ContentPage extends Component {
   render() {
     return (
       <div className="container-md page">
-        <div className="row" style={{'display': 'block'}} >
-          <ReactMarkdown source={this.state.text} />
+        <div className="row">
+          <div className="col-8 text-left">
+            <ReactMarkdown source={this.state.text} escapeHtml={false} />
+          </div>
         </div>
       </div>
     )

@@ -13,7 +13,10 @@ class About extends Component {
             <p>The <b>NFCs</b> page is for information related to Nocturnal Flight Calls, and species research there.</p>
             <p>The <b>Rarities</b> page will check your eBird records from 2020 for rare birds that should be submitted to the Vermont Birds Records Committee.</p>
             <h2>Updates</h2>
-            <p><b>August 18th:</b> Added the Rarities page.</p>
+            <ul>
+              <li><b>August 18th:</b> Added the <a href="/rarities">VBRC Records checker</a>.</li>
+              <li><b>August 18th:</b> Added the <a href="/subspecies/wbnu">White-breasted Nuthatch</a> subspecies page.</li>
+            </ul>
           </div>
         </div>
       </div>

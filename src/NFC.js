@@ -18,9 +18,11 @@ My goal for this website is to showcase what birds we've seen, what birds we hav
 class NFC extends Component {
   render() {
     return (
-      <div className="container-md">
-        <div className="row" style={{'display': 'block'}} >
-          <ReactMarkdown source={input} />
+      <div className="container-md page">
+        <div className="row">
+          <div className="col-8 text-left">
+            <ReactMarkdown source={input} />
+          </div>
         </div>
       </div>
     )
