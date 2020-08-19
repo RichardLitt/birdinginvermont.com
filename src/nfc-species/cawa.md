@@ -92,7 +92,7 @@ This rests on the assumption that some COYE calls lack modulation. These calls a
 - **Directionality:** Rising.
 - **Bandedness:** Single or double.
 - **Frequency range:** 3.4-9.5kHz
-- **Wavelength:** If there is modularity (as is usual), this rules out a CAWA.
+- **Wavelength:** Calls were modulated with 4-7 (5.5) humps with a spacing of 7.6-9.5 (8.3) mS and a depth of 1.1-2.2 (1.6) kHz. If there is modularity (as is usual), this rules out a CAWA.
 - **Number of waves:** See above.
 - **Diurnal and nocturnal call similarity:** The non-modulated calls are presumed to be COYE. These haven't been recorded during the day, as far as I know now.
 
