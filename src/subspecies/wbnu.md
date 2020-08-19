@@ -1,6 +1,6 @@
 # White-breasted Nuthatch
 
-<iframe width="640" height="518" src="https://macaulaylibrary.org/asset/143443821/embed/640" frameborder="0" allowfullscreen style="width:640px;"></iframe>
+<iframe width="640" height="518" src="https://macaulaylibrary.org/asset/143443821/embed/640" frameborder="0" allowfullscreen style="width:640px;max-width:100%;"></iframe>
 
 One of the most common and easiest birds to identify in the Northeast, our White-breasted Nuthatch is known for visiting bird-feeders, walking upside-down down trees, storing seeds away from the feeder, and it's peculiar _yank_ call.
 
