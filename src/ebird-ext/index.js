@@ -8,6 +8,7 @@ const Papa = require('papaparse')
 const moment = require('moment')
 const GeoJsonGeometriesLookup = require('geojson-geometries-lookup')
 const difference = require('compare-latlong')
+const appearsDuringExpectedDates = require('./appearsDuringExpectedDates.js')
 
 function removeSpuh (arr) {
   const newArr = []
@@ -413,7 +414,7 @@ async function rare (opts) {
   // Use only data from this year, from Vermont
   const data = dateFilter(locationFilter(await getData(opts.input), opts), opts)
   const allSpecies = VermontRecords.map(x => x['Scientific Name'])
-  const speciesToReport = VermontRecords.filter(x => x.Reporting).map(x => x['Scientific Name'])
+  const speciesToReport = VermontRecords.map(x => x['Scientific Name'])
   // TODO Update needs JSON file
   const output = {
     'Breeding': [],
@@ -422,14 +423,19 @@ async function rare (opts) {
     'Champlain': [],
     'NEK': [],
     'Unknown': [],
-    'Subspecies': []
+    'Subspecies': [],
+    'OutsideExpectedDates': []
   }
   data.forEach(e => {
     let species = e['Scientific Name']
     if (speciesToReport.includes(species)) {
       let recordEntry = VermontRecords.find(x => x['Scientific Name'] === species)
       // TODO Document this. Could also check Observation Details or Checklist Comments
-      if (recordEntry.Reporting === 'N' && (e['Breeding Code'])) {
+      if (!appearsDuringExpectedDates(e.Date, recordEntry.Occurrence)) {
+        output.OutsideExpectedDates.push(e)
+      } else if (recordEntry.Breeding !== '*' && e['Breeding Code']) {
+        output.Breeding.push(e)
+      } else if (recordEntry.Reporting === 'N' && (e['Breeding Code'])) {
         output.Breeding.push(e)
       } else if (recordEntry.Reporting === 'V') {
         // Anyhwere in Vermont

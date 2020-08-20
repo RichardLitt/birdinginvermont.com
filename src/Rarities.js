@@ -86,12 +86,13 @@ function AllRows (props) {
   })) {
     return (
       <div>
+        <TableRow title={"Vermont Firsts"} data={rarities.Unknown} text={"Theses birds were not on the lists of birds seen in Vermont before, and should also probably be submitted."} />
         <TableRow title={"Vermont Records"} data={rarities.Vermont} text={"These birds should be submitted to the VBRC if seen anywhere in Vermont."}/>
         <TableRow title={"Breeding Records"} data={rarities.Breeding} text={"These records should be submitted if you haved noted breeding behavior. This checker looks for any breeding code used for a particular sighting. Use your discretion as to which are relevant to submit."} />
         <TableRow title={"Outside of Burlington"} data={rarities.Burlington} text={"These birds should be submitted if seen outside of Burlington. Basically, this is for the Fish Crow. This checks for birds outside of Burlington, South Burlington, Essex, Colchester, Winooski, and Shelburne."} />
         <TableRow title={"Outside of the Champlain Valley"} data={rarities.Champlain} text={"These birds shoud be submitted if seen outside of the Champlain Valley. This checks against the Champlain Valley bioregion, used in the Vermont Breeding Birds Atlas."} />
         <TableRow title={"Outside of the NEK"} data={rarities.NEK} text={"Theses birds should be submitted if seen outside of the Caledonia, Essex, or Orleans counties."} />
-        <TableRow title={"Extreme rarities"} data={rarities.Unknown} text={"Theses birds were not on the lists of birds seen in Vermont before, and should also probably be submitted."} />
+        <TableRow title={"Outside of expected dates"} data={rarities.OutsideExpectedDates} text={"Theses birds should be submitted as they were seen outside of their expected date ranges for Vermont."} />
         <TableRow title={"Subspecies"} data={rarities.Subspecies} text={["These subspecies are of note, and may also need to be submitted. Consult with ", <a href={"https://vtecostudies.org/wildlife/wildlife-watching/vbrc/races/"}>the VBRC Subspecies list</a>, "."]} />
       </div>
     )
