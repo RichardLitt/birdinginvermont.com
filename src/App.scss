@@ -19,6 +19,15 @@
 
 $textMuted: #6c757d;
 
+#about {
+  padding-bottom: 80px;
+  .tagline {
+    text-align: center;
+    font-style: italic;
+    margin: 20px;
+  }
+}
+
 svg {
     font: 10px sans-serif;
     display: inline;
