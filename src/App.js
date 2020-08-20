@@ -12,6 +12,7 @@ import Subspecies from './Subspecies'
 import NFC from './NFC'
 
 // Specific NFC species
+import upsaPath from './nfc-species/upsa.md'
 import bawwPath from './nfc-species/baww.md'
 import cawaPath from './nfc-species/cawa.md'
 
@@ -60,6 +61,7 @@ class App extends Component {
         <Route exact path='/towns' render={(props) => (<Map {...props} component={Map} data={this.state.data} handleChange={this.handleChange} />)} />
         <Route exact path='/regions' render={(props) => (<Map {...props} component={Map} data={this.state.data} handleChange={this.handleChange} />)} />
         <Route exact path='/nfc' component={NFC} />
+        <Route exact path='/nfc-species/upsa' render={(props) => (<ContentPage {...props} component={ContentPage} data={upsaPath} />)} />
         <Route exact path='/nfc-species/baww' render={(props) => (<ContentPage {...props} component={ContentPage} data={bawwPath} />)} />
         <Route exact path='/nfc-species/cawa' render={(props) => (<ContentPage {...props} component={ContentPage} data={cawaPath} />)} />
         <Route exact path='/subspecies' component={Subspecies} />

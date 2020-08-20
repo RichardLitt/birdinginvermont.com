@@ -17,6 +17,7 @@ class About extends Component {
               <li><b>August 18th:</b> Added the <a href="/rarities">VBRC Records checker</a>.</li>
               <li><b>August 18th:</b> Added the <a href="/subspecies/wbnu">White-breasted Nuthatch</a> subspecies page.</li>
               <li><b>August 19th:</b> Added the <a href="/nfc-species/cawa">Canada Warbler</a> NFC page.</li>
+              <li><b>August 20th:</b> Added the <a href="/nfc-species/upsa">Upland Sandpiper</a> NFC page.</li>
             </ul>
           </div>
         </div>
