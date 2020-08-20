@@ -114,8 +114,8 @@ class Rarities extends Component {
       <div id="rarities" className="container-md">
         <div className="row">
           <h1>Vermont Bird Records Checker</h1>
-          <p>This tool will check your eBird checklists for this year for any birds which ought to be reported to the VBRC. You can find out more on <a href="https://vtecostudies.org/wildlife/wildlife-watching/vbrc/">the VBRC site</a>. This will only check submissions to your eBird account. It checks for Vermont-wide rare birds, breeding birds of note, birds outside of the Burlington Area, Lake Champlain, or the NEK, extreme rarities, and subspecies of note.</p>
-          <p>First, <a href="https://ebird.org/downloadMyData">download your data from eBird.</a> Then, load the unzipped .csv file here. Your data is not stored on this site in any way. Both VCE and the VBRC curate and providing these lists for the public, for which I am grateful. This site is not directly affiliated with VCE, and I will strive to keep the refernce data up to date.</p>
+          <p>This tool will check your eBird checklists for this year for any birds which ought to be reported to the VBRC. You can find out more on <a href="https://vtecostudies.org/wildlife/wildlife-watching/vbrc/">the VBRC site</a>. This will only check submissions to your eBird account. It checks for Vermont-wide rare birds, breeding birds of note, birds outside of the Burlington Area, Lake Champlain, or the NEK, extreme rarities, subspecies of note, and birds which took a left turn at Albuquerque and ended up here out of season.</p>
+          <p>First, <a href="https://ebird.org/downloadMyData">download your data from eBird.</a> Then, load the unzipped .csv file here. Your data is not stored on this site in any way. Both VCE and the VBRC curate and provide these lists publicly, for which I am grateful. This site is not directly affiliated with VCE, and I will strive to keep the reference data up to date.</p>
           {rarities !== '' ?
             <AllRows data={rarities} /> :
             <UploadButton handleChange={this.props.handleChange} data={this.props.data} />
