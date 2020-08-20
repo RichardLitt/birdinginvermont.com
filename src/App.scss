@@ -17,6 +17,8 @@
 //   color: #61dafb;
 // }
 
+$textMuted: #6c757d;
+
 svg {
     font: 10px sans-serif;
     display: inline;
@@ -93,5 +95,14 @@ div.page {
   // color: black;
   .navbar-nav .nav-link {
     color: black;
+  }
+}
+
+.footer {
+  text-align: center;
+  svg {
+    color: $textMuted;
+    margin-left: 10px;
+    margin-right: 10px;
   }
 }
