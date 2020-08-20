@@ -10,9 +10,11 @@ There are other ways to identify the Eastern White-breasted Nuthatch.
 
 Birds of the World (Grubb and Pravosudov 2020) says:
 
-> Bill stout, blunt; ventrum white; dorsum pale blue-gray. "yenk" sound.
+> Birds in the eastern United States and Canada utter a nasal yenk... Bill stout, blunt; ventrum white; dorsum pale blue-gray.
 
-Generally, these are good characteristics, although clinal. The dorsum is particularly marked compared to western subspecies.
+Generally, these are good differentiators.
+
+The dorsum is particularly marked compared to western subspecies, which are darker. It should be noted that dorsum color is also used to sex White-breasted Nuthatches, with pale-crowned birds generally being considered female. However, Wood (1993) shows that "determining the sex of birds in the field at a distance is considerably more difficult. East of the Great Plains, at least 10% of all females regardless of population have little enough gray in the crown to be easily mistaken for males." (This is much more difficult in the southern regions of their range, such as in Florida). This means that dorsum color should not be used as the only justification for subspecies identification.
 
 To date, there are no records of other subspecies in Vermont.
 
@@ -51,3 +53,4 @@ _These needs reflect eBird's database, and whether the bird has photos, audio, o
 - [eBird](https://ebird.org/species/amerob)
 - [Birds of the World](https://birdsoftheworld.org/bow/species/amerob/cur/systematics)
 - Grubb Jr., T. C. and V. V. Pravosudov (2020). White-breasted Nuthatch (Sitta carolinensis), version 1.0. In Birds of the World (A. F. Poole, Editor). Cornell Lab of Ornithology, Ithaca, NY, USA. https://doi.org/10.2173/bow.whbnut.01
+- Wood, D.S. (1992). Color and size variation in eastern White-breasted Nuthatches. Wilson Bull. 104(4): 599-611.
