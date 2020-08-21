@@ -30,7 +30,7 @@ Other calls:
 - [Xeno-Canto](https://www.xeno-canto.org/species/Bartramia-longicauda)
 - Sample daytime call: [1](https://www.xeno-canto.org/438796) [2](https://macaulaylibrary.org/audio/37744)
 
-### Call Points
+### Call Description
 
 This information is eye-balled from the one example in Pieplow (2017). More sample sizes and analysis would be beneficial.
 

@@ -22,3 +22,4 @@ Get in touch by emailing [richard@birdinginvermont.com](mailto:richard@birdingin
 - **August 19th:** Added the [Canada Warbler](/nfc-species/cawa) NFC page.
 - **August 20th:** Added the [Upland Sandpiper](/nfc-species/upsa) NFC page.
 - **August 20th:** Added a [Terms](/terms) page.
+- **August 20th:** Added the [Spotted Sandpiper](/nfc-species/spsa) NFC page.
