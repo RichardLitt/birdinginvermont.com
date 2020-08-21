@@ -49,9 +49,9 @@ This information is eye-balled from the one example in Pieplow (2017). More samp
 _This section may not be helpful. The idea is to make it easier to rule out other species more easily without going through the whole list, which may not be possible._
 
 - Location for Wilson's Plover and time of year for RNPH rules out these two species.
-- A lower frequency rules out SPSA and SOSA.
+- A lower frequency rules out [Spotted Sandpiper](./spsa) and [Solitary Sandpiper](./spsa).
 - Three notes rules out RNPH, and possibly WIPL.
-- Considerably lower than SOSA or SPSA, going to 1.5kHz, and not nearly as high as WIPL and RNPH, as this stops at 5.5kHz.
+- Considerably lower than [Solitary Sandpiper](./spsa) or [Spotted Sandpiper](./spsa), going to 1.5kHz, and not nearly as high as WIPL and RNPH, as this stops at 5.5kHz.
 - Lack of NFC calls for WIPL and RNPH is disturbing.
 
 ### Similar species
@@ -66,7 +66,7 @@ Pieplow (2017) includes this note in his section on "A short trill of piplike no
 
 These two species would seem to benefit from inclusion here.
 
-Another consideration is that the Spotted and Solitary Sandpipers are very common night migrants in Vermont, with a mildly similar call of three notes. Disambiguating these nominally here would be useful.
+Another consideration is that the [Spotted](./spsa) and [Solitary Sandpipers](./sosa) are very common night migrants in Vermont, with a mildly similar call of three notes. Disambiguating these nominally here would be useful.
 
 ##### Wilson's Plover (Pieplow 2017)
 
@@ -96,7 +96,7 @@ The _piddip_ may be the NFC, but it isn't currently known. Note that this inform
 - **Number of waves:** - 
 - **Diurnal and nocturnal call similarity:** Unknown.
 
-##### Spotted Sandpiper
+##### [Spotted Sandpiper](./spsa)
 
 Call assessments eyeballed from Pieplow (2017). There are several different types of NFC call, also given diurnally. The _pee_ series are flat, or form small inverted u's, and are not easily confused. However, the _pee-pwee-pwee_ series is shaped similarly, with up-ticks. This is used for the information below. Note that this information has a sample size of 2.
 
@@ -110,7 +110,7 @@ Call assessments eyeballed from Pieplow (2017). There are several different type
 - **Number of waves:** Not modulated.
 - **Diurnal and nocturnal call similarity:** Identical.
 
-##### Solitary Sandpiper
+##### [Solitary Sandpiper](./spsa)
 
 The _pwee-pwee-pwee_ call is identified as an NFC call by Pieplow (2017).  Note that this information has a sample size of 2. Call assessments eyeballed from Pieplow (2017).
 
