@@ -65,6 +65,7 @@ class App extends Component {
         <Route exact path='/towns' render={(props) => (<Map {...props} component={Map} data={this.state.data} handleChange={this.handleChange} />)} />
         <Route exact path='/regions' render={(props) => (<Map {...props} component={Map} data={this.state.data} handleChange={this.handleChange} />)} />
         <Route exact path='/nfc' component={NFC} />
+        <Route exact path='/nfc-species' component={NFC} />
         <Route exact path='/nfc-species/upsa' render={(props) => (<ContentPage {...props} component={ContentPage} data={upsaPath} />)} />
         <Route exact path='/nfc-species/spsa' render={(props) => (<ContentPage {...props} component={ContentPage} data={spsaPath} />)} />
         <Route exact path='/nfc-species/sosa' render={(props) => (<ContentPage {...props} component={ContentPage} data={sosaPath} />)} />
