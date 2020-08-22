@@ -16,6 +16,7 @@ My goal for this website is to showcase what birds we've seen, what birds we hav
 - [Spotted Sandpiper](/nfc-species/spsa)
 - [Solitary Sandpiper](/nfc-species/sosa)
 - [Black-and-white Warbler](/nfc-species/baww)
+- [Bay-breasted Warbler](/nfc-species/bbwa)
 - [Canada Warbler](/nfc-species/cawa)
 `
 

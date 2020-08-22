@@ -1,4 +1,4 @@
-# NFCs: Canada Warbler
+# NFCs: %species%
 
 <iframe width="640" height="518" src="%link%" frameborder="0" allowfullscreen style="width:6040px;max-width:100%;"></iframe>
 
