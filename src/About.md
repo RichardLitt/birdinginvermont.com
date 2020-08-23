@@ -4,6 +4,8 @@ Combining technology and research to make birding more rewarding.
 
 Welcome to Birding in Vermont! This site is dedicated to helping birders by providing tools and resources on how to bird, better.
 
+**Note**: This site is not optimized for usage on a phone. Try it on your computer.
+
 - [**Vermont Towns**](/towns): Upload your eBird data to see what towns you've birded in, and what birds you have or haven't seen there. As well, you can look at what birds you've seen in Vermont's biophysical regions.
 - [**Nocturnal Flight Calls (NFCs)**](/nfc): We're building a database of pages about specific species of birds identifiable by their nocturnal calls that they give in migration. Our goal here is to be a definitive resource for helping NFC enthusiasts learn more about how to identify birds and approach NFC research.
 - [**Subspecies**](/subspecies): Vermont has over a hundred birds which are identifiable down to a specific subspecies. Identifying down to the subspecies level takes work, knowledge, and patience. We're making that easier by providing easy guides to learn how to look at birds closer.
