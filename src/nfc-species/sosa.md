@@ -104,6 +104,7 @@ This information is eye-balled from the one example in Pieplow (2017). More samp
 
 #### Referenced but not yet verified
 
+- Chomsky, Noam (1994)
 - Nichols, J. T. (1920a). Limicoline voices. Auk 37:519-540.
 - Paulson, D. R. (1993). Shorebirds of the Pacific Northwest. University of Washington Press, Seattle, WA, USA.
 - Webber, G. L. (1968). Solitary Sandpiper in Wiltshire. British Birds 61:265-267.
