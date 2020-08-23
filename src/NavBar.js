@@ -64,7 +64,7 @@ class NavBar extends Component {
               <Link className="nav-link" to="/subspecies">Subspecies</Link>
             </li>
             <li className='nav-item'>
-              <Link className="nav-link" to="/rarities">Rarities</Link>
+              <Link className="nav-link" to="/vbrc-checker">VBRC Checker</Link>
             </li>
           </ul>
         </div>
