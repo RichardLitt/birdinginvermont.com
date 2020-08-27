@@ -269,12 +269,20 @@ async function regions (opts) {
   const dateFormat = parseDateformat('day')
   let data = orderByDate(locationFilter(await getData(opts.input), opts), opts)
   data.forEach(d => {
+    if (d.Latitude.toString().startsWith('43.624')) {
+      d.Latitude = 43.63
+    }
     let point = {type: "Point", coordinates: [d.Longitude, d.Latitude]}
     let region = glookup.getContainers(point)
     // Move it just below the border. This is likely to be the main issue with this map.
     if (!region.features[0]) {
+
       point = {type: "Point", coordinates: [d.Longitude, 45-(Math.abs(parseFloat(d.Latitude))-45).toString()]}
       region = glookup.getContainers(point)
+    }
+    if (!region.features[0]) {
+      console.log('Please log this!', d)
+      console.trace()
     }
     d.Region = region.features[0].properties.name
   })
