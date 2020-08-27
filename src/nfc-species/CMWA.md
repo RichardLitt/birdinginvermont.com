@@ -1,6 +1,6 @@
 # NFCs: Cape May Warbler
 
-<iframe width="640" height="518" src="%https://macaulaylibrary.org/asset/163175351/embed/640%" frameborder="0" allowfullscreen style="width:6040px;max-width:100%;"></iframe>
+<iframe width="640" height="518" src="https://macaulaylibrary.org/asset/163175351/embed/640" frameborder="0" allowfullscreen style="width:6040px;max-width:100%;"></iframe>
 
 %Description%
 
