@@ -2,11 +2,13 @@ import Town_boundaries from './VT_Data__Town_Boundaries'
 import Vermont_regions from './Polygon_VT_Biophysical_Regions'
 import VermontRecords from './vermont_records.json'
 import VermontSubspecies from './vermont_records_subspecies.json'
+const GeoJsonGeometriesLookup = require('geojson-geometries-lookup')
+const vermontTowns = new GeoJsonGeometriesLookup(Town_boundaries)
+const vermontRegions = new GeoJsonGeometriesLookup(Vermont_regions)
 const fs = require('fs').promises
 const _ = require('lodash')
 const Papa = require('papaparse')
 const moment = require('moment')
-const GeoJsonGeometriesLookup = require('geojson-geometries-lookup')
 const difference = require('compare-latlong')
 const appearsDuringExpectedDates = require('./appearsDuringExpectedDates.js')
 const L = require('leaflet')
@@ -210,11 +212,12 @@ function getAllTowns (geojson) {
 /* node cli.js count -i=MyEBirdData.csv --town="Fayston" --state=Vermont
 As this is set up, it will currently return only the first time I saw species in each town provided, in Vermont */
 async function towns (opts) {
-  const geojson = Town_boundaries
   opts.state = 'Vermont'
   const dateFormat = parseDateformat('day')
   let data = orderByDate(locationFilter(await getData(opts.input), opts), opts)
-  data.forEach(d => d.town = pointLookup(geojson, d))
+  data.forEach(d => {
+    d.Town = opts.checklistLocations[d['Submission ID']]['Town']
+  })
   var speciesSeenInVermont = []
   _.forEach(countUniqueSpecies(data, dateFormat), (o) => {
     var mapped = _.map(o, 'Common Name')
@@ -222,7 +225,7 @@ async function towns (opts) {
   })
   speciesSeenInVermont = _.flatten(speciesSeenInVermont)
   if (opts.all) {
-    const towns = getAllTowns(geojson)
+    const towns = getAllTowns(Town_boundaries)
     towns.forEach(t => {
       let i = 0
       t.species = []
@@ -258,15 +261,11 @@ async function towns (opts) {
 /* node cli.js count -i=MyEBirdData.csv --town="Fayston" --state=Vermont
 As this is set up, it will currently return only the first time I saw species in each town provided, in Vermont */
 async function regions (opts) {
-  const geojson = Vermont_regions
   opts.state = 'Vermont'
   const dateFormat = parseDateformat('day')
   let data = orderByDate(locationFilter(await getData(opts.input), opts), opts)
   data.forEach(d => {
-    if (d.Latitude.toString().startsWith('43.624')) {
-      d.Latitude = 43.63
-    }
-    d.Region = pointLookup(geojson, d)
+    d.Region = opts.checklistLocations[d['Submission ID']].Region
   })
 
   function getRegions (geojson) {
@@ -275,7 +274,7 @@ async function regions (opts) {
     return regions
   }
 
-  const regions = getRegions(geojson)
+  const regions = getRegions(Vermont_regions)
   regions.forEach(r => {
     let i = 0
     r.species = []
@@ -392,10 +391,9 @@ async function quadBirds (opts) {
   console.log(`You saw, photographed, and recorded audio for a total of ${completionDates.length} species in ${opts.year}.`)
 }
 
-function pointLookup(geojson, data) {
-  const area = new GeoJsonGeometriesLookup(geojson)
+function pointLookup(geojson, geojsonLookup, data) {
   let point = {type: "Point", coordinates: [data.Longitude, data.Latitude]}
-  let containerArea = area.getContainers(point)
+  let containerArea = geojsonLookup.getContainers(point)
   let gj, nearestLayer
   if (!containerArea.features[0]) {
     gj = L.geoJson(geojson);
@@ -405,9 +403,22 @@ function pointLookup(geojson, data) {
   return containerArea.features[0].properties.name
 }
 
+async function checklistLocations (opts) {
+  let obj = {}
+  const data = locationFilter(await getData(opts.input), {state: 'Vermont'}) // Don't filter, this is only used for checking
+  for (let d of data) {
+    if (!obj[d['Submission ID']]) {
+      let locations = {}
+      // For some reason, this takes a second each time.
+      locations.Town = pointLookup(Town_boundaries, vermontTowns, d)
+      locations.Region = pointLookup(Vermont_regions, vermontRegions, d)
+      obj[d['Submission ID']] = locations
+    }
+  }
+  return obj
+}
+
 async function rare (opts) {
-  const geojsonTowns = Town_boundaries
-  const geojsonRegions = Vermont_regions
   if (!opts.year) {
     opts.year = moment().format('YYYY')
   }
@@ -444,13 +455,13 @@ async function rare (opts) {
       } else if (recordEntry.Reporting === 'B') {
         // Outside of Burlington
         const towns = ['Burlington', 'South Burlington', 'Essex', 'Colchester', 'Winooski', 'Shelburne']
-        e.Town = pointLookup(geojsonTowns, e)
+        e.Town = opts.checklistLocations[e['Submission ID']].Town
         if (!towns.includes(e.Town)) {
           output.Burlington.push(e)
         }
       } else if (recordEntry.Reporting === 'C') {
         // Outside of Lake Champlain Basin
-        e.Region = pointLookup(geojsonRegions, e)
+        e.Region = opts.checklistLocations[e['Submission ID']].Region
         if (e.Region !== 'Champlain Valley') {
           output.Champlain.push(e)
         }
@@ -505,5 +516,6 @@ export {
   rare,
   regions,
   removeSpuh,
-  towns
+  towns,
+  checklistLocations
 }

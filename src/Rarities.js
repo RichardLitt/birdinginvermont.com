@@ -49,11 +49,11 @@ function SpeciesTable (props) {
         {data.map((data, index) => {
           if (data['Subspecies Notes']) {
             return (
-              <SubspeciesRow data={data} index={index} />
+              <SubspeciesRow data={data} index={index}  key={index} />
             )
           } else {
             return (
-              <SpeciesRow data={data} index={index} />
+              <SpeciesRow data={data} index={index} key={index} />
             )
           }
         })}
