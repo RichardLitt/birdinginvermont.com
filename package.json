@@ -21,6 +21,8 @@
     "express": "^4.17.1",
     "geojson-geometries-lookup": "^0.3.1",
     "helmet": "^3.23.3",
+    "leaflet": "^1.6.0",
+    "leaflet-knn": "^0.1.0",
     "lodash": "^4.17.15",
     "moment": "^2.27.0",
     "moment-weekofmonth": "^1.0.1",

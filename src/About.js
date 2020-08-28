@@ -23,7 +23,7 @@ class About extends Component {
       <div id="about" className="container-md">
         <div className="row">
           <div className="col-md-8 col-sm-12 text-left">
-            <img class="banner-image" src="rbgr.png" alt="Rose-breasted Grosbeak. © 2020 Richard Littauer"/>
+            <img className="banner-image" src="rbgr.png" alt="Rose-breasted Grosbeak. © 2020 Richard Littauer"/>
             <ReactMarkdown source={this.state.text} escapeHtml={false} />
           </div>
         </div>

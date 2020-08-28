@@ -9,6 +9,8 @@ const moment = require('moment')
 const GeoJsonGeometriesLookup = require('geojson-geometries-lookup')
 const difference = require('compare-latlong')
 const appearsDuringExpectedDates = require('./appearsDuringExpectedDates.js')
+const L = require('leaflet')
+const leafletKnn = require('leaflet-knn')
 
 function removeSpuh (arr) {
   const newArr = []
@@ -199,7 +201,7 @@ function getAllTowns (geojson) {
   const towns = []
   geojson.features.forEach((t) => {
     towns.push({
-      town: t.properties.TOWNNAMEMC
+      town: t.properties.name
     })
   })
   return towns
@@ -209,17 +211,10 @@ function getAllTowns (geojson) {
 As this is set up, it will currently return only the first time I saw species in each town provided, in Vermont */
 async function towns (opts) {
   const geojson = Town_boundaries
-  const glookup = new GeoJsonGeometriesLookup(geojson)
   opts.state = 'Vermont'
   const dateFormat = parseDateformat('day')
   let data = orderByDate(locationFilter(await getData(opts.input), opts), opts)
-  data.forEach(d => {
-    let point = {type: "Point", coordinates: [d.Longitude, d.Latitude]}
-    let town = glookup.getContainers(point)
-    if (town.features[0].properties.TOWNNAMEMC) {
-      d.Town = town.features[0].properties.TOWNNAMEMC
-    }
-  })
+  data.forEach(d => d.town = pointLookup(geojson, d))
   var speciesSeenInVermont = []
   _.forEach(countUniqueSpecies(data, dateFormat), (o) => {
     var mapped = _.map(o, 'Common Name')
@@ -264,7 +259,6 @@ async function towns (opts) {
 As this is set up, it will currently return only the first time I saw species in each town provided, in Vermont */
 async function regions (opts) {
   const geojson = Vermont_regions
-  const glookup = new GeoJsonGeometriesLookup(geojson)
   opts.state = 'Vermont'
   const dateFormat = parseDateformat('day')
   let data = orderByDate(locationFilter(await getData(opts.input), opts), opts)
@@ -272,19 +266,7 @@ async function regions (opts) {
     if (d.Latitude.toString().startsWith('43.624')) {
       d.Latitude = 43.63
     }
-    let point = {type: "Point", coordinates: [d.Longitude, d.Latitude]}
-    let region = glookup.getContainers(point)
-    // Move it just below the border. This is likely to be the main issue with this map.
-    if (!region.features[0]) {
-
-      point = {type: "Point", coordinates: [d.Longitude, 45-(Math.abs(parseFloat(d.Latitude))-45).toString()]}
-      region = glookup.getContainers(point)
-    }
-    if (!region.features[0]) {
-      console.log('Please log this!', d)
-      console.trace()
-    }
-    d.Region = region.features[0].properties.name
+    d.Region = pointLookup(geojson, d)
   })
 
   function getRegions (geojson) {
@@ -410,11 +392,22 @@ async function quadBirds (opts) {
   console.log(`You saw, photographed, and recorded audio for a total of ${completionDates.length} species in ${opts.year}.`)
 }
 
+function pointLookup(geojson, data) {
+  const area = new GeoJsonGeometriesLookup(geojson)
+  let point = {type: "Point", coordinates: [data.Longitude, data.Latitude]}
+  let containerArea = area.getContainers(point)
+  let gj, nearestLayer
+  if (!containerArea.features[0]) {
+    gj = L.geoJson(geojson);
+    nearestLayer = leafletKnn(gj).nearestLayer([data.Longitude, data.Latitude], 1);
+    return nearestLayer[0].layer.feature.properties.name
+  }
+  return containerArea.features[0].properties.name
+}
+
 async function rare (opts) {
   const geojsonTowns = Town_boundaries
-  const townlookup = new GeoJsonGeometriesLookup(geojsonTowns)
   const geojsonRegions = Vermont_regions
-  const regionlookup = new GeoJsonGeometriesLookup(geojsonRegions)
   if (!opts.year) {
     opts.year = moment().format('YYYY')
   }
@@ -451,24 +444,13 @@ async function rare (opts) {
       } else if (recordEntry.Reporting === 'B') {
         // Outside of Burlington
         const towns = ['Burlington', 'South Burlington', 'Essex', 'Colchester', 'Winooski', 'Shelburne']
-        let point = {type: "Point", coordinates: [e.Longitude, e.Latitude]}
-        let town = townlookup.getContainers(point)
-        if (town.features[0].properties.TOWNNAMEMC) {
-          e.Town = town.features[0].properties.TOWNNAMEMC
-        }
+        e.Town = pointLookup(geojsonTowns, e)
         if (!towns.includes(e.Town)) {
           output.Burlington.push(e)
         }
       } else if (recordEntry.Reporting === 'C') {
         // Outside of Lake Champlain Basin
-        let point = {type: "Point", coordinates: [e.Longitude, e.Latitude]}
-        let region = regionlookup.getContainers(point)
-        // Move it just below the border. This is likely to be the main issue with this map.
-        if (!region.features[0]) {
-          point = {type: "Point", coordinates: [e.Longitude, 45-(Math.abs(parseFloat(e.Latitude))-45).toString()]}
-          region = regionlookup.getContainers(point)
-        }
-        e.Region = region.features[0].properties.name
+        e.Region = pointLookup(geojsonRegions, e)
         if (e.Region !== 'Champlain Valley') {
           output.Champlain.push(e)
         }
@@ -479,7 +461,7 @@ async function rare (opts) {
           output.NEK.push(e)
         }
       }
-    } else if (!allSpecies.includes(species) && species !== 'Troglodytes hiemalis') {
+    } else if (!allSpecies.includes(species)) {
       output.Unknown.push(e)
     }
 
