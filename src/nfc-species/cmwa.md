@@ -2,8 +2,6 @@
 
 <iframe width="640" height="518" src="https://macaulaylibrary.org/asset/163175351/embed/640" frameborder="0" allowfullscreen style="width:6040px;max-width:100%;"></iframe>
 
-%Description%
-
 The flight call of the Cape May Warbler is given year-round, including during nocturnal migration, and is distinctive (with several look-alikes). Several characterstics can be used to distinguish CMWA from other descending calls including Pine Warbler, Prairie Warbler, and Northern Parula.
 
 ### Published References
