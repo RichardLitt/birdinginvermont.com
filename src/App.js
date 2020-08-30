@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.scss';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import { withRouter } from 'react-router'
 import About from './About'
 import Map from './Map'
@@ -9,16 +9,17 @@ import Footer from './Footer'
 import ContentPage from './ContentPage'
 import Rarities from './Rarities'
 import Subspecies from './Subspecies'
-import NFC from './NFC'
 import NoMatchPage from './NoMatchPage'
 
 import termsPath from './terms.md'
 
 // Specific NFC species
+import nfcPath from './nfc-species/index.md'
 import upsaPath from './nfc-species/upsa.md'
 import spsaPath from './nfc-species/spsa.md'
 import sosaPath from './nfc-species/sosa.md'
 import bawwPath from './nfc-species/baww.md'
+import cmwaPath from './nfc-species/cmwa.md'
 import bbwaPath from './nfc-species/bbwa.md'
 import cawaPath from './nfc-species/cawa.md'
 
@@ -68,12 +69,13 @@ class App extends Component {
           <Route exact path='/about' component={About} />
           <Route exact path='/towns' render={(props) => (<Map {...props} component={Map} data={this.state.data} handleChange={this.handleChange} />)} />
           <Route exact path='/regions' render={(props) => (<Map {...props} component={Map} data={this.state.data} handleChange={this.handleChange} />)} />
-          <Route exact path='/nfc' component={NFC} />
-          <Route exact path='/nfc-species' component={NFC} />
+          <Route exact path="/nfc"><Redirect to="/nfc-species" /></Route>
+          <Route exact path='/nfc-species' render={(props) => (<ContentPage {...props} component={ContentPage} data={nfcPath} />)}  />
           <Route exact path='/nfc-species/upsa' render={(props) => (<ContentPage {...props} component={ContentPage} data={upsaPath} />)} />
           <Route exact path='/nfc-species/spsa' render={(props) => (<ContentPage {...props} component={ContentPage} data={spsaPath} />)} />
           <Route exact path='/nfc-species/sosa' render={(props) => (<ContentPage {...props} component={ContentPage} data={sosaPath} />)} />
           <Route exact path='/nfc-species/baww' render={(props) => (<ContentPage {...props} component={ContentPage} data={bawwPath} />)} />
+          <Route exact path='/nfc-species/cmwa' render={(props) => (<ContentPage {...props} component={ContentPage} data={cmwaPath} />)} />
           <Route exact path='/nfc-species/bbwa' render={(props) => (<ContentPage {...props} component={ContentPage} data={bbwaPath} />)} />
           <Route exact path='/nfc-species/cawa' render={(props) => (<ContentPage {...props} component={ContentPage} data={cawaPath} />)} />
           <Route exact path='/subspecies' component={Subspecies} />

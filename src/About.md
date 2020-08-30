@@ -26,3 +26,4 @@ Get in touch by emailing [richard@birdinginvermont.com](mailto:richard@birdingin
 - **August 20th:** Added a [Terms](/terms) page.
 - **August 20th:** Added the [Spotted Sandpiper](/nfc-species/spsa) and [Solitary Sandpiper](/nfc-species/sosa) NFC pages.
 - **August 21st:** Added the [Bay-breasted Warbler](/nfc-species/bbwa) NFC page.
+- **August 30th:** Added the [Cape May Warbler](/nfc-species/cmwa) NFC page.
