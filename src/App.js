@@ -20,6 +20,7 @@ import spsaPath from './nfc-species/spsa.md'
 import sosaPath from './nfc-species/sosa.md'
 import bawwPath from './nfc-species/baww.md'
 import cmwaPath from './nfc-species/cmwa.md'
+import cmwaImg from './assets/CMWA_Essex_Jct.png'
 import bbwaPath from './nfc-species/bbwa.md'
 import cawaPath from './nfc-species/cawa.md'
 
@@ -75,7 +76,7 @@ class App extends Component {
           <Route exact path='/nfc-species/spsa' render={(props) => (<ContentPage {...props} component={ContentPage} data={spsaPath} />)} />
           <Route exact path='/nfc-species/sosa' render={(props) => (<ContentPage {...props} component={ContentPage} data={sosaPath} />)} />
           <Route exact path='/nfc-species/baww' render={(props) => (<ContentPage {...props} component={ContentPage} data={bawwPath} />)} />
-          <Route exact path='/nfc-species/cmwa' render={(props) => (<ContentPage {...props} component={ContentPage} data={cmwaPath} />)} />
+          <Route exact path='/nfc-species/cmwa' render={(props) => (<ContentPage {...props} component={ContentPage} data={cmwaPath} img={cmwaImg}/ >)} />
           <Route exact path='/nfc-species/bbwa' render={(props) => (<ContentPage {...props} component={ContentPage} data={bbwaPath} />)} />
           <Route exact path='/nfc-species/cawa' render={(props) => (<ContentPage {...props} component={ContentPage} data={cawaPath} />)} />
           <Route exact path='/subspecies' component={Subspecies} />

@@ -8,7 +8,7 @@ The flight call of the Cape May Warbler is given year-round, including during no
 
 <!-- I have no idea how this got here, considering that I'm not referencing the image directly in this Markdown. Somehow, though, it only works if passed through as a variable img, which is set in the state in ContentPage.js, and earlier as well through App.js. This isn't scalable, at all. -->
 
-<img src="assets/CMWA_Essex_Jct.png" alt="CMWA Spectrogram"/>
+![CMWA Spectrogram](img)
 
 ### Published References
 
