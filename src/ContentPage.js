@@ -10,8 +10,10 @@ class ContentPage extends Component {
 
   componentWillMount() {
     const path = this.props.data
+    const img = this.props.img
+    this.setState({img})
     fetch(path).then((response) => response.text()).then((text) => {
-      this.setState({ text: text })
+      this.setState({text})
     })
   }
 
@@ -20,7 +22,7 @@ class ContentPage extends Component {
       <div className="container-md page">
         <div className="row">
           <div className="col-md-8 col-sm-12 text-left">
-            <ReactMarkdown source={this.state.text} escapeHtml={false} />
+            <ReactMarkdown source={this.state.text} escapeHtml={false} transformImageUri={() => this.state.img}/>
           </div>
         </div>
       </div>

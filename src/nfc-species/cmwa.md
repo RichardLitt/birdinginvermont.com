@@ -4,6 +4,12 @@
 
 The flight call of the Cape May Warbler is given year-round, including during nocturnal migration, and is distinctive (with several look-alikes). Several characterstics can be used to distinguish CMWA from other descending calls including Pine Warbler, Prairie Warbler, and Northern Parula.
 
+### Example Spectrograms
+
+<!-- I have no idea how this got here, considering that I'm not referencing the image directly in this Markdown. Somehow, though, it only works if passed through as a variable img, which is set in the state in ContentPage.js, and earlier as well through App.js. This isn't scalable, at all. -->
+
+![CMWA Spectrogram](./assets/CMWA_Essex_Jct.png)
+
 ### Published References
 
 Pieplow (2017) refers to the flight call as “tsew” that is 
