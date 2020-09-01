@@ -12,7 +12,7 @@ Birds of the World (Haggerty and Morton 2020) says:
 
 Pyle (1997) writes:
 
-> Averages medium large; bill short ...; upperparts bright rufous-brown; underparts with a moderate tawny-buff wash. ... Birds north of s. OK-s. VA ("carolinianus") may average larger and paler ... but variation is weak, broadly clinal, and/or due to intergradation with other subspecies [sic]."
+> Averages medium large; bill short ...; upperparts bright rufous-brown; underparts with a moderate tawny-buff wash. ... Birds north of s. OK-s. VA ("carolinianus") may average larger and paler ... but variation is weak, broadly clinal, and/or due to intergradation with other subspecies \[sic\]."
 
 Separating the _ludovicianus_ group from the _berlandieri Group_ ("Carolina Wren (Northeast Mexico/South Texas)" on eBird) depends upon having a bright rufous back, and a tawny or rufous ventrum. However, this will only eliminate _lomitensis_ (in Texas). For the other two subspecies in this group - _berlandieri_ and _tropicalis_ - lack of barring on the flanks will suffice.
 
@@ -32,7 +32,7 @@ To date, there are no records of other subspecies in Vermont. The [record listed
 **Nomenclature:**
 - **Scientific name:** _Thryothorus ludovicianus ludovicianus_
 - **eBird names:** Carolina Wren (Northern)  
-- **eBird subspecies names:** _Thryothorus ludovicianus [ludovicianus Group]_  
+- **eBird subspecies names:** _Thryothorus ludovicianus \[ludovicianus Group\]_  
 - **iNaturalist Name:** None.
 
 **Salient identificiation points:**
