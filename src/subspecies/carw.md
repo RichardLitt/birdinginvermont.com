@@ -1,4 +1,4 @@
-# Carolina Wren
+# Northern Carolina Wren
 
 <iframe width="640" height="518" src="https://macaulaylibrary.org/asset/259540991/embed/640" frameborder="0" allowfullscreen style="width:640px;max-width:100%;"></iframe>
 
@@ -18,7 +18,7 @@ Separating the _ludovicianus_ group from the _berlandieri Group_ ("Carolina Wren
 
 The other grouping, the White-browed Carolina Wren _Thryothorus ludovicianus albinucha/subfulvus_ can be separated fairly easily: if the bird has abuffy supercilium, it is not a White-browed. Lack of a contrasting white-throat or a speckled breast can also be used to separate those two subspecies, individually.
 
-To date, there are no records of other subspecies in Vermont.
+To date, there are no records of other subspecies in Vermont. The [record listed](https://ebird.org/checklist/S73083719) when this page was created was the first record of the Northern Carolina Wren in Vermont.
 
 ### Details
 
@@ -40,6 +40,9 @@ To date, there are no records of other subspecies in Vermont.
 - Buffy supercilium
 - Bright rufous-brown upperparts
 - Tawny and rufous ventrum
+
+**Example Records:**
+- https://ebird.org/checklist/S73083719
 
 **Local subspecies records**:
 - **Washington County Records:** [1](https://ebird.org/map/carwre1?neg=true&env.minX=-168.6833632856752&env.minY=6.5717011761318735&env.maxX=-22.433363285675203&env.maxY=66.89338271362139&zh=true&gp=false&ev=Z&mr=1-12&bmo=1&emo=12&yr=all&byr=1900&eyr=2020)  
