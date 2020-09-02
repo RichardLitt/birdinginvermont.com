@@ -24,6 +24,10 @@ Birds of the World (Reed 2020) covers nocturnal flight calls in some depth:
 
 Clarfield has also heard Solitary described as "tinnier" or "hollower". (Clarfield, personal communications)
 
+Dunne (2006) notes:
+
+> Most often heard call is a high, sharp, clear, whistled "Pee-Peet" or "Pit-Weet" (sometimes trebled) that recalls Spotted Sandpiper but is louder, sharper, and more assertive.
+
 ### Call Description
 
 The _pwee-pwee-pwee_ call is identified as an NFC call by Pieplow (2017).  Note that this information has a sample size of 2. Call assessments eyeballed from Pieplow (2017).
@@ -98,6 +102,7 @@ This information is eye-balled from the one example in Pieplow (2017). More samp
 
 ### References
 
+* Dunne, Pete (2006) _Pete Dunne's Essential Field Guide Companion_. Houghton Mifflin Harcourt: New York.
 * Moskoff, W. (2020). Solitary Sandpiper (Tringa solitaria), version 1.0. In Birds of the World (A. F. Poole, Editor). Cornell Lab of Ornithology, Ithaca, NY, USA. https://doi.org/10.2173/bow.solsan.01
 * Pieplow, Nathan (2017) _Peterson Field Guide to Bird Sounds of Eastern North America_. Houghton Mifflin Harcourt: New York.
 * Sibley, David (2016) _Sibley Birds East_. Knopf: New York.

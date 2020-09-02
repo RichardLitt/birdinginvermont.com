@@ -20,9 +20,13 @@ Dunne (2006) describes the flight call as
 
 > a very high breathy “zwee” which, at close range, also has a light vibrancy
 
-Stephenson, et al (2015) describe the fliht call as 
+Stephenson, et al (2015) describe the flight call as 
 
 > “falling, short, very high”
+
+and
+
+> "Very short, high, often falling a bit in pitch"
 
 Sibley (2016) says the flight call is
 
@@ -36,6 +40,9 @@ And describes it like this:
 
 > Measured calls (N=17) were 37.5-55.3 (46.2) mS in duration and in the 6.4-8.8 (6.9-8.3) kHz frequency range. The frequency track was usually single-banded but occasionally showed a faint second band. It was typically descending and often slightly downward-arched and was modulated with 3.5-6 (5) humps with a spacing of 7.3-9.8 (8.6) mS and a depth of 0.4-0.7 (0.5) kHz.
 
+Dunn and Garrett (1997) note:
+
+> Flight note a soft buzzy _zeet_, slightly softer than similar flight notes of Yellow, Blackpoll, Bay-breasted.
 
 ### Example Calls
 
@@ -77,6 +84,7 @@ All notes for species are coming from Evans (2002), unless where noted.
 
 ### References
 
+* Dunn, J. L., & Garrett, K. (1997). A field guide to warblers of North America (Vol. 49). Houghton Mifflin Harcourt.
 * Dunne, Pete (2006) _Pete Dunne's Essential Field Guide Companion_. Houghton Mifflin Harcourt: New York.
 * Evans, W. R. and O’Brien, M. (2002) _Flight Calls of Migratory Birds Eastern North American Landbirds_. Old Bird Inc. [CD-ROM]. [Online] http://oldbird.org
 * Pieplow, Nathan (2017) _Peterson Field Guide to Bird Sounds of Eastern North America_. Houghton Mifflin Harcourt: New York.

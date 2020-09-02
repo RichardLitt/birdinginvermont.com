@@ -40,6 +40,12 @@ Sibley (2016) notes:
 
 > Flight call a sharp, smacking, upslurred _chwit_.
 
+Stephenson and Whittle (2013) note:
+
+> Clear; compressed; explosive; almost liquid; low.
+
+Dunn and Garret (1997) note that "Flight Note said to be a high _zzee_."
+
 ### Example Calls
 
 A good call that involves a bird which was seen, recorded, and commented upon in the checklist is here: https://ebird.org/checklist/S29816506. This clip has multiple _tswit_ calls in it.
@@ -98,10 +104,12 @@ This rests on the assumption that some COYE calls lack modulation. These calls a
 
 ### References
 
+* Dunn, J. L., & Garrett, K. (1997). A field guide to warblers of North America (Vol. 49). Houghton Mifflin Harcourt.
 * Evans, W. R. and O’Brien, M. (2002) _Flight Calls of Migratory Birds Eastern North American Landbirds_. Old Bird Inc. [CD-ROM]. [Online] http://oldbird.org
 * Pieplow, Nathan (2017) _Peterson Field Guide to Bird Sounds of Eastern North America_. Houghton Mifflin Harcourt: New York.
 * Reitsma, L. R., M. T. Hallworth, M. McMahon, and C. J. Conway (2020). Canada Warbler (Cardellina canadensis), version 2.0. In Birds of the World (P. G. Rodewald and B. K. Keeney, Editors). Cornell Lab of Ornithology, Ithaca, NY, USA. https://doi.org/10.2173/bow.canwar.02
 * Sibley, David (2016) _Sibley Birds East_. Knopf: New York.
+* Stephenson, T. and Whittle, S. (2013) _The Warbler Guide_. Princeton University Press.
 
 #### Referenced but not yet verified
 

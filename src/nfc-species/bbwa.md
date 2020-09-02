@@ -26,6 +26,19 @@ And:
 
 > Gives flight call regularly while perched and in flight during the day as well as during nocturnal migration.
 
+Stephenson and Whittle (2013) note of this warbler's "rising dense buzz":
+
+> Buzzy; dense; initial downslur keeps from having smooth profile; gives this call during day; distinctive.
+
+Dunne (2006) notes:
+
+> Flight call is a short, soft, high "che'e," given with a slight vibrancy, that sounds like Blackpoll but is thinner and less buzzy.
+
+Dunn and Garrett (1997) note:
+
+> Flight Note is a buzzy _zeet_, also very similar to flight note of Blackpoll.
+
+
 ### Call Description
 
 These are all quoted directly from Landsborough (2017)
@@ -86,7 +99,10 @@ There is more to be said about the nature of _zeep_ calls. Not all calls with a 
 ### References
 
 * Bull, J., & Farrand Jr, J. (1994). National Audubon Society Field Guide to North American Birds: Eastern Region, Revised Edition.
+* Dunn, J. L., & Garrett, K. (1997). A field guide to warblers of North America (Vol. 49). Houghton Mifflin Harcourt.
+* Dunne, Pete (2006) _Pete Dunne's Essential Field Guide Companion_. Houghton Mifflin Harcourt: New York.
 * Evans, W. R. and O’Brien, M. (2002) _Flight Calls of Migratory Birds Eastern North American Landbirds_. Old Bird Inc. [CD-ROM]. [Online] http://oldbird.org
 * Landsborough, B. J. (2017). The nocturnal flight calls of migratory songbirds: interspecific variation in the “zeep” complex and intraspecific variation across North America.
 * Pieplow, Nathan (2017) _Peterson Field Guide to Bird Sounds of Eastern North America_. Houghton Mifflin Harcourt: New York.
 * Sibley, David (2016) _Sibley Birds East_. Knopf: New York.
+* Stephenson, T. and Whittle, S. (2013) _The Warbler Guide_. Princeton University Press.

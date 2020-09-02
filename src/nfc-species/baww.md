@@ -30,6 +30,18 @@ Birds of the World notes (Kricher 2020):
 
 It is unclear to me whether the _tsit_ or _tseep_ described in Stiles and Skutch (1989) is different from the chip or pit calls. There is no mention of NFCs in BotW. I also don't know exactly what Sibley was referring to with his _fsss_.
 
+Stephenson and Whittle (2013) note only that the flight call is "steady often in day", and give the expected spectrogram. They also note:
+
+> Complex; Short, Complex [sic]; modulations far apart so not fully buzzy; sim. to Blackpoll; given during day; "zeep"
+
+Dunne (2006) notes:
+
+> Flight call is a short buzzy or hissing "sss."
+
+while Dunn and Garrett (1997) note:
+
+> Calls include a full _chip_ or _tik_, suggestive of a Black-throated Gray Warbler; also a doubled _seet-seet_ or _zeet-zeet_ (sometimes a single _zeet_), which is also given as a Flight Note.
+
 ### Example calls
 
 The best call that involves a bird which was seen, recorded, and commented upon in the checklist is here: https://ebird.org/checklist/S62295811.
@@ -115,6 +127,9 @@ All notes for species are coming from Evans (2002), unless where noted.
 #### Referenced but not yet verified
 
 * Bent, A. C. (1953). Life histories of North American wood warblers. United States National Museum Bulletin 203.
+* Dunn, J. L., & Garrett, K. (1997). A field guide to warblers of North America (Vol. 49). Houghton Mifflin Harcourt.
+* Dunne, Pete (2006) _Pete Dunne's Essential Field Guide Companion_. Houghton Mifflin Harcourt: New York.
 * Griscom, L., and A. Sprunt Jr. (1957). The Warblers of America: A Popular Account of the Wood-Warblers as They Occur in the Western Hemisphere. Doubleday, New York, NY, USA.
+* Stephenson, T. and Whittle, S. (2013) _The Warbler Guide_. Princeton University Press.
 * Stiles, F. G., and A. F. Skutch (1989) A Guide to the Birds of Costa Rica. Cornell University Press, Ithaca, NY, USA.
 * Terres, J. K. (1980). The Audubon Society Encyclopedia of North American Birds. Alfred A. Knopf, New York, NY, USA.

@@ -26,6 +26,10 @@ Birds of the World (Reed 2020) doesn't cover nocturnal flight calls in depth:
 
 > Consist of _weet weet_ and _peet peet peet_ and are given on the ground or in flight.
 
+Dunne (2006) notes:
+
+> Utters a short, three-penny whistle of a call, "pee, pee, pee," that is similar to Solitary Sandpiper but not so sharp, loud, or emphatic.
+
 Clarfield has also heard Solitary described as "tinnier" or "hollower". (Clarfield, personal communications)
 
 ### Call Description
@@ -117,6 +121,7 @@ The _dee-dit-dit_ call is relatively easy to disambiguate; there's a long _deet_
 
 ### References
 
+* Dunne, Pete (2006) _Pete Dunne's Essential Field Guide Companion_. Houghton Mifflin Harcourt: New York.
 * Pieplow, Nathan (2017) _Peterson Field Guide to Bird Sounds of Eastern North America_. Houghton Mifflin Harcourt: New York.
 * Reed, J. M., L. W. Oring, and E. M. Gray (2020). Spotted Sandpiper (Actitis macularius), version 1.0. In Birds of the World (A. F. Poole, Editor). Cornell Lab of Ornithology, Ithaca, NY, USA. https://doi.org/10.2173/bow.sposan.01
 * Sibley, David (2016) _Sibley Birds East_. Knopf: New York.

@@ -20,6 +20,10 @@ Houston et al. (2020) write in Birds of the World:
 
 > “Rich fluttering notes, usually in triplicate, are sounded during migration” (Oberholser 1974: 335). During nocturnal migration, species can be identified from same three-note call that it gives during the day (Evans and Mellinger 1999). During migration over Gatun, Panama, Jewel (Jewel 1913: 425) notes that “they could be heard to cry out in apparent alarm and then trail off into their particular soothing notes of content as they were answered by others near”. When Upland Sandpipers are migrating in Argentina, their cries are heard all day long from Feb through Apr and also at night, especially when under moonlight. In Argentina, the Upland Sandpiper's vernacular name is Batitú, an abbreviation of the Indian name Mbatuitui (Hudson 1920), from its “wild trisyllabic alarm cry . . . one of the most frequently heard sounds on the pampas” (Hudson 1922: 158).
 
+Dunne (2006) notes:
+
+> The call often heard when the bird is flying overhead is a brusque, low, liquid "quidyquit," which is not a harsh or loud sound, but it carries incredibly far.
+
 ### Example Calls
 
 [This call](https://macaulaylibrary.org/audio/37744) used as the official flight call example on [eBird for Upland Sandpiper](https://ebird.org/species/uplsan) is particular useful at showing the tripartite nature of the call, as well as the variation between calls.
@@ -126,6 +130,7 @@ The _pwee-pwee-pwee_ call is identified as an NFC call by Pieplow (2017).  Note 
 
 ### References
 
+* Dunne, Pete (2006) _Pete Dunne's Essential Field Guide Companion_. Houghton Mifflin Harcourt: New York.
 * Evans, W. R. and D. K. Mellinger. (1999). Monitoring grassland birds in nocturnal migration. Studies in Avian Biology 19:219-229.
 * Houston, C. S., C. Jackson, and D. E. Bowen Jr. (2020). Upland Sandpiper (Bartramia longicauda), version 1.0. In Birds of the World (A. F. Poole, Editor). Cornell Lab of Ornithology, Ithaca, NY, USA. https://doi.org/10.2173/bow.uplsan.01
 * Pieplow, Nathan (2017) _Peterson Field Guide to Bird Sounds of Eastern North America_. Houghton Mifflin Harcourt: New York.
