@@ -20,7 +20,7 @@ import spsaPath from './nfc-species/spsa.md'
 import sosaPath from './nfc-species/sosa.md'
 import bawwPath from './nfc-species/baww.md'
 import cmwaPath from './nfc-species/cmwa.md'
-import cmwaImg from './assets/CMWA_Essex_Jct.png'
+import cmwaImg from './assets/CMWA.png'
 import bbwaPath from './nfc-species/bbwa.md'
 import cawaPath from './nfc-species/cawa.md'
 
