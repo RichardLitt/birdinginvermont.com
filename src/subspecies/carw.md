@@ -16,7 +16,7 @@ Pyle (1997) writes:
 
 Separating the _ludovicianus_ group from the _berlandieri Group_ ("Carolina Wren (Northeast Mexico/South Texas)" on eBird) depends upon having a bright rufous back, and a tawny or rufous ventrum. However, this will only eliminate _lomitensis_ (in Texas). For the other two subspecies in this group - _berlandieri_ and _tropicalis_ - lack of barring on the flanks will suffice.
 
-The other grouping, the White-browed Carolina Wren _Thryothorus ludovicianus albinucha/subfulvus_ can be separated fairly easily: if the bird has abuffy supercilium, it is not a White-browed. Lack of a contrasting white-throat or a speckled breast can also be used to separate those two subspecies, individually.
+The other grouping, the White-browed Carolina Wren _Thryothorus ludovicianus albinucha/subfulvus_ can be separated fairly easily: if the bird has a buffy supercilium, it is not a White-browed. Lack of a contrasting white-throat or a speckled breast can also be used to separate those two subspecies, individually.
 
 To date, there are no records of other subspecies in Vermont. The [record listed](https://ebird.org/checklist/S73083719) when this page was created was the first record of the Northern Carolina Wren in Vermont.
 
