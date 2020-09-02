@@ -23,6 +23,7 @@ import cmwaPath from './nfc-species/cmwa.md'
 import cmwaImg from './assets/CMWA.png'
 import bbwaPath from './nfc-species/bbwa.md'
 import cawaPath from './nfc-species/cawa.md'
+import ovenPath from './nfc-species/oven.md'
 
 // Specific Subspecies
 import amroPath from './subspecies/amro.md'
@@ -80,6 +81,7 @@ class App extends Component {
           <Route exact path='/nfc-species/cmwa' render={(props) => (<ContentPage {...props} component={ContentPage} data={cmwaPath} img={cmwaImg}/ >)} />
           <Route exact path='/nfc-species/bbwa' render={(props) => (<ContentPage {...props} component={ContentPage} data={bbwaPath} />)} />
           <Route exact path='/nfc-species/cawa' render={(props) => (<ContentPage {...props} component={ContentPage} data={cawaPath} />)} />
+          <Route exact path='/nfc-species/oven' render={(props) => (<ContentPage {...props} component={ContentPage} data={ovenPath} />)} />
           <Route exact path='/subspecies' component={Subspecies} />
           <Route exact path='/subspecies/amro' render={(props) => (<ContentPage {...props} component={ContentPage} data={amroPath} />)} />
           <Route exact path='/subspecies/wbnu' render={(props) => (<ContentPage {...props} component={ContentPage} data={wbnuPath} />)} />
