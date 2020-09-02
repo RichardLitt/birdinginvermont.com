@@ -12,7 +12,7 @@ Sibley (2016) writes:
 
 Pieplow (2017) writes:
 
-> _Quiddyquit_: All year, including by night migrants. Plastic, especially in length. ... Clear, piping, usually 3-noted ... Middle not often highest.
+> _Quiddyquit_: All year, including by night migrants. Plastic, especially in length. ... Clear, piping, usually 3-noted ... Middle note often highest.
 
 Houston et al. (2020) write in Birds of the World:
 
@@ -38,7 +38,7 @@ Other calls:
 
 This information is eye-balled from the one example in Pieplow (2017). More sample sizes and analysis would be beneficial.
 
-- **Duration:** 30mS, with each of three calls taking roughly 8mS with a short gap in between.
+- **Duration:** 300mS, with each of three calls taking roughly 80mS with a short gap in between.
 - **Regularity:** Three calls. Middle note often highest.
 - **Directionality:** Ascending. Short ascender (.5kHz depth), occasional short tail (1kHz depth).
 - **Depth**: 4Khz in total, 1.5kHz for main band.
