@@ -63,7 +63,7 @@ _This section may not be helpful. The idea is to make it easier to rule out othe
 
 - Initial inverted V is unique to CAWA.
 - Length can be used to rule out WIWA, if longer than 40mS
-- Modular section should only be up to three humps. More than that, and it is likely to be a COYE abberant call.
+- Modular section should only be up to three humps. More than that, and it is likely to be a COYE aberrant call.
 - A deeper trough than 3.4kHz can rule out WIWA and COYE.
 
 ### Similar species
