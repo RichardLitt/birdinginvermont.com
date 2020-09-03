@@ -12,6 +12,7 @@ import Subspecies from './Subspecies'
 import NoMatchPage from './NoMatchPage'
 
 import termsPath from './terms.md'
+import fbsPath from './female-birdsong.md'
 
 // Specific NFC species
 import nfcPath from './nfc-species/index.md'
@@ -72,6 +73,7 @@ class App extends Component {
           <Route exact path='/about' component={About} />
           <Route exact path='/towns' render={(props) => (<Map {...props} component={Map} data={this.state.data} handleChange={this.handleChange} />)} />
           <Route exact path='/regions' render={(props) => (<Map {...props} component={Map} data={this.state.data} handleChange={this.handleChange} />)} />
+          <Route exact path='/female-birdsong' render={(props) => (<ContentPage {...props} component={ContentPage} data={fbsPath} />)} />
           <Route exact path="/nfc"><Redirect to="/nfc-species" /></Route>
           <Route exact path='/nfc-species' render={(props) => (<ContentPage {...props} component={ContentPage} data={nfcPath} />)}  />
           <Route exact path='/nfc-species/upsa' render={(props) => (<ContentPage {...props} component={ContentPage} data={upsaPath} />)} />

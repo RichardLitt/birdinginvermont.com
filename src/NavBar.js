@@ -66,6 +66,9 @@ class NavBar extends Component {
             <li className='nav-item'>
               <Link className="nav-link" to="/vbrc-checker">VBRC Checker</Link>
             </li>
+            <li className='nav-item'>
+              <Link className="nav-link" to="/female-birdsong">Female Birdsong</Link>
+            </li>
           </ul>
         </div>
       </nav>
