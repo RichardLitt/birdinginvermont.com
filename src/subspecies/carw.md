@@ -2,7 +2,7 @@
 
 <iframe width="640" height="518" src="https://macaulaylibrary.org/asset/259540991/embed/640" frameborder="0" allowfullscreen style="width:640px;max-width:100%;"></iframe>
 
-The Carolina Wren is a newcomer to Vermont, coming along slowly northward as the winters become milder. It's _teakettle, teakettle, teakettle_ song is a fixture in states to the south, and is now becoming more familiar in suburban areas in southern and central Vermont.
+The Carolina Wren is a newcomer to Vermont, coming along slowly northward as the winters become milder. It's _teakettle, teakettle, teakettle_ song is a fixture in states to the south, and is now becoming more familiar in suburban areas in southern and central Vermont (Renfrew 2013).
 
 Almost all of these Vermont wrens are almost certainly going to be the same subspecies, _Thryothorus ludovicianus ludovicianus_. This species is very difficult to judge dichotomously - indeed, Birds of the World says that aging and sexing the bird in the field is almost impossible. However, there are three main groupings of the ten subspecies, and it is relatively easy to eliminate two of the groupings using common features, without resorting to "range" as the justification for identification.
 
@@ -65,3 +65,4 @@ _These needs reflect eBird's database, and whether the bird has photos, audio, o
 - [Birds of the World](https://birdsoftheworld.org/bow/species/amerob/cur/systematics)
 - Haggerty, T. M. and E. S. Morton (2020). Carolina Wren (Thryothorus ludovicianus), version 1.0. In Birds of the World (A. F. Poole, Editor). Cornell Lab of Ornithology, Ithaca, NY, USA. https://doi.org/10.2173/bow.carwre.01
 - Pyle, P. (1997). Identification Guide to North American Birds, Part I: Columbidae to Ploceidae. Slate Creek Press, Bolinas, CA, USA.
+- Renfrew, R. B. (Ed.). (2013). The second atlas of breeding birds of Vermont. University Press of New England.
