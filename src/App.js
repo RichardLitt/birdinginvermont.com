@@ -30,6 +30,7 @@ import ovenPath from './nfc-species/oven.md'
 import amroPath from './subspecies/amro.md'
 import wbnuPath from './subspecies/wbnu.md'
 import carwPath from './subspecies/carw.md'
+import bwhaPath from './subspecies/bwha.md'
 
 // import RadialView from './RadialView'
 const ebird = require('./ebird-ext/index.js')
@@ -88,6 +89,7 @@ class App extends Component {
           <Route exact path='/subspecies/amro' render={(props) => (<ContentPage {...props} component={ContentPage} data={amroPath} />)} />
           <Route exact path='/subspecies/wbnu' render={(props) => (<ContentPage {...props} component={ContentPage} data={wbnuPath} />)} />
           <Route exact path='/subspecies/carw' render={(props) => (<ContentPage {...props} component={ContentPage} data={carwPath} />)} />
+          <Route exact path='/subspecies/bwha' render={(props) => (<ContentPage {...props} component={ContentPage} data={bwhaPath} />)} />
           <Route exact path='/vbrc-checker' render={(props) =>(<Rarities {...props} component={Rarities} data={this.state.data} handleChange={this.handleChange} />)} />
           <Route exact path='/terms' render={(props) =>(<ContentPage {...props} component={ContentPage} data={termsPath} />)} />
           {/* <Route exact path='/10-mile' component={RadialView} data={this.state.data.radial} /> */}
