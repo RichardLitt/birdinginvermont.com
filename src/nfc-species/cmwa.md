@@ -32,7 +32,7 @@ Sibley (2016) says the flight call is
 
 > a very high, slightly buzzy tzew slightly descending
 
-Evans (2002) writes:
+Evans and O'Brien (2002) writes:
 
 > A piercing, usually downward-arched and/or slightly descending "tszp" or "tzew".
 
@@ -70,7 +70,7 @@ The following species were noted as being similar by the cited experts. Any note
 
 When describing this call in comments on an NFC checklist, try and add as many salient notes as possible and refer to this page for justification. If there are any species which seem similar, please get in touch so we can add them here. The intent here is to have a full list of differences for each possible similar call.
 
-All notes for species are coming from Evans (2002), unless where noted.
+All notes for species are coming from Evans and O'Brien (2002), unless where noted.
 
 - Northern Parula
   - lower, less buzzy, and more steeply descending than CMWA
@@ -86,7 +86,7 @@ All notes for species are coming from Evans (2002), unless where noted.
 
 * Dunn, J. L., & Garrett, K. (1997). A field guide to warblers of North America (Vol. 49). Houghton Mifflin Harcourt.
 * Dunne, Pete (2006) _Pete Dunne's Essential Field Guide Companion_. Houghton Mifflin Harcourt: New York.
-* Evans, W. R. and O’Brien, M. (2002) _Flight Calls of Migratory Birds Eastern North American Landbirds_. Old Bird Inc. [CD-ROM]. [Online] http://oldbird.org
+* Evans, W. R. and O’Brien, M. (2002) _Flight Calls of Migratory Birds Eastern North American Landbirds_. Old Bird Inc. \[CD-ROM\]. [Online](http://oldbird.org)
 * Pieplow, Nathan (2017) _Peterson Field Guide to Bird Sounds of Eastern North America_. Houghton Mifflin Harcourt: New York.
 * Sibley, David (2016) _Sibley Birds East_. Knopf: New York.
 * Stephenson, Tom and Whittle, Scott (2015) _The Warbler Guide_. Princeton University Press: Princeton, New Jersey.

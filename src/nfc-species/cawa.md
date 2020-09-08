@@ -2,7 +2,7 @@
 
 <iframe width="640" height="518" src="https://macaulaylibrary.org/asset/242800411/embed/640" frameborder="0" allowfullscreen style="width:6040px;max-width:100%;"></iframe>
 
-The Canada Warbler has a distinctive NFC call. Pieplow (2017) notes three different types of calls: the _tswit_, _tink_, and _chip_ call. The NFC call most easily identified is the _tswit_ flight call, also called a _pcht_ call by Evans (2002), or a _zzee_ call by Reitsma et al. (2020).
+The Canada Warbler has a distinctive NFC call. Pieplow (2017) notes three different types of calls: the _tswit_, _tink_, and _chip_ call. The NFC call most easily identified is the _tswit_ flight call, also called a _pcht_ call by Evans and O'Brien (2002), or a _zzee_ call by Reitsma et al. (2020).
 
 The _twsit_ call is given in flight both diurnally and nocturnally, making analysis relatively straightforward.
 
@@ -18,9 +18,9 @@ This _twsit_ call is described generically, along with the Wilson's Warbler, in 
 
 > Like _Sreet_, but with stronger consonant sound at start; generally lower, sharper, and more Chiplike. See Tseet, which is slightly longer.
 
-Neither the _Sreet_ or _Tseet_ calls give a reference to the Canada Warbler, and their spectrograms are slightly different. The _tink_ and _chip_ calls for CAWA have different frequencies: _tinks_ are between 8-10kHz, _chips_ are much shorter and run from 3-10kHz. It's probably safe to assume that the _tswit_ is the NFC given by Evans (2002) as the main examplar of a CAWA NFC.
+Neither the _Sreet_ or _Tseet_ calls give a reference to the Canada Warbler, and their spectrograms are slightly different. The _tink_ and _chip_ calls for CAWA have different frequencies: _tinks_ are between 8-10kHz, _chips_ are much shorter and run from 3-10kHz. It's probably safe to assume that the _tswit_ is the NFC given by Evans and O'Brien (2002) as the main examplar of a CAWA NFC.
 
-Evans (2002) writes:
+Evans and O'Brien (2002) writes:
 
 > An abrupt, liquid "pcht". Sometimes a buzzier "pzch".
 
@@ -72,16 +72,16 @@ The following species were noted as being similar by the cited experts. Any note
 
 When describing this call in comments on an NFC checklist, try and add as many salient notes as possible and refer to this page for justification. If there are any species which seem similar, please get in touch so we can add them here. The intent here is to have a full list of differences for each possible similar call.
 
-All notes for species are coming from Evans (2002), unless where noted.
+All notes for species are coming from Evans and O'Brien (2002), unless where noted.
 
 The most similar species is the sister species _Cardellina pusilla_, or Wilson's Warbler, and the more distantly related Common Yellowthroat.
 
-##### Wilson's Warbler (Evans 2002, Pieplow 2017)
+##### Wilson's Warbler (Evans and O'Brien 2002, Pieplow 2017)
 
-Evans (2002) notes here are based on five samples, which may be a small sample size for analysis.
+Evans and O'Brien (2002) notes here are based on five samples, which may be a small sample size for analysis.
 
 - **Duration:** Shorter, at 15.9-37.5 (27.5) mS. Some overlapping on the longer end.
-- **Regularity:** "An initial steeply rising section followed by an equally steep descending section creating an inverted "V". In some cases there was an additional variable rising section. Presumed Wilson's nocturnal calls were typically longer and more often showed a rising section at the end of the call." (Evans 2002). Note that this lacks the initial dip of a CAWA.
+- **Regularity:** "An initial steeply rising section followed by an equally steep descending section creating an inverted "V". In some cases there was an additional variable rising section. Presumed Wilson's nocturnal calls were typically longer and more often showed a rising section at the end of the call." (Evans and O'Brien 2002). Note that this lacks the initial dip of a CAWA.
 - **Directionality:** Variable.
 - **Bandedness:** Single or partially double.
 - **Frequency range:** 4.4-8.8 (5.4-7.9) kHz. CAWA can be deeper than this.
@@ -89,7 +89,7 @@ Evans (2002) notes here are based on five samples, which may be a small sample s
 - **Number of waves:** Not modulated.
 - **Diurnal and nocturnal call similarity:** Gives flight calls either by day or night.
 
-##### Common Yellowthroat (Evans 2002)
+##### Common Yellowthroat (Evans and O'Brien 2002)
 
 This rests on the assumption that some COYE calls lack modulation. These calls are generally short and rising, which can look like a short CAWA call without a clear downslope in the initial dip. Most COYE calls are easy to rule out; instead, this information should be used for calls which aren't particularly strong candidates for CAWA.
 
@@ -105,7 +105,7 @@ This rests on the assumption that some COYE calls lack modulation. These calls a
 ### References
 
 * Dunn, J. L., & Garrett, K. (1997). A field guide to warblers of North America (Vol. 49). Houghton Mifflin Harcourt.
-* Evans, W. R. and O’Brien, M. (2002) _Flight Calls of Migratory Birds Eastern North American Landbirds_. Old Bird Inc. [CD-ROM]. [Online] http://oldbird.org
+* Evans, W. R. and O’Brien, M. (2002) _Flight Calls of Migratory Birds Eastern North American Landbirds_. Old Bird Inc. \[CD-ROM\]. [Online](http://oldbird.org)
 * Pieplow, Nathan (2017) _Peterson Field Guide to Bird Sounds of Eastern North America_. Houghton Mifflin Harcourt: New York.
 * Reitsma, L. R., M. T. Hallworth, M. McMahon, and C. J. Conway (2020). Canada Warbler (Cardellina canadensis), version 2.0. In Birds of the World (P. G. Rodewald and B. K. Keeney, Editors). Cornell Lab of Ornithology, Ithaca, NY, USA. https://doi.org/10.2173/bow.canwar.02
 * Sibley, David (2016) _Sibley Birds East_. Knopf: New York.

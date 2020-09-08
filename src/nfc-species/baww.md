@@ -2,7 +2,7 @@
 
 <iframe width="640" height="518" src="https://macaulaylibrary.org/asset/171075931/embed/640" frameborder="0" allowfullscreen style="width:640px;max-width:100%;"></iframe>
 
-The Black-and-white Warbler has a distinctive and, most often, an easily recognizable NFC. All of the following information refers to the _dzit_ or _dzinn_ call. This call is given both diurnally and nocturnally (Evans 2002, Pieplow 2017, Kricher 2020).
+The Black-and-white Warbler has a distinctive and, most often, an easily recognizable NFC. All of the following information refers to the _dzit_ or _dzinn_ call. This call is given both diurnally and nocturnally (Evans and O'Brien 2002, Pieplow 2017, Kricher 2020).
 
 ### Published References
 
@@ -12,7 +12,7 @@ Pieplow (2017) identifies it as a _dzit_, noting:
 
 > Dzit... rising or monotone. ... given all year, often in flight, including by night migrants.
 
-Evans (2002) notes:
+Evans and O'Brien (2002) notes:
 
 > A delicate "dzinn" with a fine sibilant buzz, often slightly rising. Many calls have a subtle two-parted character, while others are nearly monotone.
 
@@ -69,7 +69,7 @@ The following species were noted as being similar by the cited experts. Any note
 
 When describing this call in comments on an NFC checklist, try and add as many salient notes as possible and refer to this page for justification. If there are any species which seem similar, please get in touch so we can add them here. The intent here is to have a full list of differences for each possible similar call.
 
-All notes for species are coming from Evans (2002), unless where noted.
+All notes for species are coming from Evans and O'Brien (2002), unless where noted.
 
 - Northern Waterthrush (Pieplow)
   - Always rising
@@ -96,13 +96,13 @@ All notes for species are coming from Evans (2002), unless where noted.
   - Lower frequency tail at end, lacking in BAWW
   - Average longer space between humps (5.8mS). Can go down to 3.6mS in spacing.
   - Depth averages lower, not larger than 860kHz
-- Golden-winged Warbler (Evans)
+- Golden-winged Warbler (Evans and O'Brien 2002)
   - Can be two parted, but this was due to a switch in modulation from a spacing of 3.7mS, depth 250kHz to 7mS, depth 920kHz.
   - GWWA call not longer than 64mS, so some overlap for short calls, but not for longer ones.
   - Single banded
   - Rising
   - Calls not rising above 8kHz range
-- Chestnut-sided warbler (Evans)
+- Chestnut-sided warbler (Evans and O'Brien 2002)
   - BAWW and CSWA similar in length and generally even modulation
   - Not two parted
   - Also monotone, descending, or arched downward
@@ -119,7 +119,7 @@ All notes for species are coming from Evans (2002), unless where noted.
 
 ### References
 
-* Evans, W. R. and O’Brien, M. (2002) _Flight Calls of Migratory Birds Eastern North American Landbirds_. Old Bird Inc. [CD-ROM]. [Online] http://oldbird.org
+* Evans, W. R. and O’Brien, M. (2002) _Flight Calls of Migratory Birds Eastern North American Landbirds_. Old Bird Inc. \[CD-ROM\]. [Online](http://oldbird.org)
 * Kricher, J. C. (2020) _Black-and-white Warbler (Mniotilta varia)_, version 1.0. In Birds of the World (A. F. Poole, Editor). Cornell Lab of Ornithology, Ithaca, NY, USA. https://doi.org/10.2173/bow.bawwar.01
 * Pieplow, Nathan (2017) _Peterson Field Guide to Bird Sounds of Eastern North America_. Houghton Mifflin Harcourt: New York.
 * Sibley, David (2016) _Sibley Birds East_. Knopf: New York.
