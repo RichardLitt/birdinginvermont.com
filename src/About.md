@@ -29,4 +29,4 @@ Get in touch by emailing [richard@birdinginvermont.com](mailto:richard@birdingin
 - **August 30th:** Added the [Cape May Warbler](/nfc-species/cmwa) NFC page.
 - **September 1st:** Added the [Carolina Wren](/subspecies/cawr) subspecies page.
 - **September 2nd:** Added the [Ovenbird](/nfc-species/oven) NFC page.
-- **September 7th:** Added the [Broad-winged Hawk](/subspecies/bwha) subspecies page.
+- **September 7th:** Added the [Broad-winged Hawk](/subspecies/bwha) subspecies page. Added the [Wilson's Warbler](/nfc-species/wiwa) NFC page.

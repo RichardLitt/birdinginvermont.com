@@ -23,6 +23,7 @@ import bawwPath from './nfc-species/baww.md'
 import cmwaPath from './nfc-species/cmwa.md'
 import cmwaImg from './assets/CMWA.png'
 import bbwaPath from './nfc-species/bbwa.md'
+import wiwaPath from './nfc-species/wiwa.md'
 import cawaPath from './nfc-species/cawa.md'
 import ovenPath from './nfc-species/oven.md'
 
@@ -84,6 +85,7 @@ class App extends Component {
           <Route exact path='/nfc-species/cmwa' render={(props) => (<ContentPage {...props} component={ContentPage} data={cmwaPath} img={cmwaImg}/ >)} />
           <Route exact path='/nfc-species/bbwa' render={(props) => (<ContentPage {...props} component={ContentPage} data={bbwaPath} />)} />
           <Route exact path='/nfc-species/cawa' render={(props) => (<ContentPage {...props} component={ContentPage} data={cawaPath} />)} />
+          <Route exact path='/nfc-species/wiwa' render={(props) => (<ContentPage {...props} component={ContentPage} data={wiwaPath} />)} />
           <Route exact path='/nfc-species/oven' render={(props) => (<ContentPage {...props} component={ContentPage} data={ovenPath} />)} />
           <Route exact path='/subspecies' component={Subspecies} />
           <Route exact path='/subspecies/amro' render={(props) => (<ContentPage {...props} component={ContentPage} data={amroPath} />)} />

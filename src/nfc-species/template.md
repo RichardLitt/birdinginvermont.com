@@ -7,6 +7,28 @@
 ### Published References
 
 
+
+### Call Description
+
+- Duration (ms):
+- Distance to Max. Amplitude (ms):
+- Min. Freq. (kHz):
+- Max. Freq. (kHz):
+- Bandwidth (kHz):
+- Peak Freq. at Start (kHz):
+- Peak Freq. at End (kHz):
+- Peak Freq. at Centre (kHz):
+- Peak Freq. at Max. Amplitude(kHz):
+- Number of Freq. Modulations:
+- Inter-peak Duration (ms):
+- Freq. Modulation: Start to End:
+- Freq.Modulation: Min. to Max.:
+- Freq. Modulation: Start to Peak:
+
+Evans and O'Brien (2002) notes:
+
+> 
+
 ### Example Calls
 
 One good call
@@ -59,4 +81,4 @@ Notes
 
 #### Referenced but not yet verified
 
-extra regs
+extra refs

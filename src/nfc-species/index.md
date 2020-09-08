@@ -15,4 +15,5 @@ My goal for this website is to showcase what birds we've seen, what birds we hav
 - [Black-and-white Warbler](/nfc-species/baww)
 - [Cape May Warbler](/nfc-species/cmwa)
 - [Bay-breasted Warbler](/nfc-species/bbwa)
+- [Wilson's Warbler](/nfc-species/wiwa)
 - [Canada Warbler](/nfc-species/cawa)
