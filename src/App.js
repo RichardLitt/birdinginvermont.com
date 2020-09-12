@@ -8,7 +8,6 @@ import NavBar from './NavBar'
 import Footer from './Footer'
 import ContentPage from './ContentPage'
 import Rarities from './Rarities'
-import Subspecies from './Subspecies'
 import NoMatchPage from './NoMatchPage'
 
 import termsPath from './terms.md'
@@ -28,6 +27,7 @@ import cawaPath from './nfc-species/cawa.md'
 import ovenPath from './nfc-species/oven.md'
 
 // Specific Subspecies
+import subspeciesPath from './subspecies/index.md'
 import amroPath from './subspecies/amro.md'
 import wbnuPath from './subspecies/wbnu.md'
 import carwPath from './subspecies/carw.md'
@@ -87,7 +87,7 @@ class App extends Component {
           <Route exact path='/nfc-species/cawa' render={(props) => (<ContentPage {...props} component={ContentPage} data={cawaPath} />)} />
           <Route exact path='/nfc-species/wiwa' render={(props) => (<ContentPage {...props} component={ContentPage} data={wiwaPath} />)} />
           <Route exact path='/nfc-species/oven' render={(props) => (<ContentPage {...props} component={ContentPage} data={ovenPath} />)} />
-          <Route exact path='/subspecies' component={Subspecies} />
+          <Route exact path='/subspecies' render={(props) => (<ContentPage {...props} component={ContentPage} data={subspeciesPath} />)} />
           <Route exact path='/subspecies/amro' render={(props) => (<ContentPage {...props} component={ContentPage} data={amroPath} />)} />
           <Route exact path='/subspecies/wbnu' render={(props) => (<ContentPage {...props} component={ContentPage} data={wbnuPath} />)} />
           <Route exact path='/subspecies/carw' render={(props) => (<ContentPage {...props} component={ContentPage} data={carwPath} />)} />

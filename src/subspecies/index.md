@@ -1,0 +1,194 @@
+# Subspecies in Vermont
+
+A page for each subspecies is forthcoming, as is better styling.
+
+- [Broad-winged Hawk (BWHA)](/subspecies/bwha)
+- [White-breasted Nuthatch (WBNU)](/subspecies/wbnu)
+- [Carolina Wren (CARW)](/subspecies/carw)
+- [American Robin (AMRO)](/subspecies/amro)
+
+There is a Google Sheet of subspecies information, here: [The List of Subspecies](/subspecies/list).
+
+## Monotypic
+
+These birds do not have subspecies.
+
+- **Ross's Goose** (_Anser rossii_)
+- **Trumpeter Swan** (_Cygnus buccinator_)
+- **Wood Duck** (_Aix sponsa_)
+- **Blue-winged Teal** (_Spatula discors_)
+- **Northern Shoveler** (_Spatula clypeata_)
+- **American Wigeon** (_Mareca americana_)
+- **American Black Duck** (_Anas rubripes_)
+- **Northern Pintail** (_Anas acuta_)
+- **Canvasback** (_Aythya valisineria_)
+- **Ring-necked Duck** (_Aythya collaris_)
+- **Lesser Scaup** (_Aythya affinis_)
+- **Harlequin Duck** (_Histrionicus histrionicus_)
+- **Surf Scoter** (_Melanitta perspicillata_)
+- **White-winged Scoter** (_Melanitta deglandi_)
+- **Black Scoter** (_Melanitta americana_)
+- **Long-tailed Duck** (_Clangula hyemalis_)
+- **Bufflehead** (_Bucephala albeola_)
+- **Barrow's Goldeneye** (_Bucephala islandica_)
+- **Hooded Merganser** (_Lophodytes cucullatus_)
+- **Red-breasted Merganser** (_Mergus serrator_)
+- **Ruddy Duck** (_Oxyura jamaicensis_)
+- **Yellow-billed Cuckoo** (_Coccyzus americanus_)
+- **Black-billed Cuckoo** (_Coccyzus erythropthalmus_)
+- **Eastern Whip-poor-will** (_Antrostomus vociferus_)
+- **Chimney Swift** (_Chaetura pelagica_)
+- **Ruby-throated Hummingbird** (_Archilochus colubris_)
+- **Sora** (_Porzana carolina_)
+- **Black-bellied Plover** (_Pluvialis squatarola_)
+- **American Golden-Plover** (_Pluvialis dominica_)
+- **Semipalmated Plover** (_Charadrius semipalmatus_)
+- **Upland Sandpiper** (_Bartramia longicauda_)
+- **Sanderling** (_Calidris alba_)
+- **Baird's Sandpiper** (_Calidris bairdii_)
+- **Least Sandpiper** (_Calidris minutilla_)
+- **White-rumped Sandpiper** (_Calidris fuscicollis_)
+- **Pectoral Sandpiper** (_Calidris melanotos_)
+- **Semipalmated Sandpiper** (_Calidris pusilla_)
+- **Long-billed Dowitcher** (_Limnodromus scolopaceus_)
+- **American Woodcock** (_Scolopax minor_)
+- **Wilson's Snipe** (_Gallinago delicata_)
+- **Red-necked Phalarope** (_Phalaropus lobatus_)
+- **Red Phalarope** (_Phalaropus fulicarius_)
+- **Spotted Sandpiper** (_Actitis macularius_)
+- **Greater Yellowlegs** (_Tringa melanoleuca_)
+- **Lesser Yellowlegs** (_Tringa flavipes_)
+- **Bonaparte's Gull** (_Chroicocephalus philadelphia_)
+- **Laughing Gull** (_Leucophaeus atricilla_)
+- **Ring-billed Gull** (_Larus delawarensis_)
+- **Great Black-backed Gull** (_Larus marinus_)
+- **Caspian Tern** (_Hydroprogne caspia_)
+- **Red-throated Loon** (_Gavia stellata_)
+- **Common Loon** (_Gavia immer_)
+- **American Bittern** (_Botaurus lentiginosus_)
+- **Little Blue Heron** (_Egretta caerulea_)
+- **Glossy Ibis** (_Plegadis falcinellus_)
+- **Northern Harrier** (_Circus hudsonius_)
+- **Cooper's Hawk** (_Accipiter cooperii_)
+- **Snowy Owl** (_Bubo scandiacus_)
+- **Yellow-bellied Sapsucker** (_Sphyrapicus varius_)
+- **Red-headed Woodpecker** (_Melanerpes erythrocephalus_)
+- **Red-bellied Woodpecker** (_Melanerpes carolinus_)
+- **Black-backed Woodpecker** (_Picoides arcticus_)
+- **Gyrfalcon** (_Falco rusticolus_)
+- **Crested Caracara** (_Caracara cheriway_)
+- **Eastern Wood-Pewee** (_Contopus virens_)
+- **Yellow-bellied Flycatcher** (_Empidonax flaviventris_)
+- **Acadian Flycatcher** (_Empidonax virescens_)
+- **Alder Flycatcher** (_Empidonax alnorum_)
+- **Least Flycatcher** (_Empidonax minimus_)
+- **Eastern Phoebe** (_Sayornis phoebe_)
+- **Great Crested Flycatcher** (_Myiarchus crinitus_)
+- **Eastern Kingbird** (_Tyrannus tyrannus_)
+- **Western Kingbird** (_Tyrannus verticalis_)
+- **Yellow-throated Vireo** (_Vireo flavifrons_)
+- **Tufted Titmouse** (_Baeolophus bicolor_)
+- **Tree Swallow** (_Tachycineta bicolor_)
+- **Red-breasted Nuthatch** (_Sitta canadensis_)
+- **Bicknell's Thrush** (_Catharus bicknelli_)
+- **Wood Thrush** (_Hylocichla mustelina_)
+- **Cedar Waxwing** (_Bombycilla cedrorum_)
+- **Clay-colored Sparrow** (_Spizella pallida_)
+- **White-throated Sparrow** (_Zonotrichia albicollis_)
+- **Yellow-headed Blackbird** (_Xanthocephalus xanthocephalus_)
+- **Bobolink** (_Dolichonyx oryzivorus_)
+- **Baltimore Oriole** (_Icterus galbula_)
+- **Louisiana Waterthrush** (_Parkesia motacilla_)
+- **Northern Waterthrush** (_Parkesia noveboracensis_)
+- **Golden-winged Warbler** (_Vermivora chrysoptera_)
+- **Blue-winged Warbler** (_Vermivora cyanoptera_)
+- **Black-and-white Warbler** (_Mniotilta varia_)
+- **Tennessee Warbler** (_Leiothlypis peregrina_)
+- **Connecticut Warbler** (_Oporornis agilis_)
+- **Mourning Warbler** (_Geothlypis philadelphia_)
+- **Cape May Warbler** (_Setophaga tigrina_)
+- **Cerulean Warbler** (_Setophaga cerulea_)
+- **Northern Parula** (_Setophaga americana_)
+- **Magnolia Warbler** (_Setophaga magnolia_)
+- **Bay-breasted Warbler** (_Setophaga castanea_)
+- **Blackburnian Warbler** (_Setophaga fusca_)
+- **Chestnut-sided Warbler** (_Setophaga pensylvanica_)
+- **Blackpoll Warbler** (_Setophaga striata_)
+- **Black-throated Green Warbler** (_Setophaga virens_)
+- **Canada Warbler** (_Cardellina canadensis_)
+- **Scarlet Tanager** (_Piranga olivacea_)
+- **Rose-breasted Grosbeak** (_Pheucticus ludovicianus_)
+- **Indigo Bunting** (_Passerina cyanea_)
+- **Dickcissel** (_Spiza americana_)
+
+## Not on eBird
+
+These birds get a free pass. They're not monotypic, but you can't identify them to subspecies easily in the field, or on eBird. If a subspecies name is identified, it is because that is the probably subspecies deduced for Vermont.
+
+- **Snow Goose** (_Anser caerulescens_) - _A.c. carulescens, A.c. atlanticus_
+- **Mallard** (_Anas platyrhynchos_) - _A. p. platyrhynchos_
+- **Greater Scaup** (_Aythya marila_) - _A. m. nearctica_
+- **Common Goldeneye** (_Bucephala clangula_) - _B. c. americana_
+- **Ruffed Grouse** (_Bonasa umbellus_) - _B.u. togata_
+- **Wild Turkey** (_Meleagris gallopavo_) - _M.g. silvestris_
+- **Pied-billed Grebe** (_Podilymbus podiceps_) - _P.p. podiceps_
+- **Horned Grebe** (_Podiceps auritus_) - _P. a. cornutus_
+- **Red-necked Grebe** (_Podiceps grisegena_) - _P.g. holbolli_
+- **Rock Pigeon (Feral Pigeon)** (_Columbus livia_) - _C. l. livia_
+- **Mourning Dove** (_Zenaida macroura_) - _C. m. carolinensis_
+- **Common Nighthawk** (_Chordeiles minor_) - _C. m. minor_
+- **Killdeer** (_Charadrius vociferus_) - _C. v. vociferus_
+- **Red Knot** (_Calidris canutus_) - _C. c. rufa_
+- **Common Murre** (_Uria aalge_) - _U. a. aalge_
+- **Thick-billed Murre** (_Uria lomvia_) - _U. l. lomvia_
+- **Glaucous Gull** (_Larus hyperboreus_) - _L. h. leucoretes_
+- **Double-crested Cormorant** (_Phalacrocorax auritus_) - _P. a. auritus_
+- **Least Bittern** (_Ixobrychus exilis_) - _I e. exilis_
+- **Black Vulture** (_Coragyps atratus_) - _C.a. atratus_
+- **Golden Eagle** (_Aquila chrysaetos_) - _A. c. canadensis_
+- **Belted Kingfisher** (_Megaceryle alcyon_) - _M. a. alcyon_
+- **Bald Eagle** (_Haliaeetus leucocephalus_) - _H. l. washingtoniensis_
+- **Rough-legged Hawk** (_Buteo lagopus_) - _B. l. sanctijohannis_
+- **Pileated Woodpecker** (_Dryocopus pileatus_) - _D. p. pileatus_
+- **Olive-sided Flycatcher** (_Contopus cooperi_) - _C.c. cooperi_
+- **Blue-headed Vireo** (_Vireo solitarius_) - _V.s. solitarius_
+- **Red-eyed Vireo** (_Vireo olivaceus_) - _Vireo olivaceus olivaceus_
+- **Loggerhead Shrike** (_Lanius ludovicianus_) - _L. l. migrans_
+- **Blue Jay** (_Cyanocitta cristata_) - _C.c. principalis_
+- **American Crow** (_Corvus brachyrhynchos_) - _C. b. brachyrhynchos_
+- **Common Raven** (_Corvus corax_) - _C.c. principalis_
+- **Black-capped Chickadee** (_Poecile atricapillus_) - _P.a. atricapillus_
+- **Boreal Chickadee** (_Poecile hudsonicus_) - _P.a. litorallis_
+- **Bank Swallow** (_Riparia riparia_) - _Riparia riparia riparia_
+- **Golden-crowned Kinglet** (_Regulus satrapa_) - _R. s. satrapa_
+- **Ruby-crowned Kinglet** (_Regulus calendula_) - _R. c. calendula_
+- **Winter Wren** (_Troglodytes hiemalis_) - _Troglodytes hiemalis hiemalis_
+- **European Starling** (_Sturnus vulgaris_) - _S. v. vulgaris_
+- **Gray Catbird** (_Dumetella carolinensis_) - _D. c. carolinensis_
+- **Brown Thrasher** (_Toxostoma rufum_) - _T. r. rufum_
+- **Northern Mockingbird** (_Mimus polyglottos_) - _M. p. polyglottos_
+- **Veery** (_Catharus fuscescens_) - _C.f.fuscescens_
+- **Gray-cheeked Thrush** (_Catharus minimus_) - _C.m. minimus_
+- **Bohemian Waxwing** (_Bombycilla garrulus_) - _B.g. pallidiceps_
+- **House Sparrow** (_Passer domesticus_) - _Passer domesticus domesticus_
+- **American Goldfinch** (_Spinus tristis_) - _S.t. tristis_
+- **Lapland Longspur** (_Calcarius lapponicus_) - _C. l. subcalcaratus_
+- **Snow Bunting** (_Plectrophenax nivalis_) - _P. n. nivalis_
+- **Grasshopper Sparrow** (_Ammodramus savannarum_) - _A. s. pratensis_
+- **Chipping Sparrow** (_Spizella passerina_) - _S. p. passerina_
+- **Field Sparrow** (_Spizella pusilla_) - _Spizella pusilla pusilla_
+- **American Tree Sparrow** (_Spizelloides arborea_) - _S. arborea arborea_
+- **Vesper Sparrow** (_Pooecetes gramineus_) - _P. g. gramineus_
+- **Lincoln's Sparrow** (_Melospiza lincolnii_) - _M. l. lincolnii_
+- **Swamp Sparrow** (_Melospiza georgiana_) - _M. g. georgiana_
+- **Brown-headed Cowbird** (_Molothrus ater_) - _Molothrus ater ater_
+- **Rusty Blackbird** (_Euphagus carolinus_) - _E. c. carolinus/nigrans_
+- **Ovenbird** (_Seiurus aurocapilla_) - _S.a. aurocapilla_
+- **American Redstart** (_Setophaga ruticilla_) - _S. r. ruticilla, S. r. tricolora_
+- **Black-throated Blue Warbler** (_Setophaga caerulescens_) - _S. c. caerulescens_
+- **Pine Warbler** (_Setophaga pinus_) - _S.p. pinus_
+- **Prairie Warbler** (_Setophaga discolor_) - _S.d. discolor_
+- **Painted Bunting** (_Passerina ciris_) - _P.c. pallidior, P.c. ciris_
+- **Tricolored Heron** (_Egretta tricolor_) - _E. t. ruficollis_
+- **Swallow-tailed Kite** (_Elanoides forficatus_)
+- **Varied Thrush** (_Ixoreus naevius_)
