@@ -137,6 +137,7 @@ These birds get a free pass. They're not monotypic, but you can't identify them 
 - **Rock Pigeon (Feral Pigeon)** (_Columbus livia_) - _C. l. livia_
 - **Mourning Dove** (_Zenaida macroura_) - _C. m. carolinensis_
 - **Common Nighthawk** (_Chordeiles minor_) - _C. m. minor_
+- **Common Ringed Plover** (_Charadrius hiaticula_) - Probably _C.h. hiaticula_. Differences clinal.
 - **Killdeer** (_Charadrius vociferus_) - _C. v. vociferus_
 - **Red Knot** (_Calidris canutus_) - _C. c. rufa_
 - **Common Murre** (_Uria aalge_) - _U. a. aalge_
