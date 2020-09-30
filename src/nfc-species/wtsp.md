@@ -1,6 +1,6 @@
 # NFCs: White-throated Sparrow
 
-<iframe width="640" height="518" src="https://macaulaylibrary.org/asset/191523461/embed/640" frameborder="0" allowfullscreen style="width:6040px;max-width:100%;"></iframe>
+<iframe width="640" height="518" src="https://macaulaylibrary.org/asset/229854291/embed/640" frameborder="0" allowfullscreen style="width:6040px;max-width:100%;"></iframe>
 
 The White-throated Sparrow has a distinctive call, which can be easy to identify given the modulations at the end of a long Sparrow _tseet_. While there are many weak calls that are best left unidentified, this common migrant through Vermont should be easy enough to identify, even with the naked ear.
 
