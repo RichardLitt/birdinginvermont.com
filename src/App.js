@@ -25,6 +25,7 @@ import bbwaPath from './nfc-species/bbwa.md'
 import wiwaPath from './nfc-species/wiwa.md'
 import cawaPath from './nfc-species/cawa.md'
 import ovenPath from './nfc-species/oven.md'
+import wtspPath from './nfc-species/wtsp.md'
 
 // Specific Subspecies
 import subspeciesPath from './subspecies/index.md'
@@ -87,6 +88,7 @@ class App extends Component {
           <Route exact path='/nfc-species/cawa' render={(props) => (<ContentPage {...props} component={ContentPage} data={cawaPath} />)} />
           <Route exact path='/nfc-species/wiwa' render={(props) => (<ContentPage {...props} component={ContentPage} data={wiwaPath} />)} />
           <Route exact path='/nfc-species/oven' render={(props) => (<ContentPage {...props} component={ContentPage} data={ovenPath} />)} />
+          <Route exact path='/nfc-species/wtsp' render={(props) => (<ContentPage {...props} component={ContentPage} data={wtspPath} />)} />
           <Route exact path='/subspecies' render={(props) => (<ContentPage {...props} component={ContentPage} data={subspeciesPath} />)} />
           <Route exact path='/subspecies/amro' render={(props) => (<ContentPage {...props} component={ContentPage} data={amroPath} />)} />
           <Route exact path='/subspecies/wbnu' render={(props) => (<ContentPage {...props} component={ContentPage} data={wbnuPath} />)} />

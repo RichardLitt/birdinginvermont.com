@@ -17,6 +17,7 @@ My goal for this website is to showcase what birds we've seen, what birds we hav
 - [Bay-breasted Warbler](/nfc-species/bbwa)
 - [Wilson's Warbler](/nfc-species/wiwa)
 - [Canada Warbler](/nfc-species/cawa)
+- [White-throated Sparrow](/nfc-species/wtsp)
 
 ## Unidentifiable to Species
 
