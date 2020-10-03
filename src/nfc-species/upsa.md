@@ -37,6 +37,7 @@ Other calls:
 #### Personal Checklists
 
 - [August 20, 2020 - Washington County (Richard Littauer)](https://ebird.org/checklist/S72605037)
+- [August 30, 2020 - Chittenden County (Larry Clarfeld)](https://ebird.org/vt/checklist/S73089339)
 
 ### Call Description
 
