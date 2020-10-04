@@ -32,3 +32,4 @@ Get in touch by emailing [richard@birdinginvermont.com](mailto:richard@birdingin
 - **September 7th:** Added the [Broad-winged Hawk](/subspecies/bwha) subspecies page. Added the [Wilson's Warbler](/nfc-species/wiwa) NFC page.
 - **September 11th:** Added a list of monotypes to the [Subspecies](/subspecies/) page.
 - **September 30th:** Added the [White-throated Sparrow](/nfc-species/wtsp) NFC page.
+- **October 4th:** Added the [American Pipit](/nfc-species/ampi) NFC page.
