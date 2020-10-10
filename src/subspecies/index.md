@@ -2,6 +2,7 @@
 
 A page for each subspecies is forthcoming, as is better styling.
 
+- [Great Blue Heron (GBHE)](/subspecies/gbhe)
 - [Broad-winged Hawk (BWHA)](/subspecies/bwha)
 - [White-breasted Nuthatch (WBNU)](/subspecies/wbnu)
 - [Carolina Wren (CARW)](/subspecies/carw)

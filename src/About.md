@@ -33,3 +33,4 @@ Get in touch by emailing [richard@birdinginvermont.com](mailto:richard@birdingin
 - **September 11th:** Added a list of monotypes to the [Subspecies](/subspecies/) page.
 - **September 30th:** Added the [White-throated Sparrow](/nfc-species/wtsp) NFC page.
 - **October 4th:** Added the [American Pipit](/nfc-species/ampi) NFC page.
+- **October 10th:** Added the [Great Blue Heron](/subspecies/gbhe) subspecies page.
