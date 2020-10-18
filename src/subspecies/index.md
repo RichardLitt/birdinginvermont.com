@@ -4,6 +4,7 @@ A page for each subspecies is forthcoming, as is better styling.
 
 - [Great Blue Heron](/subspecies/gbhe)
 - [Broad-winged Hawk](/subspecies/bwha)
+- [Northern Saw-whet Owl](/subspecies/nswo)
 - [White-breasted Nuthatch](/subspecies/wbnu)
 - [Carolina Wren](/subspecies/carw)
 - [American Robin](/subspecies/amro)
