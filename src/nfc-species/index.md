@@ -11,6 +11,7 @@ My goal for this website is to showcase what birds we've seen, what birds we hav
 - [Upland Sandpiper](/nfc-species/upsa)
 - [Spotted Sandpiper](/nfc-species/spsa)
 - [Solitary Sandpiper](/nfc-species/sosa)
+- [Dunlin](/nfc-species/dunlin)
 - [American Pipit](/nfc-species/ampi)
 - [Ovenbird](/nfc-species/oven)
 - [Black-and-white Warbler](/nfc-species/baww)
