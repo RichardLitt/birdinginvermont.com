@@ -84,7 +84,7 @@ In general, almost none of these calls is possibly to be confused with the Dunli
 
 ##### Black Tern (Pieplow 2017)
 
-The Black Tern's Grate can be similar; however, this call is mostly given during aggression (Pieplow 2017), and from the examples in Pieplow, it tends to be much more widely spread across the frequency range, from 1-8khz, and it can appear to by polyphonic. A glance at the spectrogram should eliminate this rare species (especially in Vermont).
+The Black Tern's grate call can be similar; however, this call is mostly given during aggression (Pieplow 2017), and from the examples in Pieplow, it tends to be much more widely spread across the frequency range, from 1-8khz, and it can appear to by polyphonic. A glance at the spectrogram should eliminate this rare species (especially in Vermont).
 
 ##### Wilson's Plover (Pieplow 2017)
 
@@ -92,7 +92,7 @@ Range and polyphonicity with a rising curve eliminate this species; looking at t
 
 ##### Red Phalarope (Pieplow 2017)
 
-The Red Phalarope gives it grate in altercations, while its peep call is the most common in migration and winter. As well, the Grate call is polyphonic, and normally has a humped shape.
+The Red Phalarope gives its grate in altercations, while its peep call is the most common in migration and winter. As well, the Grate call is polyphonic, and normally has a humped shape.
 
 ##### Western Sandpiper (Paulson 1993)
 
