@@ -4,31 +4,31 @@
 
 Pine Siskins, an irruptive finch whose populations and migrations depend on pine cone crop, are a common fixture across Vermont, especially in some winters. While not traditionally considered a nocturnal migrant (Evans and O'Brien 2002), they have been known to migrate at night (Watson, Wells and Bavis 2011, Mandelbaum 2020).
 
-Pine Siskins give a variety of flight calls: a _zweew_, somewhat like their rising idiosyncratic _zree_ zipper calls; and a Goldfinch-esque flight call, described as _jirp jirp jirp_ or _chu-tu-tu-tu_; and _zree_ or _waaaee_ calls, _chit_ calls, and _klee-you_ calls (Evans and O'Brien 2002, Pieplow 2017). Choosing which call is most relevant for a given recording can be difficult, as can be disambiguating calls from other species.
+Pine Siskins give a variety of flight calls: a _zree_ or _waaaee_ call,  somewhat like their rising idiosyncratic _zhree_ zipper calls; a Goldfinch-esque flight call, described as _jirp jirp jirp_ or _chu-tu-tu-tu_; a _zweew_ call, similar to the _zree_; _chit_ calls; and _klee-you_ calls (Evans and O'Brien 2002, Pieplow 2017). Choosing which call is most relevant for a given recording can be difficult, as can be disambiguating calls from other species.
 
-> Determination of exact number is difficult because of apparent variation in phonetic rendition among observers. Like other carduelines, frequently gives flight calls. Calls of this species are generally characterized in terms such as “rasping” and “throaty” (Dawson 1923)...
+> Determination of exact number \[of calls] is difficult because of apparent variation in phonetic rendition among observers. Like other carduelines, frequently gives flight calls. Calls of this species are generally characterized in terms such as “rasping” and “throaty” (Dawson 1923)...
 
-Unfortunately, this species' repertoire is extremely similar to both Redpolls and both Goldfinches. I struggled to find a single way of telling them apart reliably by looking at the spectrogram, for any of the published records of these calls. The _klee-you_ described by Evans and O'Brien (2002) appears to be idiosyncratic; but the _zree_ calls can be easily confused, and the _jirp jirp_ flight calls are not plastic, while Redpoll calls are extremely plastic, making sure identifcation difficult.
+Unfortunately, this species' repertoire is extremely similar to both Redpolls and both Goldfinches. I struggled to find a single way of telling them apart reliably by looking at the spectrogram, for any of the published records of these calls. The _klee-you_ described by Evans and O'Brien (2002) appears to be idiosyncratic, but the _zree_ calls can be easily confused, and the _jirp jirp_ flight calls are not plastic, while similar Redpoll calls are extremely plastic, making sure identification difficult.
 
 For this species, I would strongly encourage discretion for identifying the species, and reliance upon both finch irruption charts during the recording time (how likely is it that it could be a Hoary Redpoll? Luckily, most likely not very, especially in Vermont) and close listening to the recording itself, judging the raspy nature of the Pine Siskin. Many calls may be best left unidentified.
 
 ### Published References
 
-Watson, Wells and Bavis (2011) first logged recording NFCs for Siskins, using only the _kdeew_ call:
+Watson, Wells and Bavis (2011) first logged recording NFCs for Pine Siskins, using only the _kdeew_ call:
 
-> Flight calls ... we considered to be of Pine Siskins ... were identical to the well-known and described ‘‘Kdeew’’ flight call of the species (Sibley 2000).
+> Flight calls ... we considered to be of Pine Siskins ... were identical to the well-known and described _Kdeew_ flight call of the species (Sibley 2000).
 
 Pieplow (2017) describes several calls, given diurnally:
 
-> Zree - Rising, polyphonic. Zweew - Overslurred, slightly burry. [Both] all year. Zree possible in alarm; Zweew, posibly a variat of Zree, often with Flight Call.
+> _Zree_ - Rising, polyphonic. _Zweew_ - Overslurred, slightly burry. [Both] all year. _Zree_ possible in alarm; _Zweew_, possibly a variant of _Zree_, often with Flight Call.
 
 And:
 
 > Flight Call: _Jirp jirp jirp_. All year, in contact and flight. Only slightly variable. Lower, less musical than Lesser Goldfinch Flight Call. ... Polyphonic, slightly noisy notes in series.
 
-Evans and O'Brien (2002) give four possible NFC calls, but note that it is not known to give flight all nocturnally. This may have changed in the past two decades. The calls given are:
+Evans and O'Brien (2002) give four possible NFC calls, but note that Pine Siskins are not known to give flight calls nocturnally. Research on this may have changed this view in the past two decades. The calls given are:
 
-> A quick, harsh "chu-tu-tu-tu", a strident, emphatic "klee-you", and a rising, nasal "waaaee" are the most common flight calls.  Also gives a short "chit". Occasionally given in flight, but more typically from a treetop, is a long, rising, buzzy "zreeeeeeee".
+> A quick, harsh _chu-tu-tu-tu_, a strident, emphatic _klee-you_, and a rising, nasal _waaaee_ are the most common flight calls.  Also gives a short _chit_. Occasionally given in flight, but more typically from a treetop, is a long, rising, buzzy _zreeeeeeee_.
 
 Sanders (2013) notes a "distinctive low double peak", and shows a spectrogram of a Pine Siskin, which doesn't match any other records I could find.
 
@@ -65,7 +65,7 @@ Evans and O'Brien (2002) show a slight dip in the central bands, almost Canada W
 - Min. Freq. (kHz): 2kHz
 - Max. Freq. (kHz): 9kHz+
 - Bandwidth (kHz): 7Khz
-- Directionality: Rising and then generally falling. Broken into three segments. Main band from 5kHz to 3kHz by end. Almost resembles Eastern Bluebird, except for polyphonicity.
+- Directionality: Rising and then generally falling. Broken into three segments. Main band from 5kHz to 3kHz by end. Almost resembles Eastern Bluebird, except for polyphonicity (my note, not Evans and O'Brien).
 - Polyphonic Bands: 3-5
 
 #### _Chit_ (Evans and O'Brien 2002)
@@ -103,9 +103,9 @@ All of the Pine Siskin and their associates calls are confusing to track down an
 
 #### _Zree_ call
 
-The Zree call, a rising polyphonic _zeep_, is one of the most characteristic calls of this species, but easily confused with some calls from other birds. Dawson (2020) notes:
+The _Zree_ call, a rising polyphonic call, is one of the most characteristic calls of this species, but easily confused with some calls from other birds. Dawson (2020) notes:
 
-> A grating call with rising inflection is one of the most familiar sounds produced by Pine Siskins. This “watch-winding” note— zree-e-e-e-e-eet, zwee-e-eeet, shr-reet, sooeet, or possibly a husky chee-ee, depending on author—may also serve as flight call or be uttered before or after completion of flight. This call, also described as züm or zzeem, is always accompanied (presumably in perching individuals) by the display of hidden yellow markings in the wings and tail, according to Dawson (Dawson 1923).
+> A grating call with rising inflection is one of the most familiar sounds produced by Pine Siskins. This “watch-winding” note— _zree-e-e-e-e-eet_, _zwee-e-eeet_, _shr-reet_, _sooeet_, or possibly a husky _chee-ee_, depending on author—may also serve as flight call or be uttered before or after completion of flight. This call, also described as _züm_ or _zzeem_, is always accompanied (presumably in perching individuals) by the display of hidden yellow markings in the wings and tail, according to Dawson (Dawson 1923).
 
 This call is described as being similar to:
 
@@ -113,7 +113,7 @@ This call is described as being similar to:
 
 The Songlike call of the Brewer's Blackbird which most resembles a _zree_ is noted as having an "odd whiny quality" and a "polyphonic upslur". The call shown in Pieplow (2017) has only a handful of bands, and looks much less turbulent than the Pine Siskin _zree_. It is unclear when this call would be given, as the more detailed page in Martin (2020) lacks the same phonetic representation as Pieplow (2017) (a rather annoyingly common problem for this species).
 
-This bird is a rare vagrant to Vermont, and it seems unlikely this call would be given or used during NFCs. Evans and O'Brien (2002) give "an abrupt, dry, wooden 'tjek'" as the main NFC call, which means that diurnal similarity notwithstanding, this call and bird can probably be excluded from the list of similar suspects.
+This bird is a rare vagrant to Vermont, and it seems unlikely this call would be given or used during NFCs. Evans and O'Brien (2002) give "an abrupt, dry, wooden _tjek_" as the main NFC call, which means that diurnal similarity notwithstanding, this call and bird can probably be excluded from the list of similar suspects.
 
 ##### Common Redpoll (Evans and O'Brien 2002, Pieplow 2017)
 
@@ -129,11 +129,11 @@ The Hoary Redpoll looks similar to the Common Redpoll; however, the bands are so
 
 However, the _draaai_ call shown in Evans and O'Brien (2002), from Gunn (1958), although noted as "fairly atypical", is much more erratic, with crossing bands, and looks, to me, almost indistinguishable from a Siskin. It still has the slight bump in the beginning, which is not typical of the Pine Siskin. Evans and O'Brien (2002) note:
 
-> "Draaai" call distinctive. It is more pure-toned and more evenly rising than Common's "duraaai", without the complex dip at the beginning.
+> _Draaai_ call distinctive. It is more pure-toned and more evenly rising than Common's _duraaai_, without the complex dip at the beginning.
 
 ##### American Goldfinch (Evans and O'Brien 2002, Pieplow 2017, possibly Godfrey 1986)
 
-Pieplow considers that the _Zree_ is similar to the Pine Siskin, but notes that the _Zree_ is "high, clear, long" for the American Goldfinch, but "Medium-high, fairly long" for the Pine Siskin. Outside of specific measurements, these relative statements have little meaning. (The Lesser Goldfich and House Finch are "medium-low, long" and "medium-low, short, almost a _Zreet_", respectively.) Dawson quotes Godfrey in saying that the call of the Pine Siskin is:
+Pieplow considers that the _Zree_ is similar to the Pine Siskin, but notes that the _Zree_ is "high, clear, long" for the American Goldfinch, but "Medium-high, fairly long" for the Pine Siskin. Outside of specific measurements, these relative statements have little meaning. (The Lesser Goldfinch and House Finch are "medium-low, long" and "medium-low, short, almost a _Zreet_", respectively.) Dawson quotes Godfrey in saying that the call of the Pine Siskin is:
 
 > “harsher than similar calls of redpolls” and “huskier and more buzzy than the song of the American Goldfinch, which it resembles somewhat” (Godfrey 1986: 570).
 
@@ -149,7 +149,7 @@ Pine Siskins are possibly part of a superspecies with American Goldfinches, syst
 
 #### _Jirp jirp jirp_ calls
 
-The _jirp_ flight calls are grouped by Pieplow (2017) with all of the other finches, which includes Red Crossbill, Lesser and American Goldfinch, Olive-sided Flycatcher, both Redpolls, and White-Winged Crossbills. Knowing whether a call is a _jirp_ or a _jit_ is difficult in the field. For this call, listening to the sound itself may again be the best diagnostic, as opposed to using the spectrogram. For the _jirp_ calls, Pieplow (2017) lists the Redpolls as being similar, while also noting explicitely that it is "lower, less musical than Lesser Goldfinch Flight Call."
+The _jirp_ flight calls are grouped by Pieplow (2017) with all of the other finches, which includes Red Crossbill, Lesser and American Goldfinch, Olive-sided Flycatcher, both Redpolls, and White-Winged Crossbills. Knowing whether a call is a _jirp_ or a _jit_ is difficult in the field. For this call, listening to the sound itself may again be the best diagnostic, as opposed to using the spectrogram. For the _jirp_ calls, Pieplow (2017) lists the Redpolls as being similar, while also noting explicitly that it is "lower, less musical than Lesser Goldfinch Flight Call."
 
 This call is probably the _chu-tu-tu-tu_ call of Evans and O'Brien (2002).
 
