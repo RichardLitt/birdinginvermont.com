@@ -13,6 +13,7 @@ My goal for this website is to showcase what birds we've seen, what birds we hav
 - [Solitary Sandpiper](/nfc-species/sosa)
 - [Dunlin](/nfc-species/dunlin)
 - [American Pipit](/nfc-species/ampi)
+- [Pine Siskin](/nfc-species/pisi)
 - [Ovenbird](/nfc-species/oven)
 - [Black-and-white Warbler](/nfc-species/baww)
 - [Cape May Warbler](/nfc-species/cmwa)

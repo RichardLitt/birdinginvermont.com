@@ -28,6 +28,7 @@ import ovenPath from './nfc-species/oven.md'
 import wtspPath from './nfc-species/wtsp.md'
 import ampiPath from './nfc-species/ampi.md'
 import dunlPath from './nfc-species/dunl.md'
+import pisiPath from './nfc-species/pisi.md'
 
 // Specific Subspecies
 import subspeciesPath from './subspecies/index.md'
@@ -96,6 +97,7 @@ class App extends Component {
           <Route exact path='/nfc-species/wtsp' render={(props) => (<ContentPage {...props} component={ContentPage} data={wtspPath} />)} />
           <Route exact path='/nfc-species/ampi' render={(props) => (<ContentPage {...props} component={ContentPage} data={ampiPath} />)} />
           <Route exact path='/nfc-species/dunl' render={(props) => (<ContentPage {...props} component={ContentPage} data={dunlPath} />)} />
+          <Route exact path='/nfc-species/pisi' render={(props) => (<ContentPage {...props} component={ContentPage} data={pisiPath} />)} />
           <Route exact path='/subspecies' render={(props) => (<ContentPage {...props} component={ContentPage} data={subspeciesPath} />)} />
           <Route exact path='/subspecies/amro' render={(props) => (<ContentPage {...props} component={ContentPage} data={amroPath} />)} />
           <Route exact path='/subspecies/nswo' render={(props) => (<ContentPage {...props} component={ContentPage} data={nswoPath} />)} />
