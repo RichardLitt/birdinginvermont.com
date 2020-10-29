@@ -26,11 +26,19 @@ And:
 
 > Flight Call: _Jirp jirp jirp_. All year, in contact and flight. Only slightly variable. Lower, less musical than Lesser Goldfinch Flight Call. ... Polyphonic, slightly noisy notes in series.
 
+Sibley (2016) notes briefly:
+
+> Common call a rogh, rising buzz _zhreeeeee_. Flight call a high, sharp _kdeew_ and a dull _bid bid_.
+
 Evans and O'Brien (2002) give four possible NFC calls, but note that Pine Siskins are not known to give flight calls nocturnally. Research on this may have changed this view in the past two decades. The calls given are:
 
 > A quick, harsh _chu-tu-tu-tu_, a strident, emphatic _klee-you_, and a rising, nasal _waaaee_ are the most common flight calls.  Also gives a short _chit_. Occasionally given in flight, but more typically from a treetop, is a long, rising, buzzy _zreeeeeeee_.
 
 Sanders (2013) notes a "distinctive low double peak", and shows a spectrogram of a Pine Siskin, which doesn't match any other records I could find.
+
+Dunne (2006) notes:
+
+> Call notes include a rising _eeeh?_ (like a goldfinch), a _Chee_ (a cross between a chip and a snarl), and a more buzzy and ascending _zzzzeh!_ (the celebrated "zipper" call). Also gives a _chew ch ch ch reeeh?_ in flight. Many of the sounds are similar to a goldfinch but harsher and squeakier.
 
 ### Call Description
 
@@ -172,6 +180,7 @@ No listed confounding calls from other species. Rarer call.
 ### References
 
 * Dawson, W. R. (2020). Pine Siskin (Spinus pinus), version 1.0. In Birds of the World (A. F. Poole, Editor). Cornell Lab of Ornithology, Ithaca, NY, USA. https://doi.org/10.2173/bow.pinsis.01
+* Dunne, Pete (2006) _Pete Dunne's Essential Field Guide Companion_. Houghton Mifflin Harcourt: New York.
 * Evans, W. R. and O’Brien, M. (2002) _Flight Calls of Migratory Birds Eastern North American Landbirds_. Old Bird Inc. \[CD-ROM\]. [Online](http://oldbird.org)
 * Mandelbaum, R. (2020). Irruption Alert: Astonishing Pine Siskin Nocturnal Migration. From https://finchnetwork.org/irruption-alert-astonishing-pine-siskin-nocturnal-migration
 * Martin, S. G. (2020). Brewer's Blackbird (Euphagus cyanocephalus), version 1.0. In Birds of the World (A. F. Poole and F. B. Gill, Editors). Cornell Lab of Ornithology, Ithaca, NY, USA. https://doi.org/10.2173/bow.brebla.01

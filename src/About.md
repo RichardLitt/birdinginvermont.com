@@ -37,3 +37,4 @@ Get in touch by emailing [richard@birdinginvermont.com](mailto:richard@birdingin
 - **October 17th:** Added the [Eastern Cardinal](/subspecies/noca) subspecies page. Added the [Mainland Northern Saw-whet Owl](/subspecies/nswo) subspecies page.
 - **October 23th:** Added the [Dunlin](/nfc-species/dunl) NFC page.
 - **October 26th:** Added the [Pine Siskin](/nfc-species/pisi) NFC page.
+- **October 28th:** Added the [Pine Siskin](/subspecies/pisi) subspecies page.

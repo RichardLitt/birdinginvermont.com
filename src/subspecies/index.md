@@ -9,6 +9,7 @@ A page for each subspecies is forthcoming, as is better styling.
 - [Carolina Wren](/subspecies/carw)
 - [American Robin](/subspecies/amro)
 - [Northern Cardinal](/subspecies/noca)
+- [Pine Siskin](/subspecies/pisi)
 
 There is a Google Sheet of subspecies information, here: [The List of Subspecies](/subspecies/list).
 

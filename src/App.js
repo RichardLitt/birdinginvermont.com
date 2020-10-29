@@ -39,6 +39,7 @@ import bwhaPath from './subspecies/bwha.md'
 import gbhePath from './subspecies/gbhe.md'
 import nocaPath from './subspecies/noca.md'
 import nswoPath from './subspecies/nswo.md'
+import pisiPath from './subspecies/pisi.md'
 
 // import RadialView from './RadialView'
 const ebird = require('./ebird-ext/index.js')
@@ -106,6 +107,7 @@ class App extends Component {
           <Route exact path='/subspecies/bwha' render={(props) => (<ContentPage {...props} component={ContentPage} data={bwhaPath} />)} />
           <Route exact path='/subspecies/gbhe' render={(props) => (<ContentPage {...props} component={ContentPage} data={gbhePath} />)} />
           <Route exact path='/subspecies/noca' render={(props) => (<ContentPage {...props} component={ContentPage} data={nocaPath} />)} />
+          <Route exact path='/subspecies/pisi' render={(props) => (<ContentPage {...props} component={ContentPage} data={pisiPath} />)} />
           <Route exact path='/vbrc-checker' render={(props) =>(<Rarities {...props} component={Rarities} data={this.state.data} handleChange={this.handleChange} />)} />
           <Route exact path='/terms' render={(props) =>(<ContentPage {...props} component={ContentPage} data={termsPath} />)} />
           {/* <Route exact path='/10-mile' component={RadialView} data={this.state.data.radial} /> */}
