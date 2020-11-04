@@ -10,7 +10,9 @@ Birds of the World (Dawson 2020) says:
 
 > S. p. perplexus (van Rossem, 1938). Resident in highlands of s. Chiapas and w. Guatemala [type locality = San Andrés, Chiapas]. Somewhat resembles S. p. pinus but ventral streaks are diffuse, secondary bar narrow, and superciliary line gray; averages smaller than even the nominate subspecies. This subspecies is sufficiently distinct in appearance from other taxa of S. pinus that studies are needed to clarify its taxonomic status (Howell and Webb 1995).
 
-Pyle (1997) doesn't differentiate the Chiapan subspecies, as his book is largely concerned with American birds. However, he does mention that it can be difficult to separate _S. pinus pinus_ from Eurasian Siskin when there is a green morph. The narrow secondary bar he mentions may be difficult to tell except in flight, although it's possible that this secondary bar refers to wing bars. I was unable to find any bars on the secondaries in any photos on eBird, so I'm unclear what this means.
+The narrow secondary bar he mentions may be difficult to tell except in flight, although it's possible that this secondary bar refers to wing bars. I was unable to find any bars on the secondaries in any photos on eBird, so I'm unclear what this means.
+
+Pyle (1997) doesn't differentiate the Chiapan subspecies, as his book is largely concerned with American birds. However, he does mention that it can be difficult to separate _S. pinus pinus_ from Eurasian Siskin when there is a green morph.
 
 A more recent study, Alvarez et al. (2016), showed that _Spinus pinus perplexus_ is genetically different and could possibly be its own species. They write this about field markings:
 
@@ -22,7 +24,7 @@ A more recent study, Alvarez et al. (2016), showed that _Spinus pinus perplexus_
 
 Differentiating streaked forms may be difficult in the field, but the brown undertail-coverts, grey coloration, and diffuse streaks should be clear tells for Chiapan birds. (Although largely irrelevant for Vermont purposes, it may occasionally also be difficult to tell _S. pinus perplexus_ from _Spinus atriceps_, with which it may hybridize.)
 
-eBird also has another grouping, for [the green morph birds](https://ebird.org/media/catalog?taxonCode=pinsis3&view=Grid&sort=rating_rank_desc&q=Pine%20Siskin%20(green%20morph)%20-%20Spinus%20pinus%20(green%20morph). Assumedly, most of these birds are also Northern Pine Siskins, and the average Pine Siskin doesn't need to be differentiated from the other groupings when submitting a checklist.
+eBird also has another grouping, for [the green morph birds](https://ebird.org/media/catalog?taxonCode=pinsis3&view=Grid&sort=rating_rank_desc&q=Pine%20Siskin%20(green%20morph)%20-%20Spinus%20pinus%20(green%20morph)). Assumedly, most of these birds are also Northern Pine Siskins, and the average Pine Siskin doesn't need to be differentiated from the other groupings when submitting a checklist.
 
 Logging this bird on eBird may be useful for science: Alvarez et al. (2014) mentions the lack of vagrant _S. p. pinus/macroptera_ sightings in Chiapas on eBird as a sign of geographical isolation.
 
@@ -46,9 +48,8 @@ To date, there are no records on eBird of other subspecies in Vermont. The [reco
 **Salient identification points:**
 - Non-diffuse ventral streaks
 - Lacking a gray supercilium
-- Wide secondary bar
 - Warm or brownish and not grey coloration overall
-- White undertail coverts (not brown, as in streaked Chiapan birds, or yellow, as in green morphs)
+- White undertail coverts (not brown, as in streaked Chiapan birds, or yellow, as usually in green morphs)
 
 **Example Records:**
 - https://ebird.org/checklist/S74931206
