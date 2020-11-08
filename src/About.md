@@ -38,3 +38,4 @@ Get in touch by emailing [richard@birdinginvermont.com](mailto:richard@birdingin
 - **October 23th:** Added the [Dunlin](/nfc-species/dunl) NFC page.
 - **October 26th:** Added the [Pine Siskin](/nfc-species/pisi) NFC page.
 - **October 28th:** Added the [Pine Siskin](/subspecies/pisi) subspecies page.
+- **November 7th:** Added the [House Finch](/subspecies/hofi) subspecies page.

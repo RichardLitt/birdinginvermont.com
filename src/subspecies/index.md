@@ -10,6 +10,7 @@ A page for each subspecies is forthcoming, as is better styling.
 - [American Robin](/subspecies/amro)
 - [Northern Cardinal](/subspecies/noca)
 - [Pine Siskin](/subspecies/pisi)
+- [House Finch](/subspecies/hofi)
 
 There is a Google Sheet of subspecies information, here: [The List of Subspecies](/subspecies/list).
 
