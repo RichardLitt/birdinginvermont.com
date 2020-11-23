@@ -17,7 +17,8 @@
       "Branta canadensis parvipes"
     ],
     "Vermont Subspecies": [
-      "Branta canadensis canadensis"
+      "Branta canadensis canadensis",
+      "Branta canadensis [canadensis Group]"
     ],
     "Note": "May occur, but variability in resident and migrant Canadas make ID problematic."
   },
@@ -200,7 +201,8 @@
       ""
     ],
     "Vermont Subspecies": [
-      "Passerella iliaca iliaca"
+      "Passerella iliaca iliaca",
+      "Passerella iliaca iliaca/zaboria"
     ],
     "Note": "One of the dark races may have been seen in NH, but record may be a melanistic iliaca."
   },
