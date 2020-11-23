@@ -419,9 +419,9 @@ async function checklistLocations (opts) {
 }
 
 async function rare (opts) {
-  if (!opts.year) {
-    opts.year = moment().format('YYYY')
-  }
+  // if (!opts.year) {
+  //   opts.year = moment().format('YYYY')
+  // }
   opts.state = 'Vermont'
   // Use only data from this year, from Vermont
   const data = dateFilter(locationFilter(await getData(opts.input), opts), opts)
