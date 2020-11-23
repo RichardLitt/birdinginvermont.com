@@ -102,7 +102,13 @@ function calculateTimespan(str) {
     return str.match(/[\d]+|[A-Z]+/g)
   }
 
-  let weeks = str.split('-')
+  let weeks
+  if (str.includes('-')) {
+    weeks = str.split('-')
+  } else {
+    // For situations with a single week noted
+    weeks = [str, str]
+  }
   // Could probably be simplified
   let start = splitStringAlphanumerically(weeks[0])
   let startMonth = moment().month(start[0]-1).date(1)
