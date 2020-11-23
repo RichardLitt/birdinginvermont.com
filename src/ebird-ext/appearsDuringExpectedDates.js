@@ -169,7 +169,8 @@ function appearsDuringExpectedDates(date, speciesRecord) {
   const timespans = getTimespans(speciesRecord)
   if (timespans.length !== 0) {
     let isInTimespan = timespans.map(x => {
-      let start = x[0], end = x[1]
+      // IsBetween won't include entries on the date, so subtract a day and add a day
+      let start = moment(x[0]).subtract(1, 'day'), end = moment(x[1]).add(1, 'day')
       return moment(date, 'YYYY-MM-DD').isBetween(start, end)
     })
     return isInTimespan.some(x => x === true)
