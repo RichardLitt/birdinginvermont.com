@@ -13,7 +13,7 @@
     "Status": "",
     "Breeding": "",
     "Reporting": "",
-    "Occurrence": "3A-5C,\n9A-1D"
+    "Occurrence": "3A-5C, 9A-1D"
   },
   {
     "Species": "Ross's Goose",
@@ -32,7 +32,7 @@
     "Occurrence": "10B-5B"
   },
   {
-    "Species": "Pink-footed\nGoose",
+    "Species": "Pink-footed Goose",
     "Scientific Name": "Anser brachyrhynchus",
     "Status": "",
     "Breeding": "",
@@ -48,7 +48,7 @@
     "Occurrence": "4D-5D, 10A-11D"
   },
   {
-    "Species": "Barnacle\nGoose",
+    "Species": "Barnacle Goose",
     "Scientific Name": "Branta leucopsis",
     "Status": "",
     "Breeding": "",
@@ -64,7 +64,7 @@
     "Occurrence": "10A-4C"
   },
   {
-    "Species": "Canada\nGoose",
+    "Species": "Canada Goose",
     "Scientific Name": "Branta canadensis",
     "Status": "",
     "Breeding": "*",
@@ -80,7 +80,7 @@
     "Occurrence": "1A-12D"
   },
   {
-    "Species": "Trumpeter\nSwan",
+    "Species": "Trumpeter Swan",
     "Scientific Name": "Cygnus buccinator",
     "Status": "",
     "Breeding": "",
@@ -96,7 +96,7 @@
     "Occurrence": "3C-4C, 10A-12D"
   },
   {
-    "Species": "Wood\nDuck",
+    "Species": "Wood Duck",
     "Scientific Name": "Aix sponsa",
     "Status": "",
     "Breeding": "*",
@@ -113,7 +113,7 @@
   },
   {
     "Species": "Blue-winged Teal",
-    "Scientific\nName": "Spatula discors",
+    "Scientific Name": "Spatula discors",
     "Status": "",
     "Breeding": "*",
     "Reporting": "",
@@ -129,7 +129,7 @@
   },
   {
     "Species": "Gadwall",
-    "Scientific\nName": "Mareca strepera",
+    "Scientific Name": "Mareca strepera",
     "Status": "",
     "Breeding": "*",
     "Reporting": "N",
@@ -145,7 +145,7 @@
   },
   {
     "Species": "American Wigeon",
-    "Scientific\nName": "Mareca americana",
+    "Scientific Name": "Mareca americana",
     "Status": "",
     "Breeding": "*",
     "Reporting": "N",
@@ -161,7 +161,7 @@
   },
   {
     "Species": "American Black Duck",
-    "Scientific\nName": "Anas rubripes",
+    "Scientific Name": "Anas rubripes",
     "Status": "",
     "Breeding": "*",
     "Reporting": "",
@@ -177,7 +177,7 @@
   },
   {
     "Species": "Green-winged Teal",
-    "Scientific\nName": "Anas crecca",
+    "Scientific Name": "Anas crecca",
     "Status": "",
     "Breeding": "*",
     "Reporting": "N",
@@ -193,7 +193,7 @@
   },
   {
     "Species": "Redhead",
-    "Scientific Name": "Aythya\namericana",
+    "Scientific Name": "Aythya americana",
     "Status": "",
     "Breeding": "",
     "Reporting": "",
@@ -209,7 +209,7 @@
   },
   {
     "Species": "Tufted Duck",
-    "Scientific Name": "Aythya\nfuligula",
+    "Scientific Name": "Aythya fuligula",
     "Status": "",
     "Breeding": "",
     "Reporting": "C",
@@ -225,7 +225,7 @@
   },
   {
     "Species": "Lesser Scaup",
-    "Scientific Name": "Aythya\naffinis",
+    "Scientific Name": "Aythya affinis",
     "Status": "",
     "Breeding": "",
     "Reporting": "",
@@ -241,7 +241,7 @@
   },
   {
     "Species": "Common Eider",
-    "Scientific Name": "Somateria\nmollissima",
+    "Scientific Name": "Somateria mollissima",
     "Status": "",
     "Breeding": "",
     "Reporting": "",
@@ -257,7 +257,7 @@
   },
   {
     "Species": "Surf Scoter",
-    "Scientific\nName": "Melanitta perspicillata",
+    "Scientific Name": "Melanitta perspicillata",
     "Status": "",
     "Breeding": "",
     "Reporting": "",
@@ -273,7 +273,7 @@
   },
   {
     "Species": "Black Scoter",
-    "Scientific\nName": "Melanitta americana",
+    "Scientific Name": "Melanitta americana",
     "Status": "",
     "Breeding": "",
     "Reporting": "",
@@ -289,7 +289,7 @@
   },
   {
     "Species": "Bufflehead",
-    "Scientific\nName": "Bucephala albeola",
+    "Scientific Name": "Bucephala albeola",
     "Status": "",
     "Breeding": "",
     "Reporting": "",
@@ -305,7 +305,7 @@
   },
   {
     "Species": "Barrow's Goldeneye",
-    "Scientific\nName": "Bucephala islandica",
+    "Scientific Name": "Bucephala islandica",
     "Status": "",
     "Breeding": "",
     "Reporting": "",
@@ -321,7 +321,7 @@
   },
   {
     "Species": "Common Merganser",
-    "Scientific\nName": "Mergus merganser",
+    "Scientific Name": "Mergus merganser",
     "Status": "",
     "Breeding": "*",
     "Reporting": "",
@@ -337,7 +337,7 @@
   },
   {
     "Species": "Ruddy Duck",
-    "Scientific\nName": "Oxyura jamaicensis",
+    "Scientific Name": "Oxyura jamaicensis",
     "Status": "",
     "Breeding": "",
     "Reporting": "",
@@ -352,7 +352,7 @@
     "Occurrence": "1A-12D"
   },
   {
-    "Species": "Wild\nTurkey",
+    "Species": "Wild Turkey",
     "Scientific Name": "Meleagris gallopavo",
     "Status": "",
     "Breeding": "*",
@@ -368,7 +368,7 @@
     "Occurrence": "1A-12D"
   },
   {
-    "Species": "Spruce\nGrouse",
+    "Species": "Spruce Grouse",
     "Scientific Name": "Falcipennis canadensis",
     "Status": "",
     "Breeding": "*",
@@ -384,7 +384,7 @@
     "Occurrence": ""
   },
   {
-    "Species": "Gray\nPartridge",
+    "Species": "Gray Partridge",
     "Scientific Name": "Perdix perdix",
     "Status": "I",
     "Breeding": "*",
@@ -400,7 +400,7 @@
     "Occurrence": "1A-12D"
   },
   {
-    "Species": "Pied-billed\nGrebe",
+    "Species": "Pied-billed Grebe",
     "Scientific Name": "Podilymbus podiceps",
     "Status": "",
     "Breeding": "*",
@@ -416,7 +416,7 @@
     "Occurrence": "9D-5A"
   },
   {
-    "Species": "Red-necked\nGrebe",
+    "Species": "Red-necked Grebe",
     "Scientific Name": "Podiceps grisegena",
     "Status": "",
     "Breeding": "",
@@ -432,7 +432,7 @@
     "Occurrence": ""
   },
   {
-    "Species": "Western/Clark's\nGrebe",
+    "Species": "Western/Clark's Grebe",
     "Scientific Name": "Aechmophorus spp.",
     "Status": "",
     "Breeding": "",
@@ -448,7 +448,7 @@
     "Occurrence": "1A-12D"
   },
   {
-    "Species": "Band-tailed\nPigeon",
+    "Species": "Band-tailed Pigeon",
     "Scientific Name": "Patagioenas fasciata",
     "Status": "",
     "Breeding": "",
@@ -464,7 +464,7 @@
     "Occurrence": ""
   },
   {
-    "Species": "Passenger\nPigeon",
+    "Species": "Passenger Pigeon",
     "Scientific Name": "Ectopistes migratorius",
     "Status": "X",
     "Breeding": "*",
@@ -480,7 +480,7 @@
     "Occurrence": ""
   },
   {
-    "Species": "Mourning\nDove",
+    "Species": "Mourning Dove",
     "Scientific Name": "Zenaida macroura",
     "Status": "",
     "Breeding": "*",
@@ -496,7 +496,7 @@
     "Occurrence": "5C-9D"
   },
   {
-    "Species": "Black-billed\nCuckoo",
+    "Species": "Black-billed Cuckoo",
     "Scientific Name": "Coccyzus erythropthalmus",
     "Status": "",
     "Breeding": "*",
@@ -512,7 +512,7 @@
     "Occurrence": "5C-9B"
   },
   {
-    "Species": "Eastern\nWhip-poor-will",
+    "Species": "Eastern Whip-poor-will",
     "Scientific Name": "Antrostomus vociferus",
     "Status": "",
     "Breeding": "*",
@@ -528,7 +528,7 @@
     "Occurrence": "4D-9C"
   },
   {
-    "Species": "Ruby-throated\nHummingbird",
+    "Species": "Ruby-throated Hummingbird",
     "Scientific Name": "Archilochus colubris",
     "Status": "",
     "Breeding": "*",
@@ -544,7 +544,7 @@
     "Occurrence": ""
   },
   {
-    "Species": "Clapper\nRail",
+    "Species": "Clapper Rail",
     "Scientific Name": "Rallus crepitans",
     "Status": "",
     "Breeding": "",
@@ -561,7 +561,7 @@
   },
   {
     "Species": "Sora",
-    "Scientific\nName": "Porzana carolina",
+    "Scientific Name": "Porzana carolina",
     "Status": "",
     "Breeding": "*",
     "Reporting": "N",
@@ -577,7 +577,7 @@
   },
   {
     "Species": "American Coot",
-    "Scientific\nName": "Fulica americana",
+    "Scientific Name": "Fulica americana",
     "Status": "",
     "Breeding": "",
     "Reporting": "N",
@@ -592,7 +592,7 @@
     "Occurrence": ""
   },
   {
-    "Species": "Sandhill\nCrane",
+    "Species": "Sandhill Crane",
     "Scientific Name": "Antigone canadensis",
     "Status": "",
     "Breeding": "*",
@@ -608,7 +608,7 @@
     "Occurrence": ""
   },
   {
-    "Species": "Black-bellied\nPlover",
+    "Species": "Black-bellied Plover",
     "Scientific Name": "Pluvialis squatarola",
     "Status": "",
     "Breeding": "",
@@ -624,7 +624,7 @@
     "Occurrence": "8C-10D"
   },
   {
-    "Species": "Pacific\nGolden-Plover",
+    "Species": "Pacific Golden-Plover",
     "Scientific Name": "Pluvialis fulva",
     "Status": "H",
     "Breeding": "",
@@ -640,7 +640,7 @@
     "Occurrence": "3A-11B"
   },
   {
-    "Species": "Semipalmated\nPlover",
+    "Species": "Semipalmated Plover",
     "Scientific Name": "Charadrius semipalmatus",
     "Status": "",
     "Breeding": "",
@@ -656,7 +656,7 @@
     "Occurrence": ""
   },
   {
-    "Species": "Upland\nSandpiper",
+    "Species": "Upland Sandpiper",
     "Scientific Name": "Bartramia longicauda",
     "Status": "",
     "Breeding": "*",
@@ -672,7 +672,7 @@
     "Occurrence": "7C-10A"
   },
   {
-    "Species": "Black-tailed\nGodwit",
+    "Species": "Black-tailed Godwit",
     "Scientific Name": "Limosa limosa",
     "Status": "",
     "Breeding": "",
@@ -688,7 +688,7 @@
     "Occurrence": "8D-11C"
   },
   {
-    "Species": "Marbled\nGodwit",
+    "Species": "Marbled Godwit",
     "Scientific Name": "Limosa fedoa",
     "Status": "",
     "Breeding": "",
@@ -704,7 +704,7 @@
     "Occurrence": "5C-6B, 7B-10D"
   },
   {
-    "Species": "Red\nKnot",
+    "Species": "Red Knot",
     "Scientific Name": "Calidris canutus",
     "Status": "",
     "Breeding": "",
@@ -721,7 +721,7 @@
   },
   {
     "Species": "Stilt Sandpiper",
-    "Scientific\nName": "Calidris himantopus",
+    "Scientific Name": "Calidris himantopus",
     "Status": "",
     "Breeding": "",
     "Reporting": "",
@@ -737,7 +737,7 @@
   },
   {
     "Species": "Sanderling",
-    "Scientific\nName": "Calidris alba",
+    "Scientific Name": "Calidris alba",
     "Status": "",
     "Breeding": "",
     "Reporting": "",
@@ -753,7 +753,7 @@
   },
   {
     "Species": "Purple Sandpiper",
-    "Scientific\nName": "Calidris maritima",
+    "Scientific Name": "Calidris maritima",
     "Status": "",
     "Breeding": "",
     "Reporting": "",
@@ -769,7 +769,7 @@
   },
   {
     "Species": "Least Sandpiper",
-    "Scientific\nName": "Calidris minutilla",
+    "Scientific Name": "Calidris minutilla",
     "Status": "",
     "Breeding": "",
     "Reporting": "",
@@ -784,7 +784,7 @@
     "Occurrence": "5C-5D, 8B-11A"
   },
   {
-    "Species": "Buff-breasted\nSandpiper",
+    "Species": "Buff-breasted Sandpiper",
     "Scientific Name": "Calidris subruficollis",
     "Status": "",
     "Breeding": "",
@@ -800,7 +800,7 @@
     "Occurrence": "4A-5C, 7D-11A"
   },
   {
-    "Species": "Semipalmated\nSandpiper",
+    "Species": "Semipalmated Sandpiper",
     "Scientific Name": "Calidris pusilla",
     "Status": "",
     "Breeding": "",
@@ -816,7 +816,7 @@
     "Occurrence": ""
   },
   {
-    "Species": "Short-billed\nDowitcher",
+    "Species": "Short-billed Dowitcher",
     "Scientific Name": "Limnodromus griseus",
     "Status": "",
     "Breeding": "",
@@ -832,7 +832,7 @@
     "Occurrence": "8D-10D"
   },
   {
-    "Species": "American\nWoodcock",
+    "Species": "American Woodcock",
     "Scientific Name": "Scolopax minor",
     "Status": "",
     "Breeding": "*",
@@ -848,7 +848,7 @@
     "Occurrence": "3D-11A+"
   },
   {
-    "Species": "Spotted\nSandpiper",
+    "Species": "Spotted Sandpiper",
     "Scientific Name": "Actitis macularius",
     "Status": "",
     "Breeding": "*",
@@ -864,7 +864,7 @@
     "Occurrence": "4D-5D, 7B-10B"
   },
   {
-    "Species": "Lesser\nYellowlegs",
+    "Species": "Lesser Yellowlegs",
     "Scientific Name": "Tringa flavipes",
     "Status": "",
     "Breeding": "",
@@ -880,7 +880,7 @@
     "Occurrence": "5D, 7B-10D"
   },
   {
-    "Species": "Greater\nYellowlegs",
+    "Species": "Greater Yellowlegs",
     "Scientific Name": "Tringa melanoleuca",
     "Status": "",
     "Breeding": "",
@@ -893,7 +893,7 @@
     "Status": "",
     "Breeding": "",
     "Reporting": "C",
-    "Occurrence": "5B-6A,\n7D-9B"
+    "Occurrence": "5B-6A, 7D-9B"
   },
   {
     "Species": "Red-necked Phalarope",
@@ -909,7 +909,7 @@
     "Status": "",
     "Breeding": "",
     "Reporting": "",
-    "Occurrence": "5B-6B,\n8D-11D"
+    "Occurrence": "5B-6B, 8D-11D"
   },
   {
     "Species": "Pomarine Jaeger",
@@ -928,7 +928,7 @@
     "Occurrence": "8D-11C"
   },
   {
-    "Species": "Long-tailed\nJaeger",
+    "Species": "Long-tailed Jaeger",
     "Scientific Name": "Stercorarius longicaudus",
     "Status": "",
     "Breeding": "",
@@ -945,7 +945,7 @@
   },
   {
     "Species": "Common Murre",
-    "Scientific\nName": "Uria aalge",
+    "Scientific Name": "Uria aalge",
     "Status": "",
     "Breeding": "",
     "Reporting": "V",
@@ -961,7 +961,7 @@
   },
   {
     "Species": "Black Guillemot",
-    "Scientific Name": "Cepphus\ngrylle",
+    "Scientific Name": "Cepphus grylle",
     "Status": "",
     "Breeding": "",
     "Reporting": "V",
@@ -977,7 +977,7 @@
   },
   {
     "Species": "Atlantic Puffin",
-    "Scientific Name": "Fratercula\narctica",
+    "Scientific Name": "Fratercula arctica",
     "Status": "",
     "Breeding": "",
     "Reporting": "V",
@@ -993,7 +993,7 @@
   },
   {
     "Species": "Ivory Gull",
-    "Scientific Name": "Pagophila\neburnea",
+    "Scientific Name": "Pagophila eburnea",
     "Status": "",
     "Breeding": "",
     "Reporting": "V",
@@ -1009,7 +1009,7 @@
   },
   {
     "Species": "Bonaparte's Gull",
-    "Scientific Name": "Chroicocephalus\nphiladelphia",
+    "Scientific Name": "Chroicocephalus philadelphia",
     "Status": "",
     "Breeding": "",
     "Reporting": "",
@@ -1025,7 +1025,7 @@
   },
   {
     "Species": "Little Gull",
-    "Scientific\nName": "Hydrocoloeus minutus",
+    "Scientific Name": "Hydrocoloeus minutus",
     "Status": "",
     "Breeding": "",
     "Reporting": "",
@@ -1041,7 +1041,7 @@
   },
   {
     "Species": "Franklin's Gull",
-    "Scientific\nName": "Leucophaeus pipixcan",
+    "Scientific Name": "Leucophaeus pipixcan",
     "Status": "",
     "Breeding": "",
     "Reporting": "V",
@@ -1057,7 +1057,7 @@
   },
   {
     "Species": "Ring-billed Gull",
-    "Scientific\nName": "Larus delawarensis",
+    "Scientific Name": "Larus delawarensis",
     "Status": "",
     "Breeding": "*",
     "Reporting": "",
@@ -1073,7 +1073,7 @@
   },
   {
     "Species": "Iceland Gull",
-    "Scientific\nName": "Larus glaucoides",
+    "Scientific Name": "Larus glaucoides",
     "Status": "",
     "Breeding": "",
     "Reporting": "",
@@ -1089,7 +1089,7 @@
   },
   {
     "Species": "Slaty-backed Gull",
-    "Scientific\nName": "Larus schistisagus",
+    "Scientific Name": "Larus schistisagus",
     "Status": "",
     "Breeding": "",
     "Reporting": "V",
@@ -1105,7 +1105,7 @@
   },
   {
     "Species": "Great Black-backed Gull",
-    "Scientific\nName": "Larus marinus",
+    "Scientific Name": "Larus marinus",
     "Status": "",
     "Breeding": "*",
     "Reporting": "",
@@ -1121,7 +1121,7 @@
   },
   {
     "Species": "Caspian Tern",
-    "Scientific Name": "Hydroprogne\ncaspia",
+    "Scientific Name": "Hydroprogne caspia",
     "Status": "",
     "Breeding": "*",
     "Reporting": "N",
@@ -1137,7 +1137,7 @@
   },
   {
     "Species": "White-winged Tern",
-    "Scientific Name": "Chlidonias\nleucopterus",
+    "Scientific Name": "Chlidonias leucopterus",
     "Status": "",
     "Breeding": "",
     "Reporting": "V",
@@ -1160,7 +1160,7 @@
     "Occurrence": ""
   },
   {
-    "Species": "Forster's\nTern",
+    "Species": "Forster's Tern",
     "Scientific Name": "Sterna forsteri",
     "Status": "",
     "Breeding": "*",
@@ -1176,7 +1176,7 @@
     "Occurrence": ""
   },
   {
-    "Species": "Red-throated\nLoon",
+    "Species": "Red-throated Loon",
     "Scientific Name": "Gavia stellata",
     "Status": "",
     "Breeding": "",
@@ -1192,7 +1192,7 @@
     "Occurrence": ""
   },
   {
-    "Species": "Pacific\nLoon",
+    "Species": "Pacific Loon",
     "Scientific Name": "Gavia pacifica",
     "Status": "",
     "Breeding": "",
@@ -1209,7 +1209,7 @@
   },
   {
     "Species": "Wilson's Storm-Petrel",
-    "Scientific\nName": "Oceanites oceanicus",
+    "Scientific Name": "Oceanites oceanicus",
     "Status": "",
     "Breeding": "",
     "Reporting": "V",
@@ -1225,7 +1225,7 @@
   },
   {
     "Species": "Band-rumped Storm-Petrel",
-    "Scientific\nName": "Hydrobates castro",
+    "Scientific Name": "Hydrobates castro",
     "Status": "",
     "Breeding": "",
     "Reporting": "V",
@@ -1241,7 +1241,7 @@
   },
   {
     "Species": "Cory's Shearwater",
-    "Scientific\nName": "Calonectris diomedea",
+    "Scientific Name": "Calonectris diomedea",
     "Status": "",
     "Breeding": "",
     "Reporting": "V",
@@ -1257,7 +1257,7 @@
   },
   {
     "Species": "Wood Stork",
-    "Scientific Name": "Mycteria\namericana",
+    "Scientific Name": "Mycteria americana",
     "Status": "",
     "Breeding": "",
     "Reporting": "V",
@@ -1281,7 +1281,7 @@
   },
   {
     "Species": "Anhinga",
-    "Scientific\nName": "Anhinga anhinga",
+    "Scientific Name": "Anhinga anhinga",
     "Status": "H",
     "Breeding": "",
     "Reporting": "V",
@@ -1296,7 +1296,7 @@
     "Occurrence": "4C-5C, 9A-12D"
   },
   {
-    "Species": "Double-crested\nCormorant",
+    "Species": "Double-crested Cormorant",
     "Scientific Name": "Phalacrocorax auritus",
     "Status": "",
     "Breeding": "*",
@@ -1312,7 +1312,7 @@
     "Occurrence": ""
   },
   {
-    "Species": "Brown\nPelican",
+    "Species": "Brown Pelican",
     "Scientific Name": "Pelecanus occidentalis",
     "Status": "",
     "Breeding": "",
@@ -1328,7 +1328,7 @@
     "Occurrence": "4B-10C"
   },
   {
-    "Species": "Least\nBittern",
+    "Species": "Least Bittern",
     "Scientific Name": "Ixobrychus exilis",
     "Status": "",
     "Breeding": "*",
@@ -1344,7 +1344,7 @@
     "Occurrence": "3B-12D"
   },
   {
-    "Species": "Great\nEgret",
+    "Species": "Great Egret",
     "Scientific Name": "Ardea alba",
     "Status": "",
     "Breeding": "*",
@@ -1360,7 +1360,7 @@
     "Occurrence": "4C-9D"
   },
   {
-    "Species": "Little Blue\nHeron",
+    "Species": "Little Blue Heron",
     "Scientific Name": "Egretta caerulea",
     "Status": "",
     "Breeding": "",
@@ -1376,7 +1376,7 @@
     "Occurrence": ""
   },
   {
-    "Species": "Cattle\nEgret",
+    "Species": "Cattle Egret",
     "Scientific Name": "Bubulcus ibis",
     "Status": "",
     "Breeding": "*",
@@ -1392,7 +1392,7 @@
     "Occurrence": "4C-10C"
   },
   {
-    "Species": "Black-crowned\nNight-Heron",
+    "Species": "Black-crowned Night-Heron",
     "Scientific Name": "Nycticorax nycticorax",
     "Status": "",
     "Breeding": "*",
@@ -1408,7 +1408,7 @@
     "Occurrence": ""
   },
   {
-    "Species": "White\nIbis",
+    "Species": "White Ibis",
     "Scientific Name": "Eudocimus albus",
     "Status": "H",
     "Breeding": "",
@@ -1424,7 +1424,7 @@
     "Occurrence": "4B-5C, 7C-10B"
   },
   {
-    "Species": "Black\nVulture",
+    "Species": "Black Vulture",
     "Scientific Name": "Coragyps atratus",
     "Status": "",
     "Breeding": "",
@@ -1441,7 +1441,7 @@
   },
   {
     "Species": "Osprey",
-    "Scientific\nName": "Pandion haliaetus",
+    "Scientific Name": "Pandion haliaetus",
     "Status": "",
     "Breeding": "*",
     "Reporting": "",
@@ -1457,7 +1457,7 @@
   },
   {
     "Species": "Golden Eagle",
-    "Scientific\nName": "Aquila chrysaetos",
+    "Scientific Name": "Aquila chrysaetos",
     "Status": "",
     "Breeding": "",
     "Reporting": "",
@@ -1472,7 +1472,7 @@
     "Occurrence": "3B-1A+"
   },
   {
-    "Species": "Sharp-shinned\nHawk",
+    "Species": "Sharp-shinned Hawk",
     "Scientific Name": "Accipiter striatus",
     "Status": "",
     "Breeding": "*",
@@ -1488,7 +1488,7 @@
     "Occurrence": "1A-12D"
   },
   {
-    "Species": "Northern\nGoshawk",
+    "Species": "Northern Goshawk",
     "Scientific Name": "Accipiter gentilis",
     "Status": "",
     "Breeding": "*",
@@ -1504,7 +1504,7 @@
     "Occurrence": "1A-12D"
   },
   {
-    "Species": "Red-shouldered\nHawk",
+    "Species": "Red-shouldered Hawk",
     "Scientific Name": "Buteo lineatus",
     "Status": "",
     "Breeding": "*",
@@ -1520,7 +1520,7 @@
     "Occurrence": "3D-10C"
   },
   {
-    "Species": "Swainson's\nHawk",
+    "Species": "Swainson's Hawk",
     "Scientific Name": "Buteo swainsoni",
     "Status": "",
     "Breeding": "",
@@ -1536,7 +1536,7 @@
     "Occurrence": "1A-12D"
   },
   {
-    "Species": "Rough-legged\nHawk",
+    "Species": "Rough-legged Hawk",
     "Scientific Name": "Buteo lagopus",
     "Status": "",
     "Breeding": "",
@@ -1553,7 +1553,7 @@
   },
   {
     "Species": "Eastern Screech-Owl",
-    "Scientific\nName": "Megascops asio",
+    "Scientific Name": "Megascops asio",
     "Status": "",
     "Breeding": "*",
     "Reporting": "",
@@ -1569,7 +1569,7 @@
   },
   {
     "Species": "Snowy Owl",
-    "Scientific\nName": "Bubo scandiacus",
+    "Scientific Name": "Bubo scandiacus",
     "Status": "",
     "Breeding": "",
     "Reporting": "",
@@ -1585,7 +1585,7 @@
   },
   {
     "Species": "Barred Owl",
-    "Scientific\nName": "Strix varia",
+    "Scientific Name": "Strix varia",
     "Status": "",
     "Breeding": "*",
     "Reporting": "",
@@ -1601,7 +1601,7 @@
   },
   {
     "Species": "Long-eared Owl",
-    "Scientific Name": "Asio\notus",
+    "Scientific Name": "Asio otus",
     "Status": "",
     "Breeding": "*",
     "Reporting": "N",
@@ -1617,7 +1617,7 @@
   },
   {
     "Species": "Boreal Owl",
-    "Scientific Name": "Aegolius\nfunereus",
+    "Scientific Name": "Aegolius funereus",
     "Status": "",
     "Breeding": "",
     "Reporting": "V",
@@ -1633,7 +1633,7 @@
   },
   {
     "Species": "Belted Kingfisher",
-    "Scientific Name": "Megaceryle\nalcyon",
+    "Scientific Name": "Megaceryle alcyon",
     "Status": "",
     "Breeding": "*",
     "Reporting": "",
@@ -1649,7 +1649,7 @@
   },
   {
     "Species": "Red-headed Woodpecker",
-    "Scientific Name": "Melanerpes\nerythrocephalus",
+    "Scientific Name": "Melanerpes erythrocephalus",
     "Status": "",
     "Breeding": "*",
     "Reporting": "N",
@@ -1664,7 +1664,7 @@
     "Occurrence": "1A-12D"
   },
   {
-    "Species": "Yellow-bellied\nSapsucker",
+    "Species": "Yellow-bellied Sapsucker",
     "Scientific Name": "Sphyrapicus varius",
     "Status": "",
     "Breeding": "*",
@@ -1680,7 +1680,7 @@
     "Occurrence": ""
   },
   {
-    "Species": "Black-backed\nWoodpecker",
+    "Species": "Black-backed Woodpecker",
     "Scientific Name": "Picoides arcticus",
     "Status": "",
     "Breeding": "*",
@@ -1696,7 +1696,7 @@
     "Occurrence": "1A-12D"
   },
   {
-    "Species": "Hairy\nWoodpecker",
+    "Species": "Hairy Woodpecker",
     "Scientific Name": "Dryobates villosus",
     "Status": "",
     "Breeding": "*",
@@ -1712,7 +1712,7 @@
     "Occurrence": "3B-11D+"
   },
   {
-    "Species": "Pileated\nWoodpecker",
+    "Species": "Pileated Woodpecker",
     "Scientific Name": "Dryocopus pileatus",
     "Status": "",
     "Breeding": "*",
@@ -1729,7 +1729,7 @@
   },
   {
     "Species": "Merlin",
-    "Scientific\nName": "Falco columbarius",
+    "Scientific Name": "Falco columbarius",
     "Status": "",
     "Breeding": "*",
     "Reporting": "",
@@ -1745,7 +1745,7 @@
   },
   {
     "Species": "Peregrine Falcon",
-    "Scientific\nName": "Falco peregrinus",
+    "Scientific Name": "Falco peregrinus",
     "Status": "",
     "Breeding": "*",
     "Reporting": "N",
@@ -1761,7 +1761,7 @@
   },
   {
     "Species": "Olive-sided Flycatcher",
-    "Scientific\nName": "Contopus cooperi",
+    "Scientific Name": "Contopus cooperi",
     "Status": "",
     "Breeding": "*",
     "Reporting": "",
@@ -1777,7 +1777,7 @@
   },
   {
     "Species": "Yellow-bellied Flycatcher",
-    "Scientific\nName": "Empidonax flaviventris",
+    "Scientific Name": "Empidonax flaviventris",
     "Status": "",
     "Breeding": "*",
     "Reporting": "",
@@ -1793,7 +1793,7 @@
   },
   {
     "Species": "Alder Flycatcher",
-    "Scientific\nName": "Empidonax alnorum",
+    "Scientific Name": "Empidonax alnorum",
     "Status": "",
     "Breeding": "*",
     "Reporting": "",
@@ -1809,7 +1809,7 @@
   },
   {
     "Species": "Least Flycatcher",
-    "Scientific\nName": "Empidonax minimus",
+    "Scientific Name": "Empidonax minimus",
     "Status": "",
     "Breeding": "*",
     "Reporting": "",
@@ -1825,7 +1825,7 @@
   },
   {
     "Species": "Say's Phoebe",
-    "Scientific\nName": "Sayornis saya",
+    "Scientific Name": "Sayornis saya",
     "Status": "",
     "Breeding": "",
     "Reporting": "V",
@@ -1841,7 +1841,7 @@
   },
   {
     "Species": "Western Kingbird",
-    "Scientific\nName": "Tyrannus verticalis",
+    "Scientific Name": "Tyrannus verticalis",
     "Status": "",
     "Breeding": "",
     "Reporting": "V",
@@ -1857,7 +1857,7 @@
   },
   {
     "Species": "Scissor-tailed Flycatcher",
-    "Scientific\nName": "Tyrannus forficatus",
+    "Scientific Name": "Tyrannus forficatus",
     "Status": "",
     "Breeding": "",
     "Reporting": "V",
@@ -1873,7 +1873,7 @@
   },
   {
     "Species": "Loggerhead Shrike",
-    "Scientific\nName": "Lanius ludovicianus",
+    "Scientific Name": "Lanius ludovicianus",
     "Status": "E",
     "Breeding": "*",
     "Reporting": "V",
@@ -1889,7 +1889,7 @@
   },
   {
     "Species": "White-eyed Vireo",
-    "Scientific\nName": "Vireo griseus",
+    "Scientific Name": "Vireo griseus",
     "Status": "",
     "Breeding": "",
     "Reporting": "",
@@ -1905,7 +1905,7 @@
   },
   {
     "Species": "Cassin's Vireo",
-    "Scientific\nName": "Vireo cassinii",
+    "Scientific Name": "Vireo cassinii",
     "Status": "",
     "Breeding": "",
     "Reporting": "V",
@@ -1921,7 +1921,7 @@
   },
   {
     "Species": "Philadelphia Vireo",
-    "Scientific\nName": "Vireo philadelphicus",
+    "Scientific Name": "Vireo philadelphicus",
     "Status": "",
     "Breeding": "*",
     "Reporting": "N",
@@ -1937,7 +1937,7 @@
   },
   {
     "Species": "Red-eyed Vireo",
-    "Scientific\nName": "Vireo olivaceus",
+    "Scientific Name": "Vireo olivaceus",
     "Status": "",
     "Breeding": "*",
     "Reporting": "",
@@ -1953,7 +1953,7 @@
   },
   {
     "Species": "Steller's Jay",
-    "Scientific\nName": "Cyanocitta stelleri",
+    "Scientific Name": "Cyanocitta stelleri",
     "Status": "H",
     "Breeding": "",
     "Reporting": "V",
@@ -1969,7 +1969,7 @@
   },
   {
     "Species": "American Crow",
-    "Scientific\nName": "Corvus brachyrhynchos",
+    "Scientific Name": "Corvus brachyrhynchos",
     "Status": "",
     "Breeding": "*",
     "Reporting": "",
@@ -1985,7 +1985,7 @@
   },
   {
     "Species": "Common Raven",
-    "Scientific\nName": "Corvus corax",
+    "Scientific Name": "Corvus corax",
     "Status": "",
     "Breeding": "*",
     "Reporting": "",
@@ -2001,7 +2001,7 @@
   },
   {
     "Species": "Bank Swallow",
-    "Scientific\nName": "Riparia riparia",
+    "Scientific Name": "Riparia riparia",
     "Status": "",
     "Breeding": "*",
     "Reporting": "",
@@ -2016,7 +2016,7 @@
     "Occurrence": "3D-10C"
   },
   {
-    "Species": "Northern Rough-winged\nSwallow",
+    "Species": "Northern Rough-winged Swallow",
     "Scientific Name": "Stelgidopteryx serripennis",
     "Status": "",
     "Breeding": "*",
@@ -2032,7 +2032,7 @@
     "Occurrence": "4C-9A"
   },
   {
-    "Species": "Barn\nSwallow",
+    "Species": "Barn Swallow",
     "Scientific Name": "Hirundo rustica",
     "Status": "",
     "Breeding": "*",
@@ -2048,7 +2048,7 @@
     "Occurrence": "4C-9D"
   },
   {
-    "Species": "Cave\nSwallow",
+    "Species": "Cave Swallow",
     "Scientific Name": "Petrochelidon fulva",
     "Status": "",
     "Breeding": "",
@@ -2064,7 +2064,7 @@
     "Occurrence": "1A-12D"
   },
   {
-    "Species": "Boreal\nChickadee",
+    "Species": "Boreal Chickadee",
     "Scientific Name": "Poecile hudsonicus",
     "Status": "",
     "Breeding": "*",
@@ -2080,7 +2080,7 @@
     "Occurrence": "1A-12D"
   },
   {
-    "Species": "Red-breasted\nNuthatch",
+    "Species": "Red-breasted Nuthatch",
     "Scientific Name": "Sitta canadensis",
     "Status": "",
     "Breeding": "*",
@@ -2096,7 +2096,7 @@
     "Occurrence": "1A-12D"
   },
   {
-    "Species": "Brown\nCreeper",
+    "Species": "Brown Creeper",
     "Scientific Name": "Certhia americana",
     "Status": "",
     "Breeding": "*",
@@ -2112,7 +2112,7 @@
     "Occurrence": "4D-10B"
   },
   {
-    "Species": "Winter\nWren",
+    "Species": "Winter Wren",
     "Scientific Name": "Troglodytes hiemalis",
     "Status": "",
     "Breeding": "*",
@@ -2128,7 +2128,7 @@
     "Occurrence": "5B-10C"
   },
   {
-    "Species": "Marsh\nWren",
+    "Species": "Marsh Wren",
     "Scientific Name": "Cistothorus palustris",
     "Status": "",
     "Breeding": "*",
@@ -2144,7 +2144,7 @@
     "Occurrence": "1A-12D"
   },
   {
-    "Species": "Bewick's\nWren",
+    "Species": "Bewick's Wren",
     "Scientific Name": "Thryomanes bewickii",
     "Status": "",
     "Breeding": "",
@@ -2160,7 +2160,7 @@
     "Occurrence": "4D-9A"
   },
   {
-    "Species": "Golden-crowned\nKinglet",
+    "Species": "Golden-crowned Kinglet",
     "Scientific Name": "Regulus satrapa",
     "Status": "",
     "Breeding": "*",
@@ -2176,7 +2176,7 @@
     "Occurrence": "4B-11C"
   },
   {
-    "Species": "Northern\nWheatear",
+    "Species": "Northern Wheatear",
     "Scientific Name": "Oenanthe oenanthe",
     "Status": "",
     "Breeding": "",
@@ -2192,7 +2192,7 @@
     "Occurrence": "1A-12D"
   },
   {
-    "Species": "Mountain\nBluebird",
+    "Species": "Mountain Bluebird",
     "Scientific Name": "Sialia currucoides",
     "Status": "",
     "Breeding": "",
@@ -2209,7 +2209,7 @@
   },
   {
     "Species": "Veery",
-    "Scientific\nName": "Catharus fuscescens",
+    "Scientific Name": "Catharus fuscescens",
     "Status": "",
     "Breeding": "*",
     "Reporting": "",
@@ -2225,7 +2225,7 @@
   },
   {
     "Species": "Bicknell's Thrush",
-    "Scientific\nName": "Catharus bicknelli",
+    "Scientific Name": "Catharus bicknelli",
     "Status": "",
     "Breeding": "*",
     "Reporting": "",
@@ -2241,7 +2241,7 @@
   },
   {
     "Species": "Hermit Thrush",
-    "Scientific\nName": "Catharus guttatus",
+    "Scientific Name": "Catharus guttatus",
     "Status": "",
     "Breeding": "*",
     "Reporting": "",
@@ -2257,7 +2257,7 @@
   },
   {
     "Species": "American Robin",
-    "Scientific\nName": "Turdus migratorius",
+    "Scientific Name": "Turdus migratorius",
     "Status": "",
     "Breeding": "*",
     "Reporting": "",
@@ -2273,7 +2273,7 @@
   },
   {
     "Species": "Gray Catbird",
-    "Scientific\nName": "Dumetella carolinensis",
+    "Scientific Name": "Dumetella carolinensis",
     "Status": "",
     "Breeding": "*",
     "Reporting": "",
@@ -2289,7 +2289,7 @@
   },
   {
     "Species": "Northern Mockingbird",
-    "Scientific\nName": "Mimus polyglottos",
+    "Scientific Name": "Mimus polyglottos",
     "Status": "",
     "Breeding": "*",
     "Reporting": "",
@@ -2305,7 +2305,7 @@
   },
   {
     "Species": "Bohemian Waxwing",
-    "Scientific\nName": "Bombycilla garrulus",
+    "Scientific Name": "Bombycilla garrulus",
     "Status": "",
     "Breeding": "",
     "Reporting": "",
@@ -2321,7 +2321,7 @@
   },
   {
     "Species": "House Sparrow",
-    "Scientific\nName": "Passer domesticus",
+    "Scientific Name": "Passer domesticus",
     "Status": "I",
     "Breeding": "*",
     "Reporting": "",
@@ -2337,7 +2337,7 @@
   },
   {
     "Species": "Evening Grosbeak",
-    "Scientific\nName": "Coccothraustes vespertinus",
+    "Scientific Name": "Coccothraustes vespertinus",
     "Status": "",
     "Breeding": "*",
     "Reporting": "",
@@ -2353,7 +2353,7 @@
   },
   {
     "Species": "House Finch",
-    "Scientific\nName": "Haemorhous mexicanus",
+    "Scientific Name": "Haemorhous mexicanus",
     "Status": "I",
     "Breeding": "*",
     "Reporting": "",
@@ -2369,7 +2369,7 @@
   },
   {
     "Species": "Common Redpoll",
-    "Scientific\nName": "Acanthis flammea",
+    "Scientific Name": "Acanthis flammea",
     "Status": "",
     "Breeding": "",
     "Reporting": "",
@@ -2385,7 +2385,7 @@
   },
   {
     "Species": "Red Crossbill",
-    "Scientific\nName": "Loxia curvirostra",
+    "Scientific Name": "Loxia curvirostra",
     "Status": "",
     "Breeding": "*",
     "Reporting": "N",
@@ -2401,7 +2401,7 @@
   },
   {
     "Species": "Pine Siskin",
-    "Scientific\nName": "Spinus pinus",
+    "Scientific Name": "Spinus pinus",
     "Status": "",
     "Breeding": "*",
     "Reporting": "",
@@ -2417,7 +2417,7 @@
   },
   {
     "Species": "Lapland Longspur",
-    "Scientific\nName": "Calcarius lapponicus",
+    "Scientific Name": "Calcarius lapponicus",
     "Status": "",
     "Breeding": "",
     "Reporting": "",
@@ -2433,7 +2433,7 @@
   },
   {
     "Species": "Snow Bunting",
-    "Scientific\nName": "Plectrophenax nivalis",
+    "Scientific Name": "Plectrophenax nivalis",
     "Status": "",
     "Breeding": "",
     "Reporting": "",
@@ -2448,7 +2448,7 @@
     "Occurrence": "5A-9A"
   },
   {
-    "Species": "Lark\nSparrow",
+    "Species": "Lark Sparrow",
     "Scientific Name": "Chondestes grammacus",
     "Status": "",
     "Breeding": "",
@@ -2464,7 +2464,7 @@
     "Occurrence": ""
   },
   {
-    "Species": "Chipping\nSparrow",
+    "Species": "Chipping Sparrow",
     "Scientific Name": "Spizella passerina",
     "Status": "",
     "Breeding": "*",
@@ -2480,7 +2480,7 @@
     "Occurrence": "4D-10C"
   },
   {
-    "Species": "Field\nSparrow",
+    "Species": "Field Sparrow",
     "Scientific Name": "Spizella pusilla",
     "Status": "",
     "Breeding": "*",
@@ -2496,7 +2496,7 @@
     "Occurrence": "3B-4D, 9D-12A"
   },
   {
-    "Species": "American\nTree Sparrow",
+    "Species": "American Tree Sparrow",
     "Scientific Name": "Spizelloides arborea",
     "Status": "",
     "Breeding": "",
@@ -2512,7 +2512,7 @@
     "Occurrence": "1A-12D"
   },
   {
-    "Species": "White-crowned\nSparrow",
+    "Species": "White-crowned Sparrow",
     "Scientific Name": "Zonotrichia leucophrys",
     "Status": "",
     "Breeding": "",
@@ -2528,7 +2528,7 @@
     "Occurrence": ""
   },
   {
-    "Species": "Harris's\nSparrow",
+    "Species": "Harris's Sparrow",
     "Scientific Name": "Zonotrichia querula",
     "Status": "",
     "Breeding": "",
@@ -2544,7 +2544,7 @@
     "Occurrence": "4B-11C+"
   },
   {
-    "Species": "Vesper\nSparrow",
+    "Species": "Vesper Sparrow",
     "Scientific Name": "Pooecetes gramineus",
     "Status": "",
     "Breeding": "*",
@@ -2560,7 +2560,7 @@
     "Occurrence": ""
   },
   {
-    "Species": "Nelson's\nSparrow",
+    "Species": "Nelson's Sparrow",
     "Scientific Name": "Ammospiza nelsoni",
     "Status": "",
     "Breeding": "",
@@ -2576,7 +2576,7 @@
     "Occurrence": ""
   },
   {
-    "Species": "Savannah\nSparrow",
+    "Species": "Savannah Sparrow",
     "Scientific Name": "Passerculus sandwichensis",
     "Status": "",
     "Breeding": "*",
@@ -2592,7 +2592,7 @@
     "Occurrence": "3B-11A+"
   },
   {
-    "Species": "Lincoln's\nSparrow",
+    "Species": "Lincoln's Sparrow",
     "Scientific Name": "Melospiza lincolnii",
     "Status": "",
     "Breeding": "*",
@@ -2608,7 +2608,7 @@
     "Occurrence": "4B-11C+"
   },
   {
-    "Species": "Green-tailed\nTowhee",
+    "Species": "Green-tailed Towhee",
     "Scientific Name": "Pipilo chlorurus",
     "Status": "",
     "Breeding": "",
@@ -2625,7 +2625,7 @@
   },
   {
     "Species": "Eastern Towhee",
-    "Scientific\nName": "Pipilo erythrophthalmus",
+    "Scientific Name": "Pipilo erythrophthalmus",
     "Status": "",
     "Breeding": "*",
     "Reporting": "",
@@ -2640,7 +2640,7 @@
     "Occurrence": "5C-10B"
   },
   {
-    "Species": "Yellow-headed\nBlackbird",
+    "Species": "Yellow-headed Blackbird",
     "Scientific Name": "Xanthocephalus xanthocephalus",
     "Status": "",
     "Breeding": "",
@@ -2656,7 +2656,7 @@
     "Occurrence": "5A-9D"
   },
   {
-    "Species": "Eastern\nMeadowlark",
+    "Species": "Eastern Meadowlark",
     "Scientific Name": "Sturnella magna",
     "Status": "",
     "Breeding": "*",
@@ -2672,7 +2672,7 @@
     "Occurrence": ""
   },
   {
-    "Species": "Orchard\nOriole",
+    "Species": "Orchard Oriole",
     "Scientific Name": "Icterus spurius",
     "Status": "",
     "Breeding": "*",
@@ -2688,7 +2688,7 @@
     "Occurrence": ""
   },
   {
-    "Species": "Baltimore\nOriole",
+    "Species": "Baltimore Oriole",
     "Scientific Name": "Icterus galbula",
     "Status": "",
     "Breeding": "*",
@@ -2704,7 +2704,7 @@
     "Occurrence": "2C-12D+"
   },
   {
-    "Species": "Brown-headed\nCowbird",
+    "Species": "Brown-headed Cowbird",
     "Scientific Name": "Molothrus ater",
     "Status": "",
     "Breeding": "*",
@@ -2720,7 +2720,7 @@
     "Occurrence": "3C-11B+"
   },
   {
-    "Species": "Brewer's\nBlackbird",
+    "Species": "Brewer's Blackbird",
     "Scientific Name": "Euphagus cyanocephalus",
     "Status": "",
     "Breeding": "",
@@ -2737,7 +2737,7 @@
   },
   {
     "Species": "Ovenbird",
-    "Scientific\nName": "Seiurus aurocapilla",
+    "Scientific Name": "Seiurus aurocapilla",
     "Status": "",
     "Breeding": "*",
     "Reporting": "",
@@ -2753,7 +2753,7 @@
   },
   {
     "Species": "Louisiana Waterthrush",
-    "Scientific\nName": "Parkesia motacilla",
+    "Scientific Name": "Parkesia motacilla",
     "Status": "",
     "Breeding": "*",
     "Reporting": "",
@@ -2768,7 +2768,7 @@
     "Occurrence": "4D-9C"
   },
   {
-    "Species": "Golden-winged\nWarbler",
+    "Species": "Golden-winged Warbler",
     "Scientific Name": "Vermivora chrysoptera",
     "Status": "",
     "Breeding": "*",
@@ -2784,7 +2784,7 @@
     "Occurrence": "5A-8D"
   },
   {
-    "Species": "Black-and-white\nWarbler",
+    "Species": "Black-and-white Warbler",
     "Scientific Name": "Mniotilta varia",
     "Status": "",
     "Breeding": "*",
@@ -2800,7 +2800,7 @@
     "Occurrence": ""
   },
   {
-    "Species": "Tennessee\nWarbler",
+    "Species": "Tennessee Warbler",
     "Scientific Name": "Leiothlypis peregrina",
     "Status": "",
     "Breeding": "*",
@@ -2813,7 +2813,7 @@
     "Status": "",
     "Breeding": "",
     "Reporting": "",
-    "Occurrence": "5A-5D,\n9C-10C "
+    "Occurrence": "5A-5D, 9C-10C "
   },
   {
     "Species": "Nashville Warbler",
@@ -2832,7 +2832,7 @@
     "Occurrence": "8D-10B"
   },
   {
-    "Species": "Mourning\nWarbler",
+    "Species": "Mourning Warbler",
     "Scientific Name": "Geothlypis philadelphia",
     "Status": "",
     "Breeding": "*",
@@ -2848,7 +2848,7 @@
     "Occurrence": ""
   },
   {
-    "Species": "Common\nYellowthroat",
+    "Species": "Common Yellowthroat",
     "Scientific Name": "Geothlypis trichas",
     "Status": "",
     "Breeding": "*",
@@ -2864,7 +2864,7 @@
     "Occurrence": "5A-8D"
   },
   {
-    "Species": "American\nRedstart",
+    "Species": "American Redstart",
     "Scientific Name": "Setophaga ruticilla",
     "Status": "",
     "Breeding": "*",
@@ -2880,7 +2880,7 @@
     "Occurrence": "5B-9D"
   },
   {
-    "Species": "Cerulean\nWarbler",
+    "Species": "Cerulean Warbler",
     "Scientific Name": "Setophaga cerulea",
     "Status": "",
     "Breeding": "*",
@@ -2896,7 +2896,7 @@
     "Occurrence": "5A-9D"
   },
   {
-    "Species": "Magnolia\nWarbler",
+    "Species": "Magnolia Warbler",
     "Scientific Name": "Setophaga magnolia",
     "Status": "",
     "Breeding": "*",
@@ -2912,7 +2912,7 @@
     "Occurrence": "5B-9D"
   },
   {
-    "Species": "Blackburnian\nWarbler",
+    "Species": "Blackburnian Warbler",
     "Scientific Name": "Setophaga fusca",
     "Status": "",
     "Breeding": "*",
@@ -2928,7 +2928,7 @@
     "Occurrence": "4D-9D"
   },
   {
-    "Species": "Chestnut-sided\nWarbler",
+    "Species": "Chestnut-sided Warbler",
     "Scientific Name": "Setophaga pensylvanica",
     "Status": "",
     "Breeding": "*",
@@ -2944,7 +2944,7 @@
     "Occurrence": "5B-10C"
   },
   {
-    "Species": "Black-throated\nBlue Warbler",
+    "Species": "Black-throated Blue Warbler",
     "Scientific Name": "Setophaga caerulescens",
     "Status": "",
     "Breeding": "*",
@@ -2960,7 +2960,7 @@
     "Occurrence": "4B-11A"
   },
   {
-    "Species": "Pine\nWarbler",
+    "Species": "Pine Warbler",
     "Scientific Name": "Setophaga pinus",
     "Status": "",
     "Breeding": "*",
@@ -2976,7 +2976,7 @@
     "Occurrence": "4B-11C+"
   },
   {
-    "Species": "Yellow-throated\nWarbler",
+    "Species": "Yellow-throated Warbler",
     "Scientific Name": "Setophaga dominica",
     "Status": "",
     "Breeding": "",
@@ -2992,7 +2992,7 @@
     "Occurrence": "5A-9B"
   },
   {
-    "Species": "Black-throated\nGreen Warbler",
+    "Species": "Black-throated Green Warbler",
     "Scientific Name": "Setophaga virens",
     "Status": "",
     "Breeding": "*",
@@ -3008,7 +3008,7 @@
     "Occurrence": "5B-9D"
   },
   {
-    "Species": "Wilson's\nWarbler",
+    "Species": "Wilson's Warbler",
     "Scientific Name": "Cardellina pusilla",
     "Status": "",
     "Breeding": "*",
@@ -3024,7 +3024,7 @@
     "Occurrence": ""
   },
   {
-    "Species": "Scarlet\nTanager",
+    "Species": "Scarlet Tanager",
     "Scientific Name": "Piranga olivacea",
     "Status": "",
     "Breeding": "*",
@@ -3040,7 +3040,7 @@
     "Occurrence": ""
   },
   {
-    "Species": "Northern\nCardinal",
+    "Species": "Northern Cardinal",
     "Scientific Name": "Cardinalis cardinalis",
     "Status": "",
     "Breeding": "*",
@@ -3056,7 +3056,7 @@
     "Occurrence": "4D-10B"
   },
   {
-    "Species": "Black-headed\nGrosbeak",
+    "Species": "Black-headed Grosbeak",
     "Scientific Name": "Pheucticus melanocephalus",
     "Status": "",
     "Breeding": "",
@@ -3072,7 +3072,7 @@
     "Occurrence": ""
   },
   {
-    "Species": "Indigo\nBunting",
+    "Species": "Indigo Bunting",
     "Scientific Name": "Passerina cyanea",
     "Status": "",
     "Breeding": "*",
@@ -3089,7 +3089,7 @@
   },
   {
     "Species": "Dickcissel",
-    "Scientific\nName": "Spiza americana",
+    "Scientific Name": "Spiza americana",
     "Status": "",
     "Breeding": "",
     "Reporting": "",
