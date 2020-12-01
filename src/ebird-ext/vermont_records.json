@@ -1429,7 +1429,7 @@
     "Status": "",
     "Breeding": "",
     "Reporting": "N",
-    "Occurrence": "3B-11A"
+    "Occurrence": "3B-11A+"
   },
   {
     "Species": "Turkey Vulture",
@@ -2113,7 +2113,7 @@
   },
   {
     "Species": "Winter Wren",
-    "Scientific Name": "Troglodytes hiemalis",
+    "Scientific Name": "Troglodytes hyemalis",
     "Status": "",
     "Breeding": "*",
     "Reporting": "",
@@ -2800,6 +2800,14 @@
     "Occurrence": ""
   },
   {
+    "Species": "Swainson's Warbler",
+    "Scientific Name": "Limnothlypis swainsonii",
+    "Status": "",
+    "Breeding": "",
+    "Reporting": "V",
+    "Occurrence": ""
+  },
+  {
     "Species": "Tennessee Warbler",
     "Scientific Name": "Leiothlypis peregrina",
     "Status": "",
@@ -2813,7 +2821,7 @@
     "Status": "",
     "Breeding": "",
     "Reporting": "",
-    "Occurrence": "5A-5D, 9C-10C "
+    "Occurrence": "5A-5D, 9C-10C"
   },
   {
     "Species": "Nashville Warbler",
