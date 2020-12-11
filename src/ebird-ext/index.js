@@ -1,7 +1,7 @@
-import Town_boundaries from './VT_Data__Town_Boundaries'
-import Vermont_regions from './Polygon_VT_Biophysical_Regions'
-import VermontRecords from './vermont_records.json'
-import VermontSubspecies from './vermont_records_subspecies.json'
+const Town_boundaries = require('./VT_Data__Town_Boundaries.json')
+const Vermont_regions = require('./Polygon_VT_Biophysical_Regions.json')
+const VermontRecords = require('./vermont_records.json')
+const VermontSubspecies = require('./vermont_records_subspecies.json')
 const GeoJsonGeometriesLookup = require('geojson-geometries-lookup')
 const vermontTowns = new GeoJsonGeometriesLookup(Town_boundaries)
 const vermontRegions = new GeoJsonGeometriesLookup(Vermont_regions)
@@ -11,6 +11,8 @@ const Papa = require('papaparse')
 const moment = require('moment')
 const difference = require('compare-latlong')
 const appearsDuringExpectedDates = require('./appearsDuringExpectedDates.js')
+// Note: this breaks on the server-side, thanks to leaflet needing window.
+// Just comment these out if you're running cli.js
 const L = require('leaflet')
 const leafletKnn = require('leaflet-knn')
 
@@ -407,7 +409,7 @@ async function checklistLocations (opts) {
   let obj = {}
   const data = locationFilter(await getData(opts.input), {state: 'Vermont'}) // Don't filter, this is only used for checking
   for (let d of data) {
-    if (!obj[d['Submission ID']]) {
+    if (!obj[d['Submission ID']] && window) {
       let locations = {}
       // For some reason, this takes a second each time.
       locations.Town = pointLookup(Town_boundaries, vermontTowns, d)
@@ -507,7 +509,7 @@ async function rare (opts) {
   // - Did I get new audio birds today?
 // }
 
-export {
+module.exports = {
   biggestTime,
   firstTimeList,
   firstTimes,
