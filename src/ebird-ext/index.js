@@ -93,18 +93,24 @@ function createPeriodArray (data) {
 
 function locationFilter (list, opts) {
   // TODO Make State and Country and County and Town work
-  if (!opts.state) {
+  if (opts.state && !opts.county) {
+    return list.filter((x) => {
+      // TODO Add a mapping from Vermont to US-VT, for all states and provinces
+      if (x["State/Province"] === 'US-VT') {
+        x.State = 'Vermont'
+      }
+      return (x.State) ? x.State === opts.state : false;
+    })
+  } else if (opts.county && opts.state) {
+    return list.filter(x => {
+        if (x["State/Province"] === 'US-VT') {
+          x.State = 'Vermont'
+        }
+        return (x.State && x.County) ? ((x.State === opts.state) && (x.County === opts.county)) : false;
+    })
+  } else {
     return list
   }
-
-
-  return list.filter((x) => {
-    // TODO Add a mapping from Vermont to US-VT, for all states and provinces
-    if (x["State/Province"] === 'US-VT') {
-      x.State = 'Vermont'
-    }
-    return (x.State) ? x.State === opts.state : false;
-  })
 }
 
 function dateFilter (list, opts) {
@@ -338,6 +344,9 @@ async function quadBirds (opts) {
   if (!opts.year) {
     opts.year = moment().format('YYYY')
   }
+  // opts.countyCode = 'US-VT-023'
+  // opts.county = 'Washington'
+  // opts.state = 'Vermont'
   const files = opts.input.split(',')
   let data = []
   await Promise.all(files.map(async (file) => {
