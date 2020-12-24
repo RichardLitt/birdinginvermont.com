@@ -126,22 +126,33 @@ class Map extends Component {
       Counties.features = Counties.features.map(feature => rewind(feature, {reverse: true}))
       vermont = Counties
 
-      const speciesTotals = ebirdExt.removeSpuhFromCounties(CountyBarcharts)
+      speciesTotals = ebirdExt.removeSpuhFromCounties(CountyBarcharts)
 
       vermont.features.forEach(feature => {
         feature.properties.name = capitalizeFirstLetters(feature.properties.CNTYNAME)
         feature.properties.speciesTotal = speciesTotals[feature.properties.name].length
       })
 
-      const taxa = Object.keys(speciesTotals).map(c => speciesTotals[c].length)
+      // This solution is more elegant than the ones applied in /towns or /regions
+      Object.keys(data.counties).forEach(county => {
+        const index = vermont.features.map(x => x.properties.CNTYNAME).indexOf(county.toUpperCase())
+        Object.assign(vermont.features[index].properties, data.counties[county])
+      })
 
-      color = d3
-        .scaleQuantize()
-        .domain([Math.min(...taxa), Math.max(...taxa)])
-        .range(['#fff7ec', '#fee8c8', '#fdd49e', '#fdbb84', '#fc8d59', '#ef6548', '#d7301f', '#b30000', '#7f0000'])
-
-      // TODO Implement code that takes into account data.counties, as well as the global counts.
-      // Perhaps a toggle, here? Or simply a percentage of what is seen and known.
+      if (data.counties) {
+        // TODO Toggle color based on all time or personal (or percentage of 150)
+        speciesTotals = Object.keys(data.counties).map(c => data.counties[c].speciesTotal)
+        color = d3
+          .scaleQuantize()
+          .domain([Math.min(...speciesTotals), Math.max(...speciesTotals)])
+          .range(['#fff7ec', '#fee8c8', '#fdd49e', '#fdbb84', '#fc8d59', '#ef6548', '#d7301f', '#b30000', '#7f0000'])
+      } else {
+        speciesTotals = Object.keys(speciesTotals).map(c => speciesTotals[c].length)
+        color = d3
+          .scaleQuantize()
+          .domain([Math.min(...speciesTotals), Math.max(...speciesTotals)])
+          .range(['#fff7ec', '#fee8c8', '#fdd49e', '#fdbb84', '#fc8d59', '#ef6548', '#d7301f', '#b30000', '#7f0000'])
+      }
 
     } else if (this.props.location.pathname === '/regions') {
       vermont = BiophysicalRegions
@@ -204,6 +215,8 @@ class Map extends Component {
       .enter()
       .append('path')
       .attr('d', path)
+      .style('stroke', '#fff')
+      .style('stroke-width', '1')
       .style('fill', (d) => colorArea(d.properties.speciesTotal))
 
       .on('click', function (d) {
@@ -256,18 +269,19 @@ class Map extends Component {
       })
       .on('mouseout', function (d) {
         if (!townSelected) {
-          d3.select('#tooltip').remove()
+          d3.select('#tooltip')
+            .remove()
 
           d3.select(this)
-          .transition()
-          .duration(250)
-          .style('fill', (d) => (d.properties.speciesTotal) ? color(d.properties.speciesTotal) : '#ddd')
+            .transition()
+            .duration(250)
+            .style('fill', (d) => (d.properties.speciesTotal) ? color(d.properties.speciesTotal) : '#ddd')
 
           d3.select('#locale')
-          .text()
+            .text()
 
           d3.select('#list')
-          .text()
+            .text()
         }
       })
 

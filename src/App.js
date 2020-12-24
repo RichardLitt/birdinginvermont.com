@@ -43,7 +43,7 @@ import pisiSspPath from './subspecies/pisi.md'
 import hofiSspPath from './subspecies/hofi.md'
 
 // import RadialView from './RadialView'
-const ebird = require('./ebird-ext/index.js')
+import ebird from './ebird-ext/index.js'
 
 class App extends Component {
   constructor(props) {
