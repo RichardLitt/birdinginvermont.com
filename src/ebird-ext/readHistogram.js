@@ -25,7 +25,7 @@ async function getData (input) {
         console.log(speciesName)
         dict[speciesName] = {
           species: speciesName,
-          scientificName,
+          'Scientific Name': scientificName,
           frequency
         }
         return dict
