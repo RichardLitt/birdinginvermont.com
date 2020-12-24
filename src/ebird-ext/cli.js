@@ -22,7 +22,6 @@ const cli = meow(`
     first-day     Show your first lists
     towns         Show your town counts
     regions       Show your region counts
-    counties      Show your counties counts
     rare          Show which rarities to report to records committee
 
   Options
@@ -87,8 +86,6 @@ async function run () {
     await main.towns(cli.flags)
   } else if (cli.input[0] === 'regions') {
     await main.regions(cli.flags)
-  } else if (cli.input[0] === 'counties') {
-    await main.counties(cli.flags)
   } else if (cli.input[0] === 'rare') {
     await main.rare(cli.flags)
   } else if (cli.input[0] === 'big') {

@@ -1,21 +1,13 @@
 import React, { Component } from 'react'
 import VermontTowns from './ebird-ext/vermont.json'
-import Counties from './ebird-ext/VT_Data_-_County_Boundaries.json'
-import CountyBarcharts from './ebird-ext/countyBarcharts.json'
 import BiophysicalRegions from './ebird-ext/Polygon_VT_Biophysical_Regions.json'
 import { select } from 'd3-selection'
 import { withRouter } from 'react-router'
 import UploadButton from './UploadButton'
-import rewind from "@turf/rewind"
 const d3 = require('d3')
 const d3Geo = require('d3-geo')
 const topojson = require('topojson')
 const taxonomicSort = require('./ebird-ext/taxonomicSort.js')
-const removeSpuhFromCounties = require('./ebird-ext/index').removeSpuhFromCounties
-
-function capitalizeFirstLetters(string) {
-  return string.toLowerCase().split(' ').map(x => x.charAt(0).toUpperCase() + x.slice(1)).join(' ')
-}
 
 class Map extends Component {
   constructor(props) {
@@ -45,7 +37,7 @@ class Map extends Component {
 
     const data = this.props.data
     const node = this.node
-    const width = 450
+    const width = 750
     const height = 800
     const pathname = this.props.location.pathname
 
@@ -122,26 +114,6 @@ class Map extends Component {
         .scaleQuantize()
         .domain([0, highestTotalSpeciesTowns])
         .range(['#fff7ec', '#fee8c8', '#fdd49e', '#fdbb84', '#fc8d59', '#ef6548', '#d7301f', '#b30000', '#7f0000'])
-    } else if (this.props.location.pathname === '/counties') {
-      Counties.features = Counties.features.map(feature => rewind(feature, {reverse: true}))
-      vermont = Counties
-
-      const speciesTotals = removeSpuhFromCounties(CountyBarcharts)
-
-      vermont.features.forEach(feature => {
-        feature.properties.name = capitalizeFirstLetters(feature.properties.CNTYNAME)
-        feature.properties.speciesTotal = speciesTotals[feature.properties.name].length
-      })
-
-      const taxa = Object.keys(speciesTotals).map(c => speciesTotals[c].length)
-
-      color = d3
-        .scaleQuantize()
-        .domain([Math.min(...taxa), Math.max(...taxa)])
-        .range(['#fff7ec', '#fee8c8', '#fdd49e', '#fdbb84', '#fc8d59', '#ef6548', '#d7301f', '#b30000', '#7f0000'])
-
-      // TODO Implement code that takes into account data.counties, as well as the global counts.
-      // Perhaps a toggle, here? Or simply a percentage of what is seen and known.
 
     } else if (this.props.location.pathname === '/regions') {
       vermont = BiophysicalRegions
@@ -211,6 +183,7 @@ class Map extends Component {
           townSelected = d3.select(this)
           townSelected
             .style('fill', 'yellow')
+          console.log()
         } else {
           townSelected
             .style('fill', colorArea(townSelected.data()[0].properties.speciesTotal))
@@ -233,17 +206,21 @@ class Map extends Component {
             .attr('font-size', '11px')
             .attr('font-weight', 'bold')
             .attr('fill', 'black')
-            .text(`${capitalizeFirstLetters(d.properties.town || d.properties.name)}${d.properties.speciesTotal ? ': ' + d.properties.speciesTotal : ''}`)
+            .text(`${d.properties.town || d.properties.name}${d.properties.speciesTotal ? ': ' + d.properties.speciesTotal : ''}`)
 
           d3.select(this)
             .style('fill', '#509e2f')
 
+          function capitalizeFirstLetters(string) {
+            return string.split(' ').map(x => x.charAt(0).toUpperCase() + x.slice(1)).join(' ')
+          }
+
           if (pathname === '/towns') {
             d3.select('#locale')
-              .text([capitalizeFirstLetters(d.properties.town) + ` (${d.properties.speciesTotal})`])
-          } else {
+              .text([capitalizeFirstLetters(d.properties.town.toLowerCase()) + ` (${d.properties.speciesTotal})`])
+          } else if (pathname === '/regions') {
             d3.select('#locale')
-              .text([capitalizeFirstLetters(d.properties.name)])
+              .text([capitalizeFirstLetters(d.properties.name.toLowerCase())])
           }
 
           d3.select('#list')
@@ -303,7 +280,7 @@ class Map extends Component {
         <div className="row">
           <UploadButton handleChange={this.props.handleChange} data={this.props.data} />
           <div id="map" className="col-sm">
-            <svg ref={node => this.node = node} width={450} height={800}></svg>
+            <svg ref={node => this.node = node} width={750} height={800}></svg>
           </div>
           <div className="col-sm" id="list-container">
             <h4 id="locale">{/* empty h4 */}</h4>

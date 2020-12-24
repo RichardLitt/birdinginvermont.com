@@ -53,8 +53,7 @@ class App extends Component {
         checklistLocations: '',
         towns: '',
         regions: '',
-        rarities: '',
-        counties: ''
+        rarities: ''
       }
     }
     this.handleChange = this.handleChange.bind(this);
@@ -65,15 +64,13 @@ class App extends Component {
     let rarities = await ebird.rare({input: e, checklistLocations}) // Input?
     let towns = await ebird.towns({all: true, input: e, checklistLocations})
     let regions = await ebird.regions({all: true, input: e, checklistLocations})
-    let counties = await ebird.counties({all: true, input: e, checklistLocations})
     // let radial = await ebird.radialSearch({input: e, coordinates: [44.259548, -72.575882]})
     this.setState({
       data: {
         checklistLocations,
         towns,
         regions,
-        rarities,
-        counties
+        rarities
       }
     })
   }
@@ -86,7 +83,6 @@ class App extends Component {
           <Route exact path='/' component={About} />
           <Route exact path='/about' component={About} />
           <Route exact path='/towns' render={(props) => (<Map {...props} component={Map} data={this.state.data} handleChange={this.handleChange} />)} />
-          <Route exact path='/counties' render={(props) => (<Map {...props} component={Map} data={this.state.data} handleChange={this.handleChange} />)} />
           <Route exact path='/regions' render={(props) => (<Map {...props} component={Map} data={this.state.data} handleChange={this.handleChange} />)} />
           <Route exact path='/female-birdsong' render={(props) => (<ContentPage {...props} component={ContentPage} data={fbsPath} />)} />
           <Route exact path="/nfc"><Redirect to="/nfc-species" /></Route>

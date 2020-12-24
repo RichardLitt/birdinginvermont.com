@@ -1,7 +1,6 @@
 const Town_boundaries = require('./VT_Data__Town_Boundaries.json')
 const Vermont_regions = require('./Polygon_VT_Biophysical_Regions.json')
 const VermontRecords = require('./vermont_records.json')
-const CountyBarcharts = require('./countyBarcharts.json')
 const VermontSubspecies = require('./vermont_records_subspecies.json')
 const GeoJsonGeometriesLookup = require('geojson-geometries-lookup')
 const vermontTowns = new GeoJsonGeometriesLookup(Town_boundaries)
@@ -38,30 +37,12 @@ function removeSpuh (arr) {
       }
       specie['Scientific Name'] = specie['Scientific Name'].split(' ').slice(0, 2).join(' ')
       newArr.push(specie)
-      // } else {
+    } else {
       // Use this to find excluded entries
       // console.log(arr[i]['Scientific Name'])
     }
   }
   return _.uniq(newArr)
-}
-
-function removeSpuhFromCounties (countyBarcharts) {
-  const newObj = {}
-  Object.keys(CountyBarcharts).forEach(county => {
-    newObj[county] = removeSpuh(Object.keys(CountyBarcharts[county].species).map(s => {
-      const species = CountyBarcharts[county].species[s]
-      // ES6 probably has a better way of doing this.
-      species.name = s
-      return species
-    })).map(s => s.name)
-  })
-  return newObj
-}
-
-// Useful for when Rock Pigeon is being compared against other lists, or for times when a single sighting contains only subspecies
-function cleanCommonName (arr) {
-  return arr.map(s => s.split('(')[0].trim())
 }
 
 async function getData (input) {
@@ -258,13 +239,13 @@ async function towns (opts) {
       t.species = []
       t.speciesByDate = countUniqueSpecies(data.filter(x => x.Town === t.town), dateFormat)
       _.sortBy(createPeriodArray(t.speciesByDate), 'Date').forEach((e) => {
-        e.Species.forEach((species) => {
-          t.species.push(species['Common Name'])
+        e.Species.forEach((specie) => {
+          t.species.push(specie['Common Name'])
           i++
         })
       })
       t.speciesTotal = i
-      t.notSeen = _.difference(speciesSeenInVermont, cleanCommonName(t.species))
+      t.notSeen = _.difference(speciesSeenInVermont, t.species)
     })
 
     return towns
@@ -284,40 +265,6 @@ async function towns (opts) {
   }
 }
 
-/* node cli.js counties -i=MyEBirdData.csv
-As this is set up, it will currently return only the first time I saw species in each town provided, in Vermont */
-async function counties (opts) {
-  opts.state = 'Vermont'
-  const dateFormat = parseDateformat('day')
-  let data = orderByDate(locationFilter(await getData(opts.input), opts), opts)
-
-  const countySpecies = removeSpuhFromCounties(CountyBarcharts)
-
-  const counties = Object.keys(CountyBarcharts).map(county => {
-    const speciesByDate = countUniqueSpecies(data.filter(x => x.County === county), dateFormat)
-    const species = _.sortBy(createPeriodArray(speciesByDate), 'Date').map(period => {
-        return period.Species.map(species => species['Common Name'])
-      }).flat()
-    return {
-      county,
-      collectiveTotal: countySpecies[county].length,
-      species,
-      speciesByDate,
-      speciesTotal: species.length,
-      notSeen: _.difference(countySpecies[county], cleanCommonName(species))
-    }
-  })
-
-  // Again, as above es6 probably has a better way of doing this.
-  const newObj = {}
-  counties.forEach(c => newObj[c.county] = c)
-
-  if (opts.county) {
-    console.log(newObj[opts.county])
-    return newObj[opts.county]
-  }
-  return newObj
-}
 
 /* node cli.js count -i=MyEBirdData.csv --town="Fayston" --state=Vermont
 As this is set up, it will currently return only the first time I saw species in each town provided, in Vermont */
@@ -388,7 +335,7 @@ async function radialSearch (opts) {
     })
   })
   areaResults.speciesTotal = i
-  areaResults.notSeen = _.difference(speciesSeenInVermont, cleanCommonName(areaResults.species))
+  areaResults.notSeen = _.difference(speciesSeenInVermont, areaResults.species)
 
   return areaResults
 }
@@ -580,8 +527,6 @@ module.exports = {
   rare,
   regions,
   removeSpuh,
-  removeSpuhFromCounties,
   towns,
-  counties,
   checklistLocations
 }
