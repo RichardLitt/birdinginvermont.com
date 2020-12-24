@@ -7,11 +7,11 @@ import { select } from 'd3-selection'
 import { withRouter } from 'react-router'
 import UploadButton from './UploadButton'
 import rewind from "@turf/rewind"
+import ebirdExt from './ebird-ext/index.js'
 const d3 = require('d3')
 const d3Geo = require('d3-geo')
 const topojson = require('topojson')
 const taxonomicSort = require('./ebird-ext/taxonomicSort.js')
-const removeSpuhFromCounties = require('./ebird-ext/index').removeSpuhFromCounties
 
 function capitalizeFirstLetters(string) {
   return string.toLowerCase().split(' ').map(x => x.charAt(0).toUpperCase() + x.slice(1)).join(' ')
@@ -126,7 +126,7 @@ class Map extends Component {
       Counties.features = Counties.features.map(feature => rewind(feature, {reverse: true}))
       vermont = Counties
 
-      const speciesTotals = removeSpuhFromCounties(CountyBarcharts)
+      const speciesTotals = ebirdExt.removeSpuhFromCounties(CountyBarcharts)
 
       vermont.features.forEach(feature => {
         feature.properties.name = capitalizeFirstLetters(feature.properties.CNTYNAME)

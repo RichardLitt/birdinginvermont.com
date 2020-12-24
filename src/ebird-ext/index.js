@@ -571,7 +571,7 @@ async function rare (opts) {
   // - Did I get new audio birds today?
 // }
 
-module.exports = {
+export default {
   biggestTime,
   firstTimeList,
   firstTimes,
