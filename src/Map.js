@@ -218,7 +218,6 @@ class Map extends Component {
       .style('stroke', '#fff')
       .style('stroke-width', '1')
       .style('fill', (d) => colorArea(d.properties.speciesTotal))
-
       .on('click', function (d) {
         if (!townSelected) {
           townSelected = d3.select(this)
@@ -231,7 +230,6 @@ class Map extends Component {
           townSelected = false
         }
       })
-
       .on('mouseover', function (d) {
         if (!townSelected) {
           var xPosition = d3.mouse(this)[0]
@@ -256,15 +254,22 @@ class Map extends Component {
               .text([capitalizeFirstLetters(d.properties.town) + ` (${d.properties.speciesTotal})`])
           } else {
             d3.select('#locale')
-              .text([capitalizeFirstLetters(d.properties.name)])
+              .text([`Region: ` + capitalizeFirstLetters(d.properties.name)])
+          }
+
+          let noSpeciesText = `You haven't logged any species here.`
+          if (pathname === '/counties' && !data.counties) {
+            noSpeciesText = `This map shows the total number of species seen in these counties. Upload your data for your personal map.`
           }
 
           d3.select('#list')
-            .html((d.properties.species && d.properties.species.length > 0) ? `<b>Seen:</b> <li>${taxonomicSort(d.properties.species).join('</li><li>')}</li>` : 'No species logged.')
+            .html((d.properties.species && d.properties.species.length > 0) ? `<b>Seen:</b> <li>${taxonomicSort(d.properties.species).join('</li><li>')}</li>` : noSpeciesText)
 
+
+          console.log('props', d.properties)
           // The functionality is here, but the UI is overwhelming
           d3.select('#notSeen')
-            .html((d.properties.notSeen && d.properties.notSeen.length > 0) ? `<b>You have not seen these species, which you've seen elsewhere in Vermont:</b> ${taxonomicSort(d.properties.notSeen).join(', ')}` : '')
+            .html((d.properties.january && d.properties.january.length > 0) ? `<b>You have not seen these species, which have been present in January before:</b> ${taxonomicSort(d.properties.january).join(', ')}` : '')
         }
       })
       .on('mouseout', function (d) {

@@ -115,7 +115,6 @@ class App extends Component {
           <Route exact path='/subspecies/pisi' render={(props) => (<ContentPage {...props} component={ContentPage} data={pisiSspPath} />)} />
           <Route exact path='/subspecies/hofi' render={(props) => (<ContentPage {...props} component={ContentPage} data={hofiSspPath} />)} />
           <Route exact path='/vbrc-checker' render={(props) =>(<Rarities {...props} component={Rarities} data={this.state.data} handleChange={this.handleChange} />)} />
-          <Route exact path='/vbrc-checker' render={(props) =>(<Rarities {...props} component={Rarities} data={this.state.data} handleChange={this.handleChange} />)} />
           <Route exact path='/terms' render={(props) =>(<ContentPage {...props} component={ContentPage} data={termsPath} />)} />
           {/* <Route exact path='/10-mile' component={RadialView} data={this.state.data.radial} /> */}
           <Route component={NoMatchPage} />
