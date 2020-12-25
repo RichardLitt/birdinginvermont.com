@@ -54,7 +54,10 @@ class App extends Component {
         towns: '',
         regions: '',
         rarities: '',
-        counties: ''
+        counties: '',
+        loaded: false,
+        width: 450,
+        height: 800
       }
     }
     this.handleChange = this.handleChange.bind(this);
@@ -67,15 +70,17 @@ class App extends Component {
     let regions = await ebird.regions({all: true, input: e, checklistLocations})
     let counties = await ebird.counties({all: true, input: e, checklistLocations})
     // let radial = await ebird.radialSearch({input: e, coordinates: [44.259548, -72.575882]})
-    this.setState({
+    this.setState((prevState, props) => ({
       data: {
+        ...prevState.data,
         checklistLocations,
         towns,
         regions,
         rarities,
-        counties
+        counties,
+        loaded: true
       }
-    })
+    }))
   }
 
   render() {

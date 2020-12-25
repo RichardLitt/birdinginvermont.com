@@ -241,7 +241,7 @@ As this is set up, it will currently return only the first time I saw species in
 async function towns (opts) {
   opts.state = 'Vermont'
   const dateFormat = parseDateformat('day')
-  let data = orderByDate(locationFilter(await getData(opts.input), opts), opts)
+  let data = orderByDate(dateFilter(locationFilter(await getData(opts.input), opts), opts), opts)
   data.forEach(d => {
     d.Town = opts.checklistLocations[d['Submission ID']]['Town']
   })
@@ -289,7 +289,7 @@ As this is set up, it will currently return only the first time I saw species in
 async function counties (opts) {
   opts.state = 'Vermont'
   const dateFormat = parseDateformat('day')
-  let data = orderByDate(locationFilter(await getData(opts.input), opts), opts)
+  let data = orderByDate(dateFilter(locationFilter(await getData(opts.input), opts), opts), opts)
 
   const countySpecies = removeSpuhFromCounties(CountyBarcharts)
 
@@ -324,7 +324,7 @@ As this is set up, it will currently return only the first time I saw species in
 async function regions (opts) {
   opts.state = 'Vermont'
   const dateFormat = parseDateformat('day')
-  let data = orderByDate(locationFilter(await getData(opts.input), opts), opts)
+  let data = orderByDate(dateFilter(locationFilter(await getData(opts.input), opts), opts), opts)
   data.forEach(d => {
     d.Region = opts.checklistLocations[d['Submission ID']].Region
   })
@@ -366,7 +366,7 @@ async function radialSearch (opts) {
   // TODO Get a list of all species ever seen in Vermont, here.
   var speciesSeenInVermont = []
   opts.state = 'Vermont'
-  _.forEach(countUniqueSpecies(locationFilter(data, opts), dateFormat), (o) => {
+  _.forEach(countUniqueSpecies(dateFilter(locationFilter(data, opts), opts), dateFormat), (o) => {
     var mapped = _.map(o, 'Common Name')
     speciesSeenInVermont.push(mapped)
   })
@@ -488,7 +488,7 @@ async function rare (opts) {
   // }
   opts.state = 'Vermont'
   // Use only data from this year, from Vermont
-  const data = dateFilter(locationFilter(await getData(opts.input), opts), opts)
+  const data = dateFilter(dateFilter(locationFilter(await getData(opts.input), opts), opts), opts)
   const allSpecies = VermontRecords.map(x => x['Scientific Name'])
   const speciesToReport = VermontRecords.map(x => x['Scientific Name'])
   // TODO Update needs JSON file
