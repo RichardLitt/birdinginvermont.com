@@ -138,7 +138,7 @@ function dateFilter (list, opts) {
     return list
   }
   return list.filter(x => {
-    return moment(x.Date, momentFormat(x.Date)).format('YYYY') === opts.year
+    return moment(x.Date, momentFormat(x.Date)).format('YYYY') === opts.year.toString()
   })
 }
 
@@ -394,12 +394,6 @@ async function radialSearch (opts) {
 }
 
 async function quadBirds (opts) {
-  if (!opts.year) {
-    opts.year = moment().format('YYYY')
-  }
-  // opts.countyCode = 'US-VT-023'
-  // opts.county = 'Washington'
-  // opts.state = 'Vermont'
   const files = opts.input.split(',')
   let data = []
   await Promise.all(files.map(async (file) => {
@@ -412,36 +406,34 @@ async function quadBirds (opts) {
 
   // Sort by the amount of unique entries per day
   data.forEach((e) => {
-    const specie = e['Scientific Name']
-    if (!speciesIndex[specie]) {
-      speciesIndex[specie] = {
+    const species = e['Scientific Name']
+    if (!speciesIndex[species]) {
+      speciesIndex[species] = {
         seen: undefined,
         audio: undefined,
         photo: undefined,
         species: e
       }
     }
-    if (e['Submission ID'] && !speciesIndex[specie].seen) {
-      if (moment(e.Date, momentFormat(e.Date)).format('YYYY') === opts.year) {
-        speciesIndex[specie].seen = moment(e.Date, momentFormat(e.Date)).format('YYYY-MM-DD')
-      }
+    if (e['Submission ID'] && !speciesIndex[species].seen) {
+      speciesIndex[species].seen = moment(e.Date, momentFormat(e.Date)).format('YYYY-MM-DD')
     }
-    if (e.Format === 'Photo' && !speciesIndex[specie].photo) {
-      speciesIndex[specie].photo = moment(e.Date, momentFormat(e.Date)).format('YYYY-MM-DD')
+    if (e.Format === 'Photo' && !speciesIndex[species].photo) {
+      speciesIndex[species].photo = moment(e.Date, momentFormat(e.Date)).format('YYYY-MM-DD')
     }
-    if (e.Format === 'Audio' && !speciesIndex[specie].audio) {
-      speciesIndex[specie].audio = moment(e.Date, momentFormat(e.Date)).format('YYYY-MM-DD')
+    if (e.Format === 'Audio' && !speciesIndex[species].audio) {
+      speciesIndex[species].audio = moment(e.Date, momentFormat(e.Date)).format('YYYY-MM-DD')
     }
-    if (!speciesIndex[specie].completed &&
-      speciesIndex[specie].audio &&
-      speciesIndex[specie].photo &&
-      speciesIndex[specie].seen) {
-      if (moment(speciesIndex[specie].audio, momentFormat(speciesIndex[specie].audio)).isBefore(speciesIndex[specie].photo, momentFormat(speciesIndex[specie].audio))) {
-        speciesIndex[specie].completed = speciesIndex[specie].photo
+    if (!speciesIndex[species].completed &&
+      speciesIndex[species].audio &&
+      speciesIndex[species].photo &&
+      speciesIndex[species].seen) {
+      if (moment(speciesIndex[species].audio, momentFormat(speciesIndex[species].audio)).isBefore(speciesIndex[species].photo, momentFormat(speciesIndex[species].audio))) {
+        speciesIndex[species].completed = speciesIndex[species].photo
       } else {
-        speciesIndex[specie].completed = speciesIndex[specie].audio
+        speciesIndex[species].completed = speciesIndex[species].audio
       }
-      completionDates.push({ Date: speciesIndex[specie].completed, species: speciesIndex[specie].species })
+      completionDates.push({ Date: speciesIndex[species].completed, species: speciesIndex[species].species })
     }
   })
 
@@ -452,7 +444,7 @@ async function quadBirds (opts) {
       console.log(`${completionDates[species].Date}: ${completionDates[species].species['Common Name']}.`)
     }
   }
-  console.log(`You saw, photographed, and recorded audio for a total of ${completionDates.length} species in ${opts.year}.`)
+  console.log(`You ${(!opts.year || opts.year.toString() === moment().format('YYYY')) ? `have seen` : `saw`}, photographed, and recorded a total of ${completionDates.length} species${(opts.year) ? ` in ${opts.year}` : ''}.`)
 }
 
 function pointLookup(geojson, geojsonLookup, data) {
@@ -571,6 +563,8 @@ async function rare (opts) {
   // - Did I get new audio birds today?
 // }
 
+// Switch this for CLI testing
+// module.exports = {
 export default {
   biggestTime,
   firstTimeList,
