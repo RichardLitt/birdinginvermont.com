@@ -35,7 +35,7 @@ class NavBar extends Component {
                 className="nav-link"
                 to="/regions"
               >
-                Biophsyical Regions
+                Biophysical Regions
               </Link>
             </li>
             <li className={(this.props.active === 'nfc') ? 'nav-item active' : 'nav-item' }>
