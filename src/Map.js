@@ -280,8 +280,6 @@ class Map extends Component {
           d3.select('#list')
             .html((d.properties.species && d.properties.species.length > 0) ? `<b>Seen:</b> <li>${taxonomicSort(d.properties.species).join('</li><li>')}</li>` : noSpeciesText)
 
-
-          console.log('props', d.properties)
           // The functionality is here, but the UI is overwhelming
           d3.select('#notSeen')
             .html((d.properties.january && d.properties.january.length > 0) ? `<b>You have not seen these species, which have been present in January before:</b> ${taxonomicSort(d.properties.january).join(', ')}` : '')

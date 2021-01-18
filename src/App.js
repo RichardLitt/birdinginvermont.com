@@ -75,7 +75,8 @@ class App extends Component {
         regions,
         rarities,
         counties,
-        loaded: true
+        loaded: true,
+        input: e
       }
     }))
   }
