@@ -40,6 +40,7 @@ import bwhaPath from './subspecies/bwha.md'
 import gbhePath from './subspecies/gbhe.md'
 import nocaPath from './subspecies/noca.md'
 import nswoPath from './subspecies/nswo.md'
+import pigrPath from './subspecies/pigr.md'
 import pisiSspPath from './subspecies/pisi.md'
 import hofiSspPath from './subspecies/hofi.md'
 
@@ -155,6 +156,7 @@ class App extends Component {
           <Route exact path='/subspecies/noca' render={(props) => (<ContentPage {...props} component={ContentPage} data={nocaPath} />)} />
           <Route exact path='/subspecies/pisi' render={(props) => (<ContentPage {...props} component={ContentPage} data={pisiSspPath} />)} />
           <Route exact path='/subspecies/hofi' render={(props) => (<ContentPage {...props} component={ContentPage} data={hofiSspPath} />)} />
+          <Route exact path='/subspecies/pigr' render={(props) => (<ContentPage {...props} component={ContentPage} data={pigrPath} />)} />
           <Route exact path='/vbrc-checker' render={(props) =>(<Rarities {...props} component={Rarities} data={this.state.data} handleChange={this.handleChange} />)} />
           <Route exact path='/terms' render={(props) =>(<ContentPage {...props} component={ContentPage} data={termsPath} />)} />
           {/* <Route exact path='/10-mile' component={RadialView} data={this.state.data.radial} /> */}

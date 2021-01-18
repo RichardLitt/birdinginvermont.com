@@ -11,6 +11,7 @@ A page for each subspecies is forthcoming, as is better styling.
 - [Northern Cardinal](/subspecies/noca)
 - [Pine Siskin](/subspecies/pisi)
 - [House Finch](/subspecies/hofi)
+- [Pine Grosbeak](/subspecies/pigr)
 
 There is a Google Sheet of subspecies information, here: [The List of Subspecies](/subspecies/list).
 
