@@ -202,12 +202,12 @@ class Map extends Component {
 
     // // Set the color after you've calculated the highest total species
     // if (!colorset) {
-    //   color = d3
-    //   .scaleQuantize()
-    //   .domain([domainMin, domainMax])
-    //   .range(['#fff7ec', '#fee8c8', '#fdd49e', '#fdbb84', '#fc8d59', '#ef6548', '#d7301f', '#b30000', '#7f0000'])
+    color = d3
+      .scaleQuantize()
+      .domain([domainMin, domainMax])
+      .range(['#fff7ec', '#fee8c8', '#fdd49e', '#fdbb84', '#fc8d59', '#ef6548', '#d7301f', '#b30000', '#7f0000'])
     // }
-    color = d3.scaleSequential(d3.interpolatePiYG).domain([domainMin, domainMax])
+    // color = d3.scaleSequential(d3.interpolatePiYG).domain([domainMin, domainMax])
 
     svg.append('path')
       .datum(vermont)
