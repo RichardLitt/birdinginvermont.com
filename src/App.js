@@ -50,7 +50,6 @@ class App extends Component {
     super(props)
     this.state = {
       data: {
-        checklistLocations: '',
         towns: '',
         regions: '',
         rarities: '',
@@ -64,16 +63,14 @@ class App extends Component {
   }
 
   async handleChange(e) {
-    let checklistLocations = await ebird.checklistLocations({all: true, input: e})
-    let rarities = await ebird.rare({input: e, checklistLocations}) // Input?
-    let towns = await ebird.towns({all: true, input: e, checklistLocations})
-    let regions = await ebird.regions({all: true, input: e, checklistLocations})
-    let counties = await ebird.counties({all: true, input: e, checklistLocations})
+    let rarities = await ebird.rare({input: e}) // Input?
+    let towns = await ebird.towns({all: true, input: e})
+    let regions = await ebird.regions({all: true, input: e})
+    let counties = await ebird.counties({all: true, input: e})
     // let radial = await ebird.radialSearch({input: e, coordinates: [44.259548, -72.575882]})
     this.setState((prevState, props) => ({
       data: {
         ...prevState.data,
-        checklistLocations,
         towns,
         regions,
         rarities,

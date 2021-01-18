@@ -49,7 +49,8 @@ class Map extends Component {
     this.setState({ mapView: e.currentTarget.value })
   }
 
-  createMap() {
+
+  async createMap() {
     // Some issue with overlaying if I keep calling createMap
     // This seems to speed it up, but I'm sure there's a loss
     d3.selectAll("svg > *").remove();
@@ -134,16 +135,25 @@ class Map extends Component {
 
       if (data.counties && this.state.mapView === '2') {
         speciesView = Object.keys(data.counties).map(c => data.counties[c].speciesTotal)
+      // } else if (data.counties && this.state.mapView === '4') {
+      //   // TODO Enable
+      //   // TODO Change colors to show targets
+      //   // Sort needs by taxonomy, alphabetic, habitat, and, most importantly, occurrence
+      //   speciesView = Object.keys(data.counties).map(c => data.counties[c].january.length)
+      //   vermont.features.forEach(feature => {
+      //     feature.properties.speciesTotal = data.counties[feature.properties.name].january.length
+      //   })
       } else if (data.counties && this.state.mapView === '3') {
-        // TODO Change colors to show targets
-        // Sort needs by taxonomy, alphabetic, habitat, and, most importantly, occurrence
-        speciesView = Object.keys(data.counties).map(c => data.counties[c].january.length)
+        const dataThisYear = await ebirdExt.counties({all: true, year: 2021, input: data.input})
+        speciesView = Object.keys(dataThisYear).map(c => dataThisYear[c].speciesTotal)
         vermont.features.forEach(feature => {
-          feature.properties.speciesTotal = data.counties[feature.properties.name].january.length
+          feature.properties.species = dataThisYear[feature.properties.name].species
+          feature.properties.speciesTotal = dataThisYear[feature.properties.name].speciesTotal
         })
       } else {
         speciesView = Object.keys(speciesTotals).map(c => speciesTotals[c].length)
         vermont.features.forEach(feature => {
+          feature.properties.species = speciesTotals[feature.properties.name]
           feature.properties.speciesTotal = speciesTotals[feature.properties.name].length
         })
       }

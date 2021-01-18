@@ -12,10 +12,7 @@ const Papa = require('papaparse')
 const moment = require('moment')
 const difference = require('compare-latlong')
 const appearsDuringExpectedDates = require('./appearsDuringExpectedDates.js')
-// Note: this breaks on the server-side, thanks to leaflet needing window.
-// Just comment these out if you're running cli.js
-const L = require('leaflet')
-const leafletKnn = require('leaflet-knn')
+const provinces = require('provinces')
 
 function removeSpuh (arr) {
   const newArr = []
@@ -110,26 +107,45 @@ function createPeriodArray (data) {
   return _.sortBy(periodArray, 'SpeciesTotal').reverse()
 }
 
+function capitalizeFirstLetters(string) {
+  return string.toLowerCase().split(' ').map(x => x.charAt(0).toUpperCase() + x.slice(1)).join(' ')
+}
+
 function locationFilter (list, opts) {
-  // TODO Make State and Country and County and Town work
-  if (opts.state && !opts.county) {
-    return list.filter((x) => {
-      // TODO Add a mapping from Vermont to US-VT, for all states and provinces
-      if (x["State/Province"] === 'US-VT') {
-        x.State = 'Vermont'
+  const filterList = ['Country', 'State', 'Region', 'County', 'Town']
+  const intersection = _.intersection(Object.keys(opts).map(x => capitalizeFirstLetters(x)), filterList)
+
+  return list.filter(checklist => {
+    if (!checklist.Latitude) {
+      // Some audio records appear to be totally empty locationalls
+      if (opts.verbose) {
+        console.log(`Checklist discarded: ${checklist['eBird Checklist URL']}.`)
       }
-      return (x.State) ? x.State === opts.state : false;
-    })
-  } else if (opts.county && opts.state) {
-    return list.filter(x => {
-        if (x["State/Province"] === 'US-VT') {
-          x.State = 'Vermont'
+      return false
+    }
+    if (!checklist.State) {
+      let [country, state] = checklist['State/Province'].split('-')
+      if (state === 'VT') { // Just to speed things up a bit
+        checklist.State = 'Vermont'
+      } else if (['US', 'CA'].includes(country)) { // Enable for others
+        if (_.findIndex(provinces, {short: state}) !== -1) { // Note that this file is larger than needed, and has more countries
+          checklist.State = provinces[_.findIndex(provinces, {short: state})].name
         }
-        return (x.State && x.County) ? ((x.State === opts.state) && (x.County === opts.county)) : false;
-    })
-  } else {
-    return list
-  }
+      }
+      checklist.Country = country
+    }
+    if (checklist.State === 'Vermont') {
+      // This option takes 25 seconds to do, every time, on my data
+      // Might be worth just not including.
+      let point = pointLookup(Vermont_regions, vermontRegions, checklist)
+      checklist.Region = point
+
+      // This one takes 3.5 seconds
+      checklist.Town = pointLookup(Town_boundaries, vermontTowns, checklist)
+    }
+
+    return intersection.every(filter => checklist[filter] === opts[filter.toLowerCase()])
+  })
 }
 
 function dateFilter (list, opts) {
@@ -239,12 +255,12 @@ function getAllTowns (geojson) {
 /* node cli.js count -i=MyEBirdData.csv --town="Fayston" --state=Vermont
 As this is set up, it will currently return only the first time I saw species in each town provided, in Vermont */
 async function towns (opts) {
-  opts.state = 'Vermont'
+  if (!opts.state) {
+    // We only have towns for this state
+    opts.state = 'Vermont'
+  }
   const dateFormat = parseDateformat('day')
   let data = orderByDate(dateFilter(locationFilter(await getData(opts.input), opts), opts), opts)
-  data.forEach(d => {
-    d.Town = opts.checklistLocations[d['Submission ID']]['Town']
-  })
   var speciesSeenInVermont = []
   _.forEach(countUniqueSpecies(data, dateFormat), (o) => {
     var mapped = _.map(o, 'Common Name')
@@ -325,9 +341,6 @@ async function regions (opts) {
   opts.state = 'Vermont'
   const dateFormat = parseDateformat('day')
   let data = orderByDate(dateFilter(locationFilter(await getData(opts.input), opts), opts), opts)
-  data.forEach(d => {
-    d.Region = opts.checklistLocations[d['Submission ID']].Region
-  })
 
   function getRegions (geojson) {
     const regions = []
@@ -450,28 +463,10 @@ async function quadBirds (opts) {
 function pointLookup(geojson, geojsonLookup, data) {
   let point = {type: "Point", coordinates: [data.Longitude, data.Latitude]}
   let containerArea = geojsonLookup.getContainers(point)
-  let gj, nearestLayer
-  if (!containerArea.features[0]) {
-    gj = L.geoJson(geojson);
-    nearestLayer = leafletKnn(gj).nearestLayer([data.Longitude, data.Latitude], 1);
-    return nearestLayer[0].layer.feature.properties.name
-  }
-  return containerArea.features[0].properties.name
-}
-
-async function checklistLocations (opts) {
-  let obj = {}
-  const data = locationFilter(await getData(opts.input), {state: 'Vermont'}) // Don't filter, this is only used for checking
-  for (let d of data) {
-    if (!obj[d['Submission ID']] && window) {
-      let locations = {}
-      // For some reason, this takes a second each time.
-      locations.Town = pointLookup(Town_boundaries, vermontTowns, d)
-      locations.Region = pointLookup(Vermont_regions, vermontRegions, d)
-      obj[d['Submission ID']] = locations
-    }
-  }
-  return obj
+  // If, for some reason, the point is on a border and the map I have discards it, but eBird doesn't - just discard it.
+  // This can be fixed by using nearest neighbor approaches, but those tend to have a high computational load, and they require
+  // mapping libraries that need window, which just stinks.
+  return (containerArea.features[0]) ? containerArea.features[0].properties.name : null
 }
 
 async function rare (opts) {
@@ -480,7 +475,7 @@ async function rare (opts) {
   // }
   opts.state = 'Vermont'
   // Use only data from this year, from Vermont
-  const data = dateFilter(dateFilter(locationFilter(await getData(opts.input), opts), opts), opts)
+  const data = dateFilter(locationFilter(await getData(opts.input), opts), opts)
   const allSpecies = VermontRecords.map(x => x['Scientific Name'])
   const speciesToReport = VermontRecords.map(x => x['Scientific Name'])
   // TODO Update needs JSON file
@@ -511,13 +506,11 @@ async function rare (opts) {
       } else if (recordEntry.Reporting === 'B') {
         // Outside of Burlington
         const towns = ['Burlington', 'South Burlington', 'Essex', 'Colchester', 'Winooski', 'Shelburne']
-        e.Town = opts.checklistLocations[e['Submission ID']].Town
         if (!towns.includes(e.Town)) {
           output.Burlington.push(e)
         }
       } else if (recordEntry.Reporting === 'C') {
         // Outside of Lake Champlain Basin
-        e.Region = opts.checklistLocations[e['Submission ID']].Region
         if (e.Region !== 'Champlain Valley') {
           output.Champlain.push(e)
         }
@@ -577,5 +570,4 @@ export default {
   removeSpuhFromCounties,
   towns,
   counties,
-  checklistLocations
 }
