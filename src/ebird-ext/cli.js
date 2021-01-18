@@ -89,6 +89,8 @@ async function run () {
     await main.regions(cli.flags)
   } else if (cli.input[0] === 'counties') {
     await main.counties(cli.flags)
+  } else if (cli.input[0] === 'winterFinch') {
+    await main.winterFinch(cli.flags)
   } else if (cli.input[0] === 'rare') {
     await main.rare(cli.flags)
   } else if (cli.input[0] === 'big') {

@@ -328,11 +328,72 @@ async function counties (opts) {
   const newObj = {}
   counties.forEach(c => newObj[c.county] = c)
 
+  function countyTicks () {
+    let total = Object.keys(newObj).reduce((prev, cur) => {
+      return prev + newObj[cur].speciesTotal;
+    }, 0)
+    console.log(`Total ticks: ${total}.`)
+  }
+
+  if (opts.ticks) {
+    countyTicks()
+  }
+
   if (opts.county) {
     console.log(newObj[opts.county])
     return newObj[opts.county]
   }
+
   return newObj
+}
+
+async function winterFinch (opts) {
+  function sortedList(list, orderedList) {
+    list = list.map(species => species.split(' (')[0])
+    return list.sort((a, b) => orderedList.indexOf(a) - orderedList.indexOf(b))
+  }
+
+  const owls = [
+    'Eastern Screech-owl',
+    'Great Horned Owl',
+    'Snowy Owl',
+    'Barred Owl',
+    'Long-eared Owl',
+    'Short-eared Owl',
+    'Boreal Owl',
+    'Northern Saw-whet Owl'
+  ]
+
+  const winterFinches = [
+    'Rough-legged Hawk',
+    'Snowy Owl',
+    'Northern Shrike',
+    'Boreal Chickadee',
+    'Horned Lark',
+    'Bohemian Waxwing',
+    'Evening Grosbeak',
+    'Pine Grosbeak',
+    'Common Redpoll',
+    'Hoary Redpoll',
+    'Red Crossbill',
+    'White-winged Crossbill',
+    'Pine Siskin',
+    'Lapland Longspur',
+    'Snow Bunting',
+    'American Tree Sparrow'
+  ]
+
+  const data = await counties(opts)
+  Object.keys(data).forEach(county => {
+    const intersection = sortedList(_.intersection(cleanCommonName(data[county].species), winterFinches), winterFinches)
+    console.log(`${county} (${intersection.length})${(intersection.length !== 0) ? `: ${intersection.join(', ')}.` : ''}`)
+  })
+
+  console.log('')
+  Object.keys(data).forEach(county => {
+    const intersection = sortedList(_.intersection(cleanCommonName(data[county].species), owls), owls)
+    console.log(`${county} (${intersection.length})${(intersection.length !== 0) ? `: ${intersection.join(', ')}.` : ''}`)
+  })
 }
 
 /* node cli.js count -i=MyEBirdData.csv --town="Fayston" --state=Vermont
@@ -570,4 +631,5 @@ export default {
   removeSpuhFromCounties,
   towns,
   counties,
+  winterFinch
 }
