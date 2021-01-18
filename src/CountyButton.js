@@ -8,7 +8,8 @@ export default class Button extends Component {
     const radios = [
       { name: 'All Birds', value: '1' },
       { name: 'Seen', value: '2' },
-      { name: 'Needs', value: '3'}
+      { name: '2021', value: '3'}
+      // { name: 'January Needs', value: '3'},
       // TODO { name: 'Ratio', value: '3' },
     ];
 
