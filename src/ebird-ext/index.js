@@ -137,8 +137,8 @@ function locationFilter (list, opts) {
     if (checklist.State === 'Vermont') {
       // This option takes 25 seconds to do, every time, on my data
       // Might be worth just not including.
-      let point = pointLookup(Vermont_regions, vermontRegions, checklist)
-      checklist.Region = point
+      // let point = pointLookup(Vermont_regions, vermontRegions, checklist)
+      // checklist.Region = point
 
       // This one takes 3.5 seconds
       checklist.Town = pointLookup(Town_boundaries, vermontTowns, checklist)
@@ -319,6 +319,7 @@ async function counties (opts) {
       collectiveTotal: countySpecies[county].length,
       species,
       speciesByDate,
+      barCharts: CountyBarcharts[county],
       speciesTotal: species.length,
       notSeen: _.difference(countySpecies[county], cleanCommonName(species))
     }
@@ -326,24 +327,75 @@ async function counties (opts) {
 
   // Again, as above es6 probably has a better way of doing this.
   const newObj = {}
-  counties.forEach(c => newObj[c.county] = c)
+  counties.forEach(c => {
+    newObj[c.county] = c
+  })
 
   function countyTicks () {
     let total = Object.keys(newObj).reduce((prev, cur) => {
       return prev + newObj[cur].speciesTotal;
     }, 0)
     console.log(`Total ticks: ${total}.`)
+    console.log(`Ticks per day: ${total/moment().dayOfYear()}`)
   }
+
+  function getBarCharts (newObj, county) {
+    const frequency = {
+      'common': [],
+      'winter': [],
+      'summer': [],
+      'rarity': []
+    }
+    Object.keys(newObj[county].barCharts.species).forEach(species => {
+      let occurence = newObj[county].barCharts.species[species].occurence
+      // if (species === 'American Black Duck') {
+      //   console.log(occurence)
+      // }
+      if (species.indexOf('sp.') === -1 && species.indexOf('/') === -1 && species.indexOf(' x ') === -1) {
+        if (!_.countBy(occurence)['0.0'] || _.countBy(occurence)['0.0'] < 4) {
+            frequency.common.push(species)
+            // console.log(`Common: ${species}.`)
+        } else if (_.countBy(occurence)['0.0'] > 44) {
+          frequency.rarity.push(species)
+        }
+        let winterOccurence = occurence.slice(0,10).concat(occurence.slice(50)).reduce((a,b) => parseFloat(a) + parseFloat(b))/12
+        let summerOccurence = occurence.slice(18,36).reduce((a,b) => parseFloat(a) + parseFloat(b))/18
+        if (winterOccurence > summerOccurence && frequency.common.indexOf(species) === -1 && frequency.rarity.indexOf(species) === -1) {
+          frequency.winter.push(species)
+          console.log(`Winter: ${species}.`)
+          // return species
+        } else {
+          // Note - this is not necesarily a good metric.
+          // console.log(`Summer: ${species}.`)
+          frequency.summer.push(species)
+        }
+      }
+    })
+    console.log(`Common in ${county}: ${frequency.common.length}`)
+    console.log(`Winter in ${county}: ${frequency.winter.length}`)
+    // TODO Needs work
+    // console.log(`Expected species: ${newObj[county].collectiveTotal - frequency.rarity.length}.`)
+    return frequency
+  }
+
 
   if (opts.ticks) {
     countyTicks()
   }
 
+
   if (opts.county) {
-    console.log(newObj[opts.county])
+    let frequency = getBarCharts(newObj, opts.county)
+    // TODO Use the API to get a list of seen species this year, and then use that to judge how far ahead you're doing or not
+    // For Lamoille, for instance
+    // 'https://api.ebird.org/v2/data/obs/US-VT-015/recent?back=16&includeProvisional=true'
+    // Example command: node cli.js counties --input=MyEbirdData.csv --year=2021 --ticks --county=Lamoille
+    console.log(`Intersection (Common): ${_.intersection(newObj[opts.county].species, frequency.common).length}`)
+    console.log(`Intersection (Winter): ${_.intersection(newObj[opts.county].species, frequency.winter).length}`)
     return newObj[opts.county]
   }
 
+  counties.forEach(c => getBarCharts(newObj, c.county))
   return newObj
 }
 
@@ -618,8 +670,8 @@ async function rare (opts) {
 // }
 
 // Switch this for CLI testing
-// module.exports = {
-export default {
+module.exports = {
+// export default {
   biggestTime,
   firstTimeList,
   firstTimes,
