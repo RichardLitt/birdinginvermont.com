@@ -41,7 +41,7 @@ class NavBar extends Component {
             <li className={(this.props.active === 'nfc') ? 'nav-item active' : 'nav-item' }>
               <Link
                 className="nav-link"
-                to="/nfc"
+                to="/nfc-species"
               >
                 NFCs
               </Link>

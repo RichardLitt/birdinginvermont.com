@@ -1,3 +1,7 @@
+---
+title: Terms
+---
+
 # Terms and Conditions
 
 We currently store none of your data. We do not save your eBird data if you upload it; all work is done through your browser, and there is no server where information is held.

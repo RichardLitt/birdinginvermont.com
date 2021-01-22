@@ -1,3 +1,7 @@
+---
+title: "Black-and-white Warbler"
+---
+
 # NFCs: Black-and-white Warbler
 
 <iframe width="640" height="518" src="https://macaulaylibrary.org/asset/171075931/embed/640" frameborder="0" allowfullscreen style="width:640px;max-width:100%;"></iframe>
