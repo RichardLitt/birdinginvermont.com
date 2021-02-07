@@ -56,7 +56,7 @@ class App extends Component {
         counties: '',
         vt251data: '',
         loaded: false,
-        width: 450,
+        width: 520,
         height: 800
       }
     }

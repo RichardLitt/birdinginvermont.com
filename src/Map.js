@@ -220,7 +220,7 @@ class Map extends Component {
     var projection = d3Geo
       .geoTransverseMercator()
       .rotate([72.57, -44.20])
-      .translate([200, 300])
+      .translate([250, 300])
       .scale([18000])
 
     // Define path generator
@@ -247,14 +247,6 @@ class Map extends Component {
       .attr('d', path)
       .style('stroke', '#777')
       .style('stroke-width', '1')
-
-    // Color lakes
-    svg.append('path')
-      .datum(topojson.feature(VermontTowns, VermontTowns.objects.lake))
-      .attr('d', path)
-      .style('stroke', '#89b6ef')
-      .style('stroke-width', '1px')
-      .style('fill', '#b6d2f5')
 
     let townSelected = false
 
@@ -335,6 +327,14 @@ class Map extends Component {
             .text()
         }
       })
+
+    // Color lakes
+    svg.append('path')
+      .datum(topojson.feature(VermontTowns, VermontTowns.objects.lake))
+      .attr('d', path)
+      .style('stroke', '#89b6ef')
+      .style('stroke-width', '1px')
+      .style('fill', '#b6d2f5')
 
     // var coordinates = projection([-72.5766799, 44.2581012])
 
