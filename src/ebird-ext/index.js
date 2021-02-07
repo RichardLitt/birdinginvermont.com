@@ -53,11 +53,13 @@ async function vt251() {
       return csv;
   }
 
+  const input = await Papa.parse(await fetchCsv('data/251.csv'), { header: true }).data
+
   const opts = {
     year: 2021,
     state: 'Vermont',
     all: true,
-    input: Papa.parse(await fetchCsv('data/251.csv'), { header: true }).data
+    input
   }
   return await towns(opts)
 }
