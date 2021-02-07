@@ -1,51 +1,342 @@
 Submission ID,Common Name,Scientific Name,Taxonomic Order,Count,State/Province,County,Location ID,Location,Latitude,Longitude,Date,Time,Protocol,Duration (Min),All Obs Reported,Distance Traveled (km),Area Covered (ha),Number of Observers,Breeding Code,Observation Details,Checklist Comments,ML Catalog Numbers
+S80615028,Canada Goose,Branta canadensis,297,329,US-VT,Addison,L165265,Champlain Bridge / Chimney Point,44.0345,-73.4218,2021-01-04,07:40 AM,eBird - Stationary Count,38,1,,,1,,Clicker count.
+S80615029,Canada Goose,Branta canadensis,297,5,US-VT,Addison,L165269,DAR State Park,44.0545617,-73.4163478,2021-01-04,08:20 AM,eBird - Stationary Count,21,1,,,1
+S80615022,Canada Goose,Branta canadensis,297,90,US-VT,Addison,L165349,Potash Bay,44.0935032,-73.3922768,2021-01-03,02:22 PM,eBird - Stationary Count,14,1,,,2,,"One count 87, one count 93"
+S80615021,Canada Goose,Branta canadensis,297,4,US-VT,Addison,L1255384,Turkey Lane,44.1303163,-73.3686304,2021-01-03,01:00 PM,eBird - Traveling Count,74,1,.522,,1
+S80615031,Canada Goose,Branta canadensis,297,X,US-VT,Addison,L1255384,Turkey Lane,44.1303163,-73.3686304,2021-01-04,09:40 AM,eBird - Traveling Count,33,1,.377,,1
+S80615023,Mallard,Anas platyrhynchos,471,2,US-VT,Addison,L165265,Champlain Bridge / Chimney Point,44.0345,-73.4218,2021-01-03,02:50 PM,eBird - Traveling Count,33,1,.357,,4
+S80615028,Mallard,Anas platyrhynchos,471,1,US-VT,Addison,L165265,Champlain Bridge / Chimney Point,44.0345,-73.4218,2021-01-04,07:40 AM,eBird - Stationary Count,38,1,,,1
+S80615029,Mallard,Anas platyrhynchos,471,13,US-VT,Addison,L165269,DAR State Park,44.0545617,-73.4163478,2021-01-04,08:20 AM,eBird - Stationary Count,21,1,,,1
+S80615019,Mallard,Anas platyrhynchos,471,1,US-VT,Addison,L342140,Dead Creek--Panton Road crossing,44.149982,-73.321562,2021-01-03,12:53 PM,eBird - Casual Observation,,0,,,1
+S80615021,Mallard,Anas platyrhynchos,471,X,US-VT,Addison,L1255384,Turkey Lane,44.1303163,-73.3686304,2021-01-03,01:00 PM,eBird - Traveling Count,74,1,.522,,1
+S80615031,Mallard,Anas platyrhynchos,471,X,US-VT,Addison,L1255384,Turkey Lane,44.1303163,-73.3686304,2021-01-04,09:40 AM,eBird - Traveling Count,33,1,.377,,1
 S80610863,Mallard,Anas platyrhynchos,471,1,US-VT,Grand Isle,L293922,South Hero Causeway,44.5934815,-73.3117418,2021-02-07,06:49 AM,eBird - Traveling Count,142,1,1.89,,1
+S80614818,Mallard,Anas platyrhynchos,471,11,US-VT,Windham,L1141256,Brattleboro Marina / West River Trail,42.8708376,-72.5623799,2021-01-15,11:05 AM,eBird - Traveling Count,68,1,2.658,,1
+S80615021,American Black Duck,Anas rubripes,493,26,US-VT,Addison,L1255384,Turkey Lane,44.1303163,-73.3686304,2021-01-03,01:00 PM,eBird - Traveling Count,74,1,.522,,1
+S80615031,American Black Duck,Anas rubripes,493,X,US-VT,Addison,L1255384,Turkey Lane,44.1303163,-73.3686304,2021-01-04,09:40 AM,eBird - Traveling Count,33,1,.377,,1
 S80610863,Canvasback,Aythya valisineria,575,1,US-VT,Grand Isle,L293922,South Hero Causeway,44.5934815,-73.3117418,2021-02-07,06:49 AM,eBird - Traveling Count,142,1,1.89,,1
-S80610863,Redhead,Aythya americana,576,1,US-VT,Grand Isle,L293922,South Hero Causeway,44.5934815,-73.3117418,2021-02-07,06:49 AM,eBird - Traveling Count,142,1,1.89,,1,,"It is almost impossible for me to note Redheads, thanks to color-blindness. Nevertheless, I saw one female bird that looked like a female Scaup but lacked the white front and had a round head. I think this was a Redhead."
 S80610863,Ring-necked Duck,Aythya collaris,580,10,US-VT,Grand Isle,L293922,South Hero Causeway,44.5934815,-73.3117418,2021-02-07,06:49 AM,eBird - Traveling Count,142,1,1.89,,1
 S80610863,Tufted Duck,Aythya fuligula,591,1,US-VT,Grand Isle,L293922,South Hero Causeway,44.5934815,-73.3117418,2021-02-07,06:49 AM,eBird - Traveling Count,142,1,1.89,,1,,Continuing imm male. Photos
 S80610863,Greater Scaup,Aythya marila,596,3000,US-VT,Grand Isle,L293922,South Hero Causeway,44.5934815,-73.3117418,2021-02-07,06:49 AM,eBird - Traveling Count,142,1,1.89,,1,,Hundreds for one large raft; three more rafts.
+S80615028,Lesser Scaup,Aythya affinis,602,2,US-VT,Addison,L165265,Champlain Bridge / Chimney Point,44.0345,-73.4218,2021-01-04,07:40 AM,eBird - Stationary Count,38,1,,,1
+S80615029,Lesser Scaup,Aythya affinis,602,1,US-VT,Addison,L165269,DAR State Park,44.0545617,-73.4163478,2021-01-04,08:20 AM,eBird - Stationary Count,21,1,,,1
 S80610863,Lesser Scaup,Aythya affinis,602,5,US-VT,Grand Isle,L293922,South Hero Causeway,44.5934815,-73.3117418,2021-02-07,06:49 AM,eBird - Traveling Count,142,1,1.89,,1
+S80615023,Greater/Lesser Scaup,Aythya marila/affinis,606,X,US-VT,Addison,L165265,Champlain Bridge / Chimney Point,44.0345,-73.4218,2021-01-03,02:50 PM,eBird - Traveling Count,33,1,.357,,4
+S80615028,Greater/Lesser Scaup,Aythya marila/affinis,606,X,US-VT,Addison,L165265,Champlain Bridge / Chimney Point,44.0345,-73.4218,2021-01-04,07:40 AM,eBird - Stationary Count,38,1,,,1
+S80615021,White-winged Scoter,Melanitta deglandi,630,2,US-VT,Addison,L1255384,Turkey Lane,44.1303163,-73.3686304,2021-01-03,01:00 PM,eBird - Traveling Count,74,1,.522,,1
+S80615031,Bufflehead,Bucephala albeola,641,1,US-VT,Addison,L1255384,Turkey Lane,44.1303163,-73.3686304,2021-01-04,09:40 AM,eBird - Traveling Count,33,1,.377,,1
 S80610863,Bufflehead,Bucephala albeola,641,4,US-VT,Grand Isle,L293922,South Hero Causeway,44.5934815,-73.3117418,2021-02-07,06:49 AM,eBird - Traveling Count,142,1,1.89,,1
+S80615023,Common Goldeneye,Bucephala clangula,642,X,US-VT,Addison,L165265,Champlain Bridge / Chimney Point,44.0345,-73.4218,2021-01-03,02:50 PM,eBird - Traveling Count,33,1,.357,,4
+S80615028,Common Goldeneye,Bucephala clangula,642,206,US-VT,Addison,L165265,Champlain Bridge / Chimney Point,44.0345,-73.4218,2021-01-04,07:40 AM,eBird - Stationary Count,38,1,,,1,,Clicker count of birds on Vermont side. Birds in raft on far NY side not counted.
+S80615029,Common Goldeneye,Bucephala clangula,642,3,US-VT,Addison,L165269,DAR State Park,44.0545617,-73.4163478,2021-01-04,08:20 AM,eBird - Stationary Count,21,1,,,1
+S80615021,Common Goldeneye,Bucephala clangula,642,16,US-VT,Addison,L1255384,Turkey Lane,44.1303163,-73.3686304,2021-01-03,01:00 PM,eBird - Traveling Count,74,1,.522,,1
+S80615031,Common Goldeneye,Bucephala clangula,642,X,US-VT,Addison,L1255384,Turkey Lane,44.1303163,-73.3686304,2021-01-04,09:40 AM,eBird - Traveling Count,33,1,.377,,1
+S80615030,Common Goldeneye,Bucephala clangula,642,8,US-VT,Addison,L13160842,VTAD Owl's Head Bay (no public access),44.065737,-73.4219469,2021-01-04,08:50 AM,eBird - Stationary Count,8,1,,,1
 S80610863,Common Goldeneye,Bucephala clangula,642,59,US-VT,Grand Isle,L293922,South Hero Causeway,44.5934815,-73.3117418,2021-02-07,06:49 AM,eBird - Traveling Count,142,1,1.89,,1
 S80610863,Barrow's Goldeneye,Bucephala islandica,647,1,US-VT,Grand Isle,L293922,South Hero Causeway,44.5934815,-73.3117418,2021-02-07,06:49 AM,eBird - Traveling Count,142,1,1.89,,1,,"1 female. Steep forehead and a smaller bill, with mostly yellow. Wish I had been able to get a photo, but I didn't locate it again."
+S80615028,Common Merganser,Mergus merganser,658,8,US-VT,Addison,L165265,Champlain Bridge / Chimney Point,44.0345,-73.4218,2021-01-04,07:40 AM,eBird - Stationary Count,38,1,,,1
+S80615022,Common Merganser,Mergus merganser,658,4,US-VT,Addison,L165349,Potash Bay,44.0935032,-73.3922768,2021-01-03,02:22 PM,eBird - Stationary Count,14,1,,,2
+S80615031,Common Merganser,Mergus merganser,658,3,US-VT,Addison,L1255384,Turkey Lane,44.1303163,-73.3686304,2021-01-04,09:40 AM,eBird - Traveling Count,33,1,.377,,1
 S80610863,Common Merganser,Mergus merganser,658,14,US-VT,Grand Isle,L293922,South Hero Causeway,44.5934815,-73.3117418,2021-02-07,06:49 AM,eBird - Traveling Count,142,1,1.89,,1
+S80615022,Red-breasted Merganser,Mergus serrator,666,1,US-VT,Addison,L165349,Potash Bay,44.0935032,-73.3922768,2021-01-03,02:22 PM,eBird - Stationary Count,14,1,,,2
 S80610863,Red-breasted Merganser,Mergus serrator,666,2,US-VT,Grand Isle,L293922,South Hero Causeway,44.5934815,-73.3117418,2021-02-07,06:49 AM,eBird - Traveling Count,142,1,1.89,,1
+S80615015,Wild Turkey,Meleagris gallopavo,1706,20,US-VT,Lamoille,L12984309,VTLA Pike Fields South,44.440739,-72.709975,2021-01-03,11:40 AM,eBird - Casual Observation,,0,,,1
+S80614855,Wild Turkey,Meleagris gallopavo,1706,2,US-VT,Orleans,L13509572,"2118–2130 VT-100, Westfield US-VT 44.87718, -72.43083",44.877178,-72.430828,2021-02-06,04:44 PM,eBird - Casual Observation,,0,,,1
+S80615021,Horned Grebe,Podiceps auritus,1767,3,US-VT,Addison,L1255384,Turkey Lane,44.1303163,-73.3686304,2021-01-03,01:00 PM,eBird - Traveling Count,74,1,.522,,1
+S80615031,Horned Grebe,Podiceps auritus,1767,5,US-VT,Addison,L1255384,Turkey Lane,44.1303163,-73.3686304,2021-01-04,09:40 AM,eBird - Traveling Count,33,1,.377,,1
+S80614798,Rock Pigeon (Feral Pigeon),Columba livia (Feral Pigeon),1813,9,US-VT,Chittenden,L2795377,VTCH E Thompsons Pt Road,44.2801125,-73.2482958,2021-01-09,02:45 PM,eBird - Stationary Count,50,1,,,1
+S80615009,Rock Pigeon (Feral Pigeon),Columba livia (Feral Pigeon),1813,30,US-VT,Lamoille,L10478310,VTLA Foote Brook Farm,44.638307,-72.699114,2021-01-01,09:04 AM,eBird - Casual Observation,,0,,,2
+S80614856,Rock Pigeon (Feral Pigeon),Columba livia (Feral Pigeon),1813,4,US-VT,Orleans,L13513263,VTOS Lowell Village,44.799614,-72.448595,2021-02-06,04:52 PM,eBird - Casual Observation,,0,,,1
 S80603213,Rock Pigeon (Feral Pigeon),Columba livia (Feral Pigeon),1813,45,US-VT,Washington,L11103389,Blanchard Park,44.2587866,-72.5740852,2021-02-07,01:02 PM,eBird - Traveling Count,5,1,.229,,1
+S80614814,Rock Pigeon (Feral Pigeon),Columba livia (Feral Pigeon),1813,30,US-VT,Windham,L13277256,"Brattleboro Rd, Brattleboro US-VT 42.85140, -72.55632",42.851395,-72.556315,2021-01-15,10:23 AM,eBird - Casual Observation,,0,,,1
+S80614808,Mourning Dove,Zenaida macroura,2339,3,US-VT,Addison,L7154186,VTAD Rockville Market Farm,44.2489,-73.064908,2021-01-14,04:50 PM,eBird - Casual Observation,,0,,,1
+S80614828,Mourning Dove,Zenaida macroura,2339,12,US-MA,Berkshire,L13240870,"stakeout Boreal Chickadee, N Hoosac Rd **view from road only** (Jan 2021)",42.7299526,-73.2026387,2021-01-15,03:50 PM,eBird - Stationary Count,29,1,,,4,,,S sz
+S80615023,Herring Gull,Larus argentatus,6275,1,US-VT,Addison,L165265,Champlain Bridge / Chimney Point,44.0345,-73.4218,2021-01-03,02:50 PM,eBird - Traveling Count,33,1,.357,,4
+S80615028,Herring Gull,Larus argentatus,6275,4,US-VT,Addison,L165265,Champlain Bridge / Chimney Point,44.0345,-73.4218,2021-01-04,07:40 AM,eBird - Stationary Count,38,1,,,1
+S80615029,Herring Gull,Larus argentatus,6275,11,US-VT,Addison,L165269,DAR State Park,44.0545617,-73.4163478,2021-01-04,08:20 AM,eBird - Stationary Count,21,1,,,1
+S80615021,Herring Gull,Larus argentatus,6275,1,US-VT,Addison,L1255384,Turkey Lane,44.1303163,-73.3686304,2021-01-03,01:00 PM,eBird - Traveling Count,74,1,.522,,1
 S80610863,Herring Gull,Larus argentatus,6275,2,US-VT,Grand Isle,L293922,South Hero Causeway,44.5934815,-73.3117418,2021-02-07,06:49 AM,eBird - Traveling Count,142,1,1.89,,1
+S80614797,Herring Gull,Larus argentatus,6275,27,US-VT,Washington,L5132708,Grow Compost,44.3111362,-72.7148581,2021-01-07,12:10 PM,eBird - Traveling Count,5,1,.226,,1
 S80610866,Herring Gull,Larus argentatus,6275,8,US-VT,Washington,L5132708,Grow Compost,44.3111362,-72.7148581,2021-02-07,12:33 PM,eBird - Stationary Count,5,1,,,1
+S80615028,Great Black-backed Gull,Larus marinus,6330,1,US-VT,Addison,L165265,Champlain Bridge / Chimney Point,44.0345,-73.4218,2021-01-04,07:40 AM,eBird - Stationary Count,38,1,,,1
+S80615029,Great Black-backed Gull,Larus marinus,6330,1,US-VT,Addison,L165269,DAR State Park,44.0545617,-73.4163478,2021-01-04,08:20 AM,eBird - Stationary Count,21,1,,,1
+S80615030,Great Black-backed Gull,Larus marinus,6330,1,US-VT,Addison,L13160842,VTAD Owl's Head Bay (no public access),44.065737,-73.4219469,2021-01-04,08:50 AM,eBird - Stationary Count,8,1,,,1
 S80610863,Great Black-backed Gull,Larus marinus,6330,1,US-VT,Grand Isle,L293922,South Hero Causeway,44.5934815,-73.3117418,2021-02-07,06:49 AM,eBird - Traveling Count,142,1,1.89,,1
+S80614797,Great Black-backed Gull,Larus marinus,6330,4,US-VT,Washington,L5132708,Grow Compost,44.3111362,-72.7148581,2021-01-07,12:10 PM,eBird - Traveling Count,5,1,.226,,1
+S80615028,gull sp.,Larinae sp.,6341,8,US-VT,Addison,L165265,Champlain Bridge / Chimney Point,44.0345,-73.4218,2021-01-04,07:40 AM,eBird - Stationary Count,38,1,,,1
+S80615031,gull sp.,Larinae sp.,6341,6,US-VT,Addison,L1255384,Turkey Lane,44.1303163,-73.3686304,2021-01-04,09:40 AM,eBird - Traveling Count,33,1,.377,,1
+S80615030,gull sp.,Larinae sp.,6341,1,US-VT,Addison,L13160842,VTAD Owl's Head Bay (no public access),44.065737,-73.4219469,2021-01-04,08:50 AM,eBird - Stationary Count,8,1,,,1
 S80610863,gull sp.,Larinae sp.,6341,1,US-VT,Grand Isle,L293922,South Hero Causeway,44.5934815,-73.3117418,2021-02-07,06:49 AM,eBird - Traveling Count,142,1,1.89,,1
+S80615028,Common Loon,Gavia immer,6547,2,US-VT,Addison,L165265,Champlain Bridge / Chimney Point,44.0345,-73.4218,2021-01-04,07:40 AM,eBird - Stationary Count,38,1,,,1
+S80615031,Common Loon,Gavia immer,6547,4,US-VT,Addison,L1255384,Turkey Lane,44.1303163,-73.3686304,2021-01-04,09:40 AM,eBird - Traveling Count,33,1,.377,,1
+S80615023,loon sp.,Gavia sp.,6550,2,US-VT,Addison,L165265,Champlain Bridge / Chimney Point,44.0345,-73.4218,2021-01-03,02:50 PM,eBird - Traveling Count,33,1,.357,,4
+S80614809,Northern Harrier,Circus hudsonius,7653,2,US-VT,Addison,L13276667,"2–464 Sawyer Needham Rd, Whiting US-VT 43.85139, -73.16973",43.851392,-73.169728,2021-01-15,07:29 AM,eBird - Traveling Count,2,1,1.365,,1
+S80615026,Northern Harrier,Circus hudsonius,7653,3,US-VT,Addison,L715236,Dead Creek WMA IBA--Gage Road,44.0737892,-73.3289552,2021-01-03,03:45 PM,eBird - Stationary Count,30,1,,,1
+S80615020,Northern Harrier,Circus hudsonius,7653,1,US-VT,Addison,L2461560,Panton Village,44.1483255,-73.3408427,2021-01-03,12:55 PM,eBird - Casual Observation,,0,,,1
+S80615031,Cooper's Hawk,Accipiter cooperii,7829,1,US-VT,Addison,L1255384,Turkey Lane,44.1303163,-73.3686304,2021-01-04,09:40 AM,eBird - Traveling Count,33,1,.377,,1
+S80614795,Cooper's Hawk,Accipiter cooperii,7829,1,US-VT,Addison,L5558770,VTAD Monkton Road,44.176053,-73.200229,2021-01-04,02:35 PM,eBird - Casual Observation,,0,,,1
+S80614840,Cooper's Hawk,Accipiter cooperii,7829,1,US-VT,Grand Isle,L13450381,"545 W Shore Rd, South Hero US-VT 44.67031, -73.34760",44.670308,-73.3476,2021-01-31,04:23 PM,eBird - Casual Observation,,0,,,2
+S80614800,Cooper's Hawk,Accipiter cooperii,7829,1,US-VT,Lamoille,L4940943,VTLA Stagecoach and McKee Road,44.537401,-72.633599,2021-01-10,02:29 PM,eBird - Casual Observation,,0,,,1
+S80614817,Cooper's Hawk,Accipiter cooperii,7829,1,US-VT,Windham,L10477532,Morningside Cemetery,42.8425456,-72.5547064,2021-01-15,10:48 AM,eBird - Casual Observation,,0,,,1
+S80614844,Sharp-shinned/Cooper's Hawk,Accipiter striatus/cooperii,7830,1,US-VT,Lamoille,L7338042,VTLA Lanphear Flats,44.612364,-72.607935,2021-02-05,02:17 PM,eBird - Casual Observation,,0,,,1
+S80615027,Bald Eagle,Haliaeetus leucocephalus,7885,1,US-VT,Addison,L601176,Dead Creek WMA IBA--Bird Observatory & banding station,44.08598,-73.34457,2021-01-04,07:27 AM,eBird - Casual Observation,,0,,,1
+S80615025,Bald Eagle,Haliaeetus leucocephalus,7885,1,US-VT,Addison,L2475621,VTAD Jersey St Corners,44.0810189,-73.3760118,2021-01-03,03:29 PM,eBird - Casual Observation,,0,,,1
 S80610863,Bald Eagle,Haliaeetus leucocephalus,7885,1,US-VT,Grand Isle,L293922,South Hero Causeway,44.5934815,-73.3117418,2021-02-07,06:49 AM,eBird - Traveling Count,142,1,1.89,,1
+S80614809,Red-tailed Hawk,Buteo jamaicensis,8011,4,US-VT,Addison,L13276667,"2–464 Sawyer Needham Rd, Whiting US-VT 43.85139, -73.16973",43.851392,-73.169728,2021-01-15,07:29 AM,eBird - Traveling Count,2,1,1.365,,1
+S80615018,Red-tailed Hawk,Buteo jamaicensis,8011,1,US-VT,Addison,L2636173,Parks End Monkton,44.1887281,-73.1766701,2021-01-03,12:40 PM,eBird - Casual Observation,,0,,,1
+S80614795,Red-tailed Hawk,Buteo jamaicensis,8011,3,US-VT,Addison,L5558770,VTAD Monkton Road,44.176053,-73.200229,2021-01-04,02:35 PM,eBird - Casual Observation,,0,,,1
+S80614827,Red-tailed Hawk,Buteo jamaicensis,8011,2,US-VT,Bennington,L13280667,"Green Mountain National Forest, Pownal US-VT 42.76134, -73.23325",42.761345,-73.23325,2021-01-15,03:42 PM,eBird - Traveling Count,3,0,.506,,2
+S80614826,Red-tailed Hawk,Buteo jamaicensis,8011,2,US-VT,Bennington,L2168757,Norman and Selma Greenberg Conservation Reserve,42.8605912,-73.195585,2021-01-15,03:09 PM,eBird - Traveling Count,22,1,.985,,2
 S80610865,Red-tailed Hawk,Buteo jamaicensis,8011,1,US-VT,Chittenden,L13517237,"6 Sebring Rd, South Burlington US-VT 44.43335, -73.20440",44.433349,-73.204396,2021-02-07,10:06 AM,eBird - Stationary Count,57,1,,,1
+S80614798,Red-tailed Hawk,Buteo jamaicensis,8011,1,US-VT,Chittenden,L2795377,VTCH E Thompsons Pt Road,44.2801125,-73.2482958,2021-01-09,02:45 PM,eBird - Stationary Count,50,1,,,1
+S80614841,Red-tailed Hawk,Buteo jamaicensis,8011,1,US-VT,Grand Isle,L13453004,"W Shore Rd, Grand Isle US-VT (44.6959,-73.3481)",44.695929,-73.348112,2021-01-31,04:56 PM,eBird - Stationary Count,6,1,,,2
+S80614810,Red-tailed Hawk,Buteo jamaicensis,8011,2,US-VT,Rutland,L13276641,"1000–1258 Sawyer Needham Rd, Brandon US-VT 43.83805, -73.17147",43.838055,-73.171467,2021-01-15,07:31 AM,eBird - Traveling Count,5,1,1.971,,1
+S80614815,Red-tailed Hawk,Buteo jamaicensis,8011,1,US-VT,Windham,L13277458,"8 University Way, Brattleboro US-VT 42.83074, -72.56081",42.830737,-72.560813,2021-01-15,10:30 AM,eBird - Traveling Count,12,1,.644,,3
+S80614824,Red-tailed Hawk,Buteo jamaicensis,8011,1,US-VT,Windham,L13279401,"Route 9 E, Wilmington US-VT 42.85552, -72.82258",42.855516,-72.822582,2021-01-15,01:55 PM,eBird - Casual Observation,,0,,,2
+S80614833,Red-tailed Hawk (abieticola),Buteo jamaicensis abieticola,8016,1,US-VT,Chittenden,L13377064,VTCH Town Line Road North,44.261762,-73.250525,2021-01-22,02:50 PM,eBird - Stationary Count,35,1,,,1,,Adult. Dark and richly colored overall. Wide and heavily marked belly band featured characteristic globular streaks.
+S80614809,Rough-legged Hawk,Buteo lagopus,8031,1,US-VT,Addison,L13276667,"2–464 Sawyer Needham Rd, Whiting US-VT 43.85139, -73.16973",43.851392,-73.169728,2021-01-15,07:29 AM,eBird - Traveling Count,2,1,1.365,,1
+S80615027,Rough-legged Hawk,Buteo lagopus,8031,1,US-VT,Addison,L601176,Dead Creek WMA IBA--Bird Observatory & banding station,44.08598,-73.34457,2021-01-04,07:27 AM,eBird - Casual Observation,,0,,,1
+S80615026,Rough-legged Hawk,Buteo lagopus,8031,1,US-VT,Addison,L715236,Dead Creek WMA IBA--Gage Road,44.0737892,-73.3289552,2021-01-03,03:45 PM,eBird - Stationary Count,30,1,,,1
+S80615030,Rough-legged Hawk,Buteo lagopus,8031,1,US-VT,Addison,L13160842,VTAD Owl's Head Bay (no public access),44.065737,-73.4219469,2021-01-04,08:50 AM,eBird - Stationary Count,8,1,,,1
+S80614839,Rough-legged Hawk,Buteo lagopus,8031,1,US-VT,Grand Isle,L13450271,"97–117 Sunset View Rd, South Hero US-VT 44.65115, -73.32986",44.651152,-73.329861,2021-01-31,04:09 PM,eBird - Stationary Count,7,1,,,2
+S80614843,Snowy Owl,Bubo scandiacus,8461,1,US-VT,Lamoille,L13483686,VTLA Stancliff Road,44.509819,-72.615055,2021-02-04,08:40 AM,eBird - Casual Observation,,0,,,1
+S80614799,Barred Owl,Strix varia,8693,1,US-VT,Addison,L2418747,Secret Meadow,44.234315,-73.0694675,2021-01-10,10:45 AM,eBird - Traveling Count,60,1,4.828,,3
+S80615016,Barred Owl,Strix varia,8693,1,US-VT,Chittenden,L13147474,"979–1121 Kenyon Rd, Richmond US-VT 44.41320, -73.02616",44.413199,-73.026158,2021-01-03,12:05 PM,eBird - Casual Observation,,0,,,1
+S80614822,Barred Owl (Northern),Strix varia [varia Group],8694,1,US-VT,Windham,L13279040,"1574 Ames Hill Rd, Brattleboro US-VT 42.85333, -72.68188",42.853327,-72.681879,2021-01-15,01:19 PM,eBird - Casual Observation,,0,,,1,,Feathering on tarsus. Not apparent in photograph.
+S80615026,Short-eared Owl,Asio flammeus,8748,1,US-VT,Addison,L715236,Dead Creek WMA IBA--Gage Road,44.0737892,-73.3289552,2021-01-03,03:45 PM,eBird - Stationary Count,30,1,,,1
+S80614835,Belted Kingfisher,Megaceryle alcyon,9697,1,US-VT,Addison,L2288215,Cota Park,44.2434774,-73.0604553,2021-01-23,10:00 AM,eBird - Casual Observation,,0,,,1
+S80614834,Red-bellied Woodpecker,Melanerpes carolinus,10620,1,US-VT,Addison,L2288215,Cota Park,44.2434774,-73.0604553,2021-01-23,08:29 AM,eBird - Stationary Count,4,1,,,1
+S80614813,Red-bellied Woodpecker,Melanerpes carolinus,10620,1,US-NH,Cheshire,L518067,Hinsdale Setbacks,42.7930073,-72.5140142,2021-01-15,10:02 AM,eBird - Traveling Count,13,1,.526,,1
 S80610865,Red-bellied Woodpecker,Melanerpes carolinus,10620,1,US-VT,Chittenden,L13517237,"6 Sebring Rd, South Burlington US-VT 44.43335, -73.20440",44.433349,-73.204396,2021-02-07,10:06 AM,eBird - Stationary Count,57,1,,,1
+S80614833,Red-bellied Woodpecker,Melanerpes carolinus,10620,1,US-VT,Chittenden,L13377064,VTCH Town Line Road North,44.261762,-73.250525,2021-01-22,02:50 PM,eBird - Stationary Count,35,1,,,1
+S80614837,Red-bellied Woodpecker,Melanerpes carolinus,10620,1,US-VT,Grand Isle,L2681986,VTGI West Shore Road,44.6715828,-73.3467865,2021-01-28,09:34 AM,eBird - Casual Observation,,0,,,1
+S80614820,Red-bellied Woodpecker,Melanerpes carolinus,10620,1,US-VT,Windham,L9037730,Bonnyvale Environmental Education Center,42.830841,-72.625959,2021-01-15,12:31 PM,eBird - Traveling Count,31,1,.491,,2
+S80614818,Red-bellied Woodpecker,Melanerpes carolinus,10620,2,US-VT,Windham,L1141256,Brattleboro Marina / West River Trail,42.8708376,-72.5623799,2021-01-15,11:05 AM,eBird - Traveling Count,68,1,2.658,,1
+S80615029,Downy Woodpecker,Dryobates pubescens,10805,1,US-VT,Addison,L165269,DAR State Park,44.0545617,-73.4163478,2021-01-04,08:20 AM,eBird - Stationary Count,21,1,,,1
+S80615021,Downy Woodpecker,Dryobates pubescens,10805,1,US-VT,Addison,L1255384,Turkey Lane,44.1303163,-73.3686304,2021-01-03,01:00 PM,eBird - Traveling Count,74,1,.522,,1
+S80614826,Downy Woodpecker,Dryobates pubescens,10805,1,US-VT,Bennington,L2168757,Norman and Selma Greenberg Conservation Reserve,42.8605912,-73.195585,2021-01-15,03:09 PM,eBird - Traveling Count,22,1,.985,,2
+S80614813,Downy Woodpecker,Dryobates pubescens,10805,1,US-NH,Cheshire,L518067,Hinsdale Setbacks,42.7930073,-72.5140142,2021-01-15,10:02 AM,eBird - Traveling Count,13,1,.526,,1
 S80610865,Downy Woodpecker,Dryobates pubescens,10805,2,US-VT,Chittenden,L13517237,"6 Sebring Rd, South Burlington US-VT 44.43335, -73.20440",44.433349,-73.204396,2021-02-07,10:06 AM,eBird - Stationary Count,57,1,,,1
 S80610863,Downy Woodpecker,Dryobates pubescens,10805,1,US-VT,Grand Isle,L293922,South Hero Causeway,44.5934815,-73.3117418,2021-02-07,06:49 AM,eBird - Traveling Count,142,1,1.89,,1
+S80614801,Downy Woodpecker,Dryobates pubescens,10805,1,US-VT,Lamoille,L8220315,"555 Washington Highway, Morristown, Vermont, US (44.555, -72.589)",44.5554853,-72.58892,2021-01-10,03:00 PM,eBird - Stationary Count,60,1,,,1
+S80614851,Downy Woodpecker,Dryobates pubescens,10805,1,US-VT,Orleans,L13513301,VTOS Catamount Trail Section 28,44.745469,-72.407675,2021-02-06,11:47 AM,eBird - Traveling Count,197,1,3.219,,1
+S80614820,Downy Woodpecker,Dryobates pubescens,10805,4,US-VT,Windham,L9037730,Bonnyvale Environmental Education Center,42.830841,-72.625959,2021-01-15,12:31 PM,eBird - Traveling Count,31,1,.491,,2
+S80615022,Hairy Woodpecker,Dryobates villosus,10831,1,US-VT,Addison,L165349,Potash Bay,44.0935032,-73.3922768,2021-01-03,02:22 PM,eBird - Stationary Count,14,1,,,2
+S80614833,Hairy Woodpecker,Dryobates villosus,10831,1,US-VT,Chittenden,L13377064,VTCH Town Line Road North,44.261762,-73.250525,2021-01-22,02:50 PM,eBird - Stationary Count,35,1,,,1
+S80614801,Hairy Woodpecker,Dryobates villosus,10831,1,US-VT,Lamoille,L8220315,"555 Washington Highway, Morristown, Vermont, US (44.555, -72.589)",44.5554853,-72.58892,2021-01-10,03:00 PM,eBird - Stationary Count,60,1,,,1
+S80614851,Hairy Woodpecker,Dryobates villosus,10831,1,US-VT,Orleans,L13513301,VTOS Catamount Trail Section 28,44.745469,-72.407675,2021-02-06,11:47 AM,eBird - Traveling Count,197,1,3.219,,1
+S80614820,Hairy Woodpecker,Dryobates villosus,10831,1,US-VT,Windham,L9037730,Bonnyvale Environmental Education Center,42.830841,-72.625959,2021-01-15,12:31 PM,eBird - Traveling Count,31,1,.491,,2
+S80614818,Hairy Woodpecker,Dryobates villosus,10831,1,US-VT,Windham,L1141256,Brattleboro Marina / West River Trail,42.8708376,-72.5623799,2021-01-15,11:05 AM,eBird - Traveling Count,68,1,2.658,,1
+S80614823,Hairy Woodpecker,Dryobates villosus,10831,1,US-VT,Windham,L13279266,"Marlboro College, West Marlboro US-VT 42.83920, -72.73571",42.839201,-72.735713,2021-01-15,01:32 PM,eBird - Traveling Count,9,1,.57,,3
 S80610865,Pileated Woodpecker,Dryocopus pileatus,11150,1,US-VT,Chittenden,L13517237,"6 Sebring Rd, South Burlington US-VT 44.43335, -73.20440",44.433349,-73.204396,2021-02-07,10:06 AM,eBird - Stationary Count,57,1,,,1
+S80614858,Pileated Woodpecker,Dryocopus pileatus,11150,1,US-VT,Chittenden,L2434688,VTCH South End Arts District,44.4561075,-73.2138026,2021-02-07,12:03 PM,eBird - Casual Observation,,0,,,1
+S80614803,Pileated Woodpecker,Dryocopus pileatus,11150,1,US-VT,Lamoille,L13267644,"1866 Laporte Rd, Morrisville US-VT 44.54218, -72.61818",44.542176,-72.618177,2021-01-14,08:53 AM,eBird - Casual Observation,,0,,,1
 S80610865,Northern Flicker,Colaptes auratus,11284,2,US-VT,Chittenden,L13517237,"6 Sebring Rd, South Burlington US-VT 44.43335, -73.20440",44.433349,-73.204396,2021-02-07,10:06 AM,eBird - Stationary Count,57,1,,,1
+S80614820,Northern Flicker (Yellow-shafted),Colaptes auratus auratus/luteus,11287,1,US-VT,Windham,L9037730,Bonnyvale Environmental Education Center,42.830841,-72.625959,2021-01-15,12:31 PM,eBird - Traveling Count,31,1,.491,,2,,Great views
+S80614801,Peregrine Falcon,Falco peregrinus,11487,1,US-VT,Lamoille,L8220315,"555 Washington Highway, Morristown, Vermont, US (44.555, -72.589)",44.5554853,-72.58892,2021-01-10,03:00 PM,eBird - Stationary Count,60,1,,,1,,Chasing snow buntings.
+S80614836,small falcon sp.,Falco sp. (small falcon sp.),11514,1,US-VT,Chittenden,L13364574,"6675–6799 Dorset St, Shelburne US-VT 44.37182, -73.18116",44.37182,-73.181157,2021-01-23,12:14 PM,eBird - Casual Observation,,0,,,1,,Merlin or American Kestrel.
+S80615023,Say's Phoebe,Sayornis saya,16235,1,US-VT,Addison,L165265,Champlain Bridge / Chimney Point,44.0345,-73.4218,2021-01-03,02:50 PM,eBird - Traveling Count,33,1,.357,,4,,"Continuing. First heard, then flew into the trees below the bridge on the west side by the lakeshore. Photographed."
+S80614806,Northern Shrike,Lanius borealis,20170,1,US-VT,Addison,L2463251,SPHR Bend,44.2600767,-73.0827713,2021-01-14,02:13 PM,eBird - Casual Observation,,0,,,1
+S80614848,Northern Shrike,Lanius borealis,20170,1,US-VT,Lamoille,L13513311,"1249–1459 Gulf Rd, Wolcott US-VT 44.57107, -72.47811",44.571072,-72.478114,2021-02-06,10:45 AM,eBird - Casual Observation,,0,,,1
+S80614834,Blue Jay,Cyanocitta cristata,20373,2,US-VT,Addison,L2288215,Cota Park,44.2434774,-73.0604553,2021-01-23,08:29 AM,eBird - Stationary Count,4,1,,,1
+S80615029,Blue Jay,Cyanocitta cristata,20373,1,US-VT,Addison,L165269,DAR State Park,44.0545617,-73.4163478,2021-01-04,08:20 AM,eBird - Stationary Count,21,1,,,1
+S80614813,Blue Jay,Cyanocitta cristata,20373,2,US-NH,Cheshire,L518067,Hinsdale Setbacks,42.7930073,-72.5140142,2021-01-15,10:02 AM,eBird - Traveling Count,13,1,.526,,1
 S80610865,Blue Jay,Cyanocitta cristata,20373,4,US-VT,Chittenden,L13517237,"6 Sebring Rd, South Burlington US-VT 44.43335, -73.20440",44.433349,-73.204396,2021-02-07,10:06 AM,eBird - Stationary Count,57,1,,,1
+S80614838,Blue Jay,Cyanocitta cristata,20373,4,US-VT,Grand Isle,L13450181,"297 US-2, South Hero US-VT 44.64577, -73.30217",44.645772,-73.302169,2021-01-31,03:56 PM,eBird - Stationary Count,5,1,,,2
 S80610864,Blue Jay,Cyanocitta cristata,20373,2,US-VT,Grand Isle,L13515718,"8 Martin Rd, South Hero US-VT 44.61045, -73.30525",44.61045,-73.305246,2021-02-07,09:15 AM,eBird - Stationary Count,3,1,,,1
+S80615011,Blue Jay,Cyanocitta cristata,20373,2,US-VT,Lamoille,L8087603,VTLA Richies Lane,44.654158,-72.764128,2021-01-01,09:08 AM,eBird - Casual Observation,,0,,,2
+S80614852,Blue Jay,Cyanocitta cristata,20373,4,US-VT,Orleans,L6679940,VTOS Albany Village,44.731068,-72.379721,2021-02-06,03:10 PM,eBird - Casual Observation,,0,,,1
+S80614797,Blue Jay,Cyanocitta cristata,20373,1,US-VT,Washington,L5132708,Grow Compost,44.3111362,-72.7148581,2021-01-07,12:10 PM,eBird - Traveling Count,5,1,.226,,1
+S80614815,Blue Jay,Cyanocitta cristata,20373,1,US-VT,Windham,L13277458,"8 University Way, Brattleboro US-VT 42.83074, -72.56081",42.830737,-72.560813,2021-01-15,10:30 AM,eBird - Traveling Count,12,1,.644,,3
+S80614820,Blue Jay,Cyanocitta cristata,20373,1,US-VT,Windham,L9037730,Bonnyvale Environmental Education Center,42.830841,-72.625959,2021-01-15,12:31 PM,eBird - Traveling Count,31,1,.491,,2
+S80614818,Blue Jay,Cyanocitta cristata,20373,3,US-VT,Windham,L1141256,Brattleboro Marina / West River Trail,42.8708376,-72.5623799,2021-01-15,11:05 AM,eBird - Traveling Count,68,1,2.658,,1
+S80614809,American Crow,Corvus brachyrhynchos,20638,6,US-VT,Addison,L13276667,"2–464 Sawyer Needham Rd, Whiting US-VT 43.85139, -73.16973",43.851392,-73.169728,2021-01-15,07:29 AM,eBird - Traveling Count,2,1,1.365,,1
+S80615028,American Crow,Corvus brachyrhynchos,20638,2,US-VT,Addison,L165265,Champlain Bridge / Chimney Point,44.0345,-73.4218,2021-01-04,07:40 AM,eBird - Stationary Count,38,1,,,1
+S80615029,American Crow,Corvus brachyrhynchos,20638,4,US-VT,Addison,L165269,DAR State Park,44.0545617,-73.4163478,2021-01-04,08:20 AM,eBird - Stationary Count,21,1,,,1
+S80615019,American Crow,Corvus brachyrhynchos,20638,2,US-VT,Addison,L342140,Dead Creek--Panton Road crossing,44.149982,-73.321562,2021-01-03,12:53 PM,eBird - Casual Observation,,0,,,1
+S80614799,American Crow,Corvus brachyrhynchos,20638,2,US-VT,Addison,L2418747,Secret Meadow,44.234315,-73.0694675,2021-01-10,10:45 AM,eBird - Traveling Count,60,1,4.828,,3
+S80614795,American Crow,Corvus brachyrhynchos,20638,1,US-VT,Addison,L5558770,VTAD Monkton Road,44.176053,-73.200229,2021-01-04,02:35 PM,eBird - Casual Observation,,0,,,1
+S80615030,American Crow,Corvus brachyrhynchos,20638,6,US-VT,Addison,L13160842,VTAD Owl's Head Bay (no public access),44.065737,-73.4219469,2021-01-04,08:50 AM,eBird - Stationary Count,8,1,,,1
+S80614828,American Crow,Corvus brachyrhynchos,20638,3,US-MA,Berkshire,L13240870,"stakeout Boreal Chickadee, N Hoosac Rd **view from road only** (Jan 2021)",42.7299526,-73.2026387,2021-01-15,03:50 PM,eBird - Stationary Count,29,1,,,4,,,S sz
 S80610865,American Crow,Corvus brachyrhynchos,20638,4,US-VT,Chittenden,L13517237,"6 Sebring Rd, South Burlington US-VT 44.43335, -73.20440",44.433349,-73.204396,2021-02-07,10:06 AM,eBird - Stationary Count,57,1,,,1
+S80614833,American Crow,Corvus brachyrhynchos,20638,6,US-VT,Chittenden,L13377064,VTCH Town Line Road North,44.261762,-73.250525,2021-01-22,02:50 PM,eBird - Stationary Count,35,1,,,1
 S80610864,American Crow,Corvus brachyrhynchos,20638,4,US-VT,Grand Isle,L13515718,"8 Martin Rd, South Hero US-VT 44.61045, -73.30525",44.61045,-73.305246,2021-02-07,09:15 AM,eBird - Stationary Count,3,1,,,1
 S80610863,American Crow,Corvus brachyrhynchos,20638,6,US-VT,Grand Isle,L293922,South Hero Causeway,44.5934815,-73.3117418,2021-02-07,06:49 AM,eBird - Traveling Count,142,1,1.89,,1
+S80614801,American Crow,Corvus brachyrhynchos,20638,2,US-VT,Lamoille,L8220315,"555 Washington Highway, Morristown, Vermont, US (44.555, -72.589)",44.5554853,-72.58892,2021-01-10,03:00 PM,eBird - Stationary Count,60,1,,,1
+S80615012,American Crow,Corvus brachyrhynchos,20638,2,US-VT,Lamoille,L13105486,"7289–7329 VT-15, Johnson US-VT 44.66100, -72.79230",44.660996,-72.792296,2021-01-01,09:10 AM,eBird - Casual Observation,,0,,,2
+S80615010,American Crow,Corvus brachyrhynchos,20638,2,US-VT,Lamoille,L4125841,Hog Back Road,44.6453069,-72.7183342,2021-01-01,09:05 AM,eBird - Casual Observation,,0,,,2
+S80614853,American Crow,Corvus brachyrhynchos,20638,65,US-VT,Orleans,L13513270,"833–1135 Covered Bridge Rd, Irasburg US-VT 44.82039, -72.26615",44.820391,-72.266153,2021-02-06,03:32 PM,eBird - Traveling Count,5,1,.408,,1
+S80614849,American Crow,Corvus brachyrhynchos,20638,2,US-VT,Orleans,L8125989,VTOS Cemetery Road,44.630185,-72.380361,2021-02-06,11:04 AM,eBird - Stationary Count,2,1,,,1
+S80614850,American Crow,Corvus brachyrhynchos,20638,3,US-VT,Orleans,L5496734,VTOS Craftsbury Common,44.6533066,-72.3827094,2021-02-06,11:13 AM,eBird - Casual Observation,,0,,,1
+S80614810,American Crow,Corvus brachyrhynchos,20638,4,US-VT,Rutland,L13276641,"1000–1258 Sawyer Needham Rd, Brandon US-VT 43.83805, -73.17147",43.838055,-73.171467,2021-01-15,07:31 AM,eBird - Traveling Count,5,1,1.971,,1
+S80614797,American Crow,Corvus brachyrhynchos,20638,55,US-VT,Washington,L5132708,Grow Compost,44.3111362,-72.7148581,2021-01-07,12:10 PM,eBird - Traveling Count,5,1,.226,,1
 S80610866,American Crow,Corvus brachyrhynchos,20638,150,US-VT,Washington,L5132708,Grow Compost,44.3111362,-72.7148581,2021-02-07,12:33 PM,eBird - Stationary Count,5,1,,,1
+S80614815,American Crow,Corvus brachyrhynchos,20638,3,US-VT,Windham,L13277458,"8 University Way, Brattleboro US-VT 42.83074, -72.56081",42.830737,-72.560813,2021-01-15,10:30 AM,eBird - Traveling Count,12,1,.644,,3
+S80614818,American Crow,Corvus brachyrhynchos,20638,1,US-VT,Windham,L1141256,Brattleboro Marina / West River Trail,42.8708376,-72.5623799,2021-01-15,11:05 AM,eBird - Traveling Count,68,1,2.658,,1
+S80615029,Common Raven,Corvus corax,20703,1,US-VT,Addison,L165269,DAR State Park,44.0545617,-73.4163478,2021-01-04,08:20 AM,eBird - Stationary Count,21,1,,,1
+S80614799,Common Raven,Corvus corax,20703,1,US-VT,Addison,L2418747,Secret Meadow,44.234315,-73.0694675,2021-01-10,10:45 AM,eBird - Traveling Count,60,1,4.828,,3
+S80615030,Common Raven,Corvus corax,20703,1,US-VT,Addison,L13160842,VTAD Owl's Head Bay (no public access),44.065737,-73.4219469,2021-01-04,08:50 AM,eBird - Stationary Count,8,1,,,1
+S80614798,Common Raven,Corvus corax,20703,1,US-VT,Chittenden,L2795377,VTCH E Thompsons Pt Road,44.2801125,-73.2482958,2021-01-09,02:45 PM,eBird - Stationary Count,50,1,,,1
+S80615017,Common Raven,Corvus corax,20703,1,US-VT,Chittenden,L13147629,VTCH Rhode Island Corners,44.361057,-73.074039,2021-01-03,12:11 PM,eBird - Casual Observation,,0,,,1
 S80610863,Common Raven,Corvus corax,20703,3,US-VT,Grand Isle,L293922,South Hero Causeway,44.5934815,-73.3117418,2021-02-07,06:49 AM,eBird - Traveling Count,142,1,1.89,,1
+S80615013,Common Raven,Corvus corax,20703,1,US-VT,Lamoille,L13105967,"5683 VT-108, Jeffersonville US-VT (44.5724,-72.7749)",44.572365,-72.77489,2021-01-01,09:35 AM,eBird - Stationary Count,10,1,,,2
+S80614857,Common Raven,Corvus corax,20703,1,US-VT,Lamoille,L752008,Lake Eden - Eden (194 acres),44.7187597,-72.5047242,2021-02-06,05:01 PM,eBird - Casual Observation,,0,,,1
+S80614845,Common Raven,Corvus corax,20703,2,US-VT,Orleans,L753228,Hazen's Notch,44.841447,-72.5249577,2021-02-05,02:57 PM,eBird - Stationary Count,87,1,,,1
+S80614851,Common Raven,Corvus corax,20703,2,US-VT,Orleans,L13513301,VTOS Catamount Trail Section 28,44.745469,-72.407675,2021-02-06,11:47 AM,eBird - Traveling Count,197,1,3.219,,1,T Territorial Defense,Two flew over making contact calls. When I called back they became very vocal and came close to investigate.
+S80614797,Common Raven,Corvus corax,20703,1,US-VT,Washington,L5132708,Grow Compost,44.3111362,-72.7148581,2021-01-07,12:10 PM,eBird - Traveling Count,5,1,.226,,1
 S80610866,Common Raven,Corvus corax,20703,4,US-VT,Washington,L5132708,Grow Compost,44.3111362,-72.7148581,2021-02-07,12:33 PM,eBird - Stationary Count,5,1,,,1
+S80614831,Common Raven,Corvus corax,20703,1,US-VT,Washington,L8221203,VTWA Route 100 North of Waterbury Village,44.350142,-72.742211,2021-01-21,08:57 AM,eBird - Casual Observation,,0,,,1,,Carrying something.
+S80614820,Common Raven,Corvus corax,20703,1,US-VT,Windham,L9037730,Bonnyvale Environmental Education Center,42.830841,-72.625959,2021-01-15,12:31 PM,eBird - Traveling Count,31,1,.491,,2
+S80614823,Common Raven,Corvus corax,20703,1,US-VT,Windham,L13279266,"Marlboro College, West Marlboro US-VT 42.83920, -72.73571",42.839201,-72.735713,2021-01-15,01:32 PM,eBird - Traveling Count,9,1,.57,,3
+S80615029,Black-capped Chickadee,Poecile atricapillus,21132,3,US-VT,Addison,L165269,DAR State Park,44.0545617,-73.4163478,2021-01-04,08:20 AM,eBird - Stationary Count,21,1,,,1
+S80615022,Black-capped Chickadee,Poecile atricapillus,21132,3,US-VT,Addison,L165349,Potash Bay,44.0935032,-73.3922768,2021-01-03,02:22 PM,eBird - Stationary Count,14,1,,,2
+S80614799,Black-capped Chickadee,Poecile atricapillus,21132,11,US-VT,Addison,L2418747,Secret Meadow,44.234315,-73.0694675,2021-01-10,10:45 AM,eBird - Traveling Count,60,1,4.828,,3
+S80615021,Black-capped Chickadee,Poecile atricapillus,21132,5,US-VT,Addison,L1255384,Turkey Lane,44.1303163,-73.3686304,2021-01-03,01:00 PM,eBird - Traveling Count,74,1,.522,,1
+S80614807,Black-capped Chickadee,Poecile atricapillus,21132,2,US-VT,Addison,L2419163,VTAD Weaver Family,44.1291997,-73.0849814,2021-01-14,03:08 PM,eBird - Casual Observation,,0,,,1
+S80614826,Black-capped Chickadee,Poecile atricapillus,21132,4,US-VT,Bennington,L2168757,Norman and Selma Greenberg Conservation Reserve,42.8605912,-73.195585,2021-01-15,03:09 PM,eBird - Traveling Count,22,1,.985,,2
+S80614813,Black-capped Chickadee,Poecile atricapillus,21132,2,US-NH,Cheshire,L518067,Hinsdale Setbacks,42.7930073,-72.5140142,2021-01-15,10:02 AM,eBird - Traveling Count,13,1,.526,,1
 S80610865,Black-capped Chickadee,Poecile atricapillus,21132,5,US-VT,Chittenden,L13517237,"6 Sebring Rd, South Burlington US-VT 44.43335, -73.20440",44.433349,-73.204396,2021-02-07,10:06 AM,eBird - Stationary Count,57,1,,,1
 S80610864,Black-capped Chickadee,Poecile atricapillus,21132,1,US-VT,Grand Isle,L13515718,"8 Martin Rd, South Hero US-VT 44.61045, -73.30525",44.61045,-73.305246,2021-02-07,09:15 AM,eBird - Stationary Count,3,1,,,1
 S80610863,Black-capped Chickadee,Poecile atricapillus,21132,8,US-VT,Grand Isle,L293922,South Hero Causeway,44.5934815,-73.3117418,2021-02-07,06:49 AM,eBird - Traveling Count,142,1,1.89,,1
+S80615013,Black-capped Chickadee,Poecile atricapillus,21132,2,US-VT,Lamoille,L13105967,"5683 VT-108, Jeffersonville US-VT (44.5724,-72.7749)",44.572365,-72.77489,2021-01-01,09:35 AM,eBird - Stationary Count,10,1,,,2
+S80615039,Black-capped Chickadee,Poecile atricapillus,21132,3,US-VT,Lamoille,L4980656,Lamoille Valley Rail Trail--Hyde Park,44.5900775,-72.6144147,2021-01-01,08:55 AM,eBird - Casual Observation,,0,,,2,,,First birds of 2021!
+S80615014,Black-capped Chickadee,Poecile atricapillus,21132,2,US-VT,Lamoille,L4980656,Lamoille Valley Rail Trail--Hyde Park,44.5900775,-72.6144147,2021-01-03,07:55 AM,eBird - Stationary Count,12,1,,,1
+S80614796,Black-capped Chickadee,Poecile atricapillus,21132,5,US-VT,Lamoille,L4980656,Lamoille Valley Rail Trail--Hyde Park,44.5900775,-72.6144147,2021-01-06,07:50 AM,eBird - Casual Observation,,0,,,1
+S80614830,Black-capped Chickadee,Poecile atricapillus,21132,6,US-VT,Lamoille,L4980656,Lamoille Valley Rail Trail--Hyde Park,44.5900775,-72.6144147,2021-01-21,08:25 AM,eBird - Stationary Count,2,1,,,1
+S80614847,Black-capped Chickadee,Poecile atricapillus,21132,6,US-VT,Lamoille,L4980656,Lamoille Valley Rail Trail--Hyde Park,44.5900775,-72.6144147,2021-02-06,08:30 AM,eBird - Stationary Count,30,1,,,1
+S80614852,Black-capped Chickadee,Poecile atricapillus,21132,3,US-VT,Orleans,L6679940,VTOS Albany Village,44.731068,-72.379721,2021-02-06,03:10 PM,eBird - Casual Observation,,0,,,1
+S80614851,Black-capped Chickadee,Poecile atricapillus,21132,3,US-VT,Orleans,L13513301,VTOS Catamount Trail Section 28,44.745469,-72.407675,2021-02-06,11:47 AM,eBird - Traveling Count,197,1,3.219,,1
+S80614849,Black-capped Chickadee,Poecile atricapillus,21132,2,US-VT,Orleans,L8125989,VTOS Cemetery Road,44.630185,-72.380361,2021-02-06,11:04 AM,eBird - Stationary Count,2,1,,,1
 S80603213,Black-capped Chickadee,Poecile atricapillus,21132,1,US-VT,Washington,L11103389,Blanchard Park,44.2587866,-72.5740852,2021-02-07,01:02 PM,eBird - Traveling Count,5,1,.229,,1
+S80614815,Black-capped Chickadee,Poecile atricapillus,21132,2,US-VT,Windham,L13277458,"8 University Way, Brattleboro US-VT 42.83074, -72.56081",42.830737,-72.560813,2021-01-15,10:30 AM,eBird - Traveling Count,12,1,.644,,3
+S80614825,Black-capped Chickadee,Poecile atricapillus,21132,3,US-VT,Windham,L13279859,"87 E Main St, Wilmington US-VT 42.86560, -72.86437",42.865595,-72.864375,2021-01-15,02:37 PM,eBird - Casual Observation,,0,,,2
+S80614820,Black-capped Chickadee,Poecile atricapillus,21132,4,US-VT,Windham,L9037730,Bonnyvale Environmental Education Center,42.830841,-72.625959,2021-01-15,12:31 PM,eBird - Traveling Count,31,1,.491,,2
+S80614818,Black-capped Chickadee,Poecile atricapillus,21132,3,US-VT,Windham,L1141256,Brattleboro Marina / West River Trail,42.8708376,-72.5623799,2021-01-15,11:05 AM,eBird - Traveling Count,68,1,2.658,,1
+S80614828,Boreal Chickadee,Poecile hudsonicus,21164,1,US-MA,Berkshire,L13240870,"stakeout Boreal Chickadee, N Hoosac Rd **view from road only** (Jan 2021)",42.7299526,-73.2026387,2021-01-15,03:50 PM,eBird - Stationary Count,29,1,,,4,,"Continuing. Seen and heard calling in spruces to the west of the road, then flew across to the trees behind the feeders to the east of the road.",S sz
+S80614834,Tufted Titmouse,Baeolophus bicolor,21225,1,US-VT,Addison,L2288215,Cota Park,44.2434774,-73.0604553,2021-01-23,08:29 AM,eBird - Stationary Count,4,1,,,1
+S80614799,Tufted Titmouse,Baeolophus bicolor,21225,3,US-VT,Addison,L2418747,Secret Meadow,44.234315,-73.0694675,2021-01-10,10:45 AM,eBird - Traveling Count,60,1,4.828,,3
+S80615021,Tufted Titmouse,Baeolophus bicolor,21225,2,US-VT,Addison,L1255384,Turkey Lane,44.1303163,-73.3686304,2021-01-03,01:00 PM,eBird - Traveling Count,74,1,.522,,1
+S80615031,Tufted Titmouse,Baeolophus bicolor,21225,3,US-VT,Addison,L1255384,Turkey Lane,44.1303163,-73.3686304,2021-01-04,09:40 AM,eBird - Traveling Count,33,1,.377,,1
 S80610865,Tufted Titmouse,Baeolophus bicolor,21225,3,US-VT,Chittenden,L13517237,"6 Sebring Rd, South Burlington US-VT 44.43335, -73.20440",44.433349,-73.204396,2021-02-07,10:06 AM,eBird - Stationary Count,57,1,,,1
+S80614830,Tufted Titmouse,Baeolophus bicolor,21225,2,US-VT,Lamoille,L4980656,Lamoille Valley Rail Trail--Hyde Park,44.5900775,-72.6144147,2021-01-21,08:25 AM,eBird - Stationary Count,2,1,,,1
+S80614815,Tufted Titmouse,Baeolophus bicolor,21225,1,US-VT,Windham,L13277458,"8 University Way, Brattleboro US-VT 42.83074, -72.56081",42.830737,-72.560813,2021-01-15,10:30 AM,eBird - Traveling Count,12,1,.644,,3
+S80614818,Tufted Titmouse,Baeolophus bicolor,21225,2,US-VT,Windham,L1141256,Brattleboro Marina / West River Trail,42.8708376,-72.5623799,2021-01-15,11:05 AM,eBird - Traveling Count,68,1,2.658,,1
+S80615026,Horned Lark,Eremophila alpestris,21625,5,US-VT,Addison,L715236,Dead Creek WMA IBA--Gage Road,44.0737892,-73.3289552,2021-01-03,03:45 PM,eBird - Stationary Count,30,1,,,1
+S80614795,Horned Lark,Eremophila alpestris,21625,15,US-VT,Addison,L5558770,VTAD Monkton Road,44.176053,-73.200229,2021-01-04,02:35 PM,eBird - Casual Observation,,0,,,1
+S80615024,Horned Lark,Eremophila alpestris,21625,55,US-VT,Addison,L2434814,VTAD West Addison,44.0661269,-73.4039497,2021-01-03,03:28 PM,eBird - Casual Observation,,0,,,1
+S80615031,Red-breasted Nuthatch,Sitta canadensis,25870,1,US-VT,Addison,L1255384,Turkey Lane,44.1303163,-73.3686304,2021-01-04,09:40 AM,eBird - Traveling Count,33,1,.377,,1
+S80615030,Red-breasted Nuthatch,Sitta canadensis,25870,1,US-VT,Addison,L13160842,VTAD Owl's Head Bay (no public access),44.065737,-73.4219469,2021-01-04,08:50 AM,eBird - Stationary Count,8,1,,,1
+S80614825,Red-breasted Nuthatch,Sitta canadensis,25870,1,US-VT,Windham,L13279859,"87 E Main St, Wilmington US-VT 42.86560, -72.86437",42.865595,-72.864375,2021-01-15,02:37 PM,eBird - Casual Observation,,0,,,2
+S80614834,White-breasted Nuthatch,Sitta carolinensis,25873,1,US-VT,Addison,L2288215,Cota Park,44.2434774,-73.0604553,2021-01-23,08:29 AM,eBird - Stationary Count,4,1,,,1
+S80614799,White-breasted Nuthatch,Sitta carolinensis,25873,2,US-VT,Addison,L2418747,Secret Meadow,44.234315,-73.0694675,2021-01-10,10:45 AM,eBird - Traveling Count,60,1,4.828,,3
+S80615021,White-breasted Nuthatch,Sitta carolinensis,25873,1,US-VT,Addison,L1255384,Turkey Lane,44.1303163,-73.3686304,2021-01-03,01:00 PM,eBird - Traveling Count,74,1,.522,,1
+S80615031,White-breasted Nuthatch,Sitta carolinensis,25873,2,US-VT,Addison,L1255384,Turkey Lane,44.1303163,-73.3686304,2021-01-04,09:40 AM,eBird - Traveling Count,33,1,.377,,1
+S80614828,White-breasted Nuthatch,Sitta carolinensis,25873,4,US-MA,Berkshire,L13240870,"stakeout Boreal Chickadee, N Hoosac Rd **view from road only** (Jan 2021)",42.7299526,-73.2026387,2021-01-15,03:50 PM,eBird - Stationary Count,29,1,,,4,,,S sz
 S80610865,White-breasted Nuthatch,Sitta carolinensis,25873,1,US-VT,Chittenden,L13517237,"6 Sebring Rd, South Burlington US-VT 44.43335, -73.20440",44.433349,-73.204396,2021-02-07,10:06 AM,eBird - Stationary Count,57,1,,,1
+S80614832,White-breasted Nuthatch,Sitta carolinensis,25873,2,US-VT,Chittenden,L1012111,"Orchard Road, Shelburne",44.3502456,-73.2631874,2021-01-22,02:35 PM,eBird - Casual Observation,,0,,,1
+S80614833,White-breasted Nuthatch,Sitta carolinensis,25873,2,US-VT,Chittenden,L13377064,VTCH Town Line Road North,44.261762,-73.250525,2021-01-22,02:50 PM,eBird - Stationary Count,35,1,,,1
 S80610863,White-breasted Nuthatch,Sitta carolinensis,25873,2,US-VT,Grand Isle,L293922,South Hero Causeway,44.5934815,-73.3117418,2021-02-07,06:49 AM,eBird - Traveling Count,142,1,1.89,,1
+S80615013,White-breasted Nuthatch,Sitta carolinensis,25873,1,US-VT,Lamoille,L13105967,"5683 VT-108, Jeffersonville US-VT (44.5724,-72.7749)",44.572365,-72.77489,2021-01-01,09:35 AM,eBird - Stationary Count,10,1,,,2
+S80615014,White-breasted Nuthatch,Sitta carolinensis,25873,1,US-VT,Lamoille,L4980656,Lamoille Valley Rail Trail--Hyde Park,44.5900775,-72.6144147,2021-01-03,07:55 AM,eBird - Stationary Count,12,1,,,1
+S80614847,White-breasted Nuthatch,Sitta carolinensis,25873,1,US-VT,Lamoille,L4980656,Lamoille Valley Rail Trail--Hyde Park,44.5900775,-72.6144147,2021-02-06,08:30 AM,eBird - Stationary Count,30,1,,,1
+S80614820,White-breasted Nuthatch,Sitta carolinensis,25873,1,US-VT,Windham,L9037730,Bonnyvale Environmental Education Center,42.830841,-72.625959,2021-01-15,12:31 PM,eBird - Traveling Count,31,1,.491,,2
 S80610863,White-breasted Nuthatch (Eastern),Sitta carolinensis carolinensis,25874,1,US-VT,Grand Isle,L293922,South Hero Causeway,44.5934815,-73.3117418,2021-02-07,06:49 AM,eBird - Traveling Count,142,1,1.89,,1
+S80615029,Brown Creeper,Certhia americana,25958,1,US-VT,Addison,L165269,DAR State Park,44.0545617,-73.4163478,2021-01-04,08:20 AM,eBird - Stationary Count,21,1,,,1
+S80614818,Carolina Wren,Thryothorus ludovicianus,26287,1,US-VT,Windham,L1141256,Brattleboro Marina / West River Trail,42.8708376,-72.5623799,2021-01-15,11:05 AM,eBird - Traveling Count,68,1,2.658,,1
+S80615029,European Starling,Sturnus vulgaris,26739,4,US-VT,Addison,L165269,DAR State Park,44.0545617,-73.4163478,2021-01-04,08:20 AM,eBird - Stationary Count,21,1,,,1
+S80614799,European Starling,Sturnus vulgaris,26739,12,US-VT,Addison,L2418747,Secret Meadow,44.234315,-73.0694675,2021-01-10,10:45 AM,eBird - Traveling Count,60,1,4.828,,3
+S80614795,European Starling,Sturnus vulgaris,26739,6,US-VT,Addison,L5558770,VTAD Monkton Road,44.176053,-73.200229,2021-01-04,02:35 PM,eBird - Casual Observation,,0,,,1
 S80610864,European Starling,Sturnus vulgaris,26739,6,US-VT,Grand Isle,L13515718,"8 Martin Rd, South Hero US-VT 44.61045, -73.30525",44.61045,-73.305246,2021-02-07,09:15 AM,eBird - Stationary Count,3,1,,,1
+S80615008,European Starling,Sturnus vulgaris,26739,31,US-VT,Lamoille,L4899986,VTLA Johnson Village,44.635816,-72.680305,2021-01-01,09:02 AM,eBird - Casual Observation,,0,,,2
+S80614846,European Starling,Sturnus vulgaris,26739,X,US-VT,Orleans,L13513315,"215–299 Vermont Rte 58 W, Irasburg US-VT 44.81438, -72.30997",44.814383,-72.309973,2021-02-05,04:55 PM,eBird - Casual Observation,,0,,,1
+S80614853,European Starling,Sturnus vulgaris,26739,X,US-VT,Orleans,L13513270,"833–1135 Covered Bridge Rd, Irasburg US-VT 44.82039, -72.26615",44.820391,-72.266153,2021-02-06,03:32 PM,eBird - Traveling Count,5,1,.408,,1
+S80614810,European Starling,Sturnus vulgaris,26739,X,US-VT,Rutland,L13276641,"1000–1258 Sawyer Needham Rd, Brandon US-VT 43.83805, -73.17147",43.838055,-73.171467,2021-01-15,07:31 AM,eBird - Traveling Count,5,1,1.971,,1
+S80614797,European Starling,Sturnus vulgaris,26739,X,US-VT,Washington,L5132708,Grow Compost,44.3111362,-72.7148581,2021-01-07,12:10 PM,eBird - Traveling Count,5,1,.226,,1
 S80610866,European Starling,Sturnus vulgaris,26739,40,US-VT,Washington,L5132708,Grow Compost,44.3111362,-72.7148581,2021-02-07,12:33 PM,eBird - Stationary Count,5,1,,,1
+S80614820,European Starling,Sturnus vulgaris,26739,6,US-VT,Windham,L9037730,Bonnyvale Environmental Education Center,42.830841,-72.625959,2021-01-15,12:31 PM,eBird - Traveling Count,31,1,.491,,2
+S80614813,Sage Thrasher,Oreoscoptes montanus,26981,1,US-NH,Cheshire,L518067,Hinsdale Setbacks,42.7930073,-72.5140142,2021-01-15,10:02 AM,eBird - Traveling Count,13,1,.526,,1,,"Continuing, photographed."
+S80615029,Eastern Bluebird,Sialia sialis,27031,3,US-VT,Addison,L165269,DAR State Park,44.0545617,-73.4163478,2021-01-04,08:20 AM,eBird - Stationary Count,21,1,,,1
+S80615018,Eastern Bluebird,Sialia sialis,27031,1,US-VT,Addison,L2636173,Parks End Monkton,44.1887281,-73.1766701,2021-01-03,12:40 PM,eBird - Casual Observation,,0,,,1
+S80614799,Eastern Bluebird,Sialia sialis,27031,1,US-VT,Addison,L2418747,Secret Meadow,44.234315,-73.0694675,2021-01-10,10:45 AM,eBird - Traveling Count,60,1,4.828,,3
+S80614813,Eastern Bluebird,Sialia sialis,27031,3,US-NH,Cheshire,L518067,Hinsdale Setbacks,42.7930073,-72.5140142,2021-01-15,10:02 AM,eBird - Traveling Count,13,1,.526,,1
+S80614839,Eastern Bluebird,Sialia sialis,27031,2,US-VT,Grand Isle,L13450271,"97–117 Sunset View Rd, South Hero US-VT 44.65115, -73.32986",44.651152,-73.329861,2021-01-31,04:09 PM,eBird - Stationary Count,7,1,,,2
+S80614820,Eastern Bluebird,Sialia sialis,27031,4,US-VT,Windham,L9037730,Bonnyvale Environmental Education Center,42.830841,-72.625959,2021-01-15,12:31 PM,eBird - Traveling Count,31,1,.491,,2
+S80614829,American Robin,Turdus migratorius,27462,1,US-VT,Bennington,L13282728,"Green Mountain National Forest, North Bennington US-VT (42.9082,-73.2224)",42.908202,-73.222352,2021-01-15,07:36 PM,eBird - Casual Observation,,0,,,2,,Not a Screech owl.
+S80614828,American Robin,Turdus migratorius,27462,6,US-MA,Berkshire,L13240870,"stakeout Boreal Chickadee, N Hoosac Rd **view from road only** (Jan 2021)",42.7299526,-73.2026387,2021-01-15,03:50 PM,eBird - Stationary Count,29,1,,,4,,,S sz
+S80614813,American Robin,Turdus migratorius,27462,2,US-NH,Cheshire,L518067,Hinsdale Setbacks,42.7930073,-72.5140142,2021-01-15,10:02 AM,eBird - Traveling Count,13,1,.526,,1
+S80614838,American Robin,Turdus migratorius,27462,3,US-VT,Grand Isle,L13450181,"297 US-2, South Hero US-VT 44.64577, -73.30217",44.645772,-73.302169,2021-01-31,03:56 PM,eBird - Stationary Count,5,1,,,2
+S80614842,American Robin,Turdus migratorius,27462,1,US-VT,Grand Isle,L13451206,"79 Sunset View Rd, South Hero US-VT 44.65079, -73.33215",44.650786,-73.332151,2021-01-31,05:10 PM,eBird - Stationary Count,7,1,,,2
+S80614839,American Robin,Turdus migratorius,27462,9,US-VT,Grand Isle,L13450271,"97–117 Sunset View Rd, South Hero US-VT 44.65115, -73.32986",44.651152,-73.329861,2021-01-31,04:09 PM,eBird - Stationary Count,7,1,,,2
+S80614820,American Robin,Turdus migratorius,27462,27,US-VT,Windham,L9037730,Bonnyvale Environmental Education Center,42.830841,-72.625959,2021-01-15,12:31 PM,eBird - Traveling Count,31,1,.491,,2,,Individually counted
+S80614839,Cedar Waxwing,Bombycilla cedrorum,28730,1,US-VT,Grand Isle,L13450271,"97–117 Sunset View Rd, South Hero US-VT 44.65115, -73.32986",44.651152,-73.329861,2021-01-31,04:09 PM,eBird - Stationary Count,7,1,,,2
+S80614834,House Sparrow,Passer domesticus,30329,6,US-VT,Addison,L2288215,Cota Park,44.2434774,-73.0604553,2021-01-23,08:29 AM,eBird - Stationary Count,4,1,,,1
 S80610864,House Sparrow,Passer domesticus,30329,40,US-VT,Grand Isle,L13515718,"8 Martin Rd, South Hero US-VT 44.61045, -73.30525",44.61045,-73.305246,2021-02-07,09:15 AM,eBird - Stationary Count,3,1,,,1
+S80614851,House Sparrow,Passer domesticus,30329,X,US-VT,Orleans,L13513301,VTOS Catamount Trail Section 28,44.745469,-72.407675,2021-02-06,11:47 AM,eBird - Traveling Count,197,1,3.219,,1,,Goat farm at trailhead.
+S80614807,Pine Grosbeak,Pinicola enucleator,30999,7,US-VT,Addison,L2419163,VTAD Weaver Family,44.1291997,-73.0849814,2021-01-14,03:08 PM,eBird - Casual Observation,,0,,,1,,"First seen flying over, then circles back and landed at top of spruce."
+S80614805,Pine Grosbeak,Pinicola enucleator,30999,30,US-VT,Chittenden,L2571671,Tafts Corners,44.4498198,-73.110323,2021-01-14,01:15 PM,eBird - Casual Observation,,0,,,1,,"First thought they were robins in flight, then as they got closer the flight pattern and tail shape revealed them as PIGR. Landed in talk trees next to VTC, likely staging to raid nearby ornamentals."
 S80610865,House Finch,Haemorhous mexicanus,31084,1,US-VT,Chittenden,L13517237,"6 Sebring Rd, South Burlington US-VT 44.43335, -73.20440",44.433349,-73.204396,2021-02-07,10:06 AM,eBird - Stationary Count,57,1,,,1
+S80614838,House Finch,Haemorhous mexicanus,31084,2,US-VT,Grand Isle,L13450181,"297 US-2, South Hero US-VT 44.64577, -73.30217",44.645772,-73.302169,2021-01-31,03:56 PM,eBird - Stationary Count,5,1,,,2
 S80603213,House Finch,Haemorhous mexicanus,31084,1,US-VT,Washington,L11103389,Blanchard Park,44.2587866,-72.5740852,2021-02-07,01:02 PM,eBird - Traveling Count,5,1,.229,,1
+S80615023,Common Redpoll,Acanthis flammea,31254,3,US-VT,Addison,L165265,Champlain Bridge / Chimney Point,44.0345,-73.4218,2021-01-03,02:50 PM,eBird - Traveling Count,33,1,.357,,4
+S80615031,Common Redpoll,Acanthis flammea,31254,4,US-VT,Addison,L1255384,Turkey Lane,44.1303163,-73.3686304,2021-01-04,09:40 AM,eBird - Traveling Count,33,1,.377,,1
 S80610865,Common Redpoll,Acanthis flammea,31254,51,US-VT,Chittenden,L13517237,"6 Sebring Rd, South Burlington US-VT 44.43335, -73.20440",44.433349,-73.204396,2021-02-07,10:06 AM,eBird - Stationary Count,57,1,,,1
+S80614798,Common Redpoll,Acanthis flammea,31254,350,US-VT,Chittenden,L2795377,VTCH E Thompsons Pt Road,44.2801125,-73.2482958,2021-01-09,02:45 PM,eBird - Stationary Count,50,1,,,1,,"Large flock moving frequently, foraging in weedy field then flying in circles before settling back down. Counted 10, then multiplied to estimate 50. Estimated 7 multiples of 50. One exceedingly pale bird, likely the “angel” Common Redpoll photographed by others at this site."
+S80614833,Common Redpoll,Acanthis flammea,31254,450,US-VT,Chittenden,L13377064,VTCH Town Line Road North,44.261762,-73.250525,2021-01-22,02:50 PM,eBird - Stationary Count,35,1,,,1,,"Estimate by tens than fifties of large, constantly moving flock. I’ll add and attempt to count from photos. Searched carefully for HORE, though neither of the two paler birds I noticed were seen well enough to rule out CORE. Flushed by the arrival of the RTHA; flock flew west over treeline beyond the farm."
+S80614830,Common Redpoll,Acanthis flammea,31254,3,US-VT,Lamoille,L4980656,Lamoille Valley Rail Trail--Hyde Park,44.5900775,-72.6144147,2021-01-21,08:25 AM,eBird - Stationary Count,2,1,,,1
+S80614847,Common Redpoll,Acanthis flammea,31254,8,US-VT,Lamoille,L4980656,Lamoille Valley Rail Trail--Hyde Park,44.5900775,-72.6144147,2021-02-06,08:30 AM,eBird - Stationary Count,30,1,,,1
+S80614852,Common Redpoll,Acanthis flammea,31254,2,US-VT,Orleans,L6679940,VTOS Albany Village,44.731068,-72.379721,2021-02-06,03:10 PM,eBird - Casual Observation,,0,,,1
+S80614851,Common Redpoll,Acanthis flammea,31254,2,US-VT,Orleans,L13513301,VTOS Catamount Trail Section 28,44.745469,-72.407675,2021-02-06,11:47 AM,eBird - Traveling Count,197,1,3.219,,1,F Flyover
+S80614815,Common Redpoll,Acanthis flammea,31254,1,US-VT,Windham,L13277458,"8 University Way, Brattleboro US-VT 42.83074, -72.56081",42.830737,-72.560813,2021-01-15,10:30 AM,eBird - Traveling Count,12,1,.644,,3
+S80614796,Pine Siskin,Spinus pinus,31361,14,US-VT,Lamoille,L4980656,Lamoille Valley Rail Trail--Hyde Park,44.5900775,-72.6144147,2021-01-06,07:50 AM,eBird - Casual Observation,,0,,,1
+S80614847,Pine Siskin,Spinus pinus,31361,2,US-VT,Lamoille,L4980656,Lamoille Valley Rail Trail--Hyde Park,44.5900775,-72.6144147,2021-02-06,08:30 AM,eBird - Stationary Count,30,1,,,1
+S80614834,American Goldfinch,Spinus tristis,31382,1,US-VT,Addison,L2288215,Cota Park,44.2434774,-73.0604553,2021-01-23,08:29 AM,eBird - Stationary Count,4,1,,,1
+S80615022,American Goldfinch,Spinus tristis,31382,2,US-VT,Addison,L165349,Potash Bay,44.0935032,-73.3922768,2021-01-03,02:22 PM,eBird - Stationary Count,14,1,,,2
+S80614828,American Goldfinch,Spinus tristis,31382,2,US-MA,Berkshire,L13240870,"stakeout Boreal Chickadee, N Hoosac Rd **view from road only** (Jan 2021)",42.7299526,-73.2026387,2021-01-15,03:50 PM,eBird - Stationary Count,29,1,,,4,,,S sz
+S80614830,American Goldfinch,Spinus tristis,31382,1,US-VT,Lamoille,L4980656,Lamoille Valley Rail Trail--Hyde Park,44.5900775,-72.6144147,2021-01-21,08:25 AM,eBird - Stationary Count,2,1,,,1
+S80614818,American Goldfinch,Spinus tristis,31382,2,US-VT,Windham,L1141256,Brattleboro Marina / West River Trail,42.8708376,-72.5623799,2021-01-15,11:05 AM,eBird - Traveling Count,68,1,2.658,,1
+S80614815,finch sp.,Fringillidae sp.,31422,5,US-VT,Windham,L13277458,"8 University Way, Brattleboro US-VT 42.83074, -72.56081",42.830737,-72.560813,2021-01-15,10:30 AM,eBird - Traveling Count,12,1,.644,,3,,Redpolls?
+S80615024,Lapland Longspur,Calcarius lapponicus,31423,2,US-VT,Addison,L2434814,VTAD West Addison,44.0661269,-73.4039497,2021-01-03,03:28 PM,eBird - Casual Observation,,0,,,1
+S80614794,Snow Bunting,Plectrophenax nivalis,31431,20,US-VT,Addison,L13165244,"863 Monkton Rd, Ferrisburgh US-VT 44.17393, -73.22297",44.173931,-73.222968,2021-01-04,02:34 PM,eBird - Casual Observation,,0,,,1
+S80615026,Snow Bunting,Plectrophenax nivalis,31431,X,US-VT,Addison,L715236,Dead Creek WMA IBA--Gage Road,44.0737892,-73.3289552,2021-01-03,03:45 PM,eBird - Stationary Count,30,1,,,1
+S80615019,Snow Bunting,Plectrophenax nivalis,31431,11,US-VT,Addison,L342140,Dead Creek--Panton Road crossing,44.149982,-73.321562,2021-01-03,12:53 PM,eBird - Casual Observation,,0,,,1
+S80615021,Snow Bunting,Plectrophenax nivalis,31431,3,US-VT,Addison,L1255384,Turkey Lane,44.1303163,-73.3686304,2021-01-03,01:00 PM,eBird - Traveling Count,74,1,.522,,1
+S80615024,Snow Bunting,Plectrophenax nivalis,31431,22,US-VT,Addison,L2434814,VTAD West Addison,44.0661269,-73.4039497,2021-01-03,03:28 PM,eBird - Casual Observation,,0,,,1
+S80614832,Snow Bunting,Plectrophenax nivalis,31431,22,US-VT,Chittenden,L1012111,"Orchard Road, Shelburne",44.3502456,-73.2631874,2021-01-22,02:35 PM,eBird - Casual Observation,,0,,,1
+S80614798,Snow Bunting,Plectrophenax nivalis,31431,5,US-VT,Chittenden,L2795377,VTCH E Thompsons Pt Road,44.2801125,-73.2482958,2021-01-09,02:45 PM,eBird - Stationary Count,50,1,,,1
 S80610863,Snow Bunting,Plectrophenax nivalis,31431,1,US-VT,Grand Isle,L293922,South Hero Causeway,44.5934815,-73.3117418,2021-02-07,06:49 AM,eBird - Traveling Count,142,1,1.89,,1
+S80614801,Snow Bunting,Plectrophenax nivalis,31431,49,US-VT,Lamoille,L8220315,"555 Washington Highway, Morristown, Vermont, US (44.555, -72.589)",44.5554853,-72.58892,2021-01-10,03:00 PM,eBird - Stationary Count,60,1,,,1
+S80614844,Snow Bunting,Plectrophenax nivalis,31431,X,US-VT,Lamoille,L7338042,VTLA Lanphear Flats,44.612364,-72.607935,2021-02-05,02:17 PM,eBird - Casual Observation,,0,,,1
+S80614854,Snow Bunting,Plectrophenax nivalis,31431,6,US-VT,Orleans,L165338,Newport State Airport,44.8918,-72.2293,2021-02-06,03:53 PM,eBird - Casual Observation,,0,,,1
+S80614802,Snow Bunting,Plectrophenax nivalis,31431,12,US-VT,Washington,L7371322,VTWA Elmore Road,44.400434,-72.553182,2021-01-11,11:46 AM,eBird - Casual Observation,,0,,,1
+S80614811,Snow Bunting,Plectrophenax nivalis,31431,46,US-VT,Windsor,L13276520,"Okemo Mountain Resort, Ludlow US-VT 43.39737, -72.71360",43.397374,-72.713601,2021-01-15,08:58 AM,eBird - Casual Observation,,0,,,1
+S80614834,American Tree Sparrow,Spizelloides arborea,31839,4,US-VT,Addison,L2288215,Cota Park,44.2434774,-73.0604553,2021-01-23,08:29 AM,eBird - Stationary Count,4,1,,,1
+S80615026,American Tree Sparrow,Spizelloides arborea,31839,1,US-VT,Addison,L715236,Dead Creek WMA IBA--Gage Road,44.0737892,-73.3289552,2021-01-03,03:45 PM,eBird - Stationary Count,30,1,,,1
+S80614826,American Tree Sparrow,Spizelloides arborea,31839,20,US-VT,Bennington,L2168757,Norman and Selma Greenberg Conservation Reserve,42.8605912,-73.195585,2021-01-15,03:09 PM,eBird - Traveling Count,22,1,.985,,2
+S80614798,American Tree Sparrow,Spizelloides arborea,31839,21,US-VT,Chittenden,L2795377,VTCH E Thompsons Pt Road,44.2801125,-73.2482958,2021-01-09,02:45 PM,eBird - Stationary Count,50,1,,,1
+S80614833,American Tree Sparrow,Spizelloides arborea,31839,2,US-VT,Chittenden,L13377064,VTCH Town Line Road North,44.261762,-73.250525,2021-01-22,02:50 PM,eBird - Stationary Count,35,1,,,1
+S80614847,American Tree Sparrow,Spizelloides arborea,31839,3,US-VT,Lamoille,L4980656,Lamoille Valley Rail Trail--Hyde Park,44.5900775,-72.6144147,2021-02-06,08:30 AM,eBird - Stationary Count,30,1,,,1
+S80614818,American Tree Sparrow,Spizelloides arborea,31839,22,US-VT,Windham,L1141256,Brattleboro Marina / West River Trail,42.8708376,-72.5623799,2021-01-15,11:05 AM,eBird - Traveling Count,68,1,2.658,,1
+S80614834,Dark-eyed Junco,Junco hyemalis,31867,2,US-VT,Addison,L2288215,Cota Park,44.2434774,-73.0604553,2021-01-23,08:29 AM,eBird - Stationary Count,4,1,,,1
+S80615022,Dark-eyed Junco,Junco hyemalis,31867,1,US-VT,Addison,L165349,Potash Bay,44.0935032,-73.3922768,2021-01-03,02:22 PM,eBird - Stationary Count,14,1,,,2
+S80614820,Dark-eyed Junco,Junco hyemalis,31867,7,US-VT,Windham,L9037730,Bonnyvale Environmental Education Center,42.830841,-72.625959,2021-01-15,12:31 PM,eBird - Traveling Count,31,1,.491,,2
+S80614818,Dark-eyed Junco,Junco hyemalis,31867,13,US-VT,Windham,L1141256,Brattleboro Marina / West River Trail,42.8708376,-72.5623799,2021-01-15,11:05 AM,eBird - Traveling Count,68,1,2.658,,1
 S80610865,Dark-eyed Junco (Slate-colored),Junco hyemalis hyemalis/carolinensis,31869,12,US-VT,Chittenden,L13517237,"6 Sebring Rd, South Burlington US-VT 44.43335, -73.20440",44.433349,-73.204396,2021-02-07,10:06 AM,eBird - Stationary Count,57,1,,,1
+S80614815,Dark-eyed Junco (Slate-colored),Junco hyemalis hyemalis/carolinensis,31869,3,US-VT,Windham,L13277458,"8 University Way, Brattleboro US-VT 42.83074, -72.56081",42.830737,-72.560813,2021-01-15,10:30 AM,eBird - Traveling Count,12,1,.644,,3
+S80614826,Song Sparrow,Melospiza melodia,32018,1,US-VT,Bennington,L2168757,Norman and Selma Greenberg Conservation Reserve,42.8605912,-73.195585,2021-01-15,03:09 PM,eBird - Traveling Count,22,1,.985,,2
+S80614798,Song Sparrow,Melospiza melodia,32018,1,US-VT,Chittenden,L2795377,VTCH E Thompsons Pt Road,44.2801125,-73.2482958,2021-01-09,02:45 PM,eBird - Stationary Count,50,1,,,1
+S80614818,Song Sparrow,Melospiza melodia,32018,1,US-VT,Windham,L1141256,Brattleboro Marina / West River Trail,42.8708376,-72.5623799,2021-01-15,11:05 AM,eBird - Traveling Count,68,1,2.658,,1
+S80614834,Northern Cardinal,Cardinalis cardinalis,33194,9,US-VT,Addison,L2288215,Cota Park,44.2434774,-73.0604553,2021-01-23,08:29 AM,eBird - Stationary Count,4,1,,,1
+S80615029,Northern Cardinal,Cardinalis cardinalis,33194,6,US-VT,Addison,L165269,DAR State Park,44.0545617,-73.4163478,2021-01-04,08:20 AM,eBird - Stationary Count,21,1,,,1
+S80614799,Northern Cardinal,Cardinalis cardinalis,33194,1,US-VT,Addison,L2418747,Secret Meadow,44.234315,-73.0694675,2021-01-10,10:45 AM,eBird - Traveling Count,60,1,4.828,,3
+S80615031,Northern Cardinal,Cardinalis cardinalis,33194,1,US-VT,Addison,L1255384,Turkey Lane,44.1303163,-73.3686304,2021-01-04,09:40 AM,eBird - Traveling Count,33,1,.377,,1
+S80614808,Northern Cardinal,Cardinalis cardinalis,33194,17,US-VT,Addison,L7154186,VTAD Rockville Market Farm,44.2489,-73.064908,2021-01-14,04:50 PM,eBird - Casual Observation,,0,,,1,,"Exact count of 17. I was standing in my grandparents driveway, working on my car at dusk. I heard some NOCA chip notes, and looked up to see 4 NOCA fly out of a nearby cedar and around the back of the house. Within a few second there was a flurry of other chip notes, and over the course of a minute I counted 13 more NOCA fly into the cedar from across the field to the south. My guess is that they are roosting in the cedar stand in back of the house at night and then dispersing to nearby feeders and thickets during the day. It was an excited moment, and the most NOCA I've ever seen at one time."
+S80614826,Northern Cardinal,Cardinalis cardinalis,33194,2,US-VT,Bennington,L2168757,Norman and Selma Greenberg Conservation Reserve,42.8605912,-73.195585,2021-01-15,03:09 PM,eBird - Traveling Count,22,1,.985,,2
+S80614828,Northern Cardinal,Cardinalis cardinalis,33194,1,US-MA,Berkshire,L13240870,"stakeout Boreal Chickadee, N Hoosac Rd **view from road only** (Jan 2021)",42.7299526,-73.2026387,2021-01-15,03:50 PM,eBird - Stationary Count,29,1,,,4,,,S sz
 S80610865,Northern Cardinal,Cardinalis cardinalis,33194,9,US-VT,Chittenden,L13517237,"6 Sebring Rd, South Burlington US-VT 44.43335, -73.20440",44.433349,-73.204396,2021-02-07,10:06 AM,eBird - Stationary Count,57,1,,,1
+S80614798,Northern Cardinal,Cardinalis cardinalis,33194,1,US-VT,Chittenden,L2795377,VTCH E Thompsons Pt Road,44.2801125,-73.2482958,2021-01-09,02:45 PM,eBird - Stationary Count,50,1,,,1
 S80610864,Northern Cardinal,Cardinalis cardinalis,33194,1,US-VT,Grand Isle,L13515718,"8 Martin Rd, South Hero US-VT 44.61045, -73.30525",44.61045,-73.305246,2021-02-07,09:15 AM,eBird - Stationary Count,3,1,,,1
+S80615014,Northern Cardinal,Cardinalis cardinalis,33194,1,US-VT,Lamoille,L4980656,Lamoille Valley Rail Trail--Hyde Park,44.5900775,-72.6144147,2021-01-03,07:55 AM,eBird - Stationary Count,12,1,,,1
+S80614847,Northern Cardinal,Cardinalis cardinalis,33194,2,US-VT,Lamoille,L4980656,Lamoille Valley Rail Trail--Hyde Park,44.5900775,-72.6144147,2021-02-06,08:30 AM,eBird - Stationary Count,30,1,,,1
+S80614820,Northern Cardinal,Cardinalis cardinalis,33194,1,US-VT,Windham,L9037730,Bonnyvale Environmental Education Center,42.830841,-72.625959,2021-01-15,12:31 PM,eBird - Traveling Count,31,1,.491,,2
+S80614818,Northern Cardinal,Cardinalis cardinalis,33194,1,US-VT,Windham,L1141256,Brattleboro Marina / West River Trail,42.8708376,-72.5623799,2021-01-15,11:05 AM,eBird - Traveling Count,68,1,2.658,,1
+S80614839,passerine sp.,Passeriformes sp.,34500,10,US-VT,Grand Isle,L13450271,"97–117 Sunset View Rd, South Hero US-VT 44.65115, -73.32986",44.651152,-73.329861,2021-01-31,04:09 PM,eBird - Stationary Count,7,1,,,2,,Mixed flock.
