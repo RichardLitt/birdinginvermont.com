@@ -66,6 +66,7 @@ class Map extends Component {
     const pathname = this.props.location.pathname
 
     var vermont, i, j, color, speciesTotals, speciesView, jsonTown
+    let totalTowns = 0
     const shimTownNames = {
       'Newport Town': 'Newport',
       'Newport City': 'Newport',
@@ -82,6 +83,7 @@ class Map extends Component {
       vermont = topojson.feature(VermontTowns, VermontTowns.objects.vt_towns)
 
       if (data.towns.length === 0) {
+        totalTowns = undefined
         VermontTowns.objects.vt_towns.geometries.forEach((t) => {
           t.properties.speciesTotal = 0
           t.properties.species = []
@@ -95,6 +97,9 @@ class Map extends Component {
           dataTown = shimTownNames[dataTown]
         }
         speciesTotals = parseFloat(data.towns[i].speciesTotal)
+        if (speciesTotals > 0) {
+          totalTowns += 1
+        }
         // Calculate the highest town, for use in coloring
         if (speciesTotals > domainMax) {
           domainMax = speciesTotals
@@ -122,6 +127,9 @@ class Map extends Component {
           dataTown = shimTownNames[dataTown]
         }
         speciesTotals = parseFloat(data.vt251data[i].speciesTotal)
+        if (speciesTotals > 0) {
+          totalTowns += 1
+        }
         // Calculate{} the highest town, for use in coloring
         if (speciesTotals > domainMax) {
           domainMax = speciesTotals
@@ -250,6 +258,8 @@ class Map extends Component {
 
     let townSelected = false
 
+    d3.select('#locale').text(totalTowns ? `Towns birded: ${totalTowns}` : '')
+
     svg.selectAll('.subunit')
       .data(vermont.features)
       .enter()
@@ -320,11 +330,9 @@ class Map extends Component {
             .duration(250)
             .style('fill', (d) => (d.properties.speciesTotal) ? color(d.properties.speciesTotal) : '#ddd')
 
-          d3.select('#locale')
-            .text()
-
-          d3.select('#list')
-            .text()
+          d3.select('#locale').text(totalTowns ? `Towns birded: ${totalTowns}` : '')
+          d3.select('#list').text('')
+          d3.select('#notSeen').text('')
         }
       })
 

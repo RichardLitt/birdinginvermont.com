@@ -70,7 +70,7 @@ class NavBar extends Component {
               <Link className="nav-link" to="/female-birdsong">Female Birdsong</Link>
             </li>
             <li className='nav-item'>
-              <Link className="nav-link" to="/251">251 Project</Link>
+              <Link className="nav-link" to="/251">Project 251</Link>
             </li>
           </ul>
         </div>
