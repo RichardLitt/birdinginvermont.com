@@ -534,9 +534,31 @@ async function rare (opts) {
   // if (!opts.year) {
   //   opts.year = moment().format('YYYY')
   // }
+  let data
   opts.state = 'Vermont'
   // Use only data from this year, from Vermont
-  const data = dateFilter(locationFilter(await getData(opts.input), opts), opts)
+  if (!opts.manual) {
+    data = dateFilter(locationFilter(await getData(opts.input), opts), opts)
+  } else {
+    // TODO: Enable rarities to check an input with a species' Common Name, Town, and Date
+    // - Figure out how to get input from a dropdown in React
+    //   - Discrete input (town out of all towns)
+    //   - Date input
+    // - Get latlong for a given town
+    // - Get county for a given town
+    // - Get region for a given town
+    // - Get scientific name for a given bird
+
+    // This will correctly flag as 'Unknown'
+    data = [{
+      'Species': 'Pine Marten',
+      'Date': '2020-03-02',
+      'Scientific Name': 'Martes martes',
+      'Town': 'Montpelier',
+      'Region': 'Northern Piedmont',
+      'County': 'Washington'
+    }]
+  }
   const allSpecies = VermontRecords.map(x => x['Scientific Name'])
   const speciesToReport = VermontRecords.map(x => x['Scientific Name'])
   // TODO Update needs JSON file
