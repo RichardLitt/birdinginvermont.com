@@ -362,7 +362,7 @@ class Map extends Component {
           {this.props.location.pathname === '/251' && <div>
             <h1>Project 251</h1>
             <p>This year, I am challenging Vermonters to collaboratively bird in each of our 251 towns.</p>
-<p>To join in, simply share any checklist from any town with the eBird account <b>vermont251</b>.
+<p>To join in, simply share any <a href="https://support.ebird.org/en/support/solutions/articles/48000967748">complete checklist</a> from any town with the eBird account <b>vermont251</b>.
 I will update this map every week, to show what new towns should be added. Note: You don't need to add towns that are already here, but feel free to. Email me to opt out of being added as a collaborator.</p>
 <p>Contributors: <a href="https://ebird.org/vt/profile/Mjg0MTUx/US-VT">Richard Littauer</a>.</p>
 <p>Last updated: <i>February 7, 2021</i>.</p>
