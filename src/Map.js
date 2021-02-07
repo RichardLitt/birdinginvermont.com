@@ -65,7 +65,7 @@ class Map extends Component {
     const height = data.height
     const pathname = this.props.location.pathname
 
-    var vermont, i, j, color, speciesTotals, speciesView
+    var vermont, i, j, color, speciesTotals, speciesView, jsonTown
     const shimTownNames = {
       'Newport Town': 'Newport',
       'Newport City': 'Newport',
@@ -81,7 +81,13 @@ class Map extends Component {
     if (this.props.location.pathname === '/towns') {
       vermont = topojson.feature(VermontTowns, VermontTowns.objects.vt_towns)
 
-
+      if (data.towns.length === 0) {
+        VermontTowns.objects.vt_towns.geometries.forEach((t) => {
+          t.properties.speciesTotal = 0
+          t.properties.species = []
+          t.properties.notSeen = []
+        })
+      }
       for (i = 0; i < data.towns.length; i++) {
         let dataTown = data.towns[i].town
         // console.log((data.towns[i].town.includes('lbans')) ? data.towns[i].town : false)
@@ -95,12 +101,39 @@ class Map extends Component {
         }
 
         for (j = 0; j < VermontTowns.objects.vt_towns.geometries.length; j++) {
-          var jsonTown = VermontTowns.objects.vt_towns.geometries[j].properties.town
+          jsonTown = VermontTowns.objects.vt_towns.geometries[j].properties.town
 
           if (dataTown.toUpperCase() === jsonTown) {
             VermontTowns.objects.vt_towns.geometries[j].properties.speciesTotal = speciesTotals
             VermontTowns.objects.vt_towns.geometries[j].properties.species = data.towns[i].species
             VermontTowns.objects.vt_towns.geometries[j].properties.notSeen = data.towns[i].notSeen
+            // TODO Add together St. Albans Town and St. Albans City
+            if (dataTown[2] === '.') { console.log(VermontTowns.objects.vt_towns.geometries[j].properties) }
+            break
+          }
+        }
+      }
+    } else if (this.props.location.pathname === '/251') {
+      vermont = topojson.feature(VermontTowns, VermontTowns.objects.vt_towns)
+
+      for (i = 0; i < data.vt251data.length; i++) {
+        let dataTown = data.vt251data[i].town
+        if (shimTownNames[dataTown]) {
+          dataTown = shimTownNames[dataTown]
+        }
+        speciesTotals = parseFloat(data.vt251data[i].speciesTotal)
+        // Calculate{} the highest town, for use in coloring
+        if (speciesTotals > domainMax) {
+          domainMax = speciesTotals
+        }
+
+        for (j = 0; j < VermontTowns.objects.vt_towns.geometries.length; j++) {
+          jsonTown = VermontTowns.objects.vt_towns.geometries[j].properties.town
+
+          if (dataTown.toUpperCase() === jsonTown) {
+            VermontTowns.objects.vt_towns.geometries[j].properties.speciesTotal = speciesTotals
+            VermontTowns.objects.vt_towns.geometries[j].properties.species = data.vt251data[i].species
+            VermontTowns.objects.vt_towns.geometries[j].properties.notSeen = data.vt251data[i].notSeen
             // TODO Add together St. Albans Town and St. Albans City
             if (dataTown[2] === '.') { console.log(VermontTowns.objects.vt_towns.geometries[j].properties) }
             break
@@ -264,7 +297,7 @@ class Map extends Component {
           d3.select(this)
             .style('fill', '#509e2f')
 
-          if (pathname === '/towns') {
+          if (['/towns', '/251'].includes(pathname)) {
             d3.select('#locale')
               .text([capitalizeFirstLetters(d.properties.town) + ` (${d.properties.speciesTotal})`])
           } else {
@@ -324,7 +357,16 @@ class Map extends Component {
     return (
       <div className="container-md">
         <div className="row">
-          <UploadButton handleChange={this.props.handleChange} data={this.props.data} />
+          {this.props.location.pathname !== '/251' &&
+          <UploadButton handleChange={this.props.handleChange} data={this.props.data} />}
+          {this.props.location.pathname === '/251' && <div>
+            <h1>Project 251</h1>
+            <p>This year, I am challenging Vermonters to collaboratively bird in each of our 251 towns.</p>
+<p>To join in, simply share any checklist from any town with the eBird account <b>vermont251</b>.
+I will update this map every week, to show what new towns should be added. Note: You don't need to add towns that are already here, but feel free to. Email me to opt out of being added as a collaborator.</p>
+<p>Contributors: <a href="https://ebird.org/vt/profile/Mjg0MTUx/US-VT">Richard Littauer</a>.</p>
+<p>Last updated: <i>February 7, 2021</i>.</p>
+          </div>}
           <div id="map" className="col-sm">
             <svg ref={node => this.node = node} width={this.props.data.width} height={this.props.data.height}></svg>
           </div>

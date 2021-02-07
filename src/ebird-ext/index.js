@@ -43,6 +43,25 @@ function removeSpuh (arr) {
   return _.uniq(newArr)
 }
 
+async function vt251() {
+  async function fetchCsv(input) {
+      const response = await fetch(input);
+      const reader = response.body.getReader();
+      const result = await reader.read();
+      const decoder = new TextDecoder('utf-8');
+      const csv = await decoder.decode(result.value);
+      return csv;
+  }
+
+  const opts = {
+    year: 2021,
+    state: 'Vermont',
+    all: true,
+    input: Papa.parse(await fetchCsv('data/251.csv'), { header: true }).data
+  }
+  return await towns(opts)
+}
+
 function removeSpuhFromCounties (countyBarcharts) {
   const newObj = {}
   Object.keys(CountyBarcharts).forEach(county => {
@@ -653,5 +672,6 @@ export default {
   removeSpuhFromCounties,
   towns,
   counties,
-  winterFinch
+  winterFinch,
+  vt251
 }

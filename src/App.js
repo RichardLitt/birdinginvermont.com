@@ -54,12 +54,23 @@ class App extends Component {
         regions: '',
         rarities: '',
         counties: '',
+        vt251data: '',
         loaded: false,
         width: 450,
         height: 800
       }
     }
     this.handleChange = this.handleChange.bind(this);
+  }
+
+  async componentDidMount () {
+    let vt251data = await ebird.vt251()
+    this.setState((prevState, props) => ({
+      data: {
+        ...prevState.data,
+        vt251data
+      }
+    }))
   }
 
   async handleChange(e) {
@@ -91,6 +102,7 @@ class App extends Component {
           <Route exact path='/towns' render={(props) => (<Map {...props} component={Map} data={this.state.data} handleChange={this.handleChange} />)} />
           <Route exact path='/counties' render={(props) => (<Map {...props} component={Map} data={this.state.data} handleChange={this.handleChange} />)} />
           <Route exact path='/regions' render={(props) => (<Map {...props} component={Map} data={this.state.data} handleChange={this.handleChange} />)} />
+          <Route exact path='/251' render={(props) => (<Map {...props} component={Map} data={this.state.data} handleChange={this.handleChange} />)} />
           <Route exact path='/female-birdsong' render={(props) => (<ContentPage {...props} component={ContentPage} data={fbsPath} />)} />
           <Route exact path="/nfc"><Redirect to="/nfc-species" /></Route>
           <Route exact path='/nfc-species' render={(props) => (<ContentPage {...props} component={ContentPage} data={nfcPath} />)}  />
