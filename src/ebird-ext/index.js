@@ -301,7 +301,6 @@ async function towns (opts) {
         })
       })
       t.speciesTotal = i
-      t.notSeen = _.difference(speciesSeenInVermont, cleanCommonName(t.species))
     })
 
     return towns
@@ -340,8 +339,7 @@ async function counties (opts) {
       collectiveTotal: countySpecies[county].length,
       species,
       speciesByDate,
-      speciesTotal: species.length,
-      notSeen: _.difference(countySpecies[county], cleanCommonName(species))
+      speciesTotal: species.length
     }
   })
 
@@ -483,7 +481,6 @@ async function radialSearch (opts) {
     })
   })
   areaResults.speciesTotal = i
-  areaResults.notSeen = _.difference(speciesSeenInVermont, cleanCommonName(areaResults.species))
 
   return areaResults
 }

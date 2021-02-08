@@ -87,7 +87,6 @@ class Map extends Component {
         VermontTowns.objects.vt_towns.geometries.forEach((t) => {
           t.properties.speciesTotal = 0
           t.properties.species = []
-          t.properties.notSeen = []
         })
       }
       for (i = 0; i < data.towns.length; i++) {
@@ -111,7 +110,6 @@ class Map extends Component {
           if (dataTown.toUpperCase() === jsonTown) {
             VermontTowns.objects.vt_towns.geometries[j].properties.speciesTotal = speciesTotals
             VermontTowns.objects.vt_towns.geometries[j].properties.species = data.towns[i].species
-            VermontTowns.objects.vt_towns.geometries[j].properties.notSeen = data.towns[i].notSeen
             // TODO Add together St. Albans Town and St. Albans City
             if (dataTown[2] === '.') { console.log(VermontTowns.objects.vt_towns.geometries[j].properties) }
             break
@@ -141,7 +139,6 @@ class Map extends Component {
           if (dataTown.toUpperCase() === jsonTown) {
             VermontTowns.objects.vt_towns.geometries[j].properties.speciesTotal = speciesTotals
             VermontTowns.objects.vt_towns.geometries[j].properties.species = data.vt251data[i].species
-            VermontTowns.objects.vt_towns.geometries[j].properties.notSeen = data.vt251data[i].notSeen
             // TODO Add together St. Albans Town and St. Albans City
             if (dataTown[2] === '.') { console.log(VermontTowns.objects.vt_towns.geometries[j].properties) }
             break
@@ -154,11 +151,12 @@ class Map extends Component {
 
       speciesTotals = ebirdExt.removeSpuhFromCounties(CountyBarcharts)
 
-      function getJanuaryNeeds (county, needsArr) {
-        return needsArr.filter(species => {
-          return CountyBarcharts[county].species[species].occurence.slice(0,4).filter(rate => rate !== '0.0').length !== 0
-        })
-      }
+      // Needs a refactor
+      // function getJanuaryNeeds (county, needsArr) {
+      //   return needsArr.filter(species => {
+      //     return CountyBarcharts[county].species[species].occurence.slice(0,4).filter(rate => rate !== '0.0').length !== 0
+      //   })
+      // }
 
       vermont.features.forEach(feature => {
         feature.properties.name = capitalizeFirstLetters(feature.properties.CNTYNAME)
@@ -169,7 +167,7 @@ class Map extends Component {
       if (data.counties) {
         Object.keys(data.counties).forEach(county => {
           const index = vermont.features.map(x => x.properties.CNTYNAME).indexOf(county.toUpperCase())
-          data.counties[county].january = getJanuaryNeeds(county, data.counties[county].notSeen)
+          // data.counties[county].january = getJanuaryNeeds(county, data.counties[county].notSeen)
           Object.assign(vermont.features[index].properties, data.counties[county])
         })
       }
@@ -314,10 +312,6 @@ class Map extends Component {
 
           d3.select('#list')
             .html((d.properties.species && d.properties.species.length > 0) ? `<b>Seen:</b> <li>${taxonomicSort(d.properties.species).join('</li><li>')}</li>` : noSpeciesText)
-
-          // The functionality is here, but the UI is overwhelming
-          d3.select('#notSeen')
-            .html((d.properties.january && d.properties.january.length > 0) ? `<b>You have not seen these species, which have been present in January before:</b> ${taxonomicSort(d.properties.january).join(', ')}` : '')
         }
       })
       .on('mouseout', function (d) {
@@ -332,7 +326,6 @@ class Map extends Component {
 
           d3.select('#locale').text(totalTowns ? `Towns birded: ${totalTowns}` : '')
           d3.select('#list').text('')
-          d3.select('#notSeen').text('')
         }
       })
 
@@ -385,7 +378,6 @@ I will update this map every week, to show what new towns should be added. Note:
             />}
             <h4 id="locale">{/* empty h4 */}</h4>
             <ul id="list"></ul>
-            <p id="notSeen"></p>
           </div>
         </div>
       </div>

@@ -65,7 +65,6 @@ class RadialView extends Component {
 
   render() {
     if (this.props.data) {
-      let notSeen = this.props.data.notSeen
       let data = this.arrangeData(this.props.data)
 
       return (
@@ -73,7 +72,6 @@ class RadialView extends Component {
           <div className="row">
             <div className="col">
               <SpeciesTable data={data} />
-              <TargetsTable data={notSeen} />
             </div>
           </div>
         </div>
