@@ -43,18 +43,8 @@ function removeSpuh (arr) {
   return _.uniq(newArr)
 }
 
-async function vt251() {
-  async function fetchCsv(input) {
-      const response = await fetch(input);
-      const reader = response.body.getReader();
-      const result = await reader.read();
-      const decoder = new TextDecoder('utf-8');
-      const csv = await decoder.decode(result.value);
-      return csv;
-  }
 
-  const input = await Papa.parse(await fetchCsv('data/251.csv'), { header: true }).data
-
+async function vt251(input) {
   const opts = {
     year: 2021,
     state: 'Vermont',
@@ -62,7 +52,6 @@ async function vt251() {
     input
   }
   const data = await towns(opts)
-  console.log('vt251 data:', data)
   return data
 }
 

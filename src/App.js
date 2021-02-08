@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.scss';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import { withRouter } from 'react-router'
+import Papa from 'papaparse'
 import About from './About'
 import Map from './Map'
 import NavBar from './NavBar'
@@ -60,17 +61,43 @@ class App extends Component {
         height: 800
       }
     }
-    this.handleChange = this.handleChange.bind(this);
+    this.handleChange = this.handleChange.bind(this)
+    this.getData = this.getData.bind(this)
   }
 
-  async componentDidMount () {
-    let vt251data = await ebird.vt251()
-    this.setState((prevState, props) => ({
-      data: {
-        ...prevState.data,
-        vt251data
-      }
-    }))
+  componentWillMount() {
+    this.getCsvData();
+  }
+
+  fetchCsv() {
+      return fetch('/data/251.csv').then(function (response) {
+          let reader = response.body.getReader();
+          let decoder = new TextDecoder('utf-8');
+
+          return reader.read().then(function (result) {
+              return decoder.decode(result.value);
+          });
+      });
+  }
+
+  async getData(result) {
+      result = await ebird.vt251(result.data)
+      console.log(result)
+      this.setState((prevState, props) => ({
+        data: {
+          ...prevState.data,
+          vt251data: result
+        }
+      }))
+  }
+
+  async getCsvData() {
+      let csvData = await this.fetchCsv()
+
+      Papa.parse(csvData, {
+          header: true,
+          complete: this.getData
+      });
   }
 
   async handleChange(e) {
