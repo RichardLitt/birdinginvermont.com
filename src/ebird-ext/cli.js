@@ -24,6 +24,7 @@ const cli = meow(`
     regions       Show your region counts
     counties      Show your counties counts
     rare          Show which rarities to report to records committee
+    251           Show 251
 
   Options
     --input, -i The input file
@@ -159,6 +160,8 @@ async function run () {
     }
   } else if (cli.input[0] === 'withinDistance') {
     await main.withinDistance({'coordinates': [-72.5766799, 44.2581012], input: 'MyEBirdData.csv'})
+  } else if (cli.input[0] === 251) {
+    await main.vt251()
   } else {
     console.log(cli.showHelp())
   }
