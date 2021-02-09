@@ -69,7 +69,7 @@ class App extends Component {
     this.getCsvData();
   }
 
-  fetchCsv() {
+  async fetchCsv() {
       return fetch('/data/251.csv').then(function (response) {
           let reader = response.body.getReader();
           let decoder = new TextDecoder('utf-8');
