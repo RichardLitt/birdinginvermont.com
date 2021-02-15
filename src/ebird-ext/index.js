@@ -49,6 +49,7 @@ async function vt251(input) {
     year: 2021,
     state: 'Vermont',
     all: true,
+    complete: true,
     input
   }
   const data = await towns(opts)
@@ -170,6 +171,17 @@ function dateFilter (list, opts) {
   })
 }
 
+function completeChecklistFilter (list, opts) {
+  const completeProtocols = ['eBird - Traveling Count', 'eBird - Stationary Count']
+  if (opts.complete) {
+    return list.filter(x => {
+      return completeProtocols.includes(x.Protocol)
+    })
+  } else {
+    return list
+  }
+}
+
 function orderByDate (arr) {
   return _.orderBy(arr, (e) => moment(e.Date, momentFormat(e.Date)).format())
 }
@@ -272,7 +284,7 @@ async function towns (opts) {
     opts.state = 'Vermont'
   }
   const dateFormat = parseDateformat('day')
-  let data = orderByDate(dateFilter(locationFilter(await getData(opts.input), opts), opts), opts)
+  let data = orderByDate(completeChecklistFilter(dateFilter(locationFilter(await getData(opts.input), opts), opts), opts), opts)
   var speciesSeenInVermont = []
   _.forEach(countUniqueSpecies(data, dateFormat), (o) => {
     var mapped = _.map(o, 'Common Name')

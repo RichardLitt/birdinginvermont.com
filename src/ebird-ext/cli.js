@@ -161,7 +161,7 @@ async function run () {
   } else if (cli.input[0] === 'withinDistance') {
     await main.withinDistance({'coordinates': [-72.5766799, 44.2581012], input: 'MyEBirdData.csv'})
   } else if (cli.input[0] === 251) {
-    await main.vt251()
+    await main.vt251(cli.flags.input)
   } else {
     console.log(cli.showHelp())
   }
