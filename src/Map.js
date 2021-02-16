@@ -349,7 +349,7 @@ class Map extends Component {
             <p>This year, I am challenging Vermonters to collaboratively bird in each of our 251 towns.</p>
 <p>To join in, simply share any <a href="https://support.ebird.org/en/support/solutions/articles/48000967748">complete checklist</a> from any town with the eBird account <b>vermont251</b>.
 I will update this map every week, to show what new towns should be added. Note: You don't need to add towns that are already here, but feel free to. Email me to opt out of being added as a collaborator.</p>
-<p>Contributors: <a href="https://ebird.org/vt/profile/Mjg0MTUx/US-VT">Richard Littauer</a>, <a href="https://ebird.org/profile/NDIwNDA1/US-VT">Zac Cota</a>, <a href="https://ebird.org/vt/profile/MjAwNjI/world">Kent McFarland</a>, Rich Kelley, <a href="https://ebird.org/vt/profile/MTgxNDYz/US-VT">Nathaniel Sharp</a>.</p>
+<p>Contributors: <a href="https://ebird.org/vt/profile/Mjg0MTUx/US-VT">Richard Littauer</a>, <a href="https://ebird.org/profile/NDIwNDA1/US-VT">Zac Cota</a>, <a href="https://ebird.org/vt/profile/MjAwNjI/world">Kent McFarland</a>, Rich Kelley, <a href="https://ebird.org/vt/profile/MTgxNDYz/US-VT">Nathaniel Sharp</a>, and <a href="https://ebird.org/profile/NjQ1MjQy/US-VT-021">Chelsea Carroll</a>.</p>
 <p>Last updated: <i>February 15, 2021</i>.</p>
           </div>}
           <div id="map" className="col-sm">
