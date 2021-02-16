@@ -67,14 +67,6 @@ class Map extends Component {
 
     var vermont, i, j, color, speciesTotals, speciesView, jsonTown
     let totalTowns = 0
-    const shimTownNames = {
-      'Newport Town': 'Newport',
-      'Newport City': 'Newport',
-      "St. Albans Town": "St. Albans",
-      "St. Albans City": "St. Albans",
-      "Warren Gore": "Warren's Gore",
-      "Warners Grant": "Warner's Grant"
-    }
 
     let domainMin = 0
     let domainMax = 0
@@ -89,12 +81,10 @@ class Map extends Component {
           t.properties.species = []
         })
       }
+
       for (i = 0; i < data.towns.length; i++) {
         let dataTown = data.towns[i].town
-        // console.log((data.towns[i].town.includes('lbans')) ? data.towns[i].town : false)
-        if (shimTownNames[dataTown]) {
-          dataTown = shimTownNames[dataTown]
-        }
+
         speciesTotals = parseFloat(data.towns[i].speciesTotal)
         if (speciesTotals > 0) {
           totalTowns += 1
@@ -121,9 +111,7 @@ class Map extends Component {
 
       for (i = 0; i < data.vt251data.length; i++) {
         let dataTown = data.vt251data[i].town
-        if (shimTownNames[dataTown]) {
-          dataTown = shimTownNames[dataTown]
-        }
+
         speciesTotals = parseFloat(data.vt251data[i].speciesTotal)
         if (speciesTotals > 0) {
           totalTowns += 1

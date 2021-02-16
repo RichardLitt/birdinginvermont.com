@@ -232,12 +232,19 @@
                 }, {
                     "type": "Polygon",
                     "arcs": [
-                        [81, 82, 83, -70, -66],
-                        [84],
-                        [-85]
+                        [81, 82, 83, -70, -66]
                     ],
                     "properties": {
-                        "town": "ST. ALBANS",
+                        "town": "ST. ALBANS TOWN",
+                        "county": 11
+                    }
+                }, {
+                    "type": "Polygon",
+                    "arcs": [
+                        [84]
+                    ],
+                    "properties": {
+                        "town": "ST. ALBANS CITY",
                         "county": 11
                     }
                 }, {
@@ -909,11 +916,19 @@
                 }, {
                     "type": "Polygon",
                     "arcs": [
-                        [-304, 322, 323, 324, -315, 325, -313, -286],
                         [-326, -314]
                     ],
                     "properties": {
                         "town": "BARRE CITY",
+                        "county": 23
+                    }
+                }, {
+                    "type": "Polygon",
+                    "arcs": [
+                        [-304, 322, 323, 324, -315, 325, -313, -286]
+                    ],
+                    "properties": {
+                        "town": "BARRE TOWN",
                         "county": 23
                     }
                 }, {
@@ -2053,11 +2068,19 @@
                 }, {
                     "type": "Polygon",
                     "arcs": [
-                        [686, 687, -102, -107, -41, 688, 689],
+                        [686, 687, -102, -107, -41, 688, 689]
+                    ],
+                    "properties": {
+                        "town": "NEWPORT TOWN",
+                        "county": 19
+                    }
+                }, {
+                    "type": "Polygon",
+                    "arcs": [
                         [-694, -687, -692]
                     ],
                     "properties": {
-                        "town": "NEWPORT",
+                        "town": "NEWPORT CITY",
                         "county": 19
                     }
                 }, {
@@ -2252,14 +2275,21 @@
                 }, {
                     "type": "Polygon",
                     "arcs": [
-                        [731, 732, -728, -731, -725, -712],
-                        [-640],
-                        [639]
+                        [731, 732, -728, -731, -725, -712]
                     ],
                     "properties": {
                         "town": "RUTLAND",
                         "county": 21
                     }
+                }, {
+                  "type": "Polygon",
+                  "arcs": [
+                    [-640]
+                  ],
+                  "properties": {
+                    "town": "RUTLAND CITY",
+                    "county": 21
+                  }
                 }, {
                     "type": "Polygon",
                     "arcs": [
