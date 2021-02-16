@@ -1,4 +1,4 @@
-const Town_boundaries = require('./VT_Data__Town_Boundaries.json')
+const Town_boundaries = require('./vt_towns.json')
 const Vermont_regions = require('./Polygon_VT_Biophysical_Regions.json')
 const VermontRecords = require('./vermont_records.json')
 const CountyBarcharts = require('./countyBarcharts.json')
@@ -270,7 +270,7 @@ function getAllTowns (geojson) {
   const towns = []
   geojson.features.forEach((t) => {
     towns.push({
-      town: t.properties.name
+      town: t.properties.town
     })
   })
   return towns
@@ -545,10 +545,14 @@ async function quadBirds (opts) {
 function pointLookup(geojson, geojsonLookup, data) {
   let point = {type: "Point", coordinates: [data.Longitude, data.Latitude]}
   let containerArea = geojsonLookup.getContainers(point)
+  if (containerArea.features[0]) {
+    let props = containerArea.features[0].properties
+    return (props.town) ? props.town : props.name
+  }
   // If, for some reason, the point is on a border and the map I have discards it, but eBird doesn't - just discard it.
   // This can be fixed by using nearest neighbor approaches, but those tend to have a high computational load, and they require
   // mapping libraries that need window, which just stinks.
-  return (containerArea.features[0]) ? containerArea.features[0].properties.name : null
+  return
 }
 
 async function rare (opts) {

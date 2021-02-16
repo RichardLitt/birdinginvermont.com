@@ -82,7 +82,6 @@ class App extends Component {
 
   async getData(result) {
       result = await ebird.vt251(result.data)
-      console.log(result)
       this.setState((prevState, props) => ({
         data: {
           ...prevState.data,

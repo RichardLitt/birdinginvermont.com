@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import VermontTowns from './ebird-ext/vermont.json'
+import VermontTowns from './ebird-ext/vt_towns.json'
+import Lake from './ebird-ext/lake.json'
 import Counties from './ebird-ext/VT_Data_-_County_Boundaries.json'
 import CountyBarcharts from './ebird-ext/countyBarcharts.json'
 import BiophysicalRegions from './ebird-ext/Polygon_VT_Biophysical_Regions.json'
@@ -12,7 +13,6 @@ import ebirdExt from './ebird-ext/index.js'
 // const d3ScaleChromatic = require('d3-scale-chromatic')
 const d3 = require('d3')
 const d3Geo = require('d3-geo')
-const topojson = require('topojson')
 const taxonomicSort = require('./ebird-ext/taxonomicSort.js')
 
 function capitalizeFirstLetters(string) {
@@ -72,11 +72,11 @@ class Map extends Component {
     let domainMax = 0
 
     if (this.props.location.pathname === '/towns') {
-      vermont = topojson.feature(VermontTowns, VermontTowns.objects.vt_towns)
+      vermont = VermontTowns
 
       if (data.towns.length === 0) {
         totalTowns = undefined
-        VermontTowns.objects.vt_towns.geometries.forEach((t) => {
+        VermontTowns.features.forEach((t) => {
           t.properties.speciesTotal = 0
           t.properties.species = []
         })
@@ -94,20 +94,18 @@ class Map extends Component {
           domainMax = speciesTotals
         }
 
-        for (j = 0; j < VermontTowns.objects.vt_towns.geometries.length; j++) {
-          jsonTown = VermontTowns.objects.vt_towns.geometries[j].properties.town
+        for (j = 0; j < VermontTowns.features.length; j++) {
+          jsonTown = VermontTowns.features[j].properties.town
 
-          if (dataTown.toUpperCase() === jsonTown) {
-            VermontTowns.objects.vt_towns.geometries[j].properties.speciesTotal = speciesTotals
-            VermontTowns.objects.vt_towns.geometries[j].properties.species = data.towns[i].species
-            // TODO Add together St. Albans Town and St. Albans City
-            if (dataTown[2] === '.') { console.log(VermontTowns.objects.vt_towns.geometries[j].properties) }
+          if (dataTown === jsonTown) {
+            VermontTowns.features[j].properties.speciesTotal = speciesTotals
+            VermontTowns.features[j].properties.species = data.towns[i].species
             break
           }
         }
       }
     } else if (this.props.location.pathname === '/251') {
-      vermont = topojson.feature(VermontTowns, VermontTowns.objects.vt_towns)
+      vermont = VermontTowns
 
       for (i = 0; i < data.vt251data.length; i++) {
         let dataTown = data.vt251data[i].town
@@ -121,14 +119,12 @@ class Map extends Component {
           domainMax = speciesTotals
         }
 
-        for (j = 0; j < VermontTowns.objects.vt_towns.geometries.length; j++) {
-          jsonTown = VermontTowns.objects.vt_towns.geometries[j].properties.town
+        for (j = 0; j < VermontTowns.features.length; j++) {
+          jsonTown = VermontTowns.features[j].properties.town
 
           if (dataTown.toUpperCase() === jsonTown) {
-            VermontTowns.objects.vt_towns.geometries[j].properties.speciesTotal = speciesTotals
-            VermontTowns.objects.vt_towns.geometries[j].properties.species = data.vt251data[i].species
-            // TODO Add together St. Albans Town and St. Albans City
-            if (dataTown[2] === '.') { console.log(VermontTowns.objects.vt_towns.geometries[j].properties) }
+            VermontTowns.features[j].properties.speciesTotal = speciesTotals
+            VermontTowns.features[j].properties.species = data.vt251data[i].species
             break
           }
         }
@@ -319,7 +315,7 @@ class Map extends Component {
 
     // Color lakes
     svg.append('path')
-      .datum(topojson.feature(VermontTowns, VermontTowns.objects.lake))
+      .datum(Lake)
       .attr('d', path)
       .style('stroke', '#89b6ef')
       .style('stroke-width', '1px')
