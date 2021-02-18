@@ -40,7 +40,7 @@ The Pine Grosbeak gives several other calls which could be called contact, fligh
 
 When in doubt, get a recording, and check it against other Taiga calls gathered locally.
 
-Using the call itself as an identifying factor is somewhat unsatisfactory, especially as many of my earliest identifications oneBird (and subsequently, others') depended upon a misreading of Birds of the World, using the general female type specimen for west of the Hudson Bay, which isn't adequate. At the same time, all of these birds were presumably Taiga, anyway, and eBird's subspecies rules would allow for adding Taiga with the same filters as the species-level-only identification option for Pine Grosbeak. Whether these records should be visited is an exercise better left to the reader, or, even better, to the reviewer for the region.
+Using the call itself as an identifying factor is somewhat unsatisfactory, especially as many of my earliest identifications on eBird (and subsequently, others' as well) depended upon a misreading of Birds of the World, using the general female type specimen for west of the Hudson Bay, which isn't adequate. At the same time, all of these birds were presumably Taiga, anyway, and eBird's subspecies rules would allow for adding Taiga with the same filters as the species-level-only identification option for Pine Grosbeak. Whether these records should be visited is an exercise better left to the reader, or, even better, to the reviewer for the region.
 
 To date, there are no records of other subspecies in Vermont. The [record listed](https://ebird.org/checklist/S76190268) here, when I first started researching this species, was the first record on eBird of the Pine Grosbeak (Taiga) in Vermont.
 
