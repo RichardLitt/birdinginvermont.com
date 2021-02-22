@@ -2,18 +2,18 @@
 
 A page for each subspecies is forthcoming, as is better styling.
 
-- [Great Blue Heron](/subspecies/gbhe)
-- [Broad-winged Hawk](/subspecies/bwha)
-- [Northern Saw-whet Owl](/subspecies/nswo)
-- [White-breasted Nuthatch](/subspecies/wbnu)
-- [Carolina Wren](/subspecies/carw)
-- [American Robin](/subspecies/amro)
-- [Northern Cardinal](/subspecies/noca)
-- [Pine Siskin](/subspecies/pisi)
-- [House Finch](/subspecies/hofi)
-- [Pine Grosbeak](/subspecies/pigr)
+- [Great Blue Heron](/library/subspecies/gbhe)
+- [Broad-winged Hawk](/library/subspecies/bwha)
+- [Northern Saw-whet Owl](/library/subspecies/nswo)
+- [White-breasted Nuthatch](/library/subspecies/wbnu)
+- [Carolina Wren](/library/subspecies/carw)
+- [American Robin](/library/subspecies/amro)
+- [Northern Cardinal](/library/subspecies/noca)
+- [Pine Siskin](/library/subspecies/pisi)
+- [House Finch](/library/subspecies/hofi)
+- [Pine Grosbeak](/library/subspecies/pigr)
 
-There is a Google Sheet of subspecies information, here: [The List of Subspecies](/subspecies/list).
+There is a Google Sheet of subspecies information, here: [The List of Subspecies](/library/subspecies/list).
 
 ## Monotypic
 
