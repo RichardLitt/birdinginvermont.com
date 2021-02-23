@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './App.scss';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import { withRouter } from 'react-router'
-import Papa from 'papaparse'
 import About from './About'
 import Map from './Map'
 import NavBar from './NavBar'
@@ -10,6 +9,7 @@ import Footer from './Footer'
 import ContentPage from './ContentPage'
 import Rarities from './Rarities'
 import NoMatchPage from './NoMatchPage'
+import vt251data from './ebird-ext/vt_town_counts.json'
 
 import termsPath from './terms.md'
 import fbsPath from './female-birdsong.md'
@@ -56,48 +56,13 @@ class App extends Component {
         regions: '',
         rarities: '',
         counties: '',
-        vt251data: '',
+        vt251data,
         loaded: false,
         width: 520,
         height: 800
       }
     }
     this.handleChange = this.handleChange.bind(this)
-    this.getData = this.getData.bind(this)
-  }
-
-  componentWillMount() {
-    this.getCsvData();
-  }
-
-  async fetchCsv() {
-      return fetch('/data/251.csv').then(function (response) {
-          let reader = response.body.getReader();
-          let decoder = new TextDecoder('utf-8');
-
-          return reader.read().then(function (result) {
-              return decoder.decode(result.value);
-          });
-      });
-  }
-
-  async getData(result) {
-      result = await ebird.vt251(result.data)
-      this.setState((prevState, props) => ({
-        data: {
-          ...prevState.data,
-          vt251data: result
-        }
-      }))
-  }
-
-  async getCsvData() {
-      let csvData = await this.fetchCsv()
-
-      Papa.parse(csvData, {
-          header: true,
-          complete: this.getData
-      });
   }
 
   async handleChange(e) {

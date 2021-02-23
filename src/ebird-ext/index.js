@@ -296,8 +296,8 @@ async function towns (opts) {
     towns.forEach(t => {
       let i = 0
       t.species = []
-      t.speciesByDate = countUniqueSpecies(data.filter(x => x.Town === t.town), dateFormat)
-      _.sortBy(createPeriodArray(t.speciesByDate), 'Date').forEach((e) => {
+      let speciesByDate = countUniqueSpecies(data.filter(x => x.Town === t.town), dateFormat)
+      _.sortBy(createPeriodArray(speciesByDate), 'Date').forEach((e) => {
         e.Species.forEach((species) => {
           t.species.push(species['Common Name'])
           i++
@@ -306,8 +306,10 @@ async function towns (opts) {
       t.speciesTotal = i
     })
 
+    if (opts.write) {
+      fs.writeFile('vt_town_counts.json', JSON.stringify(towns), 'utf8')
+    }
     return towns
-    // fs.writeFile('vt_town_counts.json', JSON.stringify(towns), 'utf8')
 
   } else if (opts.town) {
     data = countUniqueSpecies(data.filter(x => x.Town === opts.town), dateFormat)
