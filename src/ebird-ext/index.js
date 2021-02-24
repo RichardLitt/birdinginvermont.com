@@ -157,7 +157,12 @@ function locationFilter (list, opts) {
       checklist.Town = pointLookup(Town_boundaries, vermontTowns, checklist)
     }
 
-    return intersection.every(filter => checklist[filter] === opts[filter.toLowerCase()])
+    return intersection.every(filter => {
+      if (opts[filter.toLowerCase()] && checklist[filter]) {
+         return checklist[filter].toLowerCase() === opts[filter.toLowerCase()].toLowerCase()
+      }
+      return false
+    })
   })
 }
 
@@ -306,13 +311,18 @@ async function towns (opts) {
       t.speciesTotal = i
     })
 
-    if (opts.write) {
-      fs.writeFile('vt_town_counts.json', JSON.stringify(towns), 'utf8')
+    if (opts.output) {
+      fs.writeFile(`${opts.output.replace('.json', '')}.json`, JSON.stringify(towns), 'utf8')
     }
     return towns
 
   } else if (opts.town) {
-    data = countUniqueSpecies(data.filter(x => x.Town === opts.town), dateFormat)
+    // Turn on to find checklists in that town console.log(_.uniq(data.map((item, i) => `${item['Submission ID']}`)))
+    data = countUniqueSpecies(data.filter(x => x.Town === opts.town.toUpperCase()), dateFormat)
+
+    if (opts.output) {
+      fs.writeFile(`${opts.output.replace('.json', '')}.json`, JSON.stringify(data), 'utf8')
+    }
 
     let i = 1
     // TODO Doesn't work for MyEBirdData for some reason
