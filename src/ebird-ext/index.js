@@ -312,7 +312,7 @@ async function towns (opts) {
     })
 
     if (opts.output) {
-      fs.writeFile(`${opts.output.replace('.json', '')}.json`, JSON.stringify(towns), 'utf8')
+      fs.writeFile(`${opts.output.toString().replace('.json', '')}.json`, JSON.stringify(towns), 'utf8')
     }
     return towns
 
@@ -321,7 +321,7 @@ async function towns (opts) {
     data = countUniqueSpecies(data.filter(x => x.Town === opts.town.toUpperCase()), dateFormat)
 
     if (opts.output) {
-      fs.writeFile(`${opts.output.replace('.json', '')}.json`, JSON.stringify(data), 'utf8')
+      fs.writeFile(`${opts.output.toString().replace('.json', '')}.json`, JSON.stringify(data), 'utf8')
     }
 
     let i = 1
@@ -353,7 +353,6 @@ async function counties (opts) {
       county,
       collectiveTotal: countySpecies[county].length,
       species,
-      speciesByDate,
       speciesTotal: species.length
     }
   })
@@ -376,6 +375,10 @@ async function counties (opts) {
   if (opts.county) {
     console.log(newObj[opts.county])
     return newObj[opts.county]
+  }
+
+  if (opts.output) {
+    fs.writeFile(`${opts.output.toString().replace('.json', '')}.json`, JSON.stringify(counties), 'utf8')
   }
 
   return newObj

@@ -183,6 +183,20 @@ class Map extends Component {
 
       domainMax = Math.max(...speciesView)
       domainMin = Math.min(...speciesView)
+    } else if (this.props.location.pathname === '/2100') {
+      Counties.features = Counties.features.map(feature => rewind(feature, {reverse: true}))
+      vermont = Counties
+
+      Object.keys(data.vt2100data).forEach(county => {
+        const index = vermont.features.map(x => x.properties.CNTYNAME).indexOf(data.vt2100data[county].county.toUpperCase())
+        data.vt2100data[county].name = data.vt2100data[county].county
+        Object.assign(vermont.features[index].properties, data.vt2100data[county])
+        // vermont.features[index].name = capitalizeFirstLetters(data.vt2100data[county].county)
+        // console.log(vermont.features[index])
+      })
+
+      domainMax = Math.max(150)
+      domainMin = Math.min(0)
     } else if (this.props.location.pathname === '/regions') {
       vermont = BiophysicalRegions
       // TODO Large feature: Get the eBird data and find all out all of the species seen in each bioregion
@@ -284,6 +298,9 @@ class Map extends Component {
           if (['/towns', '/251'].includes(pathname)) {
             d3.select('#locale')
               .text([capitalizeFirstLetters(d.properties.town) + ` (${d.properties.speciesTotal})`])
+          } else if (['/counties', '/2100'].includes(pathname)) {
+            d3.select('#locale')
+            .text([capitalizeFirstLetters(d.properties.name) + ` (${d.properties.speciesTotal})`])
           } else {
             d3.select('#locale')
               .text([`Region: ` + capitalizeFirstLetters(d.properties.name)])
@@ -342,7 +359,8 @@ class Map extends Component {
     return (
       <div className="container-md">
         <div className="row">
-          {this.props.location.pathname !== '/251' &&
+          {/* TODO Could we move these into their own pages? */}
+          {!['/251', '/2100'].includes(this.props.location.pathname) &&
           <UploadButton handleChange={this.props.handleChange} data={this.props.data} />}
           {this.props.location.pathname === '/251' && <div>
             <h1>Project 251</h1>
@@ -350,6 +368,16 @@ class Map extends Component {
 <p>To join in, simply share any <a href="https://support.ebird.org/en/support/solutions/articles/48000967748">complete checklist</a> from any town with the eBird account <b>vermont251</b>.
 I will update this map every week, to show what new towns should be added. Note: You don't need to add towns that are already here, but feel free to. Email me to opt out of being added as a collaborator.</p>
 <p>Contributors: <a href="https://ebird.org/vt/profile/Mjg0MTUx/US-VT">Richard Littauer</a>, <a href="https://ebird.org/profile/NDIwNDA1/US-VT">Zac Cota</a>, <a href="https://ebird.org/vt/profile/MjAwNjI/world">Kent McFarland</a>, Rich Kelley, <a href="https://ebird.org/vt/profile/MTgxNDYz/US-VT">Nathaniel Sharp</a>, <a href="https://ebird.org/profile/NjQ1MjQy/US-VT-021">Chelsea Carroll</a>, <a href="https://ebird.org/profile/Mjc3NzU/US-VT-017">Chris Rimmer</a>, and <a href="https://ebird.org/profile/NDM2MDU1/US-VT">Cedar Stanistreet</a>.</p>
+<p>Last updated: <i>February 25, 2021</i>.</p>
+          </div>}
+          {this.props.location.pathname === '/2100' && <div>
+            <h1>Project 2100</h1>
+            <p>This year, I am attempting to see 150 species in each and every county in Vermont - 2100 birds in total.</p>
+            <p>The far more experienced Fred Pratt and Craig Provost have shown it is possible to do this over years of effort. I wonder if it is possible to do it on a shorter timeline, using eBird data, code, nocturnal flight calls, and help on the ground to make searching as efficient as possible.</p>
+<p>Obviously, this is quite difficult, and involves a lot of weekends driving around looking for specific birds. Below is a map of what I've seen so far, and where. I would love help with this project: tips on where to find good birds, driveways I can sleep in my car in on Saturday nights, and, mainly, partners to go birding with! I can't hear Golden-crowned Kinglets or Blackpoll Warblers, so people with good ears would be especially great to go birding with. Get in touch.</p>
+<p>Suggestions on how to make this page more useful are most welcome.</p>
+<p>This is not a solo effort. Friends who have helped so far: <a href="https://ebird.org/profile/NDIwNDA1/US-VT">Zac Cota</a>, <a href="https://ebird.org/vt/profile/MTgxNDYz/US-VT">Nathaniel Sharp</a>, and <a href="https://ebird.org/profile/NDM2MDU1/US-VT">Cedar Stanistreet</a>.</p>
+<p>Total county tick count so far: {this.props.data.vt2100data.map(x => x.speciesTotal).reduce((a, b) => a + b, 0)}.</p>
 <p>Last updated: <i>February 24, 2021</i>.</p>
           </div>}
           <div id="map" className="col-sm">

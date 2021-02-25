@@ -10,6 +10,7 @@ import ContentPage from './ContentPage'
 import Rarities from './Rarities'
 import NoMatchPage from './NoMatchPage'
 import vt251data from './ebird-ext/vt_town_counts.json'
+import vt2100data from './ebird-ext/2100.json'
 
 import termsPath from './terms.md'
 import fbsPath from './female-birdsong.md'
@@ -57,6 +58,7 @@ class App extends Component {
         rarities: '',
         counties: '',
         vt251data,
+        vt2100data,
         loaded: false,
         width: 520,
         height: 800
@@ -91,11 +93,12 @@ class App extends Component {
         <Switch>
           <Route exact path='/' component={About} />
           <Route exact path='/about' component={About} />
-          <Route exact path='/towns' render={(props) => (<Map {...props} component={Map} data={this.state.data} handleChange={this.handleChange} />)} />
-          <Route exact path='/counties' render={(props) => (<Map {...props} component={Map} data={this.state.data} handleChange={this.handleChange} />)} />
-          <Route exact path='/regions' render={(props) => (<Map {...props} component={Map} data={this.state.data} handleChange={this.handleChange} />)} />
-          <Route exact path='/251' render={(props) => (<Map {...props} component={Map} data={this.state.data} handleChange={this.handleChange} />)} />
-          <Route exact path='/female-birdsong' render={(props) => (<ContentPage {...props} component={ContentPage} data={fbsPath} />)} />
+          <Route exact path='/towns' render={(props) => (<Map {...props} data={this.state.data} handleChange={this.handleChange} />)} />
+          <Route exact path='/counties' render={(props) => (<Map {...props} data={this.state.data} handleChange={this.handleChange} />)} />
+          <Route exact path='/regions' render={(props) => (<Map {...props} data={this.state.data} handleChange={this.handleChange} />)} />
+          <Route exact path='/251' render={(props) => (<Map {...props} data={this.state.data} handleChange={this.handleChange} />)} />
+          <Route exact path='/2100' render={(props) => (<Map {...props} data={this.state.data} handleChange={this.handleChange} />)} />
+          <Route exact path='/female-birdsong' render={(props) => (<ContentPage {...props} data={fbsPath} />)} />
           <Route exact path="/nfc"><Redirect to="/nfc-species" /></Route>
           <Route exact path='/nfc-species' render={(props) => (<ContentPage {...props} component={ContentPage} data={nfcPath} />)}  />
           <Route exact path='/nfc-species/upsa' render={(props) => (<ContentPage {...props} component={ContentPage} data={upsaPath} />)} />
@@ -122,8 +125,8 @@ class App extends Component {
           <Route exact path='/subspecies/pisi' render={(props) => (<ContentPage {...props} component={ContentPage} data={pisiSspPath} />)} />
           <Route exact path='/subspecies/hofi' render={(props) => (<ContentPage {...props} component={ContentPage} data={hofiSspPath} />)} />
           <Route exact path='/subspecies/pigr' render={(props) => (<ContentPage {...props} component={ContentPage} data={pigrPath} />)} />
-          <Route exact path='/vbrc-checker' render={(props) =>(<Rarities {...props} component={Rarities} data={this.state.data} handleChange={this.handleChange} />)} />
-          <Route exact path='/terms' render={(props) =>(<ContentPage {...props} component={ContentPage} data={termsPath} />)} />
+          <Route exact path='/vbrc-checker' render={(props) =>(<Rarities {...props} data={this.state.data} handleChange={this.handleChange} />)} />
+          <Route exact path='/terms' render={(props) =>(<ContentPage {...props} data={termsPath} />)} />
           {/* <Route exact path='/10-mile' component={RadialView} data={this.state.data.radial} /> */}
           <Route component={NoMatchPage} />
         </Switch>
