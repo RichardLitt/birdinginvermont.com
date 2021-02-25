@@ -281,16 +281,18 @@ class Map extends Component {
           var xPosition = d3.mouse(this)[0]
           var yPosition = d3.mouse(this)[1] - 30
 
-          svg.append('text')
-            .attr('id', 'tooltip')
-            .attr('x', xPosition)
-            .attr('y', yPosition)
-            .attr('text-anchor', 'middle')
-            .attr('font-family', 'sans-serif')
-            .attr('font-size', '11px')
-            .attr('font-weight', 'bold')
-            .attr('fill', 'black')
-            .text(`${capitalizeFirstLetters(d.properties.town || d.properties.name)}${d.properties.speciesTotal ? ': ' + d.properties.speciesTotal : ''}`)
+          if (pathname !== '/2100') {
+            svg.append('text')
+              .attr('id', 'tooltip')
+              .attr('x', xPosition)
+              .attr('y', yPosition)
+              .attr('text-anchor', 'middle')
+              .attr('font-family', 'sans-serif')
+              .attr('font-size', '11px')
+              .attr('font-weight', 'bold')
+              .attr('fill', 'black')
+              .text(`${capitalizeFirstLetters(d.properties.town || d.properties.name)}${d.properties.speciesTotal ? ': ' + d.properties.speciesTotal : ''}`)
+          }
 
           d3.select(this)
             .style('fill', '#509e2f')
@@ -338,6 +340,20 @@ class Map extends Component {
       .style('stroke-width', '1px')
       .style('fill', '#b6d2f5')
 
+
+    if (this.props.location.pathname === '/2100') {
+      svg.selectAll(".place-label")
+        .data(vermont.features)
+      .enter().append("text")
+        .attr("class", "place-label")
+        .attr("transform", function(d) { return "translate(" + path.centroid(d) + ")"; })
+        // .attr("dy", ".35em")
+        .text(function(d) { return `${(d.properties.speciesTotal/150*100).toFixed(0)}%` })
+        .style('fill', 'blue')
+        .attr('font-size', '13px')
+        .attr('font-weight', 'bold')
+    }
+
     // var coordinates = projection([-72.5766799, 44.2581012])
 
     // svg.append('svg:circle')
@@ -378,7 +394,7 @@ I will update this map every week, to show what new towns should be added. Note:
 <p>Suggestions on how to make this page more useful are most welcome.</p>
 <p>This is not a solo effort. Friends who have helped so far: <a href="https://ebird.org/profile/NDIwNDA1/US-VT">Zac Cota</a>, <a href="https://ebird.org/vt/profile/MTgxNDYz/US-VT">Nathaniel Sharp</a>, and <a href="https://ebird.org/profile/NDM2MDU1/US-VT">Cedar Stanistreet</a>.</p>
 <p>Total county tick count so far: {this.props.data.vt2100data.map(x => x.speciesTotal).reduce((a, b) => a + b, 0)}.</p>
-<p>Last updated: <i>February 24, 2021</i>.</p>
+<p>Last updated: <i>February 25, 2021</i>.</p>
           </div>}
           <div id="map" className="col-sm">
             <svg ref={node => this.node = node} width={this.props.data.width} height={this.props.data.height}></svg>
