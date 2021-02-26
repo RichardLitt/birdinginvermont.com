@@ -393,7 +393,7 @@ I will update this map every week, to show what new towns should be added. Note:
 <p>Obviously, this is quite difficult, and involves a lot of weekends driving around looking for specific birds. Below is a map of what I've seen so far, and where. I would love help with this project: tips on where to find good birds, driveways I can sleep in my car in on Saturday nights, and, mainly, partners to go birding with! I can't hear Golden-crowned Kinglets or Blackpoll Warblers, so people with good ears would be especially great to go birding with. Get in touch.</p>
 <p>Suggestions on how to make this page more useful are most welcome.</p>
 <p>This is not a solo effort. Friends who have helped so far: <a href="https://ebird.org/profile/NDIwNDA1/US-VT">Zac Cota</a>, <a href="https://ebird.org/vt/profile/MTgxNDYz/US-VT">Nathaniel Sharp</a>, and <a href="https://ebird.org/profile/NDM2MDU1/US-VT">Cedar Stanistreet</a>.</p>
-<p>Total county ticks count so far: {this.props.data.vt2100data.map(x => x.speciesTotal).reduce((a, b) => a + b, 0)}.</p>
+<p>Total county ticks count so far: {this.props.data.vt2100data.map(x => x.speciesTotal).reduce((a, b) => a + b, 0)}. The percentages below indicate how close I am to hitting 150 species in each county.</p>
 <p>Last updated: <i>February 25, 2021</i>.</p>
           </div>}
           <div id="map" className="col-sm">
