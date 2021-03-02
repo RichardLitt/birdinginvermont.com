@@ -25,6 +25,7 @@ const cli = meow(`
     counties      Show your counties counts
     rare          Show which rarities to report to records committee
     251           Show 251
+    winterFinch   Show winterFinch needs
 
   Options
     --input, -i The input file
@@ -35,6 +36,7 @@ const cli = meow(`
     --town      Search by towns in Vemront
     --region    Search by biophysical regions in Vermont
     --list, -l  List all of the species
+    --complete  Filter by complete checklists only
 
   Examples
     $ node cli.js
