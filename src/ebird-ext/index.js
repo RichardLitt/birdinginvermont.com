@@ -50,6 +50,7 @@ async function vt251(input) {
     state: 'Vermont',
     all: true,
     complete: true,
+    output: `vt_town_counts.json`,
     input
   }
   const data = await towns(opts)
