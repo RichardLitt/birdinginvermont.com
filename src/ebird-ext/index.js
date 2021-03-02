@@ -53,8 +53,7 @@ async function vt251(input) {
     output: `vt_town_counts.json`,
     input
   }
-  const data = await towns(opts)
-  return data
+  await towns(opts)
 }
 
 function removeSpuhFromCounties (countyBarcharts) {
