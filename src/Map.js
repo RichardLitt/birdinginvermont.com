@@ -394,7 +394,7 @@ I will update this map every week, to show what new towns should be added. Note:
 <p>Suggestions on how to make this page more useful are most welcome.</p>
 <p>This is not a solo effort. Friends who have helped so far: <a href="https://ebird.org/profile/NDIwNDA1/US-VT">Zac Cota</a>, <a href="https://ebird.org/vt/profile/MTgxNDYz/US-VT">Nathaniel Sharp</a>, and <a href="https://ebird.org/profile/NDM2MDU1/US-VT">Cedar Stanistreet</a>.</p>
 <p>Total county ticks count so far: {this.props.data.vt2100data.map(x => x.speciesTotal).reduce((a, b) => a + b, 0)}. The percentages below indicate how close I am to hitting 150 species in each county.</p>
-<p>Last updated: <i>March 2nd, 2021</i>.</p>
+<p>Last updated: <i>March 4th, 2021</i>.</p>
           </div>}
           <div id="map" className="col-sm">
             <svg ref={node => this.node = node} width={this.props.data.width} height={this.props.data.height}></svg>
