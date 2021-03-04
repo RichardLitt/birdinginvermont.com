@@ -14,14 +14,15 @@ const difference = require('compare-latlong')
 const appearsDuringExpectedDates = require('./appearsDuringExpectedDates.js')
 const provinces = require('provinces')
 
-function removeSpuh (arr) {
+function removeSpuh (arr, reverse) {
   const newArr = []
   for (var i in arr) {
     if (arr[i]['Scientific Name'] &&
       !arr[i]['Scientific Name'].includes('sp.') &&
       !arr[i]['Scientific Name'].includes(' x ') && // Get rid of hybrids
       !arr[i]['Scientific Name'].includes('Domestic type') && // Get rid of Domestic types
-      !arr[i]['Scientific Name'].split(' ').slice(0, 2).join(' ').includes('/') // No Genus-level splits
+      !arr[i]['Scientific Name'].split(' ').slice(0, 2).join(' ').includes('/') && // No Genus-level splits
+      !reverse
       // !arr[i]['Scientific Name'].includes('[') &&
       // !arr[i]['Scientific Name'].match(/.* .* .*/g) &&
       // !arr[i]['Scientific Name'].includes('/')
@@ -38,6 +39,9 @@ function removeSpuh (arr) {
       // } else {
       // Use this to find excluded entries
       // console.log(arr[i]['Scientific Name'])
+    } else if (reverse) {
+      const specie = arr[i]
+      newArr.push(specie)
     }
   }
   return _.uniq(newArr)
@@ -668,6 +672,149 @@ async function rare (opts) {
   return output
 }
 
+// What have you logged, outside of the species level?
+async function subspecies (opts) {
+  let data = opts.input
+  if (fs) {
+    let input = await fs.readFile(opts.input, 'utf8')
+    data = Papa.parse(input, { header: true }).data
+  }
+
+  // const dateFormat = parseDateformat('day')
+  data = orderByDate(dateFilter(locationFilter(data, opts), opts), opts)
+  data = removeSpuh(data, true)
+  let allIdentifications = _.uniq(data.map(x => x["Scientific Name"]))
+  let species = _.uniq(removeSpuh(data).map(x => x['Scientific Name']))
+
+  // Counting species as the sole means of a life list is silly, because it
+  // doesn't account for species diversity and changing taxonomies well enough
+  // Instead, just count any terminal leaf in the identification tree.
+  function createLeavesList (species, allIdentifications) {
+    let leaves = _.clone(species)
+
+    function removeNode(leaves, base) {
+      let baseIndex = leaves.indexOf(base)
+      if (baseIndex !== -1) {
+        if (opts.verbose) {
+          console.log(`Removing node: ${base}`)
+        }
+        leaves.splice(baseIndex, 1)
+      }
+    }
+
+    function addLeaf(leaves, leaf) {
+      if (opts.verbose) {
+        console.log(`Adding leaf: ${leaf}`)
+      }
+      leaves.push(leaf)
+    }
+
+    allIdentifications
+      // Don't count these for life lists, in general.
+      .filter(x => !x.includes('Domestic'))
+      .forEach(x => {
+      if (x.includes('sp.')) {
+        let genus = x.split(' ')[0].split('/')[0]
+        if (!leaves.join(' ').includes(genus)) {
+          // Worst offender. Will need a better way of doing this for other genera.
+          // These seem to be the only eird adjectival spuhs, though.
+          if (['Anatinae', 'Anatidae'].includes(genus)) {
+            const anatinae = ['Amazonetta', 'Sibirionetta', 'Spatula', 'Mareca', 'Lophonetta', 'Speculanas', 'Anas' ]
+            if (!anatinae.some(ducks => species.join(' ').includes(ducks))) {
+              console.log(`Unsure what to do with ${x} spuh identifation.`)
+            }
+          }
+        }
+      } else if (x.includes('/')) {
+        if (x.split('/')[1].split(' ').length === 2) {
+          let base1, base2
+          [base1, base2] = x.split('/')
+          if (!leaves.includes(base1) && !leaves.includes(base2)) {
+            addLeaf(leaves, x)
+          }
+        } else {
+          let base = x.split(' ').slice(0,-1).join(' ')
+          if (!leaves.join(' ').includes(base)) {
+            addLeaf(leaves, x)
+          } else {
+            // Anas platyrhyncos/rubripes
+            if (x.split(' ').slice(0,-1).length === 1) {
+              let species1 = x.split('/')[0]
+              let species2 = `${species1.split(' ')[0]} ${x.split('/')[1]}`
+              if (!leaves.includes(species1) && !leaves.includes(species2)) {
+                addLeaf(leaves, x)
+              }
+            } else {
+              removeNode(leaves, base)
+              addLeaf(leaves, x)
+            }
+          }
+        }
+      } else if (x.includes(' x ')) {
+        addLeaf(leaves, x)
+      } else if (x.includes('Feral')) {
+        // We want to count this one twice...
+        addLeaf(leaves, x)
+      } else if (x.includes('Group]')) {
+        removeNode(leaves, x.split('[')[0].trim())
+        addLeaf(leaves, x)
+      } else if (x.includes('(type')) {
+        removeNode(leaves, x.split('(')[0].trim())
+        addLeaf(leaves, x)
+      } else if (x.split(' ').length > 2) {
+        removeNode(leaves, x.split(' ').slice(0,2).join(' '))
+        addLeaf(leaves, x)
+      } else {
+        if (opts.verbose) {
+          console.log(`Keeping species leaf: ${x}`)
+        }
+      }
+    })
+
+    return _.uniq(leaves)
+  }
+
+  let output = {
+    // Only species, filtered
+    species,
+    // Every identification type
+    allIdentifications,
+    'spuhs': allIdentifications.filter(x => x.includes('sp.')),
+    // Splits, both on genus, species, and subspecies levels
+    'slashes': allIdentifications.filter(x => x.includes('/')),
+    // Included as they're morphologically distinct and part of complexes
+    'hybrids': allIdentifications.filter(x => x.includes(' x ')),
+    // Included as only example also has native stock
+    'feral': allIdentifications.filter(x => x.includes('Feral')),
+    // Included for completeness
+    'domestic': allIdentifications.filter(x => x.includes('Domestic')),
+    // Included as highest subspecies identification in eBird
+    'grouping': allIdentifications.filter(x => x.includes('Group]')),
+    // Included as being identical to subspecies
+    'types': allIdentifications.filter(x => x.includes('(type')),
+    // All trinomial cases
+    'subspecies': allIdentifications.filter(x => {
+      if (!x.includes('sp.') &&
+        !x.includes('/') &&
+        !x.includes('Domestic') &&
+        !x.includes('Feral') &&
+        !x.includes(' x ') &&
+        !x.includes('Group]') &&
+        !x.includes('(type') &&
+        x.split(' ').length > 2) {
+          return x
+        }
+      return false
+    }),
+    // All possible leaf nodes in a taxonomic identification tree, minus any
+    // non-leaf nodes, including species identifications if subspecies identified
+    'leaves': createLeavesList(species, allIdentifications).sort()
+  }
+  console.log(output)
+  // console.log(output.leaves.length)
+  return output
+}
+
 // async function today (opts) {
   // I want to know:
   // - Was today a big day?
@@ -694,5 +841,6 @@ export default {
   towns,
   counties,
   winterFinch,
-  vt251
+  vt251,
+  subspecies
 }

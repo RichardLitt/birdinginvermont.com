@@ -26,6 +26,7 @@ const cli = meow(`
     rare          Show which rarities to report to records committee
     251           Show 251
     winterFinch   Show winterFinch needs
+    subspecies    Show subspecies, spuhs, and other leaf nodes
 
   Options
     --input, -i The input file
@@ -37,6 +38,7 @@ const cli = meow(`
     --region    Search by biophysical regions in Vermont
     --list, -l  List all of the species
     --complete  Filter by complete checklists only
+    --verbose   Adds extra logging
 
   Examples
     $ node cli.js
@@ -70,6 +72,10 @@ const cli = meow(`
     },
     regions: {
       type: 'string'
+    },
+    verbose: {
+      alias: 'v',
+      type: 'boolean'
     },
     withinDistance: {
       type: 'string'
@@ -164,6 +170,8 @@ async function run () {
     await main.withinDistance({'coordinates': [-72.5766799, 44.2581012], input: 'MyEBirdData.csv'})
   } else if (cli.input[0] === 251) {
     await main.vt251(cli.flags.input)
+  } else if (cli.input[0] === 'subspecies') {
+    await main.subspecies(cli.flags)
   } else {
     console.log(cli.showHelp())
   }
