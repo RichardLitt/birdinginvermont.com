@@ -36,7 +36,7 @@ function Checklists (props) {
         {checklists !== '' ?
           <AllRows data={checklists} /> :
           <>
-            <p>If you're interested in contributing, this site can show you what complete checklists you've submitted in Vermont this year.  While it can't tell if you've already shared these checklists, it should help you find out which ones you should share. Open each in a new tab an ensure it has been shared with <b>vermont251</b>.</p>
+            <p>If you're interested in contributing, this site can show you what complete checklists you've submitted in Vermont this year.  While it can't tell if you've already shared these checklists, it should help you find out which ones you should share. Open each in a new tab and ensure it has been shared with <b>vermont251</b>.</p>
             <p>First, <a href="https://ebird.org/downloadMyData" target="_blank" rel="noopener noreferrer" >download your data from eBird.</a> Then, load the unzipped .csv file here. Your data is not stored on this site in any way.</p>
             <UploadButton handleChange={props.handleChange} data={props.data} />
           </>
