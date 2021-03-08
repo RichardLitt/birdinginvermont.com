@@ -65,14 +65,14 @@ class Map extends Component {
     const height = data.height
     const pathname = this.props.location.pathname
 
-    var vermont, i, j, color, speciesTotals, speciesView, jsonTown
+    var vermont, i, j, color, speciesTotals, speciesView
     let totalTowns = 0
 
     let domainMin = 0
     let domainMax = 0
 
     if (this.props.location.pathname === '/towns') {
-      vermont = VermontTowns
+      vermont = VermontTowns //%
 
       if (data.towns.length === 0) {
         totalTowns = undefined
@@ -83,21 +83,17 @@ class Map extends Component {
       }
 
       for (i = 0; i < data.towns.length; i++) {
-        let dataTown = data.towns[i].town
-
-        speciesTotals = parseFloat(data.towns[i].speciesTotal)
+        speciesTotals = parseFloat(data.towns[i].speciesTotal) //%
         if (speciesTotals > 0) {
-          totalTowns += 1
+          totalTowns += 1 //%
         }
         // Calculate the highest town, for use in coloring
         if (speciesTotals > domainMax) {
-          domainMax = speciesTotals
+          domainMax = speciesTotals //%
         }
 
         for (j = 0; j < VermontTowns.features.length; j++) {
-          jsonTown = VermontTowns.features[j].properties.town
-
-          if (dataTown === jsonTown) {
+          if (data.towns[i].town === VermontTowns.features[j].properties.town) {
             VermontTowns.features[j].properties.speciesTotal = speciesTotals
             VermontTowns.features[j].properties.species = data.towns[i].species
             break
@@ -108,8 +104,6 @@ class Map extends Component {
       vermont = VermontTowns
 
       for (i = 0; i < data.vt251data.length; i++) {
-        let dataTown = data.vt251data[i].town
-
         speciesTotals = parseFloat(data.vt251data[i].speciesTotal)
         if (speciesTotals > 0) {
           totalTowns += 1
@@ -120,9 +114,7 @@ class Map extends Component {
         }
 
         for (j = 0; j < VermontTowns.features.length; j++) {
-          jsonTown = VermontTowns.features[j].properties.town
-
-          if (dataTown.toUpperCase() === jsonTown) {
+          if (data.vt251data[i].town.toUpperCase() === VermontTowns.features[j].properties.town) {
             VermontTowns.features[j].properties.speciesTotal = speciesTotals
             VermontTowns.features[j].properties.species = data.vt251data[i].species
             break
@@ -344,7 +336,7 @@ class Map extends Component {
     if (this.props.location.pathname === '/2100') {
       svg.selectAll(".place-label")
         .data(vermont.features)
-      .enter().append("text")
+        .enter().append("text")
         .attr("class", "place-label")
         .attr("transform", function(d) { return "translate(" + path.centroid(d) + ")"; })
         // .attr("dy", ".35em")
