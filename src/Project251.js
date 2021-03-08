@@ -73,10 +73,14 @@ class Project251 extends Component {
           <meta name="description" content="Attempting to see 150 birds in every county of Vermont, in one year." />
         </Helmet>
         <div className="row">
-          <div className="col-md-10 col-sm-12 text-left">
+          <div className="col-md-10 text-left">
             <h1>Project 251</h1>
             <ReactMarkdown source={this.state.text} escapeHtml={false} />
             <p>If you'd like to contribute to the Vermont Center for Ecostudies <a href="https://vtecostudies.org/wildlife/wildlife-watching/vermont-county-bird-quest/norwich-quest-2021/">Norwich Quest</a>, go <Link to="/norwich">here</Link>.</p>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-md-12 text-left">
             <Map data={this.props.data} handleChange={this.handleChange} />
             <Checklists data={this.props.data} handleChange={this.props.handleChange} />
           </div>
