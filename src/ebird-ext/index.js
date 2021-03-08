@@ -181,14 +181,7 @@ function dateFilter (list, opts) {
 }
 
 function completeChecklistFilter (list, opts) {
-  const completeProtocols = ['eBird - Traveling Count', 'eBird - Stationary Count']
-  if (opts.complete) {
-    return list.filter(x => {
-      return completeProtocols.includes(x.Protocol)
-    })
-  } else {
-    return list
-  }
+  return (opts.complete) ? list.filter(x => x['All Obs Reported'] === 1) : list
 }
 
 function orderByDate (arr) {
@@ -815,6 +808,22 @@ async function subspecies (opts) {
   return output
 }
 
+/* Return a unique list of checklists IDs */
+async function checklists (opts) {
+  let data = orderByDate(completeChecklistFilter(dateFilter(locationFilter(await getData(opts.input), opts), opts), opts), opts)
+  // Intentionally not returning a URL to make this simpler, and to avoid another flag
+  data = _.uniqBy(data.map(x => {
+    return {
+      'Submission ID': x['Submission ID'],
+      Date: x.Date,
+      Time: x.Time,
+      Location: x.Location,
+      'All Obs Reported': x['All Obs Reported']
+    }
+  }), 'Submission ID')
+  return data
+}
+
 // async function today (opts) {
   // I want to know:
   // - Was today a big day?
@@ -842,5 +851,6 @@ export default {
   counties,
   winterFinch,
   vt251,
-  subspecies
+  subspecies,
+  checklists
 }

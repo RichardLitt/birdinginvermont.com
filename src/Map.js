@@ -378,24 +378,6 @@ class Map extends Component {
           {/* TODO Could we move these into their own pages? */}
           {!['/251', '/2100'].includes(this.props.location.pathname) &&
           <UploadButton handleChange={this.props.handleChange} data={this.props.data} />}
-          {this.props.location.pathname === '/251' && <div>
-            <h1>Project 251</h1>
-            <p>This year, I am challenging Vermonters to collaboratively bird in each of our 251 towns.</p>
-<p>To join in, simply share any <a href="https://support.ebird.org/en/support/solutions/articles/48000967748">complete checklist</a> from any town with the eBird account <b>vermont251</b>.
-I will update this map every week, to show what new towns should be added. Note: You don't need to add towns that are already here, but feel free to. Email me to opt out of being added as a collaborator.</p>
-<p>Contributors: <a href="https://ebird.org/vt/profile/Mjg0MTUx/US-VT">Richard Littauer</a>, <a href="https://ebird.org/profile/NDIwNDA1/US-VT">Zac Cota</a>, <a href="https://ebird.org/vt/profile/MjAwNjI/world">Kent McFarland</a>, Rich Kelley, <a href="https://ebird.org/vt/profile/MTgxNDYz/US-VT">Nathaniel Sharp</a>, <a href="https://ebird.org/profile/NjQ1MjQy/US-VT-021">Chelsea Carroll</a>, <a href="https://ebird.org/profile/Mjc3NzU/US-VT-017">Chris Rimmer</a>, and <a href="https://ebird.org/profile/NDM2MDU1/US-VT">Cedar Stanistreet</a>.</p>
-<p>Last updated: <i>March 4th, 2021</i>.</p>
-          </div>}
-          {this.props.location.pathname === '/2100' && <div>
-            <h1>Project 2100</h1>
-            <p>This year, I am attempting to see 150 species in each and every county in Vermont - 2100 birds in total.</p>
-            <p>The far more experienced birders Fred Pratt and Craig Provost have shown it is possible to do this over years of effort. I wonder if it is possible to do it on a shorter timeline, using eBird data, code, nocturnal flight calls, and help on the ground. As far as I know, this is a ridiculous enough goal that it has never been attempted.</p>
-<p>Obviously, this is quite difficult, and involves a lot of weekends driving around looking for specific birds. Below is a map of what I've seen so far, and where. I would love help with this project: tips on where to find good birds, driveways I can sleep in my car in on Saturday nights, and, mainly, partners to go birding with! I can't hear Golden-crowned Kinglets or Blackpoll Warblers, so people with good ears would be especially great to go birding with. Get in touch.</p>
-<p>Suggestions on how to make this page more useful are most welcome.</p>
-<p>This is not a solo effort. Friends who have helped so far: <a href="https://ebird.org/profile/NDIwNDA1/US-VT">Zac Cota</a>, <a href="https://ebird.org/vt/profile/MTgxNDYz/US-VT">Nathaniel Sharp</a>, and <a href="https://ebird.org/profile/NDM2MDU1/US-VT">Cedar Stanistreet</a>.</p>
-<p>Total county ticks count so far: {this.props.data.vt2100data.map(x => x.speciesTotal).reduce((a, b) => a + b, 0)}. The percentages below indicate how close I am to hitting 150 species in each county.</p>
-<p>Last updated: <i>March 4th, 2021</i>.</p>
-          </div>}
           <div id="map" className="col-sm">
             <svg ref={node => this.node = node} width={this.props.data.width} height={this.props.data.height}></svg>
           </div>

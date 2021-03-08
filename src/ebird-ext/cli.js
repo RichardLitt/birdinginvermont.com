@@ -27,6 +27,7 @@ const cli = meow(`
     251           Show 251
     winterFinch   Show winterFinch needs
     subspecies    Show subspecies, spuhs, and other leaf nodes
+    checklists    Show checklists for a given region and time
 
   Options
     --input, -i The input file
@@ -172,6 +173,8 @@ async function run () {
     await main.vt251(cli.flags.input)
   } else if (cli.input[0] === 'subspecies') {
     await main.subspecies(cli.flags)
+  } else if (cli.input[0] === 'checklists') {
+    await main.checklists(cli.flags)
   } else {
     console.log(cli.showHelp())
   }
