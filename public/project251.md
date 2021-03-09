@@ -11,11 +11,16 @@ Contributors:
 [Cedar Stanistreet](https://ebird.org/profile/NDM2MDU1/US-VT).
 [Chelsea Carroll](https://ebird.org/profile/NjQ1MjQy/US-VT-021),
 [Chris Rimmer](https://ebird.org/profile/Mjc3NzU/US-VT-017),
+[Coleen Lawlor](https://ebird.org/profile/NzU3NzM5/US-VT),
+[David Eberly](https://ebird.org/profile/MTgzMDM/US-VT-021),
+[JoAnne Russo](https://ebird.org/profile/OTE2NDg/US-VT),
 [Kent McFarland](https://ebird.org/vt/profile/MjAwNjI/world),
+[Kevin Tolan](https://ebird.org/vt/profile/OTE4MTQ2/US),
+[Kyle Jones](https://ebird.org/profile/MTM5Nzgz/US-VT),
 [Nathaniel Sharp](https://ebird.org/vt/profile/MTgxNDYz/US-VT),
 [Richard Littauer](https://ebird.org/vt/profile/Mjg0MTUx/US-VT),
 [Zac Cota](https://ebird.org/profile/NDIwNDA1/US-VT),
-and Rich Kelley.
+Rich Kelley, and Rita Pitkin.
 
 Let me know if you'd like to opt out of being added as a contributor.
 
