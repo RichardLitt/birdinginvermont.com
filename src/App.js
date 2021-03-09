@@ -33,6 +33,7 @@ class App extends Component {
         counties: '',
         checklists: '',
         vt251data,
+        vt251date: '',
         vt2100data,
         loaded: false,
         width: 520,

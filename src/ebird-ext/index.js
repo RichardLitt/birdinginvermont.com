@@ -821,7 +821,15 @@ async function checklists (opts) {
       'All Obs Reported': x['All Obs Reported']
     }
   }), 'Submission ID')
+  data.map(x => console.log(x['Submission ID']))
   return data
+}
+
+/* Used when updating the 251 page */
+async function getLastDate (opts) {
+    let data = orderByDate(completeChecklistFilter(dateFilter(locationFilter(await getData(opts.input), opts), opts), opts), opts)
+    data = moment.max(_.uniq(data.map(x => moment(x.Date, 'YYYY-MM-DD'))))
+    console.log(moment(data).format('MMMM Do, YYYY'))
 }
 
 // async function today (opts) {
@@ -852,5 +860,6 @@ export default {
   winterFinch,
   vt251,
   subspecies,
-  checklists
+  checklists,
+  getLastDate
 }
