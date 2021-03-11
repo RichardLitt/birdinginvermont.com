@@ -24,4 +24,4 @@ Rich Kelley, and Rita Pitkin.
 
 Let me know if you'd like to opt out of being added as a contributor.
 
-Last updated: _March 7th, 2021_.
+Last updated: March 11th, 2021
