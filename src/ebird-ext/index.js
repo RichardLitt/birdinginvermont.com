@@ -181,7 +181,7 @@ function dateFilter (list, opts) {
 }
 
 function completeChecklistFilter (list, opts) {
-  return (opts.complete) ? list.filter(x => x['All Obs Reported'] === 1) : list
+  return (opts.complete) ? list.filter(x => parseInt(x['All Obs Reported']) === 1) : list
 }
 
 function orderByDate (arr) {

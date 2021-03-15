@@ -19,9 +19,11 @@ Contributors:
 [Kyle Jones](https://ebird.org/profile/MTM5Nzgz/US-VT),
 [Nathaniel Sharp](https://ebird.org/vt/profile/MTgxNDYz/US-VT),
 [Richard Littauer](https://ebird.org/vt/profile/Mjg0MTUx/US-VT),
+[Susan Elliott](https://ebird.org/profile/MjQzNw/world),
 [Zac Cota](https://ebird.org/profile/NDIwNDA1/US-VT),
-Rich Kelley, and Rita Pitkin.
+Barbara Powers, Rich Kelley, Rita Pitkin, and Susan Paradis.
 
 Let me know if you'd like to opt out of being added as a contributor.
 
-Last updated: March 11th, 2021
+Last updated:
+March 15th, 2021
