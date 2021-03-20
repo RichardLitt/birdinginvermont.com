@@ -872,5 +872,6 @@ export default {
   subspecies,
   checklists,
   getLastDate,
+  pointLookup,
   countTheBirds
 }

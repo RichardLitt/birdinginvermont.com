@@ -14,7 +14,7 @@ const parser = csv({
   skip_empty_lines: true,
   relax_column_count: true, // this will cause a blow up if removed
   relax: true, // this should allow for the double quotes in individual columns, specifically field notes
-  from: 1, // ?
+  from: 2, // ?
   quote: '"',// this also helps to prevent errors on quotes
   ltrim: true,
   rtrim: true,
@@ -70,6 +70,8 @@ const parser = csv({
 const filepath = '/Users/benacker/src/birdinginvermont.com/private-data/ebd_US-VT_relNov-2020_sample.txt'
 let counties = {}
 let towns = {}
+let townChecklists = {}
+let townIds = {}
 
 // Goal: We want to be able to read the database of .csv files and automatically identify
 // for a given town or county, what birds were seen. This will require using geojson and other
@@ -104,7 +106,7 @@ fs.createReadStream(filepath)
     }
 
     // data.Longitude, data.Latitude
-    
+
     let town = eBird.pointLookup(Town_boundaries, vermontTowns, data)
     // console.log(eBird.pointLookup(Vermont_regions, vermontRegions, data))
 
@@ -124,15 +126,61 @@ fs.createReadStream(filepath)
         towns[town].push(row['COMMON NAME'])
       }
     }
-
+    let year = row['OBSERVATION DATE'].split('-')[0]
+    if(!(town in townIds)) {
+      townIds[town] = {
+        observers: {}
+      }
+      // console.log(row)
+    }
+    if (!townIds[town].years) {
+      townIds[town].years = [year]
+    } else if (townIds[town].years.indexOf(year) < 0) {
+      townIds[town].years.push(year)
+    }
+    if (Object.keys(townIds[town].observers).indexOf(row['OBSERVER ID']) < 0) {
+      townIds[town].observers[row['OBSERVER ID']] = [row['SAMPLING EVENT IDENTIFIER']]
+    } else {
+      if (townIds[town].observers[row['OBSERVER ID']].indexOf(row['SAMPLING EVENT IDENTIFIER']) <0) {
+        townIds[town].observers[row['OBSERVER ID']].push(row['SAMPLING EVENT IDENTIFIER'])
+      }
+    }
     // sort by Lat/Long
 
     // Delete everything between county code and latitude
     // Match1: US-VT-\d\d\d
     // Match 2: ^(.*)\t^[\t]*\tL\d+.*
   })
+  .on('error', (e) => {
+    console.log('BONK', e)
+  })
   .on('end', () => {
-    console.log('CSV file successfully processed');
+    // console.log(townIds)
+    Object.keys(townIds).forEach(t => {
+      townIds[t].checklists = 0
+      townIds[t].observersCount = 0
+      Object.keys(townIds[t].observers).forEach(v => {
+        if (v.startsWith('obsr')) {
+          townIds[t].checklists += townIds[t].observers[v].length
+          townIds[t].observersCount += 1
+          // No need to keep the checklists, as this just adds rows
+          townIds[t].observers[v] = townIds[t].observers[v].length
+        }
+      })
+      townIds[t].speciesCount = towns[t].length
+      townIds[t].species = towns[t]
+      townIds[t].averageChecklistsPerBirder = townIds[t].checklists/townIds[t].observersCount
+      townIds[t].averageBirdsOverBirders = townIds[t].speciesCount/townIds[t].observersCount
+      townIds[t].averageChecklistsToBirds = townIds[t].checklists/townIds[t].speciesCount
+    })
+    console.log('CSV file successfully processed')
+    fs.writeFile(`townStatsList.json`, JSON.stringify(townIds), 'utf8', (err) => {
+      if (err)
+        console.log(err);
+      else {
+        console.log("File written successfully.");
+      }
+    })
     // console.log(JSON.stringify(counties))
-    console.log(towns)
+    // console.log(townIds)
   });
