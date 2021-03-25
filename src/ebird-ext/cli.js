@@ -29,6 +29,7 @@ const cli = meow(`
     subspecies    Show subspecies, spuhs, and other leaf nodes
     checklists    Show checklists for a given region and time
     getLastDate   Show most recent date from checklist
+    countTheBirds Show the sum of all individual birds counted
 
   Options
     --input, -i The input file
@@ -178,6 +179,8 @@ async function run () {
     await main.checklists(cli.flags)
   } else if (cli.input[0] === 'getLastDate') {
     await main.getLastDate(cli.flags)
+  } else if (cli.input[0] === 'countTheBirds') {
+    await main.countTheBirds(cli.flags)
   } else {
     console.log(cli.showHelp())
   }

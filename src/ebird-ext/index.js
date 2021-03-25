@@ -832,6 +832,16 @@ async function getLastDate (opts) {
     console.log(moment(data).format('MMMM Do, YYYY'))
 }
 
+async function countTheBirds(opts) {
+  let data = dateFilter(locationFilter(await getData(opts.input), opts), opts)
+  let sum = _.sumBy(data, o => {
+    if (_.isInteger(parseInt(o.Count))) {
+      return parseInt(o.Count)
+    }
+  })
+  console.log(sum)
+}
+
 // async function today (opts) {
   // I want to know:
   // - Was today a big day?
@@ -861,5 +871,6 @@ export default {
   vt251,
   subspecies,
   checklists,
-  getLastDate
+  getLastDate,
+  countTheBirds
 }
