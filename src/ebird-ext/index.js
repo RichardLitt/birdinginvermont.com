@@ -854,8 +854,8 @@ async function countTheBirds(opts) {
 // }
 
 // Switch this for CLI testing
-module.exports = {
-// export default {
+// module.exports = {
+export default {
   biggestTime,
   firstTimeList,
   firstTimes,
