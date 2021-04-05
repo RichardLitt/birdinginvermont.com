@@ -11,12 +11,14 @@ import UploadButton from './UploadButton'
 import CountyButton from './CountyButton'
 import TownsText from './Towns'
 import CountiesText from './Counties'
+import seenInVT from './ebird-ext/taxonomies/eBird_Taxonomy_2020_VT.json'
 import rewind from "@turf/rewind"
 import ebirdExt from './ebird-ext/index.js'
 // const d3ScaleChromatic = require('d3-scale-chromatic')
 const d3 = require('d3')
 const d3Geo = require('d3-geo')
 const taxonomicSort = require('./ebird-ext/taxonomicSort.js')
+const _ = require('lodash')
 
 function capitalizeFirstLetters(string) {
   return string.toLowerCase().split(' ').map(x => x.charAt(0).toUpperCase() + x.slice(1)).join(' ')
@@ -74,6 +76,11 @@ class Map extends Component {
     let domainMin = 0
     let domainMax = 0
 
+    let allSeen = ebirdExt.removeSpuh(seenInVT.map(x => {
+      x['Scientific Name'] = x.SCI_NAME
+      return x
+    })).map(x => x.PRIMARY_COM_NAME)
+
     if (this.props.location.pathname === '/towns') {
       vermont = VermontTowns //%
 
@@ -87,7 +94,6 @@ class Map extends Component {
         })
       }
 
-
       if (data.towns && this.state.mapView === '2') {
         speciesView = Object.keys(data.towns).map(c => data.towns[c].speciesTotal)
         totalTowns = Object.keys(data.towns).filter(c => data.towns[c].speciesTotal !== 0).length
@@ -99,20 +105,16 @@ class Map extends Component {
           const index = dataThisYear.map(x => x.town).indexOf(feature.properties.town)
           feature.properties.species = dataThisYear[index].species
           feature.properties.speciesTotal = dataThisYear[index].speciesTotal
+          feature.properties.notSeen = _.difference(allSeen, dataThisYear[index].species)
         })
       } else {
         totalTowns = null
-        speciesView = Object.keys(speciesTotals).map(t => {
-          if (t !== 'intersection') {
-            return speciesTotals[t].length
-          } else {
-            return null
-          }
-        })
+        speciesView = Object.keys(speciesTotals).map(t => (t !== 'intersection') ? speciesTotals[t].length : null)
         vermont.features.forEach(feature => {
           if (!['WARNER\'S GRANT', 'RUTLAND CITY'].includes(feature.properties.town)) {
             feature.properties.species = speciesTotals[feature.properties.town].concat(intersection)
             feature.properties.speciesTotal = speciesTotals[feature.properties.town].concat(intersection).length
+            feature.properties.notSeen = _.difference(allSeen, speciesTotals[feature.properties.town].concat(intersection))
           }
         })
       }
@@ -162,6 +164,7 @@ class Map extends Component {
         vermont.features.forEach(feature => {
           feature.properties.species = dataThisYear[feature.properties.name].species
           feature.properties.speciesTotal = dataThisYear[feature.properties.name].speciesTotal
+          feature.properties.notSeen = _.difference(allSeen, dataThisYear[feature.properties.name].species)
         })
       } else {
         speciesView = Object.keys(speciesTotals).map(c => speciesTotals[c].length)
@@ -169,6 +172,7 @@ class Map extends Component {
           feature.properties.name = capitalizeFirstLetters(feature.properties.CNTYNAME)
           feature.properties.species = speciesTotals[feature.properties.name]
           feature.properties.speciesTotal = speciesTotals[feature.properties.name].length
+          feature.properties.notSeen = _.difference(allSeen, speciesTotals[feature.properties.name])
         })
       }
 
@@ -305,7 +309,7 @@ class Map extends Component {
           }
 
           d3.select('#list')
-            .html((d.properties.species && d.properties.species.length > 0) ? `<b>Seen:</b> <li>${taxonomicSort(d.properties.species).join('</li><li>')}</li>` : noSpeciesText)
+            .html((d.properties.species && d.properties.species.length > 0) ? `<b>Seen:</b> <li>${taxonomicSort(d.properties.species).join('</li><li>')}</li> ${(d.properties.notSeen) ? `<hr /><b>No records:</b> ${taxonomicSort(d.properties.notSeen).join(', ')}` : ''}` : noSpeciesText)
         }
       })
       .on('mouseout', function (d) {
