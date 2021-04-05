@@ -20,6 +20,7 @@ function removeSpuh (arr, reverse) {
     if (arr[i]['Scientific Name'] &&
       !arr[i]['Scientific Name'].includes('sp.') &&
       !arr[i]['Scientific Name'].includes(' x ') && // Get rid of hybrids
+      !arr[i]['Scientific Name'].includes('hybrid') && // Get rid of Lawrence's and Brewster's Warblers
       !arr[i]['Scientific Name'].includes('Domestic type') && // Get rid of Domestic types
       !arr[i]['Scientific Name'].split(' ').slice(0, 2).join(' ').includes('/') && // No Genus-level splits
       !reverse

@@ -87,9 +87,7 @@ function averageTownBirds (data) {
 
 async function findIntersection (data) {
   const townLists = []
-  Object.keys(data).map(town => {
-    townLists.push(data[town].species)
-  })
+  Object.keys(data).map(town => townLists.push(data[town].species))
   const intersection = _.intersection(...townLists)
   // console.log(intersection)
   return intersection
@@ -101,6 +99,7 @@ function removeSpuh (arr, reverse) {
     if (arr[i] &&
       !arr[i].includes('sp.') &&
       !arr[i].includes(' x ') && // Get rid of hybrids
+      !arr[i].includes('hybrids') && // Get rid of Lawrence's and Brewster's Warblers
       !arr[i].includes('Domestic type') && // Get rid of Domestic types
       !arr[i].split(' ').slice(0, 2).join(' ').includes('/') && // No Genus-level splits
       !reverse
