@@ -94,8 +94,8 @@ class Map extends Component {
 
         for (j = 0; j < VermontTowns.features.length; j++) {
           if (data.towns[i].town === VermontTowns.features[j].properties.town) {
-            VermontTowns.features[j].properties.speciesTotal = speciesTotals
             VermontTowns.features[j].properties.species = data.towns[i].species
+            VermontTowns.features[j].properties.speciesTotal = speciesTotals
             break
           }
         }
@@ -127,13 +127,6 @@ class Map extends Component {
 
       speciesTotals = ebirdExt.removeSpuhFromCounties(CountyBarcharts)
 
-      // Needs a refactor
-      // function getJanuaryNeeds (county, needsArr) {
-      //   return needsArr.filter(species => {
-      //     return CountyBarcharts[county].species[species].occurence.slice(0,4).filter(rate => rate !== '0.0').length !== 0
-      //   })
-      // }
-
       vermont.features.forEach(feature => {
         feature.properties.name = capitalizeFirstLetters(feature.properties.CNTYNAME)
         feature.properties.speciesTotal = speciesTotals[feature.properties.name].length
@@ -143,21 +136,12 @@ class Map extends Component {
       if (data.counties) {
         Object.keys(data.counties).forEach(county => {
           const index = vermont.features.map(x => x.properties.CNTYNAME).indexOf(county.toUpperCase())
-          // data.counties[county].january = getJanuaryNeeds(county, data.counties[county].notSeen)
           Object.assign(vermont.features[index].properties, data.counties[county])
         })
       }
 
       if (data.counties && this.state.mapView === '2') {
         speciesView = Object.keys(data.counties).map(c => data.counties[c].speciesTotal)
-      // } else if (data.counties && this.state.mapView === '4') {
-      //   // TODO Enable
-      //   // TODO Change colors to show targets
-      //   // Sort needs by taxonomy, alphabetic, habitat, and, most importantly, occurrence
-      //   speciesView = Object.keys(data.counties).map(c => data.counties[c].january.length)
-      //   vermont.features.forEach(feature => {
-      //     feature.properties.speciesTotal = data.counties[feature.properties.name].january.length
-      //   })
       } else if (data.counties && this.state.mapView === '3') {
         const dataThisYear = await ebirdExt.counties({all: true, year: 2021, input: data.input})
         speciesView = Object.keys(dataThisYear).map(c => dataThisYear[c].speciesTotal)
