@@ -1,9 +1,11 @@
+// This function reads only the eBird database files, requestable from eBird.
+
 const fs = require('fs')
 const readline = require('readline')
 const csv = require('csv-parse')
-const Town_boundaries = require('./vt_towns.json')
-const Vermont_regions = require('./Polygon_VT_Biophysical_Regions.json')
-const VermontSubspecies = require('./vermont_records_subspecies.json')
+const Town_boundaries = require('./geojson/vt_towns.json')
+const Vermont_regions = require('./geojson/Polygon_VT_Biophysical_Regions.json')
+const VermontSubspecies = require('./data/vermont_records_subspecies.json')
 const GeoJsonGeometriesLookup = require('geojson-geometries-lookup')
 const vermontTowns = new GeoJsonGeometriesLookup(Town_boundaries)
 const vermontRegions = new GeoJsonGeometriesLookup(Vermont_regions)

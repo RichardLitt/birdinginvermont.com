@@ -25,5 +25,4 @@ Barbara Powers, Rich Kelley, Rita Pitkin, and Susan Paradis.
 
 Let me know if you'd like to opt out of being added as a contributor.
 
-Last updated:
-March 24th, 2021
+Last updated: April 5th, 2021

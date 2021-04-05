@@ -1,9 +1,9 @@
 const fs = require('fs')
 const readline = require('readline')
 const csv = require('csv-parse')
-const Town_boundaries = require('./vt_towns.json')
-const Vermont_regions = require('./Polygon_VT_Biophysical_Regions.json')
-const VermontSubspecies = require('./vermont_records_subspecies.json')
+const Town_boundaries = require('./geojson/vt_towns.json')
+const Vermont_regions = require('./geojson/Polygon_VT_Biophysical_Regions.json')
+const VermontSubspecies = require('./data/vermont_records_subspecies.json')
 const GeoJsonGeometriesLookup = require('geojson-geometries-lookup')
 const vermontTowns = new GeoJsonGeometriesLookup(Town_boundaries)
 const vermontRegions = new GeoJsonGeometriesLookup(Vermont_regions)
@@ -72,7 +72,7 @@ const filepath = '/Users/benacker/src/birdinginvermont.com/private-data/nosingle
 // count is the number we use to limit the number of records going into a specific file
 let count = 0
 let fileRecordLength = 5000 // used to determine how many to drop in one file
-// first pass was 100,000. That blew up if there were too many comments. 
+// first pass was 100,000. That blew up if there were too many comments.
 
 // file number is the number in the filename designating the order of records read
 let fileNumber = 0

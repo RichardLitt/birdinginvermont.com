@@ -1,8 +1,8 @@
-const Town_boundaries = require('./vt_towns.json')
-const Vermont_regions = require('./Polygon_VT_Biophysical_Regions.json')
-const VermontRecords = require('./vermont_records.json')
-const CountyBarcharts = require('./countyBarcharts.json')
-const VermontSubspecies = require('./vermont_records_subspecies.json')
+const Town_boundaries = require('./geojson/vt_towns.json')
+const Vermont_regions = require('./geojson/Polygon_VT_Biophysical_Regions.json')
+const VermontRecords = require('./data/vermont_records.json')
+const CountyBarcharts = require('./data/countyBarcharts.json')
+const VermontSubspecies = require('./data/vermont_records_subspecies.json')
 const GeoJsonGeometriesLookup = require('geojson-geometries-lookup')
 const vermontTowns = new GeoJsonGeometriesLookup(Town_boundaries)
 const vermontRegions = new GeoJsonGeometriesLookup(Vermont_regions)
@@ -54,7 +54,7 @@ async function vt251(input) {
     state: 'Vermont',
     all: true,
     complete: true,
-    output: `vt_town_counts.json`,
+    output: `data/vt_town_counts.json`,
     input
   }
   await towns(opts)
@@ -854,8 +854,8 @@ async function countTheBirds(opts) {
 // }
 
 // Switch this for CLI testing
-// module.exports = {
-export default {
+module.exports = {
+// export default {
   biggestTime,
   firstTimeList,
   firstTimes,

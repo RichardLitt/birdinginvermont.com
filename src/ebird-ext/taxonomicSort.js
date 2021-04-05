@@ -1,6 +1,6 @@
 // const fs = require('fs').promises
 // const Papa = require('papaparse')
-const taxonomy = require('./eBird_Taxonomy_2020_VT.json')
+const taxonomy = require('./taxonomies/eBird_Taxonomy_2020_VT.json')
 
 // Testing arrays
 // TODO Actually implement a testing framework

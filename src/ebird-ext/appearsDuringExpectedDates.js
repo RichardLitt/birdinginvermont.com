@@ -1,3 +1,5 @@
+// This is a helper library for checking expected dates for VBRC
+
 const moment = require('moment')
 const wom = require('moment-weekofmonth')
 

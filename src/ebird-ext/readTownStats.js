@@ -1,4 +1,6 @@
-const data = require('./townStatsList.json')
+// This function reads only the output of town stats.
+
+const data = require('./data/townStatsList.json')
 const _ = require('lodash')
 const fs = require('fs').promises
 const eBird = require('./')
@@ -136,7 +138,7 @@ async function createDataset (data) {
   towns.intersection = intersection
   // let intersection = _.intersection(...townLists)
   console.log(towns)
-  fs.writeFile('townsightings.json', JSON.stringify(towns), 'utf-8')
+  fs.writeFile('data/townsightings.json', JSON.stringify(towns), 'utf-8')
 }
 
 async function readData () {

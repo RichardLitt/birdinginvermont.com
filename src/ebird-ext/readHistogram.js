@@ -41,7 +41,7 @@ async function getData (input) {
 
 // TODO Is there a way to automatically generate these? As in, download them each morning from eBird?
 async function washingtonCounty2020 () {
-  return await getData('ebird_US-VT-023__2020_2020_1_12_barchart.txt')
+  return await getData('data/ebird_US-VT-023__2020_2020_1_12_barchart.txt')
 }
 
 module.exports = {
