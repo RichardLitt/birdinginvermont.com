@@ -821,7 +821,7 @@ async function checklists (opts) {
       'All Obs Reported': x['All Obs Reported']
     }
   }), 'Submission ID')
-  data.map(x => console.log(x['Submission ID']))
+  // data.map(x => console.log(x['Submission ID']))
   return data
 }
 

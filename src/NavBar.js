@@ -30,6 +30,14 @@ class NavBar extends Component {
                 Towns
               </Link>
             </li>
+            <li className={(this.props.active === 'counties') ? 'nav-item active' : 'nav-item' }>
+              <Link
+                className="nav-link"
+                to="/counties"
+              >
+                Counties
+              </Link>
+            </li>
             <li className={(this.props.active === 'regions') ? 'nav-item active' : 'nav-item' }>
               <Link
                 className="nav-link"

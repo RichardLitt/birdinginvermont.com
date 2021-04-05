@@ -7,14 +7,14 @@ export default class Button extends Component {
     const radioValue = this.props.data
     const radios = [
       { name: 'All Birds', value: '1' },
-      { name: 'Seen', value: '2' },
+      { name: 'Personal Sightings', value: '2' },
       { name: '2021', value: '3'}
       // { name: 'January Needs', value: '3'},
       // TODO { name: 'Ratio', value: '3' },
     ];
 
     return (
-      <ButtonGroup toggle>
+      <ButtonGroup className={'mapButton'} toggle>
         {radios.map((radio, idx) => (
           <ToggleButton
             key={idx}

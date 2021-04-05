@@ -4,10 +4,13 @@ import Lake from './ebird-ext/geojson/lake.json'
 import Counties from './ebird-ext/geojson/VT_Data_-_County_Boundaries.json'
 import BiophysicalRegions from './ebird-ext/geojson/Polygon_VT_Biophysical_Regions.json'
 import CountyBarcharts from './ebird-ext/data/countyBarcharts.json'
+import TownSightings from './ebird-ext/data/townsightings.json'
 import { select } from 'd3-selection'
 import { withRouter } from 'react-router'
 import UploadButton from './UploadButton'
 import CountyButton from './CountyButton'
+import TownsText from './Towns'
+import CountiesText from './Counties'
 import rewind from "@turf/rewind"
 import ebirdExt from './ebird-ext/index.js'
 // const d3ScaleChromatic = require('d3-scale-chromatic')
@@ -74,32 +77,48 @@ class Map extends Component {
     if (this.props.location.pathname === '/towns') {
       vermont = VermontTowns //%
 
-      if (data.towns.length === 0) {
-        totalTowns = undefined
-        VermontTowns.features.forEach((t) => {
-          t.properties.speciesTotal = 0
-          t.properties.species = []
+      speciesTotals = TownSightings
+      const intersection = TownSightings.intersection
+
+      if (data.towns) {
+        data.towns.forEach(town => {
+          const index = vermont.features.map(x => x.properties.town).indexOf(town.town)
+          Object.assign(vermont.features[index].properties, town)
         })
       }
 
-      for (i = 0; i < data.towns.length; i++) {
-        speciesTotals = parseFloat(data.towns[i].speciesTotal) //%
-        if (speciesTotals > 0) {
-          totalTowns += 1 //%
-        }
-        // Calculate the highest town, for use in coloring
-        if (speciesTotals > domainMax) {
-          domainMax = speciesTotals //%
-        }
 
-        for (j = 0; j < VermontTowns.features.length; j++) {
-          if (data.towns[i].town === VermontTowns.features[j].properties.town) {
-            VermontTowns.features[j].properties.species = data.towns[i].species
-            VermontTowns.features[j].properties.speciesTotal = speciesTotals
-            break
+      if (data.towns && this.state.mapView === '2') {
+        speciesView = Object.keys(data.towns).map(c => data.towns[c].speciesTotal)
+        totalTowns = Object.keys(data.towns).filter(c => data.towns[c].speciesTotal !== 0).length
+      } else if (data.towns && this.state.mapView === '3') {
+        const dataThisYear = await ebirdExt.towns({all: true, year: 2021, input: data.input})
+        totalTowns = Object.keys(dataThisYear).filter(c => dataThisYear[c].speciesTotal).length
+        speciesView = Object.keys(dataThisYear).map(c => dataThisYear[c].speciesTotal)
+        vermont.features.forEach(feature => {
+          const index = dataThisYear.map(x => x.town).indexOf(feature.properties.town)
+          feature.properties.species = dataThisYear[index].species
+          feature.properties.speciesTotal = dataThisYear[index].speciesTotal
+        })
+      } else {
+        totalTowns = null
+        speciesView = Object.keys(speciesTotals).map(t => {
+          if (t !== 'intersection') {
+            return speciesTotals[t].length
+          } else {
+            return null
           }
-        }
+        })
+        vermont.features.forEach(feature => {
+          if (!['WARNER\'S GRANT', 'RUTLAND CITY'].includes(feature.properties.town)) {
+            feature.properties.species = speciesTotals[feature.properties.town].concat(intersection)
+            feature.properties.speciesTotal = speciesTotals[feature.properties.town].concat(intersection).length
+          }
+        })
       }
+
+      domainMax = Math.max(...speciesView)+intersection.length
+      domainMin = Math.min(...speciesView)+intersection.length
     } else if (this.props.location.pathname === '/251') {
       vermont = VermontTowns
 
@@ -127,11 +146,6 @@ class Map extends Component {
 
       speciesTotals = ebirdExt.removeSpuhFromCounties(CountyBarcharts)
 
-      vermont.features.forEach(feature => {
-        feature.properties.name = capitalizeFirstLetters(feature.properties.CNTYNAME)
-        feature.properties.speciesTotal = speciesTotals[feature.properties.name].length
-      })
-
       // This solution is more elegant than the ones applied in /towns or /regions
       if (data.counties) {
         Object.keys(data.counties).forEach(county => {
@@ -152,6 +166,7 @@ class Map extends Component {
       } else {
         speciesView = Object.keys(speciesTotals).map(c => speciesTotals[c].length)
         vermont.features.forEach(feature => {
+          feature.properties.name = capitalizeFirstLetters(feature.properties.CNTYNAME)
           feature.properties.species = speciesTotals[feature.properties.name]
           feature.properties.speciesTotal = speciesTotals[feature.properties.name].length
         })
@@ -352,13 +367,15 @@ class Map extends Component {
       <div className="container-md">
         <div className="row">
           {/* TODO Could we move these into their own pages? */}
+          {this.props.location.pathname === '/towns' && <TownsText />}
+          {this.props.location.pathname === '/counties' && <CountiesText />}
           {!['/251', '/2100'].includes(this.props.location.pathname) &&
           <UploadButton handleChange={this.props.handleChange} data={this.props.data} />}
           <div id="map" className="col-sm">
             <svg ref={node => this.node = node} width={this.props.data.width} height={this.props.data.height}></svg>
           </div>
           <div className="col-sm" id="list-container">
-            {this.props.location.pathname === '/counties' && this.props.data.counties && <CountyButton
+            {['/counties', '/towns'].includes(this.props.location.pathname) && this.props.data.counties && this.props.data.towns && <CountyButton
               data={this.state.mapView}
               handleToggleVisibility={this.handleToggleVisibility}
             />}
