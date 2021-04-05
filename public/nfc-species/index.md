@@ -30,6 +30,71 @@ Species given here in the same grouping are unable to be sufficiently separated 
 - Golden-winged and Blue-Winged Warbler (Evans and O'Brien 2002)
 - Ovenbird, _Seiurus aurocapilla_; Tennessee Warbler, _Oreothlypis peregrina_; Orange-crowned Warbler, _Oreothlypis celata_; Nashville Warbler, _Oreothlypis ruficapilla_; Mourning Warbler, _Geothlypis philadelphia_; Yellow-rumped Warbler, _Setophaga coronata_; Black-throated Green Warbler, _Setophaga virens_; White-crowned Sparrow, _Zonotrichia leucophrys_; and Vesper Sparrow, _Pooecetes gramineus_. (Blaine 2019, Sanders and Mennill 2014)
 
+## List of NFCs identified in Vermont
+
+Here is a list of species which have been identified from a nocturnal flight call in Vermont. Get in touch to add more species to the list.
+
+- Alder Flycatcher
+- American Bittern
+- American Goldfinch
+- American Pipit
+- American Redstart
+- American Tree Sparrow
+- Bay-breasted Warbler
+- Black-and-white Warbler
+- Black-billed Cuckoo
+- Black-throated Blue Warbler
+- Blackburnian Warbler
+- Blackpoll Warbler
+- Blue Jay
+- Bobolink
+- Canada Goose
+- Canada Warbler
+- Cape May Warbler
+- Chipping Sparrow
+- Common Nighthawk
+- Common Redpoll
+- Common Yellowthroat
+- Dark-eyed Junco
+- Dickcissel
+- Dunlin
+- Gray-cheeked/Bicknell's Thrush
+- Great Blue Heron
+- Greater Yellowlegs
+- Green Heron
+- Hermit Thrush
+- Indigo Bunting
+- Killdeer
+- Lesser Yellowlegs
+- Lincoln's/Swamp Sparrow
+- Louisiana Waterthrush
+- Magnolia Warbler
+- Northern Parula
+- Ovenbird
+- Palm Warbler
+- Pectoral Sandpiper
+- Pine Siskin
+- Purple Finch
+- Rose-breasted Grosbeak
+- Savannah Sparrow
+- Scarlet Tanager
+- Snow Bunting
+- Solitary Sandpiper
+- Spotted Sandpiper
+- Swainson's Thrush
+- Swamp Sparrow
+- Upland Sandpiper
+- Veery
+- Wood Duck
+- White-throated Sparrow
+- Wilson's Warbler
+- Yellow Warbler
+- Yellow-bellied Flycatcher
+- Yellow-billed Cuckoo
+
+As well, these spuh have been used on eBird: bird sp., Catharus sp., Empidonax sp., finch sp., passerine sp., shorebird sp., sparrow sp., thrush sp., warbler sp. (Parulidae sp.), and waterfowl sp.
+
+
 ## References
 
 - Evans, W. R. and O’Brien, M. (2002) _Flight Calls of Migratory Birds Eastern North American Landbirds_. Old Bird Inc. \[CD-ROM\]. [Online](http://oldbird.org)
