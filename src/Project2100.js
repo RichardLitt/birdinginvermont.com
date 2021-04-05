@@ -28,7 +28,7 @@ class Project2100 extends Component {
             <p>Suggestions on how to make this page more useful are most welcome.</p>
             <p>This is not a solo effort. Friends who have helped so far: <a href="https://ebird.org/profile/MTA5MzA2Nw">Ben Acker</a>, <a href="https://ebird.org/profile/NDIwNDA1/US-VT">Zac Cota</a>, <a href="https://ebird.org/vt/profile/MTgxNDYz/US-VT">Nathaniel Sharp</a>, <a href="https://ebird.org/profile/NDM2MDU1/US-VT">Cedar Stanistreet</a>, Kyle Tansley, Jim Mead, Jan Thouron, Larry Clarfeld, Kyle Jones, David Guertin, Avery Fish, Sean Beckett, Chip and Charles and Sam Darmstadt, Dick Mansfield, and the entire WaCo Twitchers Crew, among others.</p>
             <p>Total county ticks count so far: {this.state.data.vt2100data.map(x => x.speciesTotal).reduce((a, b) => a + b, 0)}. The percentages below indicate how close I am to hitting 150 species in each county.</p>
-            <p>Last updated: <i>March 4th, 2021</i>.</p>
+            <p>Last updated: <i>April 5th, 2021</i>.</p>
             <Map data={this.state.data} handleChange={this.handleChange} />
           </div>
         </div>
