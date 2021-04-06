@@ -128,13 +128,13 @@ function removeSpuh (arr, reverse) {
 
 async function createDataset (data) {
   // Instead of saving Blue Jay in each town, remove all species which are in all towns into their own key
-  const intersection = await findIntersection(data)
+  // const intersection = await findIntersection(data)
   const towns = {}
   Object.keys(data).forEach(town => {
-    const species  = _.difference(removeSpuh(data[town].species), intersection)
-    towns[town] = species
+    // const species  = _.difference(removeSpuh(data[town].species), intersection)
+    towns[town] = data[town].species
   })
-  towns.intersection = intersection
+  // towns.intersection = intersection
   // let intersection = _.intersection(...townLists)
   console.log(towns)
   fs.writeFile('data/townsightings.json', JSON.stringify(towns), 'utf-8')

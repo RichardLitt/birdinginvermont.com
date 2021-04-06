@@ -85,7 +85,6 @@ class Map extends Component {
       vermont = VermontTowns //%
 
       speciesTotals = TownSightings
-      const intersection = TownSightings.intersection
 
       if (data.towns) {
         data.towns.forEach(town => {
@@ -109,18 +108,16 @@ class Map extends Component {
         })
       } else {
         totalTowns = null
-        speciesView = Object.keys(speciesTotals).map(t => (t !== 'intersection') ? speciesTotals[t].length : null)
+        speciesView = Object.keys(speciesTotals).map(t => speciesTotals[t].length)
         vermont.features.forEach(feature => {
-          if (!['WARNER\'S GRANT', 'RUTLAND CITY'].includes(feature.properties.town)) {
-            feature.properties.species = speciesTotals[feature.properties.town].concat(intersection)
-            feature.properties.speciesTotal = speciesTotals[feature.properties.town].concat(intersection).length
-            feature.properties.notSeen = _.difference(allSeen, speciesTotals[feature.properties.town].concat(intersection))
-          }
+          feature.properties.species = speciesTotals[feature.properties.town]
+          feature.properties.speciesTotal = speciesTotals[feature.properties.town].length
+          feature.properties.notSeen = _.difference(allSeen, speciesTotals[feature.properties.town])
         })
       }
 
-      domainMax = Math.max(...speciesView)+intersection.length
-      domainMin = Math.min(...speciesView)+intersection.length
+      domainMax = Math.max(...speciesView)
+      domainMin = Math.min(...speciesView)
     } else if (this.props.location.pathname === '/251') {
       vermont = VermontTowns
 
