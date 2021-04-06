@@ -70,7 +70,62 @@ const parser = csv({
   ]
 })
 
-const filepath = '/Users/richard/Dropbox/ebd_US-VT_relNov-2020/clean.txt'
+function addStringstoCommonName (input) {
+  let quoteSpecies = {
+    "Alder/Willow Flycatcher (Traills Flycatcher)": "Alder/Willow Flycatcher (Traill's Flycatcher)",
+    "Bairds Sandpiper": "Baird's Sandpiper",
+    "Barrows Goldeneye": "Barrow's Goldeneye",
+    "Bewicks Wren": "Bewick's Wren",
+    "Bicknells Thrush": "Bicknell's Thrush",
+    "Bonapartes Gull": "Bonaparte's Gull",
+    "Brewers Blackbird": "Brewer's Blackbird",
+    "Brewsters Warbler (hybrid)": "Brewster's Warbler (hybrid)",
+    "Bullocks Oriole": "Bullock's Oriole",
+    "Cassins Vireo": "Cassin's Vireo",
+    "Common x Barrows Goldeneye (hybrid)": "Common x Barrow's Goldeneye (hybrid)",
+    "Common/Barrows Goldeneye": "Common/Barrow's Goldeneye",
+    "Common/Forsters Tern": "Common/Forster's Tern",
+    "Coopers Hawk": "Cooper's Hawk",
+    "Coopers Hawk/Northern Goshawk": "Cooper's Hawk/Northern Goshawk",
+    "Corys Shearwater": "Cory's Shearwater",
+    "Forsters Tern": "Forster's Tern",
+    "Franklins Gull": "Franklin's Gull",
+    "Gray-cheeked/Bicknells Thrush": "Gray-cheeked/Bicknell's Thrush",
+    "Harriss Sparrow": "Harris's Sparrow",
+    "Henslows Sparrow": "Henslow's Sparrow",
+    "Lawrences Warbler (hybrid)": "Lawrence's Warbler (hybrid)",
+    "Leachs Storm-Petrel": "Leach's Storm-Petrel",
+    "LeContes Sparrow": "LeConte's Sparrow",
+    "Lewiss Woodpecker": "Lewis's Woodpecker",
+    "Lincolns Sparrow": "Lincoln's Sparrow",
+    "Nelsons Sparrow": "Nelson's Sparrow",
+    "Nelsons/Saltmarsh Sparrow (Sharp-tailed Sparrow)": "Nelson's/Saltmarsh Sparrow (Sharp-tailed Sparrow)",
+    "Rosss Goose": "Ross's Goose",
+    "Sabines Gull": "Sabine's Gull",
+    "Says Phoebe": "Say's Phoebe",
+    "Sharp-shinned/Coopers Hawk": "Sharp-shinned/Cooper's Hawk",
+    "Smiths Longspur": "Smith's Longspur",
+    "Snow x Rosss Goose (hybrid)": "Snow x Ross's Goose (hybrid)",
+    "Snow/Rosss Goose": "Snow/Ross's Goose",
+    "Swainsons Hawk": "Swainson's Hawk",
+    "Swainsons Thrush": "Swainson's Thrush",
+    "Swainsons Warbler": "Swainson's Warbler",
+    "Townsends Solitaire": "Townsend's Solitaire",
+    "Veery x Bicknells Thrush (hybrid)": "Veery x Bicknell's Thrush (hybrid)",
+    "Wilsons Phalarope": "Wilson's Phalarope",
+    "Wilsons Snipe": "Wilson's Snipe",
+    "Wilsons Storm-Petrel": "Wilson's Storm-Petrel",
+    "Wilsons Warbler": "Wilson's Warbler"
+  }
+  if (Object.keys(quoteSpecies).includes(input)) {
+    return quoteSpecies[input]
+  } else {
+    return input
+  }
+}
+
+
+const filepath = '/Users/richard/Dropbox/ebd_US-VT_relNov-2020/essex.txt'
 let counties = {}
 let towns = {}
 let townIds = {}
@@ -118,7 +173,7 @@ fs.createReadStream(filepath)
     }
     // console.log(species)
     let isSpecies = eBird.removeSpuh([species]).length
-    let commonName = species['Common Name']
+    let commonName = addStringstoCommonName(species['Common Name'])
 
     if (isSpecies) {
       // sort by county
@@ -166,7 +221,7 @@ fs.createReadStream(filepath)
       }
     }
     // Create a spuh section
-    if (!isSpecies && Object.keys(townIds[town].spuhs).indexOf(commonName) < 0) {
+    if (!isSpecies && townIds[town].spuhs.indexOf(commonName) < 0) {
       townIds[town].spuhs.push(commonName)
     }
     // sort by Lat/Long
