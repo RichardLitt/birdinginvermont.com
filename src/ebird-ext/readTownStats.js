@@ -1,6 +1,6 @@
 // This function reads only the output of town stats.
 
-const data = require('./data/townStatsList.json')
+const data = require('./data/vtTownData.json')
 const _ = require('lodash')
 const fs = require('fs').promises
 const eBird = require('./')
@@ -123,6 +123,16 @@ function removeSpuh (arr, reverse) {
   return _.uniq(newArr)
 }
 
+function findWithoutBird(data) {
+  let count = 0
+  Object.keys(data).forEach(town => {
+    if (!data[town].species.includes('Canada Goose')) {
+      console.log(town)
+      count++
+    }
+  })
+  console.log(count)
+}
 
 // TODO Don't save full species name, save alphacodes instead
 
@@ -148,7 +158,8 @@ async function readData () {
   // observersCount(data)
   // checklistsCount(data)
   // yearsCount(data)
-  await createDataset(data)
+  // await createDataset(data)
+  findWithoutBird(data)
 }
 
 readData()

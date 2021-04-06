@@ -21,7 +21,7 @@ class Towns extends Component {
           <div className="col-md-10 col-sm-12 text-left">
             <h1>Towns</h1>
             <p>This map shows all of the birds which have been seen in particular
-            towns in Vermont, by anyone. You can also see what species you've seen
+            towns in Vermont, by anyone, as of November 2020 using the eBird database. You can see what species you've seen
             in any given town by uploading your eBird data.</p>
             <p>First, <a href="https://ebird.org/downloadMyData" target="_blank" rel="noopener noreferrer" >download your data from eBird.</a> Then, load the unzipped .csv file here. Your data is not stored on this site in any way. Depending on the size of your data, it may take a few seconds.</p>
           </div>
