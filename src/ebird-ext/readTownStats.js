@@ -146,8 +146,8 @@ async function createDataset (data) {
   })
   // towns.intersection = intersection
   // let intersection = _.intersection(...townLists)
-  console.log(towns)
-  fs.writeFile('data/townsightings.json', JSON.stringify(towns), 'utf-8')
+  // console.log(towns)
+  fs.writeFile('regionData.json', JSON.stringify(towns), 'utf-8')
 }
 
 async function readData () {
@@ -158,8 +158,8 @@ async function readData () {
   // observersCount(data)
   // checklistsCount(data)
   // yearsCount(data)
-  // await createDataset(data)
-  findWithoutBird(data)
+  await createDataset(data)
+  // findWithoutBird(data)
 }
 
 readData()

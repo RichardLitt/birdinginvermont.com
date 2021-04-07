@@ -1,11 +1,11 @@
 // This function reads only the eBird database files, requestable from eBird.
 
-const fs = require('fs')
+const fs = require('fs').promises
 const readline = require('readline')
 const csv = require('csv-parse')
 const Town_boundaries = require('./geojson/vt_towns.json')
 const Vermont_regions = require('./geojson/Polygon_VT_Biophysical_Regions.json')
-const VermontSubspecies = require('./data/vermont_records_subspecies.json')
+// const VermontSubspecies = require('./data/vermont_records_subspecies.json')
 const GeoJsonGeometriesLookup = require('geojson-geometries-lookup')
 const vermontTowns = new GeoJsonGeometriesLookup(Town_boundaries)
 const vermontRegions = new GeoJsonGeometriesLookup(Vermont_regions)
@@ -70,6 +70,7 @@ const parser = csv({
   ]
 })
 
+// Necessary because we remove all quotes from the files before piping them in
 function addStringstoCommonName (input) {
   let quoteSpecies = {
     "Alder/Willow Flycatcher (Traills Flycatcher)": "Alder/Willow Flycatcher (Traill's Flycatcher)",
@@ -125,146 +126,170 @@ function addStringstoCommonName (input) {
 }
 
 
-const filepath = '/Users/richard/Dropbox/ebd_US-VT_relNov-2020/essex.txt'
-let counties = {}
-let towns = {}
-let townIds = {}
+const filepaths = [
+  '/Users/richard/Dropbox/ebd_US-VT_relNov-2020/001.txt',
+  '/Users/richard/Dropbox/ebd_US-VT_relNov-2020/003.txt',
+  '/Users/richard/Dropbox/ebd_US-VT_relNov-2020/005.txt',
+  '/Users/richard/Dropbox/ebd_US-VT_relNov-2020/007.txt',
+  '/Users/richard/Dropbox/ebd_US-VT_relNov-2020/009.txt',
+  '/Users/richard/Dropbox/ebd_US-VT_relNov-2020/011.txt',
+  '/Users/richard/Dropbox/ebd_US-VT_relNov-2020/013.txt',
+  '/Users/richard/Dropbox/ebd_US-VT_relNov-2020/015.txt',
+  '/Users/richard/Dropbox/ebd_US-VT_relNov-2020/017.txt',
+  '/Users/richard/Dropbox/ebd_US-VT_relNov-2020/019.txt',
+  '/Users/richard/Dropbox/ebd_US-VT_relNov-2020/021.txt',
+  '/Users/richard/Dropbox/ebd_US-VT_relNov-2020/023.txt',
+  '/Users/richard/Dropbox/ebd_US-VT_relNov-2020/025.txt',
+  '/Users/richard/Dropbox/ebd_US-VT_relNov-2020/027.txt'
+]
 
-// Goal: We want to be able to read the database of .csv files and automatically identify
-// for a given town or county, what birds were seen. This will require using geojson and other
-// algorithms in src/ebird-ext...
-// our first pass will text-match county, outputting a file of $COUNTY_NAME.json with an array of birds
-// second pass will do a town via Lat/Long and output a $TOWN.json with the data
-// each of the above files will also have the record GUIDs from the CSV file to avoid future re-import when we jam this :poop: in a DB
+filepaths.forEach(async filepath => {
+  let string = filepath.match(/0\d\d\.txt/g)[0].match(/\d+/g)[0]
+  // console.log(filepath)
+  await runFile(filepath, string)
+  console.log(`Analyzed ${filepath}.`)
+})
 
-// Point Lookup - this is the thing we should be able to do
+async function runFile (filepath, string) {
+  let boundaries = {}
+  let boundaryIds = {}
+  let findTowns = false
+  let findRegions = true
+  let point
 
-// Ideally, we would have an object for each town which shows what species were seen in that town.
-// This should match the result of: node cli.js towns --input=MyEBirdData.csv
+  // Goal: We want to be able to read the database of .csv files and automatically identify
+  // for a given town or county, what birds were seen. This will require using geojson and other
+  // algorithms in src/ebird-ext...
+  // our first pass will text-match county, outputting a file of $COUNTY_NAME.json with an array of birds
+  // second pass will do a town via Lat/Long and output a $TOWN.json with the data
+  // each of the above files will also have the record GUIDs from the CSV file to avoid future re-import when we jam this :poop: in a DB
 
-/*****************************/
-/******STREAMS EXAMPLE********/
-/*****************************/
-fs.createReadStream(filepath)
-  .pipe(parser)
-  .on('data', (row) => { // this is directly on the file's readstream
-    if (row['WTF IS P'] !== 'P') {
-      // console.log(row['LOCALITY ID'])
-      row.LOCALITY = row['LOCALITY ID']
-      row['LOCALITY ID'] = row['LOCALITY TYPE']
-      row['LOCALITY TYPE'] = row['WTF IS P']
-      delete row['WTF IS P']
-    }
+  // Point Lookup - this is the thing we should be able to do
 
-    // make a point lookup friender
-    let data = {
-      Longitude: row["LONGITUDE"],
-      Latitude: row["LATITUDE"]
-    }
+  // Ideally, we would have an object for each town which shows what species were seen in that town.
+  // This should match the result of: node cli.js towns --input=MyEBirdData.csv
 
-    // data.Longitude, data.Latitude
 
-    let town = eBird.pointLookup(Town_boundaries, vermontTowns, data)
-    // console.log(eBird.pointLookup(Vermont_regions, vermontRegions, data))
+  await fs.createReadStream(filepath)
+    .pipe(parser)
+    .on('data', (row) => { // this is directly on the file's readstream
+      if (row['WTF IS P'] !== 'P') {
+        // console.log(row['LOCALITY ID'])
+        row.LOCALITY = row['LOCALITY ID']
+        row['LOCALITY ID'] = row['LOCALITY TYPE']
+        row['LOCALITY TYPE'] = row['WTF IS P']
+        delete row['WTF IS P']
+      }
 
-    let species = {
-      'Scientific Name': row['SCIENTIFIC NAME'],
-      'Common Name': row['COMMON NAME']
-    }
-    // console.log(species)
-    let isSpecies = eBird.removeSpuh([species]).length
-    let commonName = addStringstoCommonName(species['Common Name'])
+      let data = {
+        Longitude: row["LONGITUDE"],
+        Latitude: row["LATITUDE"]
+      }
 
-    if (isSpecies) {
-      // sort by county
-      if(!(row['COUNTY'] in counties)) {
-      } else {
-        if(counties[row['COUNTY']].indexOf(commonName) < 0){
-          counties[row['COUNTY']].push(commonName)
+      if (findTowns) {
+        point = eBird.pointLookup(Town_boundaries, vermontTowns, data)
+      } else if (findRegions) {
+        point = eBird.pointLookup(Vermont_regions, vermontRegions, data)
+      }
+
+      let species = {
+        'Scientific Name': row['SCIENTIFIC NAME'],
+        'Common Name': row['COMMON NAME']
+      }
+      let isSpecies = eBird.removeSpuh([species]).length
+      let commonName = addStringstoCommonName(species['Common Name'])
+
+      if (isSpecies) {
+        // sort by county
+        // if (!(row['COUNTY'] in counties)) {
+        // } else {
+        //   if(counties[row['COUNTY']].indexOf(commonName) < 0){
+        //     counties[row['COUNTY']].push(commonName)
+        //   }
+        // }
+
+        if (!(point in boundaries)) {
+          boundaries[point] = [commonName]
+        } else {
+          if(boundaries[point].indexOf(commonName) < 0){
+            boundaries[point].push(commonName)
+          }
         }
       }
-
-      if(!(town in towns)) {
-        towns[town] = [commonName]
-      } else {
-        if(towns[town].indexOf(commonName) < 0){
-          towns[town].push(commonName)
+      let year = row['OBSERVATION DATE'].split('-')[0]
+      if(!(point in boundaryIds)) {
+        boundaryIds[point] = {
+          observers: {},
+          spuhs: []
+        }
+        // console.log(row)
+      }
+      if (!boundaryIds[point].years) {
+        boundaryIds[point].years = [year]
+      } else if (boundaryIds[point].years.indexOf(year) < 0) {
+        boundaryIds[point].years.push(year)
+      }
+      let birdCount = parseInt(row['OBSERVATION COUNT'])
+      if (_.isInteger(birdCount)) {
+        if (!boundaryIds[point].birdCount) {
+          boundaryIds[point].birdCount = birdCount
+        } else if (boundaryIds[point].birdCount) {
+          boundaryIds[point].birdCount = parseInt(boundaryIds[point].birdCount) + birdCount
+        }
+        if (Object.keys(boundaryIds[point].observers).indexOf(row['OBSERVER ID']) < 0) {
+          boundaryIds[point].observers[row['OBSERVER ID']] = [row['SAMPLING EVENT IDENTIFIER']]
+        } else {
+          if (boundaryIds[point].observers[row['OBSERVER ID']].indexOf(row['SAMPLING EVENT IDENTIFIER']) <0) {
+            boundaryIds[point].observers[row['OBSERVER ID']].push(row['SAMPLING EVENT IDENTIFIER'])
+          }
+        }
+        // Create a spuh section
+        if (!isSpecies && boundaryIds[point].spuhs.indexOf(commonName) < 0) {
+          boundaryIds[point].spuhs.push(commonName)
         }
       }
-    }
-    let year = row['OBSERVATION DATE'].split('-')[0]
-    if(!(town in townIds)) {
-      townIds[town] = {
-        observers: {},
-        spuhs: []
-      }
-      // console.log(row)
-    }
-    if (!townIds[town].years) {
-      townIds[town].years = [year]
-    } else if (townIds[town].years.indexOf(year) < 0) {
-      townIds[town].years.push(year)
-    }
-    let birdCount = parseInt(row['OBSERVATION COUNT'])
-    if (_.isInteger(birdCount)) {
-      if (!townIds[town].birdCount) {
-        townIds[town].birdCount = birdCount
-      } else if (townIds[town].birdCount) {
-        townIds[town].birdCount = parseInt(townIds[town].birdCount) + birdCount
-      }
-    }
-    if (Object.keys(townIds[town].observers).indexOf(row['OBSERVER ID']) < 0) {
-      townIds[town].observers[row['OBSERVER ID']] = [row['SAMPLING EVENT IDENTIFIER']]
-    } else {
-      if (townIds[town].observers[row['OBSERVER ID']].indexOf(row['SAMPLING EVENT IDENTIFIER']) <0) {
-        townIds[town].observers[row['OBSERVER ID']].push(row['SAMPLING EVENT IDENTIFIER'])
-      }
-    }
-    // Create a spuh section
-    if (!isSpecies && townIds[town].spuhs.indexOf(commonName) < 0) {
-      townIds[town].spuhs.push(commonName)
-    }
-    // sort by Lat/Long
+      // sort by Lat/Long
 
-    // Delete everything between county code and latitude
-    // Match1: US-VT-\d\d\d
-    // Match 2: ^(.*)\t^[\t]*\tL\d+.*
-  })
-  .on('error', (e) => {
-    console.log('BONK', e)
-  })
-  .on('end', () => {
-    let totalCount = []
-    Object.keys(townIds).forEach(t => {
-      if (townIds[t].birdCount) {
-        totalCount.push(parseInt(townIds[t].birdCount))
-      }
-      townIds[t].checklists = 0
-      townIds[t].observersCount = 0
-      Object.keys(townIds[t].observers).forEach(v => {
-        if (v.startsWith('obsr')) {
-          townIds[t].checklists += townIds[t].observers[v].length
-          townIds[t].observersCount += 1
-          // No need to keep the checklists, as this just adds rows
-          townIds[t].observers[v] = townIds[t].observers[v].length
+      // Delete everything between county code and latitude
+      // Match1: US-VT-\d\d\d
+      // Match 2: ^(.*)\t^[\t]*\tL\d+.*
+    })
+    .on('error', (e) => {
+      console.log('BONK', e)
+    })
+    .on('end', () => {
+      let totalCount = []
+      Object.keys(boundaryIds).forEach(t => {
+        if (boundaryIds[t].birdCount) {
+          totalCount.push(parseInt(boundaryIds[t].birdCount))
+        }
+        boundaryIds[t].checklists = 0
+        boundaryIds[t].observersCount = 0
+        Object.keys(boundaryIds[t].observers).forEach(v => {
+          if (v.startsWith('obsr')) {
+            boundaryIds[t].checklists += boundaryIds[t].observers[v].length
+            boundaryIds[t].observersCount += 1
+            // No need to keep the checklists, as this just adds rows
+            boundaryIds[t].observers[v] = boundaryIds[t].observers[v].length
+          }
+        })
+        boundaryIds[t].speciesCount = boundaries[t].length
+        boundaryIds[t].species = boundaries[t]
+        boundaryIds[t].averageChecklistsPerBirder = (boundaryIds[t].checklists/boundaryIds[t].observersCount).toFixed(2)
+        boundaryIds[t].averageBirdsOverBirders = (boundaryIds[t].speciesCount/boundaryIds[t].observersCount).toFixed(2)
+        boundaryIds[t].averageChecklistsToBirds = (boundaryIds[t].checklists/boundaryIds[t].speciesCount).toFixed(2)
+      })
+      console.log('Total count: ', _.sum(totalCount))
+      console.log('CSV file successfully processed')
+      fs.writeFile(`vtRegion-${string}.json`, JSON.stringify(boundaryIds), 'utf8', (err) => {
+        if (err)
+          console.log(err);
+        else {
+          console.log("File written successfully.");
         }
       })
-      townIds[t].speciesCount = towns[t].length
-      townIds[t].species = towns[t]
-      townIds[t].averageChecklistsPerBirder = (townIds[t].checklists/townIds[t].observersCount).toFixed(2)
-      townIds[t].averageBirdsOverBirders = (townIds[t].speciesCount/townIds[t].observersCount).toFixed(2)
-      townIds[t].averageChecklistsToBirds = (townIds[t].checklists/townIds[t].speciesCount).toFixed(2)
-    })
-    console.log('Total count: ', _.sum(totalCount))
-    console.log('CSV file successfully processed')
-    // console.log(townIds)
-    fs.writeFile(`vtTownData.json`, JSON.stringify(townIds), 'utf8', (err) => {
-      if (err)
-        console.log(err);
-      else {
-        console.log("File written successfully.");
-      }
-    })
-    // console.log(JSON.stringify(counties))
-    // console.log(townIds)
-  });
+      // console.log(JSON.stringify(counties))
+      // console.log(boundaryIds)
+  })
+  return
+}
