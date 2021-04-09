@@ -303,6 +303,8 @@ class Map extends Component {
           let noSpeciesText = `You haven't logged any species here.`
           if (pathname === '/counties' && !data.counties) {
             noSpeciesText = `This map shows the total number of species seen in these counties. Upload your data for your personal map.`
+          } else if (pathname === '/251') {
+            noSpeciesText = `No one has logged any species here yet this year.`
           }
 
           d3.select('#list')

@@ -8,7 +8,8 @@ To join in, simply share any [complete checklist](https://support.ebird.org/en/s
 I will update this map every week, to show what new towns should be added, or what new species have been seen in those towns from the shared checklists. If you bird in a new town, or see a bird in a town that isn't listed here, share your checklists!
 
 Contributors:
-[Cedar Stanistreet](https://ebird.org/profile/NDM2MDU1/US-VT).
+[Bernard Foy](https://ebird.org/profile/NzU0MA/world),
+[Cedar Stanistreet](https://ebird.org/profile/NDM2MDU1/US-VT),
 [Chelsea Carroll](https://ebird.org/profile/NjQ1MjQy/US-VT-021),
 [Chris Rimmer](https://ebird.org/profile/Mjc3NzU/US-VT-017),
 [Coleen Lawlor](https://ebird.org/profile/NzU3NzM5/US-VT),
@@ -25,4 +26,4 @@ Barbara Powers, Rich Kelley, Rita Pitkin, and Susan Paradis.
 
 Let me know if you'd like to opt out of being added as a contributor.
 
-Last updated: April 5th, 2021
+Last updated: April 7th, 2021
