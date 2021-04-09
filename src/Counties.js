@@ -14,9 +14,9 @@ class Towns extends Component {
         <div className="row">
           <Helmet>
             <meta charSet="utf-8" />
-            <title>Towns | Birding In Vermont</title>
+            <title>Counties | Birding In Vermont</title>
             <link rel="canonical" href="https://birdinginvermont.com/" />
-            <meta name="description" content="Showing birds which have been seen in towns in Vermont" />
+            <meta name="description" content="Showing birds which have been seen in different counties in Vermont" />
           </Helmet>
           <div className="col-md-10 col-sm-12 text-left">
             <h1>Counties</h1>
