@@ -26,7 +26,8 @@ Avery Fish,
 Sean Beckett,
 Chip and Charles and Sam Darmstadt,
 Dick Mansfield,
+the Dixon/Thompson family,
 and the entire WaCo Twitchers Crew,
 among others.
 
-Last updated: *April 9th, 2021*.
+Last updated: *April 11th, 2021*.
