@@ -20,6 +20,7 @@ const d3Geo = require('d3-geo')
 const taxonomicSort = require('./ebird-ext/taxonomicSort.js')
 const _ = require('lodash')
 
+// To Do - make this a method of the string class
 function capitalizeFirstLetters(string) {
   return string.toLowerCase().split(' ').map(x => x.charAt(0).toUpperCase() + x.slice(1)).join(' ')
 }
@@ -246,85 +247,178 @@ class Map extends Component {
 
     let townSelected = false
 
-    d3.select('#locale').text(totalTowns ? `Towns birded: ${totalTowns}` : '')
+    function totalTownsText () {
+      if (totalTowns) {
+        d3.select('#locale').text(`Towns birded: ${totalTowns}`)
+      } else {
+        d3.select('#locale').text('')
+      }
+    }
 
-    svg.selectAll('.subunit')
+    totalTownsText()
+
+    let paths = svg.selectAll('.subunit')
       .data(vermont.features)
       .enter()
       .append('path')
       .attr('d', path)
       .style('stroke', '#fff')
       .style('stroke-width', '1')
-      .style('fill', (d) => colorArea(d.properties.speciesTotal))
-      .on('click', function (d) {
-        if (!townSelected) {
-          townSelected = d3.select(this)
-          townSelected
-            .style('fill', 'yellow')
-        } else {
-          townSelected
-            .style('fill', colorArea(townSelected.data()[0].properties.speciesTotal))
 
-          townSelected = false
-        }
-      })
-      .on('mouseover', function (d) {
-        if (!townSelected) {
-          var xPosition = d3.mouse(this)[0]
-          var yPosition = d3.mouse(this)[1] - 30
+    // let species = 'Pied-billed Grebe'
+    //
+    // if (!species) {
+    //   townsView()
+    // } else {
+    //   speciesMaps()
+    // }
+    //
+    // function speciesMaps () {
+    //   const townsPresent = []
+    //   paths.style('fill', (d) => {
+    //     if (d.properties.species.includes(species)) {
+    //       townsPresent.push(capitalizeFirstLetters(d.properties.town))
+    //       return 'green'
+    //     } else {
+    //       return '#ddd'
+    //     }
+    //   })
+    //   d3.select('#locale').text(`${species}: ${townsPresent.length}`)
+    //
+    //   let ul = d3.select('#list')
+    //     .html('<b>Seen</b>')
+    //     .append('ul')
+    //
+    //   ul.selectAll('li')
+    //     .data(townsPresent)
+    //     .enter()
+    //     .append('li')
+    //     .html(String)
+    //     .on('click', function (species) {
+    //       species = false
+    //       townsView()
+    //     })
+    // }
 
-          if (pathname !== '/2100') {
-            svg.append('text')
-              .attr('id', 'tooltip')
-              .attr('x', xPosition)
-              .attr('y', yPosition)
-              .attr('text-anchor', 'middle')
-              .attr('font-family', 'sans-serif')
-              .attr('font-size', '11px')
-              .attr('font-weight', 'bold')
-              .attr('fill', 'black')
-              .text(`${capitalizeFirstLetters(d.properties.town || d.properties.name)}${d.properties.speciesTotal ? ': ' + d.properties.speciesTotal : ''}`)
-          }
+    townsView()
 
-          d3.select(this)
-            .style('fill', '#509e2f')
-
-          if (['/towns', '/251'].includes(pathname)) {
-            d3.select('#locale')
-              .text([capitalizeFirstLetters(d.properties.town) + ` (${d.properties.speciesTotal})`])
-          } else if (['/counties', '/2100'].includes(pathname)) {
-            d3.select('#locale')
-            .text([capitalizeFirstLetters(d.properties.name) + ` (${d.properties.speciesTotal})`])
+    function townsView () {
+      paths
+        .style('fill', (d) => colorArea(d.properties.speciesTotal))
+        .on('click', function (d) {
+          if (!townSelected) {
+            townSelected = d3.select(this)
+            townSelected
+              .style('fill', 'yellow')
           } else {
-            d3.select('#locale')
-              .text([`Region: ` + capitalizeFirstLetters(d.properties.name)])
+            townSelected
+              .style('fill', colorArea(townSelected.data()[0].properties.speciesTotal))
+
+            townSelected = false
           }
+        })
+        .on('mouseover', function (d) {
+          if (!townSelected) {
+            var xPosition = d3.mouse(this)[0]
+            var yPosition = d3.mouse(this)[1] - 30
 
-          let noSpeciesText = `You haven't logged any species here.`
-          if (pathname === '/counties' && !data.counties) {
-            noSpeciesText = `This map shows the total number of species seen in these counties. Upload your data for your personal map.`
-          } else if (pathname === '/251') {
-            noSpeciesText = `No one has logged any species here yet this year.`
+            if (pathname !== '/2100') {
+              svg.append('text')
+                .attr('id', 'tooltip')
+                .attr('x', xPosition)
+                .attr('y', yPosition)
+                .attr('text-anchor', 'middle')
+                .attr('font-family', 'sans-serif')
+                .attr('font-size', '11px')
+                .attr('font-weight', 'bold')
+                .attr('fill', 'black')
+                .text(`${capitalizeFirstLetters(d.properties.town || d.properties.name)}${d.properties.speciesTotal ? ': ' + d.properties.speciesTotal : ''}`)
+            }
+
+            d3.select(this)
+              .style('fill', '#509e2f')
+
+            if (['/towns', '/251'].includes(pathname)) {
+              d3.select('#locale')
+                .text([capitalizeFirstLetters(d.properties.town) + ` (${d.properties.speciesTotal})`])
+            } else if (['/counties', '/2100'].includes(pathname)) {
+              d3.select('#locale')
+              .text([capitalizeFirstLetters(d.properties.name) + ` (${d.properties.speciesTotal})`])
+            } else {
+              d3.select('#locale')
+                .text([`Region: ` + capitalizeFirstLetters(d.properties.name)])
+            }
+
+            if (d.properties.species) {
+              if (d.properties.species.length === 0) {
+                // Don't present a list for all species to see.
+                d.properties.notSeen = null
+              }
+              let ul = d3.select('#list')
+                .html('<b>Seen</b>')
+                .append('ul')
+
+              ul.selectAll('li')
+                .data(taxonomicSort(d.properties.species))
+                .enter()
+                .append('li')
+                .html(String)
+              // .on('click', function (d) {
+                //   species = d
+                //   speciesMaps()
+                // })
+            }
+
+            console.log(d.properties)
+
+            if (d.properties.notSeen) {
+              d3.select('#list')
+                .append('hr')
+
+              d3.select('#list')
+                .append('b')
+                .text('No records:')
+
+              let notSeenUl = d3.select('#list')
+                .append('ul')
+
+              notSeenUl.selectAll('li')
+                .data(taxonomicSort(d.properties.notSeen))
+                .enter()
+                .append('li')
+                .html(String)
+            } else if (['/regions', '/2100'].includes(pathname) && d.properties.species) {
+              if (d.properties.species.length === 0) {
+                d3.select('#list')
+                  .html(`You haven't logged any species here.`)
+              }
+            } else {
+              let noSpeciesText = `You haven't logged any species here.`
+              if (pathname === '/counties' && !data.counties) {
+                noSpeciesText = `This map shows the total number of species seen in these counties. Upload your data for your personal map.`
+              } else if (pathname === '/251') {
+                noSpeciesText = `No one has logged any species here yet this year.`
+              }
+
+              d3.select('#list')
+                .html(noSpeciesText)
+            }
           }
+        })
+        .on('mouseout', function (d) {
+          if (!townSelected) {
+            d3.select('#tooltip').remove()
 
-          d3.select('#list')
-            .html((d.properties.species && d.properties.species.length > 0) ? `<b>Seen:</b> <li>${taxonomicSort(d.properties.species).join('</li><li>')}</li> ${(d.properties.notSeen) ? `<hr /><b>No records:</b> ${taxonomicSort(d.properties.notSeen).join(', ')}` : ''}` : noSpeciesText)
-        }
-      })
-      .on('mouseout', function (d) {
-        if (!townSelected) {
-          d3.select('#tooltip')
-            .remove()
+            d3.select(this)
+              .transition()
+              .duration(250)
+              .style('fill', (d) => (d.properties.speciesTotal) ? color(d.properties.speciesTotal) : '#ddd')
 
-          d3.select(this)
-            .transition()
-            .duration(250)
-            .style('fill', (d) => (d.properties.speciesTotal) ? color(d.properties.speciesTotal) : '#ddd')
-
-          d3.select('#locale').text(totalTowns ? `Towns birded: ${totalTowns}` : '')
-          d3.select('#list').text('')
-        }
-      })
+            totalTownsText()
+            d3.select('#list').text('')
+          }
+        })
+      }
 
     // Color lakes
     svg.append('path')
@@ -383,7 +477,7 @@ class Map extends Component {
               handleToggleVisibility={this.handleToggleVisibility}
             />}
             <h4 id="locale">{/* empty h4 */}</h4>
-            <ul id="list"></ul>
+            <div id="list"></div>
           </div>
         </div>
       </div>

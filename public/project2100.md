@@ -27,7 +27,9 @@ Sean Beckett,
 Chip and Charles and Sam Darmstadt,
 Dick Mansfield,
 the Dixon/Thompson family,
+Ruth Stewart,
+Bart and Ann Bussink,
 and the entire WaCo Twitchers Crew,
 among others.
 
-Last updated: *April 11th, 2021*.
+Last updated: *April 27th, 2021*.
