@@ -339,8 +339,12 @@ class Map extends Component {
               .style('fill', '#509e2f')
 
             if (['/towns', '/251'].includes(pathname)) {
+              let townHeading = [capitalizeFirstLetters(d.properties.town) + ` (${d.properties.speciesTotal})`]
+              if (d.properties.speciesTotal === 0) {
+                townHeading = [capitalizeFirstLetters(d.properties.town)]
+              }
               d3.select('#locale')
-                .text([capitalizeFirstLetters(d.properties.town) + ` (${d.properties.speciesTotal})`])
+                .text(townHeading)
             } else if (['/counties', '/2100'].includes(pathname)) {
               d3.select('#locale')
               .text([capitalizeFirstLetters(d.properties.name) + ` (${d.properties.speciesTotal})`])
@@ -387,19 +391,21 @@ class Map extends Component {
                 .enter()
                 .append('li')
                 .html(String)
-            } else if (['/regions', '/2100'].includes(pathname) && d.properties.species) {
+            } else if (['/regions', '/2100', '/251'].includes(pathname) && d.properties.species) {
               if (d.properties.species.length === 0) {
-                d3.select('#list')
+                if (pathname === '/251') {
+                  d3.select('#list')
+                    .html(`No one has logged any species here yet this year.`)
+                } else {
+                 d3.select('#list')
                   .html(`You haven't logged any species here.`)
+                }
               }
             } else {
               let noSpeciesText = `You haven't logged any species here.`
               if (pathname === '/counties' && !data.counties) {
                 noSpeciesText = `This map shows the total number of species seen in these counties. Upload your data for your personal map.`
-              } else if (pathname === '/251') {
-                noSpeciesText = `No one has logged any species here yet this year.`
               }
-
               d3.select('#list')
                 .html(noSpeciesText)
             }
