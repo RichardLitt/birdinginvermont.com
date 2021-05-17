@@ -14,6 +14,7 @@ Contributors:
 [Chris Rimmer](https://ebird.org/profile/Mjc3NzU/US-VT-017),
 [Coleen Lawlor](https://ebird.org/profile/NzU3NzM5/US-VT),
 [David Eberly](https://ebird.org/profile/MTgzMDM/US-VT-021),
+[Erika Mitchell](https://ebird.org/profile/MjQ3Njg1/world),
 [JoAnne Russo](https://ebird.org/profile/OTE2NDg/US-VT),
 [Kent McFarland](https://ebird.org/vt/profile/MjAwNjI/world),
 [Kevin Tolan](https://ebird.org/vt/profile/OTE4MTQ2/US),
@@ -28,4 +29,4 @@ Barbara Powers, Rich Kelley, Rita Pitkin, and Susan Paradis.
 Let me know if you'd like to opt out of being added as a contributor, or if I missed adding you by accident.
 
 Updated on:
-May 5th, 2021
+May 16th, 2021
