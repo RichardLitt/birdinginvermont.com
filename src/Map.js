@@ -121,11 +121,14 @@ class Map extends Component {
       domainMin = Math.min(...speciesView)
     } else if (this.props.location.pathname === '/251') {
       vermont = VermontTowns
+      var emptyTowns = []
 
       for (i = 0; i < data.vt251data.length; i++) {
         speciesTotals = parseFloat(data.vt251data[i].speciesTotal)
         if (speciesTotals > 0) {
           totalTowns += 1
+        } else {
+          emptyTowns.push(data.vt251data[i].town)
         }
         // Calculate{} the highest town, for use in coloring
         if (speciesTotals > domainMax) {
@@ -250,6 +253,9 @@ class Map extends Component {
     function totalTownsText () {
       if (totalTowns) {
         d3.select('#locale').text(`Towns birded: ${totalTowns}`)
+        if (pathname === '/251') {
+          d3.select('#list').text(`Towns with no checklists:\n` + emptyTowns.map(x => capitalizeFirstLetters(x)).sort().join(', '))
+        }
       } else {
         d3.select('#locale').text('')
       }
@@ -421,7 +427,11 @@ class Map extends Component {
               .style('fill', (d) => (d.properties.speciesTotal) ? color(d.properties.speciesTotal) : '#ddd')
 
             totalTownsText()
-            d3.select('#list').text('')
+            if (pathname === '/251') {
+              d3.select('#list').text(`Towns with no checklists:\n` + emptyTowns.map(x => capitalizeFirstLetters(x)).sort().join(', '))
+            } else {
+              d3.select('#list').text('')
+            }
           }
         })
       }
