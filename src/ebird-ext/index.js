@@ -872,6 +872,38 @@ async function norwich(input) {
   })
 }
 
+// Show which hotspots are in which towns
+async function townHotspots(opts) {
+  let input
+  if (fs) {
+    input = await fs.readFile(opts.input, 'utf8')
+    input = input.split('\n')
+    input.unshift('ID,Country,State/Province,Region,Latitude,Longitude,Name,Last visited,Species')
+    input = input.join('\n')
+    input = Papa.parse(input, { header: true })
+  }
+
+  if (!opts.state) {
+    // We only have towns for this state
+    opts.state = 'Vermont'
+  }
+  // const dateFormat = parseDateformat('day')
+  // console.log(input.data)
+  let data = locationFilter(input.data, opts)
+  if (opts.all) {
+    const towns = getAllTowns(Town_boundaries).sort((a, b) => a.town.localeCompare(b.town));
+    console.log('Town hotspots:')
+    towns.forEach(t => {
+      let hotspots = data.filter(x => x.Town === t.town)
+      console.log(`${capitalizeFirstLetters(t.town)}: ${hotspots.length}`)
+    })
+  } else if (opts.town) {
+    // Turn on to find checklists in that town console.log(_.uniq(data.map((item, i) => `${item['Submission ID']}`)))
+    data = data.filter(x => x.Town === opts.town.toUpperCase())
+    console.log(data)
+  }
+}
+
 // async function today (opts) {
   // I want to know:
   // - Was today a big day?
@@ -904,5 +936,6 @@ export default {
   getLastDate,
   pointLookup,
   countTheBirds,
-  norwich
+  norwich,
+  townHotspots
 }
