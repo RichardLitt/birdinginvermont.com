@@ -30,6 +30,7 @@ const cli = meow(`
     checklists    Show checklists for a given region and time
     getLastDate   Show most recent date from checklist
     countTheBirds Show the sum of all individual birds counted
+    norwich       Output for the Norwich quest
 
   Options
     --input, -i The input file
@@ -181,6 +182,8 @@ async function run () {
     await main.getLastDate(cli.flags)
   } else if (cli.input[0] === 'countTheBirds') {
     await main.countTheBirds(cli.flags)
+  } else if (cli.input[0] === 'norwich') {
+    await main.norwich(cli.flags.input)
   } else {
     console.log(cli.showHelp())
   }

@@ -843,6 +843,35 @@ async function countTheBirds(opts) {
   console.log(sum)
 }
 
+// Only usefulf for the Norwich County Quest account
+async function norwich(input) {
+  const opts = {
+    year: 2021,
+    state: 'Vermont',
+    town: 'Norwich',
+    all: false,
+    complete: false,
+    // output: `data/vt_town_counts.json`,
+    input
+  }
+  const dateFormat = parseDateformat('day')
+  let data = orderByDate(completeChecklistFilter(dateFilter(locationFilter(await getData(opts.input), opts), opts), opts), opts)
+  data = countUniqueSpecies(data.filter(x => x.Town === opts.town.toUpperCase()), dateFormat)
+
+  if (opts.output) {
+    fs.writeFile(`${opts.output.toString().replace('.json', '')}.json`, JSON.stringify(data), 'utf8')
+  }
+
+  let i = 1
+  _.sortBy(createPeriodArray(data), 'Date').forEach((e) => {
+    e.Species.forEach((specie) => {
+      // TODO Ask Nathaniel if this is the output he would like.
+      console.log(`${i} | ${specie['Common Name']} | ${specie.Location} | <a href="https://ebird.org/vt/checklist/${specie['Submission ID']}">${e.Date}</a>`)
+      i++
+    })
+  })
+}
+
 // async function today (opts) {
   // I want to know:
   // - Was today a big day?
@@ -874,5 +903,6 @@ export default {
   checklists,
   getLastDate,
   pointLookup,
-  countTheBirds
+  countTheBirds,
+  norwich
 }
