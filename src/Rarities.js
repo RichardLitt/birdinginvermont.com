@@ -86,14 +86,14 @@ function AllRows (props) {
   })) {
     return (
       <div>
-        <TableRow title={"Vermont Firsts"} data={rarities.Unknown} text={"Theses birds were not on the lists of birds seen in Vermont before, and should also probably be submitted."} />
-        <TableRow title={"Vermont Records"} data={rarities.Vermont} text={"These birds should be submitted to the VBRC if seen anywhere in Vermont."}/>
-        <TableRow title={"Nesting Records"} data={rarities.Breeding} text={"These records should be submitted if you haved noted nestting behavior. This checker looks for any breeding code used for a particular sighting. Use your discretion as to which are relevant to submit."} />
-        <TableRow title={"Outside of Burlington"} data={rarities.Burlington} text={"These birds should be submitted if seen outside of Burlington. Basically, this is for the Fish Crow. This checks for birds outside of Burlington, South Burlington, Essex, Colchester, Winooski, and Shelburne."} />
-        <TableRow title={"Outside of the Champlain Valley"} data={rarities.Champlain} text={"These birds shoud be submitted if seen outside of the Champlain Valley. This checks against the Champlain Valley bioregion, used in the Vermont Breeding Birds Atlas."} />
-        <TableRow title={"Outside of the NEK"} data={rarities.NEK} text={"Theses birds should be submitted if seen outside of the Caledonia, Essex, or Orleans counties."} />
-        <TableRow title={"Outside of expected dates"} data={rarities.OutsideExpectedDates} text={"Theses birds should be submitted as they were seen outside of their expected date ranges for Vermont."} />
-        <TableRow title={"Subspecies"} data={rarities.Subspecies} text={["These subspecies are of note, and may also need to be submitted. Consult with ", <a href={"https://vtecostudies.org/wildlife/wildlife-watching/vbrc/races/"}>the VBRC Subspecies list</a>, "."]} />
+        <TableRow title={"Vermont Firsts"} data={rarities.Unknown} text={"These species were not on the VBRC \"Vermont Bird Checklist\" previously; please submit them to the VBRC."} />
+        <TableRow title={"Vermont Records"} data={rarities.Vermont} text={"Please submit records of these birds if they are seen anywhere in Vermont."}/>
+        <TableRow title={"Nesting Records"} data={rarities.Breeding} text={"Please submit these records if you have noted nesting behavior. This checker looks for any breeding code used for a particular sighting; use your discretion as to which ones are relevant."} />
+        <TableRow title={"Outside of Burlington"} data={rarities.Burlington} text={"Please submit records for Fish Crows if seen outside of Burlington, South Burlington, Essex, Colchester, Winooski, or Shelburne."} />
+        <TableRow title={"Outside of the Champlain Valley"} data={rarities.Champlain} text={"Please submit records for these birds if seen outside of the Champlain Valley bioregion, used in the Vermont Breeding Birds Atlas."} />
+        <TableRow title={"Outside of the NEK"} data={rarities.NEK} text={"Please submit records for these birds if seen outside of the Caledonia, Essex, or Orleans counties."} />
+        <TableRow title={"Outside of expected dates"} data={rarities.OutsideExpectedDates} text={"Please submit reocrds for these birds as they were seen outside of their expected date ranges in Vermont. Some older records in this list might have been in the expected date range at the time of the observation, but now would not be. These do not have to be submitted.  Contact your eBird reviewer if you are uncertain."} />
+        <TableRow title={"Subspecies"} data={rarities.Subspecies} text={["These subspecies are of note; please submit them to VBRC, after consulting ", <a href={"https://vtecostudies.org/wildlife/wildlife-watching/vbrc/races/"}>the VBRC Subspecies list</a>, "."]} />
       </div>
     )
   } else {
@@ -101,7 +101,7 @@ function AllRows (props) {
       <div>
         <hr />
         <h2>You're all set!</h2>
-        <p>We couldn't find any Vermont rarities in your eBird data, so you don't need to report anything this year. If this is disappointing, you're in luck: the way to see some is to go bird more. Get out there!</p>
+        <p>We couldn't find any Vermont rarities in your eBird data, so there's nothing that VBRC suggests you report this year. If this is disappointing, you're in luck: the way to fix this is to go bird more. Get out there!</p>
       </div>
     )
   }
@@ -114,7 +114,8 @@ class Rarities extends Component {
       <div id="rarities" className="container-md">
         <div className="row">
           <h1>Vermont Bird Records Checker</h1>
-          <p>This tool will check your eBird checklists for this year for any birds which ought to be reported to the VBRC. You can find out more on <a href="https://vtecostudies.org/wildlife/wildlife-watching/vbrc/" target="_blank" rel="noopener noreferrer" >the VBRC site</a>. This will only check submissions to your eBird account. It checks for Vermont-wide rare birds, breeding birds of note, birds outside of the Burlington Area, Lake Champlain, or the NEK, extreme rarities, subspecies of note, and birds which took a left turn at Albuquerque and ended up here out of season. It only shows sections for which you have records which should be submitted.</p>
+          <p>This tool will check your eBird checklists for this year for any birds which ought to be reported to the VBRC. You can find out more on <a href="https://vtecostudies.org/wildlife/wildlife-watching/vbrc/" target="_blank" rel="noopener noreferrer" >the VBRC site</a>. This will only check submissions to your eBird account. It checks for Vermont-wide rare birds, breeding birds of note, birds outside of the Burlington Area, Lake Champlain, or the NEK, extreme rarities, subspecies of note, and birds which took a left turn at Albuquerque and ended up here out of season. It only shows sections for which you have records which VBRC recommends that you submit to them.</p>
+          <p>It may be that some of the items listed here do not need to be submitted, such as when the observation is a 'continuing' bird for which the initial observer made the required submission and/or certain shared checklists within eBird.  Contact your eBird reviewer if you are uncertain.</p>
           <p>First, <a href="https://ebird.org/downloadMyData" target="_blank" rel="noopener noreferrer" >download your data from eBird.</a> Then, load the unzipped .csv file here. Your data is not stored on this site in any way. Both VCE and the VBRC curate and provide these lists publicly, for which I am grateful. This site is not directly affiliated with VCE, and I will strive to keep the reference data up to date.</p>
           {rarities !== '' ?
             <AllRows data={rarities} /> :
