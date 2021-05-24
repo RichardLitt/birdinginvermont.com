@@ -610,6 +610,7 @@ async function rare (opts) {
     'Subspecies': [],
     'OutsideExpectedDates': []
   }
+  const ignoredBreedingCodes = ['S Singing Bird', 'H In Appropriate Habitat', 'F Flyover']
   data.forEach(e => {
     let species = e['Scientific Name']
     if (speciesToReport.includes(species)) {
@@ -617,9 +618,9 @@ async function rare (opts) {
       // TODO Document this. Could also check Observation Details or Checklist Comments
       if (!appearsDuringExpectedDates(e.Date, recordEntry.Occurrence)) {
         output.OutsideExpectedDates.push(e)
-      } else if (recordEntry.Breeding !== '*' && e['Breeding Code']) {
+      } else if (recordEntry.Breeding !== '*' && e['Breeding Code'] && !ignoredBreedingCodes.includes(e['Breeding Code'])) {
         output.Breeding.push(e)
-      } else if (recordEntry.Reporting === 'N' && (e['Breeding Code'])) {
+      } else if (recordEntry.Reporting === 'N' && (e['Breeding Code']) && !ignoredBreedingCodes.includes(e['Breeding Code'])) {
         output.Breeding.push(e)
       } else if (recordEntry.Reporting === 'V') {
         // Anyhwere in Vermont
