@@ -17,6 +17,7 @@ Contributors:
 [David Eberly](https://ebird.org/profile/MTgzMDM/US-VT-021),
 [David Guertin](https://ebird.org/vt/profile/MTYyNTk2Ng/US-VT),
 [Erika Mitchell](https://ebird.org/profile/MjQ3Njg1/US-VT),
+[Hal Bill](https://ebird.org/profile/MzA5MTY0/US-VT),
 [Jim Sparrell](https://ebird.org/profile/MzUwMjAw/US-VT),
 [JoAnne Russo](https://ebird.org/profile/OTE2NDg/US-VT),
 [Kent McFarland](https://ebird.org/vt/profile/MjAwNjI/US-VT),
@@ -37,4 +38,4 @@ Annette Goyne, Barbara Powers, Rich Kelley, Rita Pitkin, and Susan Paradis.
 Let me know if you'd like to opt out of being added as a contributor, or if I missed adding you by accident.
 
 Updated on:
-May 24th, 2021
+May 26th, 2021
