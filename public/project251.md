@@ -33,9 +33,9 @@ Contributors:
 [Terry Marron](https://ebird.org/vt/profile/MjkwMzY3/US-VT),
 [Tim Holland](https://ebird.org/profile/NTE5MTg4/US-VT),
 [Zac Cota](https://ebird.org/profile/NDIwNDA1/US-VT),
-Annette Goyne, Barbara Powers, Rich Kelley, Rita Pitkin, and Susan Paradis.
+Annette Goyne, Barbara Powers, Noel Dodge, Rich Kelley, Rita Pitkin, and Susan Paradis.
 
 Let me know if you'd like to opt out of being added as a contributor, or if I missed adding you by accident.
 
 Updated on:
-May 26th, 2021
+May 27th, 2021
