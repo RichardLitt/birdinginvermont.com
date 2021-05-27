@@ -18,7 +18,7 @@ Pyle (1997) writes of _P.e. leucurus_:
 
 > (breeds c.AK-ne.BC to Nfl-CT, wint to OR-VA): Variably large; bill variably sized (esp. culmen ...); back feathers with indistinct (female and HY/SY male) to distinct (male), dusky centers; AHY/ASY male with the breast and flanks medium pinkish red to red with little or no grayish mottling. ... Birds breeding in AK-w.NWT ("alascensis") average larger but with smaller bills, and birds breeding in s.Que-Nfl to CT ("eschatosus") average smaller, but in both cases differences are broadly clinal.
 
-_eschatosus_, the Newfie Pine Grosbeak, and _alascensis_ were later merged under _leucura_.
+_eschatosus_, the Newfoundland Pine Grosbeak, and _alascensis_ were later merged under _leucura_.
 
 In general, it's difficult to say what this means for birds in Vermont. I couldn't find information on where exactly our winter birds are coming from; are they Newfoundland birds, and so smaller? Or would they come from southern or northern Quebec, or perhaps even from west of the Hudson Bay (where, after all, our Type 10 Red Crossbills come from). Without evidence, it's hard to rule out any locale - and, without birds side-by-side, matching any individual to a type specimen is functionally impossible in the field.
 
