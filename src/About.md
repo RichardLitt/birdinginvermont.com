@@ -21,24 +21,4 @@ We also have a nascent <a href="https://birding.substack.com/p/coming-soon?r=clp
 
 ### Updates
 
-- **August 18th:** Added the [VBRC Records checker](/rarities).
-- **August 18th:** Added the [White-breasted Nuthatch](/subspecies/wbnu) subspecies page.
-- **August 19th:** Added the [Canada Warbler](/nfc-species/cawa) NFC page.
-- **August 20th:** Added the [Upland Sandpiper](/nfc-species/upsa) NFC page.
-- **August 20th:** Added a [Terms](/terms) page.
-- **August 20th:** Added the [Spotted Sandpiper](/nfc-species/spsa) and [Solitary Sandpiper](/nfc-species/sosa) NFC pages.
-- **August 21st:** Added the [Bay-breasted Warbler](/nfc-species/bbwa) NFC page.
-- **August 30th:** Added the [Cape May Warbler](/nfc-species/cmwa) NFC page.
-- **September 1st:** Added the [Carolina Wren](/subspecies/cawr) subspecies page.
-- **September 2nd:** Added the [Ovenbird](/nfc-species/oven) NFC page.
-- **September 7th:** Added the [Broad-winged Hawk](/subspecies/bwha) subspecies page. Added the [Wilson's Warbler](/nfc-species/wiwa) NFC page.
-- **September 11th:** Added a list of monotypes to the [Subspecies](/subspecies/) page.
-- **September 30th:** Added the [White-throated Sparrow](/nfc-species/wtsp) NFC page.
-- **October 4th:** Added the [American Pipit](/nfc-species/ampi) NFC page.
-- **October 10th:** Added the [Great Blue Heron](/subspecies/gbhe) subspecies page.
-- **October 17th:** Added the [Eastern Cardinal](/subspecies/noca) subspecies page. Added the [Mainland Northern Saw-whet Owl](/subspecies/nswo) subspecies page.
-- **October 23th:** Added the [Dunlin](/nfc-species/dunl) NFC page.
-- **October 26th:** Added the [Pine Siskin](/nfc-species/pisi) NFC page.
-- **October 28th:** Added the [Pine Siskin](/subspecies/pisi) subspecies page.
-- **November 7th:** Added the [House Finch](/subspecies/hofi) subspecies page.
-- **February 17th, 20201**: Added the [Pine Grosbeak](/subspecies/pigr) subspecies page.
+- **May 27th, 2021**: Fixed the collapsing Navbar. Updated Project 251.
