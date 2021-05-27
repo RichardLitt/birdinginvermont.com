@@ -891,6 +891,19 @@ async function townHotspots(opts) {
   // const dateFormat = parseDateformat('day')
   // console.log(input.data)
   let data = locationFilter(input.data, opts)
+  if (opts.novisits) {
+    const towns = getAllTowns(Town_boundaries).sort((a, b) => a.town.localeCompare(b.town));
+    console.log('Towns with unvisited hotspots:')
+    towns.forEach(t => {
+      let hotspots = data.filter(x => x.Town === t.town)
+      let noVisits = hotspots.filter(x => !x["Last visited"])
+      if (noVisits.length) {
+        console.log(`${capitalizeFirstLetters(t.town)}: ${noVisits.length}`)
+        console.log(`  ${noVisits.map(x => `${x.Name} (https://ebird.org/hotspot/${x.ID})`).join('\n  ')}
+        `)
+      }
+    })
+  }
   if (opts.all) {
     const towns = getAllTowns(Town_boundaries).sort((a, b) => a.town.localeCompare(b.town));
     console.log('Town hotspots:')
