@@ -2,7 +2,7 @@
 
 <iframe width="640" height="518" src="https://macaulaylibrary.org/asset/300960971/embed/640" frameborder="0" allowfullscreen style="width:640px;max-width:100%;"></iframe>
 
-The Pine Grosbeak is a gorgeous winter finch, occasionally and affectionately called the "Parrot of the North" for its habit of hanging upside down and using its large bill for eating old crabapples and similar fermented fruit off of ornamental tress. Exceedingly tame, they are easy to observe in the wild from close quarters on years in which they irrupt south from their boreal breeding grounds.
+The Pine Grosbeak is a gorgeous winter finch, occasionally and affectionately called the "Parrot of the North" for its habit of hanging upside down and using its large bill for eating old crabapples and similar fermented fruit off of ornamental tress. Exceedingly tame, they are easy to observe in the wild from close quarters on years in which they irrupt south from their boreal breeding grounds. They are normally only present in the winter months in Vermont.
 
 There are several subspecies in its holarctic range, but arguably only one present in Vermont: the Taiga subspecies, or _Pinicola enucleator leucura_.
 
@@ -20,11 +20,11 @@ Pyle (1997) writes of _P.e. leucurus_:
 
 _eschatosus_, the Newfoundland Pine Grosbeak, and _alascensis_ were later merged under _leucura_.
 
-In general, it's difficult to say what this means for birds in Vermont. I couldn't find information on where exactly our winter birds are coming from; are they Newfoundland birds, and so smaller? Or would they come from southern or northern Quebec, or perhaps even from west of the Hudson Bay (where, after all, our Type 10 Red Crossbills come from). Without evidence, it's hard to rule out any locale - and, without birds side-by-side, matching any individual to a type specimen is functionally impossible in the field.
+The descriptions above do not make it clear what subspecies are commonly extant in Vermont. I couldn't find information on where exactly our winter birds are coming from; are they Newfoundland birds? Or would they come from southern or northern Quebec, or perhaps even from west of the Hudson Bay (where, after all, our Type 10 Red Crossbills come from). Without evidence, it's hard to rule out any locale - and, without birds side-by-side, matching any individual to a type specimen is functionally impossible in the field. For instance, saying that a Pine Grosbeak was “small” is impossible, due to individual variation and lack of easy comparison.
 
-However, all of these locations would match the home ranges of the _leucura_ subspecies. There are four other subspecies in Eurasia, one in California, one in Colorado, one in Haida Gwaii, and one elsewhere in the Pacific Northwest. None of these have known overlapping ranges in the Northeast. But as range alone should not rule out other subspecies (according to some rubrics), being able to identify this bird based on general morphology again may be difficult. Males which have dusky centers to their back feathers and with limited grayish mottling could be possibly labelled _leucura_, but justifying this would be shaky at best.
+However, the breeding range of the _leucura_ subspecies stretches from Newfoundland past Ontario, meaning that birds which are in Vermont in the winter almost certainly could be identified as _leucura_. There are four other subspecies in Eurasia, one in California, one in Colorado, one in Haida Gwaii, and one elsewhere in the Pacific Northwest. None of these have known overlapping ranges in the Northeast. But as range alone should not rule out other subspecies (according to some rubrics), being able to identify this bird based on general morphology again may be difficult. Males which have dusky centers to their back feathers and with limited grayish mottling could be possibly labelled _leucura_, but justifying this would be shaky at best.
 
-However, an arguably safe identification would be possible by looking at the location, contact or flight calls (depending on who is naming the function of the call, as experts disagree). Adkisson (1981) identified that the eastern birds have distinct whistled calls, which most identify as sounding something like a Greater Yellowlegs (Pieplow (2017) says Lesser Yellowlegs).
+However, a positive identification would be possible by looking at the location, contact or flight calls (depending on who is naming the function of the call, as experts disagree). Adkisson (1981) identified that the eastern birds have distinct whistled calls, which most identify as sounding something like a Greater Yellowlegs (Pieplow (2017) says Lesser Yellowlegs).
 
 Sibley's _Sibley Birds West_ (2016) (although not _Sibley Birds East_) notes:
 
@@ -40,7 +40,7 @@ The Pine Grosbeak gives several other calls which could be called contact, fligh
 
 When in doubt, get a recording, and check it against other Taiga calls gathered locally.
 
-Using the call itself as an identifying factor is somewhat unsatisfactory, especially as many of my earliest identifications on eBird (and subsequently, others' as well) depended upon a misreading of Birds of the World, using the general female type specimen for west of the Hudson Bay, which isn't adequate. At the same time, all of these birds were presumably Taiga, anyway, and eBird's subspecies rules would allow for adding Taiga with the same filters as the species-level-only identification option for Pine Grosbeak. Whether these records should be visited is an exercise better left to the reader, or, even better, to the reviewer for the region.
+Using the call itself as an identifying factor is somewhat unsatisfactory, especially as many of my earliest identifications on eBird (and subsequently, others' as well) depended upon a misreading of Birds of the World, using the general female type specimen for west of the Hudson Bay, which isn't adequate. At the same time, all of these birds were presumably Taiga, anyway, and eBird's subspecies rules would allow for adding Taiga with the same filters as the species-level-only identification option for Pine Grosbeak.
 
 To date, there are no records of other subspecies in Vermont. The [record listed](https://ebird.org/checklist/S76190268) here, when I first started researching this species, was the first record on eBird of the Pine Grosbeak (Taiga) in Vermont.
 
@@ -63,7 +63,7 @@ To date, there are no records of other subspecies in Vermont. The [record listed
 - Whistled location/contact/flight call reflecting Lesser/Greater Yellowlegs
 
 **Example Records:**
-- https://ebird.org/checklist/S76589599
+- https://ebird.org/checklist/S76190268
 
 **Local subspecies records**:
 - **Washington County Records:** [100+](https://ebird.org/map/pingro6?neg=true&env.minX=&env.minY=&env.maxX=&env.maxY=&zh=false&gp=false&ev=Z&mr=1-12&bmo=1&emo=12&yr=all&byr=1900&eyr=2021)
