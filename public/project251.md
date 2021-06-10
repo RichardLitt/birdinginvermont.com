@@ -9,6 +9,7 @@ I will update this map every week, to show what new towns should be added, or wh
 
 Contributors:
 [Bernard Foy](https://ebird.org/profile/NzU0MA/US-VT),
+[Carol Yarnell](https://ebird.org/profile/MzAyNDYw/US-VT),
 [Cedar Stanistreet](https://ebird.org/profile/NDM2MDU1/US-VT),
 [Charlotte Bill](https://ebird.org/vt/profile/MTEwMDg2/US-VT),
 [Chelsea Carroll](https://ebird.org/profile/NjQ1MjQy/US-VT),
@@ -38,4 +39,4 @@ Annette Goyne, Barbara Powers, Noel Dodge, Rich Kelley, Rita Pitkin, and Susan P
 Let me know if you'd like to opt out of being added as a contributor, or if I missed adding you by accident.
 
 Updated on:
-June 6th, 2021
+June 9th, 2021
