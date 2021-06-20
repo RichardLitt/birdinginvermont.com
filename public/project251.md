@@ -27,6 +27,7 @@ Contributors:
 [Maeve Kim](https://ebird.org/profile/MjM4MzU/US-VT),
 [Nathaniel Sharp](https://ebird.org/vt/profile/MTgxNDYz/US-VT),
 [Patricia Folsom](https://ebird.org/profile/MzE0Njg/US-VT),
+[Rebecca Giroux](https://ebird.org/vt/profile/MTc3ODI0/US-VT),
 [Richard Littauer](https://ebird.org/vt/profile/Mjg0MTUx/US-VT),
 [Sharon Glezen](https://ebird.org/profile/OTMyMTgz/US-VT),
 [Steven Lamonde](https://ebird.org/profile/NTQwNTA1/US-VT),
@@ -39,4 +40,4 @@ Annette Goyne, Barbara Powers, Noel Dodge, Rich Kelley, Rita Pitkin, Ron and Lyn
 Let me know if you'd like to opt out of being added as a contributor, or if I missed adding you by accident.
 
 Updated on:
-June 18th, 2021
+June 19th, 2021
