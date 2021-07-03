@@ -82,7 +82,6 @@ class Project251 extends Component {
         <div className="row">
           <div className="col-md-12 text-left">
             <Map data={this.props.data} handleChange={this.handleChange} />
-            <Checklists data={this.props.data} handleChange={this.props.handleChange} />
           </div>
         </div>
       </div>

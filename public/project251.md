@@ -1,11 +1,9 @@
 ---
 title: 'Project 251'
 ---
-This year, I am challenging Vermonters to collaboratively bird in each of our 251 towns.
+This year, I challenged Vermonters to collaboratively bird in each of our 251 towns. We did it, on June 30th, exactly half-way through the year. This is the first year ever where every town in Vermont had at least one [complete checklist](https://support.ebird.org/en/support/solutions/articles/48000967748) submitted on eBird.
 
-To join in, simply share any [complete checklist](https://support.ebird.org/en/support/solutions/articles/48000967748) from any town with the eBird account **vermont251**.
-
-I will update this map every week, to show what new towns should be added, or what new species have been seen in those towns from the shared checklists. If you bird in a new town, or see a bird in a town that isn't listed here, share your checklists!
+I'm not accepting new checklists for the rest of the year, but will almost certainly run this experiment again next year! Thanks to all who contributed.
 
 Contributors:
 [Bernard Foy](https://ebird.org/profile/NzU0MA/US-VT),
@@ -37,7 +35,5 @@ Contributors:
 [Zac Cota](https://ebird.org/profile/NDIwNDA1/US-VT),
 Annette Goyne, Barbara Powers, Noel Dodge, Rich Kelley, Rita Pitkin, Ron and Lynn Wild, and Susan Paradis.
 
-Let me know if you'd like to opt out of being added as a contributor, or if I missed adding you by accident.
 
-Updated on:
-July 1st, 2021
+Last updated July 3rd, 2021.
