@@ -2,14 +2,14 @@ import React, { Component } from 'react'
 import { Helmet } from 'react-helmet'
 import Map from './Map'
 import { withRouter } from 'react-router'
-import UploadButton from './UploadButton'
-import ChecklistTableRow from './Checklists'
+// import UploadButton from './UploadButton'
+// import ChecklistTableRow from './Checklists'
 import { Link } from 'react-router-dom'
 const ReactMarkdown = require('react-markdown')
 const matter = require('gray-matter')
 
 
-function AllRows (props) {
+/* function AllRows (props) {
   let checklists = props.data
   if (checklists.vermont.length!== 0) {
     return (
@@ -44,7 +44,7 @@ function Checklists (props) {
       </div>
     </div>
   )
-}
+} */
 
 
 class Project251 extends Component {
