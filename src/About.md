@@ -21,4 +21,4 @@ We also have a nascent <a href="https://birding.substack.com/p/coming-soon?r=clp
 
 ### Updates
 
-- **May 27th, 2021**: Fixed the collapsing Navbar. Updated Project 251.
+- **June 30th, 2021**: Completed Project 251 for the year!
