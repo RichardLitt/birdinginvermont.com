@@ -181,6 +181,14 @@ function dateFilter (list, opts) {
   })
 }
 
+function durationFilter (list, opts) {
+  if (opts.duration && !parseInt(opts.duration)) {
+    console.log('Duration filter not a number!')
+    process.exit(1)
+  }
+  return (opts.duration) ? list.filter(x => parseInt(x['Duration (Min)']) >= opts.duration) : list
+}
+
 function completeChecklistFilter (list, opts) {
   return (opts.complete) ? list.filter(x => parseInt(x['All Obs Reported']) === 1) : list
 }
@@ -287,7 +295,7 @@ async function towns (opts) {
     opts.state = 'Vermont'
   }
   const dateFormat = parseDateformat('day')
-  let data = orderByDate(completeChecklistFilter(dateFilter(locationFilter(await getData(opts.input), opts), opts), opts), opts)
+  let data = orderByDate(durationFilter(completeChecklistFilter(dateFilter(locationFilter(await getData(opts.input), opts), opts), opts), opts), opts)
   var speciesSeenInVermont = []
   _.forEach(countUniqueSpecies(data, dateFormat), (o) => {
     var mapped = _.map(o, 'Common Name')
@@ -812,7 +820,7 @@ async function subspecies (opts) {
 
 /* Return a unique list of checklists IDs */
 async function checklists (opts) {
-  let data = orderByDate(completeChecklistFilter(dateFilter(locationFilter(await getData(opts.input), opts), opts), opts), opts)
+  let data = orderByDate(durationFilter(completeChecklistFilter(dateFilter(locationFilter(await getData(opts.input), opts), opts), opts), opts), opts)
   // Intentionally not returning a URL to make this simpler, and to avoid another flag
   data = _.uniqBy(data.map(x => {
     return {
@@ -829,7 +837,7 @@ async function checklists (opts) {
 
 /* Used when updating the 251 page */
 async function getLastDate (opts) {
-    let data = orderByDate(completeChecklistFilter(dateFilter(locationFilter(await getData(opts.input), opts), opts), opts), opts)
+    let data = orderByDate(durationFilter(completeChecklistFilter(dateFilter(locationFilter(await getData(opts.input), opts), opts), opts), opts), opts)
     data = moment.max(_.uniq(data.map(x => moment(x.Date, 'YYYY-MM-DD'))))
     console.log(moment(data).format('MMMM Do, YYYY'))
 }
@@ -856,7 +864,7 @@ async function norwich(input) {
     input
   }
   const dateFormat = parseDateformat('day')
-  let data = orderByDate(completeChecklistFilter(dateFilter(locationFilter(await getData(opts.input), opts), opts), opts), opts)
+  let data = orderByDate(durationFilter(completeChecklistFilter(dateFilter(locationFilter(await getData(opts.input), opts), opts), opts), opts), opts)
   data = countUniqueSpecies(data.filter(x => x.Town === opts.town.toUpperCase()), dateFormat)
 
   if (opts.output) {

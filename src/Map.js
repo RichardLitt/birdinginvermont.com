@@ -73,6 +73,7 @@ class Map extends Component {
 
     var vermont, i, j, color, speciesTotals, speciesView
     let totalTowns = 0
+    let unseenTowns
 
     let domainMin = 0
     let domainMax = 0
@@ -97,9 +98,12 @@ class Map extends Component {
       if (data.towns && this.state.mapView === '2') {
         speciesView = Object.keys(data.towns).map(c => data.towns[c].speciesTotal)
         totalTowns = Object.keys(data.towns).filter(c => data.towns[c].speciesTotal !== 0).length
+        unseenTowns = Object.keys(data.towns).filter(c => !data.towns[c].speciesTotal).map(x => data.towns[x].town)
       } else if (data.towns && this.state.mapView === '3') {
+        // Add complete: true, duration: 3 to limit this down
         const dataThisYear = await ebirdExt.towns({all: true, year: 2021, input: data.input})
         totalTowns = Object.keys(dataThisYear).filter(c => dataThisYear[c].speciesTotal).length
+        unseenTowns = Object.keys(dataThisYear).filter(c => !dataThisYear[c].speciesTotal).map(x => dataThisYear[x].town)
         speciesView = Object.keys(dataThisYear).map(c => dataThisYear[c].speciesTotal)
         vermont.features.forEach(feature => {
           const index = dataThisYear.map(x => x.town).indexOf(feature.properties.town)
@@ -348,9 +352,12 @@ class Map extends Component {
               let townHeading = [capitalizeFirstLetters(d.properties.town) + ` (${d.properties.speciesTotal})`]
               if (d.properties.speciesTotal === 0) {
                 townHeading = [capitalizeFirstLetters(d.properties.town)]
+                d3.select('#list')
+                  .text(unseenTowns.map(x => capitalizeFirstLetters(x)).join(', '))
               }
               d3.select('#locale')
                 .text(townHeading)
+
             } else if (['/counties', '/2100'].includes(pathname)) {
               d3.select('#locale')
               .text([capitalizeFirstLetters(d.properties.name) + ` (${d.properties.speciesTotal})`])
