@@ -576,6 +576,66 @@ function pointLookup(geojson, geojsonLookup, data) {
   return
 }
 
+// - Get scientific name for a given bird
+async function getSpeciesObjGivenName (str) {
+  // Search for substring in vermontRecords
+  return VermontRecords.find((item) => (item.Species === str || item['Scientific Name'] === str) ? item : undefined)
+}
+
+async function getCountyForTown (town) {
+  // Why eBird uses this format I have no idea.
+  const eBirdCountyIds = {
+    '1': 'Addison',
+    '3': 'Bennington',
+    '5': 'Caledonia',
+    '7': 'Chittenden',
+    '9': 'Essex',
+    '11': 'Franklin',
+    '13': 'Grand Isle',
+    '15': 'Lamoille',
+    '17': 'Orange',
+    '19': 'Orleans',
+    '21': 'Rutland',
+    '23': 'Washington',
+    '25': 'Windham',
+    '27': 'Windsor'
+  }
+
+  const mapping = Town_boundaries.features.map(obj => obj.properties)
+  let res = mapping.find(t => t.town === town.toUpperCase())
+  return (res) ? eBirdCountyIds[res.county] : undefined
+}
+
+// TODO: Figure out how to get input from a dropdown in React
+//   - Discrete input (town out of all towns)
+//   - Date input
+// - Get latlong for a given town
+// - Get region for a given town
+// Does not check breeding codes or Champlain Valley birds
+async function isSpeciesSightingRare (opts) {
+  let species = await getSpeciesObjGivenName(opts.species)
+  // Likely not a bird seen in Vermont before. Just use what they gave us.
+  if (!species) {
+    species = {
+      'Scientific Name': undefined,
+      'Species': opts.species
+    }
+  }
+  // TODO Get region from latlong of town.
+  // TODO Add a way to get Breeding Codes
+  opts.data = [{
+    'County': await getCountyForTown(opts.town),
+    'Date': opts.date,
+    'Region': undefined,
+    'Scientific Name': species['Scientific Name'],
+    'Species': species.Species,
+    'Subspecies': opts.subspecies,
+    'Town': opts.town
+  }]
+  opts.manual = true
+  return await rare(opts)
+}
+
 async function rare (opts) {
   // if (!opts.year) {
   //   opts.year = moment().format('YYYY')
@@ -586,24 +646,20 @@ async function rare (opts) {
   if (!opts.manual) {
     data = dateFilter(locationFilter(await getData(opts.input), opts), opts)
   } else {
-    // TODO: Enable rarities to check an input with a species' Common Name, Town, and Date
-    // - Figure out how to get input from a dropdown in React
-    //   - Discrete input (town out of all towns)
-    //   - Date input
-    // - Get latlong for a given town
-    // - Get county for a given town
-    // - Get region for a given town
-    // - Get scientific name for a given bird
-
     // This will correctly flag as 'Unknown'
-    data = [{
-      'Species': 'Pine Marten',
-      'Date': '2020-03-02',
-      'Scientific Name': 'Martes martes',
-      'Town': 'Montpelier',
-      'Region': 'Northern Piedmont',
-      'County': 'Washington'
-    }]
+    if (opts.data) {
+      data = opts.data
+    } else {
+      const spoof = [{
+        'County': 'Washington',
+        'Date': '2020-03-02',
+        'Region': 'Northern Piedmont',
+        'Scientific Name': 'Martes martes',
+        'Species': 'Pine Marten',
+        'Town': 'Montpelier'
+      }]
+      data = spoof
+    }
   }
   const allSpecies = VermontRecords.map(x => x['Scientific Name'])
   const speciesToReport = VermontRecords.map(x => x['Scientific Name'])
@@ -959,5 +1015,6 @@ export default {
   pointLookup,
   countTheBirds,
   norwich,
-  townHotspots
+  townHotspots,
+  isSpeciesSightingRare
 }

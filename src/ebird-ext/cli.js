@@ -187,6 +187,8 @@ async function run () {
     await main.norwich(cli.flags.input)
   } else if (cli.input[0] === 'townHotspots') {
     await main.townHotspots(cli.flags)
+  } else if (cli.input[0] === 'issr') {
+    await main.isSpeciesSightingRare(cli.flags)
   } else {
     console.log(cli.showHelp())
   }
