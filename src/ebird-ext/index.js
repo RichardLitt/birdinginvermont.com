@@ -613,6 +613,7 @@ async function getCountyForTown (town) {
 // - Get region for a given town
 // Does not check breeding codes or Champlain Valley birds
 async function isSpeciesSightingRare (opts) {
+  console.log(opts)
   let species = await getSpeciesObjGivenName(opts.species)
   // Likely not a bird seen in Vermont before. Just use what they gave us.
   if (!species) {
@@ -994,8 +995,8 @@ async function townHotspots(opts) {
 // }
 
 // Switch this for CLI testing
-// module.exports = {
-export default {
+module.exports = {
+// export default {
   biggestTime,
   firstTimeList,
   firstTimes,
