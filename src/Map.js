@@ -88,6 +88,7 @@ class Map extends Component {
 
       speciesTotals = TownSightings
 
+      // All towns collectively
       if (data.towns) {
         data.towns.forEach(town => {
           const index = vermont.features.map(x => x.properties.town).indexOf(town.town)
@@ -95,10 +96,12 @@ class Map extends Component {
         })
       }
 
+      // Your personal sightings
       if (data.towns && this.state.mapView === '2') {
         speciesView = Object.keys(data.towns).map(c => data.towns[c].speciesTotal)
         totalTowns = Object.keys(data.towns).filter(c => data.towns[c].speciesTotal !== 0).length
         unseenTowns = Object.keys(data.towns).filter(c => !data.towns[c].speciesTotal).map(x => data.towns[x].town)
+      // Sightings for the current year
       } else if (data.towns && this.state.mapView === '3') {
         // Add complete: true, duration: 3 to limit this down
         const dataThisYear = await ebirdExt.towns({all: true, year: 2021, input: data.input})
