@@ -120,3 +120,14 @@ div.page {
   padding-top: 20px;
   padding-bottom: 20px;
 }
+
+.csv-container {
+  text-align: center;
+  .csv-input {
+    padding: 10px;
+    display: block;
+    margin: 15px auto;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+}

@@ -738,7 +738,6 @@ async function rare (opts) {
     }
   })
 
-  console.log(output)
   return output
 }
 

@@ -2,6 +2,11 @@ import React, { Component } from 'react'
 import UploadButton from './UploadButton'
 import { Table } from 'react-bootstrap'
 import ebird from './ebird-ext/index.js'
+import MyDatepickerComponent from './DatePicker.js';
+
+// CSS Modules, react-datepicker-cssmodules.css
+import 'react-datepicker/dist/react-datepicker-cssmodules.css';
+
 
 
 class NameForm extends React.Component {
@@ -10,7 +15,8 @@ class NameForm extends React.Component {
     this.state = {
       species: '',
       town: '',
-      date: ''
+      date: '',
+      startDate: new Date()
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -26,33 +32,50 @@ class NameForm extends React.Component {
   }
 
   async handleSubmit(event) {
-    console.log(this.state)
-    let result = await ebird.isSpeciesSightingRare({
+    function changeDateFormat (date) {
+      const offset = date.getTimezoneOffset()
+      date = new Date(date.getTime() - (offset*60*1000))
+      return date.toISOString().split('T')[0]
+    }
+
+    const opts = {
       'species': this.state.species,
-      'date': this.state.date,
+      'date': changeDateFormat(this.state.startDate),
       'town': this.state.town
-    })
-    console.log(result)
+    }
+    let result = await ebird.isSpeciesSightingRare(opts)
+    this.props.rerenderParentCallback(result)
+    // TODO Send result to props
     // alert('A name was submitted: ' + result);
     // event.preventDefault()
   }
 
+  // TODO Figure out how to style placeholder better
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <label>
-          Species:
-          <input type="text" name="species" value={this.state.species} onChange={this.handleChange} />
-          Town:
-          <input type="text" name="town" value={this.state.town} onChange={this.handleChange} />
-          Date:
-          <input type="text" name="date" value={this.state.date} onChange={this.handleChange} />
-        </label>
+      <form onSubmit={this.handleSubmit} className="col-md-10">
+        <div className="form-row">
+          <div className="form-group col-md-6">
+            <label>Species:</label>
+            <input type="text" name="species" value={this.state.species} onChange={this.handleChange} className="form-control"/>
+          </div>
+          <div className="form-group col-md-6">
+            <label>Town:</label>
+            <input type="text" name="town" value={this.state.town} onChange={this.handleChange} className="form-control"/>
+          </div>
+        </div>
+        <div className="form-row">
+          <div className="form-group col-md-6">
+            <label>Date:</label>
+            <MyDatepickerComponent type="text" name="date" value={this.state.startDate} />
+          </div>
+        </div>
         <input type="button" onClick={this.handleSubmit} value="Submit" />
       </form>
     );
   }
 }
+
 
 function SpeciesRow (props) {
   let species = props.data
@@ -160,8 +183,23 @@ function AllRows (props) {
 }
 
 class Rarities extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      rarities: this.props.data.rarities
+    }
+    this.rerenderParentCallback = this.rerenderParentCallback.bind(this);
+  }
+
+  rerenderParentCallback(props) {
+    this.setState({
+      rarities: props
+    })
+    this.forceUpdate();
+  }
+
   render() {
-    const rarities = this.props.data.rarities
+    let rarities = this.state.rarities
     return (
       <div id="rarities" className="container-md">
         <div className="row">
@@ -169,10 +207,10 @@ class Rarities extends Component {
           <p>This tool will check your eBird checklists for this year for any birds which ought to be reported to the VBRC. You can find out more on <a href="https://vtecostudies.org/wildlife/wildlife-watching/vbrc/" target="_blank" rel="noopener noreferrer" >the VBRC site</a>. This will only check submissions to your eBird account. It checks for Vermont-wide rare birds, breeding birds of note, birds outside of the Burlington Area, Lake Champlain, or the NEK, extreme rarities, subspecies of note, and birds which took a left turn at Albuquerque and ended up here out of season. It only shows sections for which you have records which VBRC recommends that you submit to them.</p>
           <p>It may be that some of the items listed here do not need to be submitted, such as when the observation is a 'continuing' bird for which the initial observer made the required submission and/or certain shared checklists within eBird.  Contact your eBird reviewer if you are uncertain.</p>
           <p>First, <a href="https://ebird.org/downloadMyData" target="_blank" rel="noopener noreferrer" >download your data from eBird.</a> Then, load the unzipped .csv file here. Your data is not stored on this site in any way. Both VCE and the VBRC curate and provide these lists publicly, for which I am grateful. This site is not directly affiliated with VCE, and I will strive to keep the reference data up to date.</p>
-          <NameForm />
+          <NameForm className="col-md-10" rerenderParentCallback={this.rerenderParentCallback} />
           {rarities !== '' ?
             <AllRows data={rarities} /> :
-            <UploadButton handleChange={this.props.handleChange} data={this.props.data} />
+            <UploadButton handleChange={this.props.handleChange} data={this.props.data} label={"Or, upload your MyEbirdData.csv file."}/>
           }
         </div>
       </div>

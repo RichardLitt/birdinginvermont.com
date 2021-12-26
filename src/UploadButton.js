@@ -10,18 +10,16 @@ const papaparseOptions = {
 
 class UploadButton extends Component {
   render() {
+    let label = (this.props.label) ? this.props.label : "Select your MyEbirdData.csv file"
     if (!this.props.data.counties) {
       return (
-        <div className="container-md">
-          <div className="row">
-            <div className="col text-center">
-              <CSVReader
-                onFileLoaded={this.props.handleChange}
-                label="Select your MyEbirdData.csv file"
-                parserOptions={papaparseOptions}
-              />
-            </div>
-          </div>
+        <div className="container-md csv-container">
+          <CSVReader
+            onFileLoaded={this.props.handleChange}
+            label={label}
+            parserOptions={papaparseOptions}
+            cssClass="react-csv-input"
+          />
         </div>
       )
     // } else if (this.loader) {
