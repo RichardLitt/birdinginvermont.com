@@ -201,17 +201,43 @@ class Rarities extends Component {
   render() {
     let rarities = this.state.rarities
     return (
-      <div id="rarities" className="container-md">
+      <div id="rarities" className="container">
         <div className="row">
-          <h1>Vermont Bird Records Checker</h1>
-          <p>This tool will check your eBird checklists for this year for any birds which ought to be reported to the VBRC. You can find out more on <a href="https://vtecostudies.org/wildlife/wildlife-watching/vbrc/" target="_blank" rel="noopener noreferrer" >the VBRC site</a>. This will only check submissions to your eBird account. It checks for Vermont-wide rare birds, breeding birds of note, birds outside of the Burlington Area, Lake Champlain, or the NEK, extreme rarities, subspecies of note, and birds which took a left turn at Albuquerque and ended up here out of season. It only shows sections for which you have records which VBRC recommends that you submit to them.</p>
-          <p>It may be that some of the items listed here do not need to be submitted, such as when the observation is a 'continuing' bird for which the initial observer made the required submission and/or certain shared checklists within eBird.  Contact your eBird reviewer if you are uncertain.</p>
-          <p>First, <a href="https://ebird.org/downloadMyData" target="_blank" rel="noopener noreferrer" >download your data from eBird.</a> Then, load the unzipped .csv file here. Your data is not stored on this site in any way. Both VCE and the VBRC curate and provide these lists publicly, for which I am grateful. This site is not directly affiliated with VCE, and I will strive to keep the reference data up to date.</p>
-          <NameForm className="col-md-10" rerenderParentCallback={this.rerenderParentCallback} />
-          {rarities !== '' ?
-            <AllRows data={rarities} /> :
-            <UploadButton handleChange={this.props.handleChange} data={this.props.data} label={"Or, upload your MyEbirdData.csv file."}/>
-          }
+          <div className="col-md-12">
+            <h1>Vermont Bird Records Checker</h1>
+
+            <div className="row">
+              <div className="col-md-8">
+                <p>The <a href="https://vtecostudies.org/wildlife/wildlife-watching/vbrc/" target="_blank" rel="noopener noreferrer" >Vermont Birds Records Committee</a> depends upon birders in the field submitting rare bird reports in the state. Below are some tools to see whether or not your bird sighting warrants a rare bird report.</p>
+              </div>
+            </div>
+
+            <h3>Check a single bird</h3>
+
+            <div className="row">
+              <div className="col-md-8">
+                <p>This form will check a single bird seen in any town in Vermont on any date and let you know if you should report it. It can't tell you if you should report a rare bird form for breeding birds or rare subspecies.You can find out more on <a href="https://vtecostudies.org/wildlife/wildlife-watching/vbrc/" target="_blank" rel="noopener noreferrer" >the VBRC site</a>.</p>
+              </div>
+            </div>
+
+            <NameForm class="col-md-12" rerenderParentCallback={this.rerenderParentCallback} />
+
+            <h3>Upload and check eBird Data</h3>
+            <div className="row">
+              <div className="col-md-8">
+                <p>To check all of your observations from eBird, you can upload your data file below. This will check your eBird checklists for any birds which ought to be reported to the VBRC. This will only check submissions to your eBird account. It checks for Vermont-wide rare birds, breeding birds of note, birds outside of the Burlington Area, Lake Champlain, or the NEK, extreme rarities, subspecies of note, and birds which are present out of season.</p>
+
+                <p>It may be that some of the items listed here do not need to be submitted, such as when the observation is for a 'continuing' bird for which the initial observer made the required submission and/or certain shared checklists within eBird.  Contact your eBird reviewer or VBRC if you are uncertain. Duplicate submissions are welcomed, however - better more people submit rare bird forms than less!</p>
+
+                <p>To use this, first <a href="https://ebird.org/downloadMyData" target="_blank" rel="noopener noreferrer" >download your data from eBird.</a> Then, load the unzipped .csv file here. Your data is not stored on this site in any way. Both VCE and the VBRC curate and provide these lists publicly, for which I am grateful. This site is not directly affiliated with VCE, and I will strive to keep the reference data up to date.</p>
+              </div>
+            </div>
+
+            {rarities !== '' ?
+              <AllRows data={rarities} /> :
+              <UploadButton handleChange={this.props.handleChange} data={this.props.data} label={"Or, upload your MyEbirdData.csv file."}/>
+            }
+          </div>
         </div>
       </div>
     )
