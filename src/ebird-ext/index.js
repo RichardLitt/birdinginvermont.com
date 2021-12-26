@@ -13,6 +13,7 @@ const moment = require('moment')
 const difference = require('compare-latlong')
 const appearsDuringExpectedDates = require('./appearsDuringExpectedDates.js')
 const provinces = require('provinces')
+const polygonCenter = require('geojson-polygon-center')
 
 function removeSpuh (arr, reverse) {
   const newArr = []
@@ -564,7 +565,12 @@ async function quadBirds (opts) {
 }
 
 function pointLookup(geojson, geojsonLookup, data) {
-  let point = {type: "Point", coordinates: [data.Longitude, data.Latitude]}
+  let point
+  if (data.type === 'Point') {
+    point = data
+  } else {
+    point = {type: "Point", coordinates: [data.Longitude, data.Latitude]}
+  }
   let containerArea = geojsonLookup.getContainers(point)
   if (containerArea.features[0]) {
     let props = containerArea.features[0].properties
@@ -606,14 +612,21 @@ async function getCountyForTown (town) {
   return (res) ? eBirdCountyIds[res.county] : undefined
 }
 
+async function getLatLngCenterofTown (town) {
+  if (typeof town !== 'string') {
+    throw new Error('Town must be a string to get a LatLng coördinate.')
+  }
+  let polygon = Town_boundaries.features.find(x => x.properties.town === town.toUpperCase())
+  let center = polygonCenter(polygon.geometry)
+  return center
+}
+
 // TODO: Figure out how to get input from a dropdown in React
 //   - Discrete input (town out of all towns)
 //   - Date input
-// - Get latlong for a given town
-// - Get region for a given town
-// Does not check breeding codes or Champlain Valley birds
+// Does not check breeding codes
+// Assumes that all towns are in one region - only uses centerpoint of town
 async function isSpeciesSightingRare (opts) {
-  console.log(opts)
   let species = await getSpeciesObjGivenName(opts.species)
   // Likely not a bird seen in Vermont before. Just use what they gave us.
   if (!species) {
@@ -622,12 +635,11 @@ async function isSpeciesSightingRare (opts) {
       'Species': opts.species
     }
   }
-  // TODO Get region from latlong of town.
   // TODO Add a way to get Breeding Codes
   opts.data = [{
     'County': await getCountyForTown(opts.town),
     'Date': opts.date,
-    'Region': undefined,
+    'Region': await pointLookup(Vermont_regions, vermontRegions, await getLatLngCenterofTown(opts.town)),
     'Scientific Name': species['Scientific Name'],
     'Species': species.Species,
     'Subspecies': opts.subspecies,
@@ -638,9 +650,6 @@ async function isSpeciesSightingRare (opts) {
 }
 
 async function rare (opts) {
-  // if (!opts.year) {
-  //   opts.year = moment().format('YYYY')
-  // }
   let data
   opts.state = 'Vermont'
   // Use only data from this year, from Vermont
@@ -729,6 +738,7 @@ async function rare (opts) {
     }
   })
 
+  console.log(output)
   return output
 }
 
@@ -1017,5 +1027,6 @@ module.exports = {
   countTheBirds,
   norwich,
   townHotspots,
-  isSpeciesSightingRare
+  isSpeciesSightingRare,
+  getLatLngCenterofTown
 }
