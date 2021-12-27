@@ -657,7 +657,7 @@ async function rare (opts) {
   opts.state = 'Vermont'
   // Use only data from this year, from Vermont
   if (!opts.manual) {
-    data = dateFilter(locationFilter(await getData(opts.input), opts), opts)
+    data = orderByDate(dateFilter(locationFilter(await getData(opts.input), opts), opts), opts).reverse()
   } else {
     // This will correctly flag as 'Unknown'
     if (opts.data) {
