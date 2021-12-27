@@ -62,7 +62,8 @@ class App extends Component {
         counties,
         checklists,
         loaded: true,
-        input: e
+        input: e,
+        singleBirdForm: false // Toggles various forms on the Rarities pages
       }
     }))
   }

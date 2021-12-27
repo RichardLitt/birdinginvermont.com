@@ -643,7 +643,10 @@ async function isSpeciesSightingRare (opts) {
     'Scientific Name': species['Scientific Name'],
     'Species': species.Species,
     'Subspecies': opts.subspecies,
-    'Town': opts.town
+    'Town': opts.town,
+    // These two are used only for display forms.
+    'Common Name': species.Species,
+    'Location': capitalizeFirstLetters(opts.town)
   }]
   opts.manual = true
   return await rare(opts)
