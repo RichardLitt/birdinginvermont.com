@@ -53,7 +53,7 @@ class NameForm extends React.Component {
     }
 
     const opts = {
-      'species': capitalizeFirstLetters(this.state.species),
+      'species': this.state.species,
       'date': changeDateFormat(this.state.date),
       'town': this.state.town.value
     }

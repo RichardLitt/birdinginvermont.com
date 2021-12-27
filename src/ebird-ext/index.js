@@ -585,7 +585,8 @@ function pointLookup(geojson, geojsonLookup, data) {
 // - Get scientific name for a given bird
 async function getSpeciesObjGivenName (str) {
   // Search for substring in vermontRecords
-  return VermontRecords.find((item) => (item.Species === str || item['Scientific Name'] === str) ? item : undefined)
+  // Substrings before this doesn't work due to Latin names having different capitalization rules
+  return VermontRecords.find((item) => (item.Species.toLowerCase() === str.toLowerCase() || item['Scientific Name'].toLowerCase() === str.toLowerCase()) ? item : undefined)
 }
 
 async function getCountyForTown (town) {
