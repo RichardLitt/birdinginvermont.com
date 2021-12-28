@@ -9,6 +9,8 @@ import ebird from './ebird-ext/index.js'
 import "react-datepicker/dist/react-datepicker.css";
 import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 
+const VermontRecords = require('./ebird-ext/data/vermont_records.json')
+
 // TODO Figure out how to style placeholder text better
 
 function capitalizeFirstLetters(string) {
@@ -24,25 +26,19 @@ class NameForm extends React.Component {
       date: new Date()
     };
 
-    this.handleChange = this.handleChange.bind(this);
-    this.handleDate = this.handleDate.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleChange(event) {
-    const value = event.target.value;
-    this.setState({
-      ...this.state,
-      [event.target.name]: value
-    });
-  }
-
-  handleDate (date) {
+  handleDate = (date) => {
     this.setState({ date })
   }
 
   handleTown = (town) => {
     this.setState({ town })
+  }
+
+  handleSpecies = (species) => {
+    this.setState({ species })
   }
 
   async handleSubmit(event) {
@@ -53,7 +49,7 @@ class NameForm extends React.Component {
     }
 
     const opts = {
-      'species': this.state.species,
+      'species': this.state.species.value,
       'date': changeDateFormat(this.state.date),
       'town': this.state.town.value
     }
@@ -62,6 +58,15 @@ class NameForm extends React.Component {
       let result = await ebird.isSpeciesSightingRare(opts)
       this.props.rerenderParentCallback(result)
     }
+  }
+
+  createSpeciesList () {
+    return VermontRecords.map((x) => {
+      return {
+        value: x.Species,
+        label: x.Species
+      }
+    }).sort()
   }
 
   createTownList () {
@@ -80,12 +85,17 @@ class NameForm extends React.Component {
         <div className="form-row">
           <div className="form-group col-md-6">
             <label>Species:</label>
-            <input type="text" name="species" value={this.state.species} onChange={this.handleChange} className="form-control"/>
+            <Select
+              name="form-field-species"
+              value={this.state.species}
+              onChange={this.handleSpecies}
+              options={this.createSpeciesList()}
+            />
           </div>
           <div className="form-group col-md-6">
             <label>Town:</label>
             <Select
-              name="form-field-name"
+              name="form-field-town"
               value={this.state.town}
               onChange={this.handleTown}
               options={this.createTownList()}
@@ -260,7 +270,7 @@ class Rarities extends Component {
 
           <div className="row">
             <div className="col-md-8">
-              <p>This form will check a single bird seen in any town in Vermont on any date and let you know if you should report it. It can't tell you if you should report a rare bird form for breeding birds or rare subspecies. You can find out more on <a href="https://vtecostudies.org/wildlife/wildlife-watching/vbrc/" target="_blank" rel="noopener noreferrer" >the VBRC site</a>.</p>
+              <p>This form will check a single bird seen in any town in Vermont on any date and let you know if you should report it. It can't tell you if you should report a rare bird form for breeding birds or rare subspecies. If a bird isn't listed here, it likely hasn't been seen in the state and deserves a rare bird report. You can find out more on <a href="https://vtecostudies.org/wildlife/wildlife-watching/vbrc/" target="_blank" rel="noopener noreferrer" >the VBRC site</a>.</p>
             </div>
           </div>
 
