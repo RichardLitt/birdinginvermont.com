@@ -432,8 +432,16 @@
     "Occurrence": ""
   },
   {
-    "Species": "Western/Clark's Grebe",
-    "Scientific Name": "Aechmophorus spp.",
+    "Species": "Western Grebe",
+    "Scientific Name": "Aechmophorus occidentalis",
+    "Status": "",
+    "Breeding": "",
+    "Reporting": "V",
+    "Occurrence": ""
+  },
+  {
+    "Species": "Clark's Grebe",
+    "Scientific Name": "Aechmophorus clarkii",
     "Status": "",
     "Breeding": "",
     "Reporting": "V",
@@ -1872,22 +1880,6 @@
     "Occurrence": ""
   },
   {
-    "Species": "Loggerhead Shrike",
-    "Scientific Name": "Lanius ludovicianus",
-    "Status": "E",
-    "Breeding": "*",
-    "Reporting": "V",
-    "Occurrence": ""
-  },
-  {
-    "Species": "Northern Shrike",
-    "Scientific Name": "Lanius borealis",
-    "Status": "",
-    "Breeding": "",
-    "Reporting": "",
-    "Occurrence": "10D-4B"
-  },
-  {
     "Species": "White-eyed Vireo",
     "Scientific Name": "Vireo griseus",
     "Status": "",
@@ -1944,6 +1936,22 @@
     "Occurrence": "5A-10B"
   },
   {
+    "Species": "Loggerhead Shrike",
+    "Scientific Name": "Lanius ludovicianus",
+    "Status": "E",
+    "Breeding": "*",
+    "Reporting": "V",
+    "Occurrence": ""
+  },
+  {
+    "Species": "Northern Shrike",
+    "Scientific Name": "Lanius borealis",
+    "Status": "",
+    "Breeding": "",
+    "Reporting": "",
+    "Occurrence": "10D-4B"
+  },
+  {
     "Species": "Canada Jay",
     "Scientific Name": "Perisoreus canadensis",
     "Status": "",
@@ -1986,6 +1994,30 @@
   {
     "Species": "Common Raven",
     "Scientific Name": "Corvus corax",
+    "Status": "",
+    "Breeding": "*",
+    "Reporting": "",
+    "Occurrence": "1A-12D"
+  },
+  {
+    "Species": "Black-capped Chickadee",
+    "Scientific Name": "Poecile atricapillus",
+    "Status": "",
+    "Breeding": "*",
+    "Reporting": "",
+    "Occurrence": "1A-12D"
+  },
+  {
+    "Species": "Boreal Chickadee",
+    "Scientific Name": "Poecile hudsonicus",
+    "Status": "",
+    "Breeding": "*",
+    "Reporting": "",
+    "Occurrence": "1A-12D"
+  },
+  {
+    "Species": "Tufted Titmouse",
+    "Scientific Name": "Baeolophus bicolor",
     "Status": "",
     "Breeding": "*",
     "Reporting": "",
@@ -2056,24 +2088,32 @@
     "Occurrence": ""
   },
   {
-    "Species": "Black-capped Chickadee",
-    "Scientific Name": "Poecile atricapillus",
+    "Species": "Ruby-crowned Kinglet",
+    "Scientific Name": "Corthylio calendula",
+    "Status": "",
+    "Breeding": "*",
+    "Reporting": "",
+    "Occurrence": "4B-11C"
+  },
+  {
+    "Species": "Golden-crowned Kinglet",
+    "Scientific Name": "Regulus satrapa",
     "Status": "",
     "Breeding": "*",
     "Reporting": "",
     "Occurrence": "1A-12D"
   },
   {
-    "Species": "Boreal Chickadee",
-    "Scientific Name": "Poecile hudsonicus",
+    "Species": "Bohemian Waxwing",
+    "Scientific Name": "Bombycilla garrulus",
     "Status": "",
-    "Breeding": "*",
+    "Breeding": "",
     "Reporting": "",
-    "Occurrence": "1A-12D"
+    "Occurrence": "11A-4D"
   },
   {
-    "Species": "Tufted Titmouse",
-    "Scientific Name": "Baeolophus bicolor",
+    "Species": "Cedar Waxwing",
+    "Scientific Name": "Bombycilla cedrorum",
     "Status": "",
     "Breeding": "*",
     "Reporting": "",
@@ -2102,6 +2142,14 @@
     "Breeding": "*",
     "Reporting": "",
     "Occurrence": "1A-12D"
+  },
+  {
+    "Species": "Blue-gray Gnatcatcher",
+    "Scientific Name": "Polioptila caerulea",
+    "Status": "",
+    "Breeding": "*",
+    "Reporting": "",
+    "Occurrence": "4D-9A"
   },
   {
     "Species": "House Wren",
@@ -2152,36 +2200,36 @@
     "Occurrence": ""
   },
   {
-    "Species": "Blue-gray Gnatcatcher",
-    "Scientific Name": "Polioptila caerulea",
+    "Species": "Gray Catbird",
+    "Scientific Name": "Dumetella carolinensis",
     "Status": "",
     "Breeding": "*",
     "Reporting": "",
-    "Occurrence": "4D-9A"
+    "Occurrence": "5A-10D+"
   },
   {
-    "Species": "Golden-crowned Kinglet",
-    "Scientific Name": "Regulus satrapa",
+    "Species": "Brown Thrasher",
+    "Scientific Name": "Toxostoma rufum",
+    "Status": "",
+    "Breeding": "*",
+    "Reporting": "",
+    "Occurrence": "4D-10B+"
+  },
+  {
+    "Species": "Northern Mockingbird",
+    "Scientific Name": "Mimus polyglottos",
     "Status": "",
     "Breeding": "*",
     "Reporting": "",
     "Occurrence": "1A-12D"
   },
   {
-    "Species": "Ruby-crowned Kinglet",
-    "Scientific Name": "Corthylio calendula",
-    "Status": "",
+    "Species": "European Starling",
+    "Scientific Name": "Sturnus vulgaris",
+    "Status": "I",
     "Breeding": "*",
     "Reporting": "",
-    "Occurrence": "4B-11C"
-  },
-  {
-    "Species": "Northern Wheatear",
-    "Scientific Name": "Oenanthe oenanthe",
-    "Status": "",
-    "Breeding": "",
-    "Reporting": "V",
-    "Occurrence": ""
+    "Occurrence": "1A-12D"
   },
   {
     "Species": "Eastern Bluebird",
@@ -2272,52 +2320,12 @@
     "Occurrence": ""
   },
   {
-    "Species": "Gray Catbird",
-    "Scientific Name": "Dumetella carolinensis",
-    "Status": "",
-    "Breeding": "*",
-    "Reporting": "",
-    "Occurrence": "5A-10D+"
-  },
-  {
-    "Species": "Brown Thrasher",
-    "Scientific Name": "Toxostoma rufum",
-    "Status": "",
-    "Breeding": "*",
-    "Reporting": "",
-    "Occurrence": "4D-10B+"
-  },
-  {
-    "Species": "Northern Mockingbird",
-    "Scientific Name": "Mimus polyglottos",
-    "Status": "",
-    "Breeding": "*",
-    "Reporting": "",
-    "Occurrence": "1A-12D"
-  },
-  {
-    "Species": "European Starling",
-    "Scientific Name": "Sturnus vulgaris",
-    "Status": "I",
-    "Breeding": "*",
-    "Reporting": "",
-    "Occurrence": "1A-12D"
-  },
-  {
-    "Species": "Bohemian Waxwing",
-    "Scientific Name": "Bombycilla garrulus",
+    "Species": "Northern Wheatear",
+    "Scientific Name": "Oenanthe oenanthe",
     "Status": "",
     "Breeding": "",
-    "Reporting": "",
-    "Occurrence": "11A-4D"
-  },
-  {
-    "Species": "Cedar Waxwing",
-    "Scientific Name": "Bombycilla cedrorum",
-    "Status": "",
-    "Breeding": "*",
-    "Reporting": "",
-    "Occurrence": "1A-12D"
+    "Reporting": "V",
+    "Occurrence": ""
   },
   {
     "Species": "House Sparrow",
