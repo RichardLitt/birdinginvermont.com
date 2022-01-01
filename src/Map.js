@@ -104,7 +104,7 @@ class Map extends Component {
       // Sightings for the current year
       } else if (data.towns && this.state.mapView === '3') {
         // Add complete: true, duration: 3 to limit this down
-        const dataThisYear = await ebirdExt.towns({all: true, year: 2021, input: data.input})
+        const dataThisYear = await ebirdExt.towns({all: true, year: 2022, input: data.input})
         totalTowns = Object.keys(dataThisYear).filter(c => dataThisYear[c].speciesTotal).length
         unseenTowns = Object.keys(dataThisYear).filter(c => !dataThisYear[c].speciesTotal).map(x => dataThisYear[x].town)
         speciesView = Object.keys(dataThisYear).map(c => dataThisYear[c].speciesTotal)
@@ -355,8 +355,10 @@ class Map extends Component {
               let townHeading = [capitalizeFirstLetters(d.properties.town) + ` (${d.properties.speciesTotal})`]
               if (d.properties.speciesTotal === 0) {
                 townHeading = [capitalizeFirstLetters(d.properties.town)]
-                d3.select('#list')
+                if (unseenTowns) {
+                  d3.select('#list')
                   .text(unseenTowns.map(x => capitalizeFirstLetters(x)).join(', '))
+                }
               }
               d3.select('#locale')
                 .text(townHeading)
