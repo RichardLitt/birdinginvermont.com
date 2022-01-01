@@ -7,6 +7,8 @@ Can we submit a complete checklist in every town in Vermont this year? 2021 was 
 To participate, share a minimum 5-minute long, [complete checklist](https://support.ebird.org/en/support/solutions/articles/48000967748) with the eBird account **vermont251**.
 
 Contributors:
+[Susan Elliott](https://ebird.org/profile/MjQzNw/US-VT-021),
 [Richard Littauer](https://ebird.org/vt/profile/Mjg0MTUx/US-VT).
 
-Last updated January 1st, 2021.
+Last updated: 
+January 1st, 2022
