@@ -23,4 +23,5 @@ We also have a nascent <a href="https://birding.substack.com/p/coming-soon?r=clp
 
 ### Updates
 
-- **June 30th, 2021**: Completed Project 251 for the year!
+- **January 1, 2022**: Restarted [Project 251](https://birdinginvermont.com/251).
+- **January 2, 2022**: Made a map of the [Unbirded Hotspots](https://birdinginvermont.com/hotspots) in Vermont.
