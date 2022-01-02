@@ -10,6 +10,7 @@ import { withRouter } from 'react-router'
 import UploadButton from './UploadButton'
 import CountyButton from './CountyButton'
 import TownsText from './Towns'
+import HotspotsText from './Hotspots'
 import CountiesText from './Counties'
 import seenInVT from './ebird-ext/taxonomies/eBird_Taxonomy_2020_VT.json'
 import rewind from "@turf/rewind"
@@ -74,6 +75,7 @@ class Map extends Component {
     var vermont, i, j, color, speciesTotals, speciesView
     let totalTowns = 0
     let unseenTowns
+    let unvisitedHotspots
 
     let domainMin = 0
     let domainMax = 0
@@ -221,6 +223,11 @@ class Map extends Component {
           }
         }
       }
+    } else if (this.props.location.pathname === '/hotspots') {
+      Counties.features = Counties.features.map(feature => rewind(feature, {reverse: true}))
+      vermont = Counties
+
+      unvisitedHotspots = await ebirdExt.townHotspots({noVisits: true})
     }
 
     // Define map projection
@@ -278,6 +285,79 @@ class Map extends Component {
       .style('stroke', '#fff')
       .style('stroke-width', '1')
 
+    if (this.props.location.pathname === '/hotspots') {
+      let selected
+      svg.selectAll("circle")
+        .data(unvisitedHotspots)
+        .enter()
+        .append("circle")
+        .attr("cx", (d) => projection([d.Longitude, d.Latitude])[0])
+        .attr("cy", (d) => projection([d.Longitude, d.Latitude])[1])
+        .attr("r", 7)
+        .attr("fill", 'green')
+        .on('click', function (d) {
+          if (!selected) {
+            selected = d3.select(this)
+            selected.style('fill', 'yellow')
+          } else {
+            selected.style('fill', 'green')
+            selected = false
+          }
+        })
+        .on('mouseover', function (d) {
+          if (!selected) {
+            d3.select(this)
+              .raise()
+              .style('fill', 'yellow')
+
+            d3.select('#locale')
+              .text([d.Name + ` (${capitalizeFirstLetters(d.County)})`])
+
+            d3.select('#list')
+              .append('hr')
+
+            d3.select('#list')
+              .append('p')
+              .text(`Town: ${capitalizeFirstLetters(d.Town)}`)
+
+            d3.select('#list')
+              .append('p')
+              .text(`Region: ${d.Region}`)
+
+            d3.select('#list')
+              .append('p')
+              .append('a')
+              .attr('href', 'https://ebird.org/hotspot/' + d.ID)
+              .text('eBird')
+
+            d3.select('#list')
+              .append('p')
+              .append('a')
+              .attr('href', 'https://www.google.com/maps/search/?api=1&query=' + d.Latitude + ',' + d.Longitude)
+              .text('Directions')
+
+            d3.select('#list')
+              .append('p')
+              .append('a')
+              .attr('href', `https://ebirdhotspots.com/birding-in-vermont/usvt-${d.County.toLowerCase()}-county/`)
+              .text('eBirdHotspots.com county page')
+          }
+        })
+        .on('mouseout', function (d) {
+          if (!selected) {
+            d3.select(this).style('fill', 'green')
+            d3.select('#tooltip').remove()
+            d3.select('#locale').text('')
+            d3.select('#list').text('')
+          }
+        })
+
+      paths
+        .style('fill', '#ddd')
+    } else {
+      townsView()
+    }
+
     // let species = 'Pied-billed Grebe'
     //
     // if (!species) {
@@ -312,8 +392,6 @@ class Map extends Component {
     //       townsView()
     //     })
     // }
-
-    townsView()
 
     function townsView () {
       paths
@@ -494,7 +572,8 @@ class Map extends Component {
           {/* TODO Could we move these into their own pages? */}
           {this.props.location.pathname === '/towns' && <TownsText />}
           {this.props.location.pathname === '/counties' && <CountiesText />}
-          {!['/251', '/2100'].includes(this.props.location.pathname) &&
+          {this.props.location.pathname === '/hotspots' && <HotspotsText />}
+          {!['/251', '/2100', '/hotspots'].includes(this.props.location.pathname) &&
           <UploadButton handleChange={this.props.handleChange} data={this.props.data} />}
           <div id="map" className="col-sm">
             <svg ref={node => this.node = node} width={this.props.data.width} height={this.props.data.height}></svg>

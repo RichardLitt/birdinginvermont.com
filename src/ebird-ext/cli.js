@@ -32,6 +32,7 @@ const cli = meow(`
     countTheBirds Show the sum of all individual birds counted
     norwich       Output for the Norwich quest
     townHotspots  Show which hotspots are in which towns
+    csvToJsonHotspots Create hotspots file
 
   Options
     --input, -i The input file
@@ -187,6 +188,8 @@ async function run () {
     await main.norwich(cli.flags.input)
   } else if (cli.input[0] === 'townHotspots') {
     await main.townHotspots(cli.flags)
+  } else if (cli.input[0] === 'csvToJsonHotspots') {
+    await main.csvToJsonHotspots(cli.flags)
   } else if (cli.input[0] === 'issr') {
     await main.isSpeciesSightingRare(cli.flags)
   } else {

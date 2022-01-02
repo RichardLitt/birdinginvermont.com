@@ -3,6 +3,7 @@ const Vermont_regions = require('./geojson/Polygon_VT_Biophysical_Regions.json')
 const VermontRecords = require('./data/vermont_records.json')
 const CountyBarcharts = require('./data/countyBarcharts.json')
 const VermontSubspecies = require('./data/vermont_records_subspecies.json')
+const VermontHotspots = require('./data/hotspots.json')
 const GeoJsonGeometriesLookup = require('geojson-geometries-lookup')
 const vermontTowns = new GeoJsonGeometriesLookup(Town_boundaries)
 const vermontRegions = new GeoJsonGeometriesLookup(Vermont_regions)
@@ -14,6 +15,24 @@ const difference = require('compare-latlong')
 const appearsDuringExpectedDates = require('./appearsDuringExpectedDates.js')
 const provinces = require('provinces')
 const polygonCenter = require('geojson-polygon-center')
+// Why eBird uses this format I have no idea.
+const eBirdCountyIds = {
+  '1': 'Addison',
+  '3': 'Bennington',
+  '5': 'Caledonia',
+  '7': 'Chittenden',
+  '9': 'Essex',
+  '11': 'Franklin',
+  '13': 'Grand Isle',
+  '15': 'Lamoille',
+  '17': 'Orange',
+  '19': 'Orleans',
+  '21': 'Rutland',
+  '23': 'Washington',
+  '25': 'Windham',
+  '27': 'Windsor'
+}
+
 
 function removeSpuh (arr, reverse) {
   const newArr = []
@@ -591,24 +610,6 @@ async function getSpeciesObjGivenName (str) {
 }
 
 async function getCountyForTown (town) {
-  // Why eBird uses this format I have no idea.
-  const eBirdCountyIds = {
-    '1': 'Addison',
-    '3': 'Bennington',
-    '5': 'Caledonia',
-    '7': 'Chittenden',
-    '9': 'Essex',
-    '11': 'Franklin',
-    '13': 'Grand Isle',
-    '15': 'Lamoille',
-    '17': 'Orange',
-    '19': 'Orleans',
-    '21': 'Rutland',
-    '23': 'Washington',
-    '25': 'Windham',
-    '27': 'Windsor'
-  }
-
   const mapping = Town_boundaries.features.map(obj => obj.properties)
   let res = mapping.find(t => t.town === town.toUpperCase())
   return (res) ? eBirdCountyIds[res.county] : undefined
@@ -952,36 +953,50 @@ async function norwich(input) {
   })
 }
 
-// Show which hotspots are in which towns
-async function townHotspots(opts) {
+async function csvToJsonHotspots (opts) {
   let input
   if (fs) {
     input = await fs.readFile(opts.input, 'utf8')
     input = input.split('\n')
     input.unshift('ID,Country,State/Province,Region,Latitude,Longitude,Name,Last visited,Species')
-    input = input.join('\n')
+    input = input.join('\n').trim()
     input = Papa.parse(input, { header: true })
   }
-
-  if (!opts.state) {
-    // We only have towns for this state
-    opts.state = 'Vermont'
+  if (opts.noVisits) {
+    input = input.data.filter(x => !x["Last visited"])
+  } else {
+    input = input.data
   }
-  // const dateFormat = parseDateformat('day')
-  // console.log(input.data)
-  let data = locationFilter(input.data, opts)
-  if (opts.novisits) {
-    const towns = getAllTowns(Town_boundaries).sort((a, b) => a.town.localeCompare(b.town));
-    console.log('Towns with unvisited hotspots:')
-    towns.forEach(t => {
-      let hotspots = data.filter(x => x.Town === t.town)
-      let noVisits = hotspots.filter(x => !x["Last visited"])
-      if (noVisits.length) {
-        console.log(`${capitalizeFirstLetters(t.town)}: ${noVisits.length}`)
-        console.log(`  ${noVisits.map(x => `${x.Name} (https://ebird.org/hotspot/${x.ID})`).join('\n  ')}
-        `)
-      }
-    })
+  await fs.writeFile('data/hotspots.json', JSON.stringify(input))
+}
+
+// Show which hotspots are in which towns
+async function townHotspots(opts) {
+  if (!opts.state) { opts.state = 'Vermont'}
+
+  // LocationFilter really shouldn't be used on these, as they're not checklists, but it works (for now...)
+  let data = locationFilter(VermontHotspots.map(x => {
+    // Otherwise it messes up and writes over the region
+    x.County = eBirdCountyIds[Number(x.Region.split('US-VT-')[1])]
+    return x
+  }), opts)
+
+  if (opts.noVisits) {
+    if (opts.print) {
+      const towns = getAllTowns(Town_boundaries).sort((a, b) => a.town.localeCompare(b.town));
+      console.log('Towns with unvisited hotspots:')
+      towns.forEach(t => {
+        let hotspots = data.filter(x => x.Town === t.town)
+        let noVisits = hotspots.filter(x => !x["Last visited"])
+        if (noVisits.length) {
+          console.log(`${capitalizeFirstLetters(t.town)}: ${noVisits.length}`)
+          console.log(`  ${noVisits.map(x => `${x.Name} (https://ebird.org/hotspot/${x.ID})`).join('\n  ')}
+            `)
+          }
+        })
+    }
+    let noVisits = data.filter(x => !x["Last visited"])
+    return noVisits
   }
   if (opts.all) {
     const towns = getAllTowns(Town_boundaries).sort((a, b) => a.town.localeCompare(b.town));
@@ -1032,5 +1047,6 @@ module.exports = {
   norwich,
   townHotspots,
   isSpeciesSightingRare,
-  getLatLngCenterofTown
+  getLatLngCenterofTown,
+  csvToJsonHotspots
 }

@@ -79,6 +79,7 @@ class App extends Component {
             <Route exact path='/towns' render={(props) => (<Map {...props} data={this.state.data} handleChange={this.handleChange} />)} />
             <Route exact path='/counties' render={(props) => (<Map {...props} data={this.state.data} handleChange={this.handleChange} />)} />
             <Route exact path='/regions' render={(props) => (<Map {...props} data={this.state.data} handleChange={this.handleChange} />)} />
+            <Route exact path='/hotspots' render={(props) => (<Map {...props} data={this.state.data} handleChange={this.handleChange} />)} />
             <Route exact path='/251' render={(props) => (<Project251 {...props} data={this.state.data} handleChange={this.handleChange} />)} />
             <Route exact path='/2100' render={(props) => (<Project2100 {...props} data={this.state.data} handleChange={this.handleChange} />)} />
             <Route exact path='/female-birdsong' render={(props) => (<ContentPage {...props} key={randomGen()} />)} />
