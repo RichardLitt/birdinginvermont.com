@@ -33,6 +33,7 @@ const cli = meow(`
     norwich       Output for the Norwich quest
     townHotspots  Show which hotspots are in which towns
     csvToJsonHotspots Create hotspots file
+    unbirdedHotspots  Show which hotspots haven't been birded
 
   Options
     --input, -i The input file
@@ -188,6 +189,8 @@ async function run () {
     await main.norwich(cli.flags.input)
   } else if (cli.input[0] === 'townHotspots') {
     await main.townHotspots(cli.flags)
+  } else if (cli.input[0] === 'unbirdedHotspots') {
+    await main.unbirdedHotspots(cli.flags)
   } else if (cli.input[0] === 'csvToJsonHotspots') {
     await main.csvToJsonHotspots(cli.flags)
   } else if (cli.input[0] === 'issr') {

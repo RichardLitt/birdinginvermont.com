@@ -964,10 +964,68 @@ async function csvToJsonHotspots (opts) {
   }
   if (opts.noVisits) {
     input = input.data.filter(x => !x["Last visited"])
+    await fs.writeFile('data/novisits-hotspots.json', JSON.stringify(input))
   } else {
     input = input.data
+    await fs.writeFile('data/hotspots.json', JSON.stringify(input))
   }
-  await fs.writeFile('data/hotspots.json', JSON.stringify(input))
+}
+
+// Show which hotspots you haven't birded in
+async function unbirdedHotspots(opts) {
+  if (!opts.state) { opts.state = 'Vermont'}
+  let data = await getData(opts.input)
+
+  let hotspots = JSON.parse(await fs.readFile('data/hotspots.json', 'utf8'))
+
+  // If the opts are not this year
+  if (opts.currentYear) {
+    let year = moment().year()
+    // Return all of the ones we haven't gone to
+    hotspots = hotspots.filter(x => {
+      if (x['Last visited']) {
+        let visitedthisYear = moment(x['Last visited'], momentFormat(x['Last visited'])).format('YYYY') === year.toString()
+        return !visitedthisYear
+      } else {
+        return true
+      }
+   })
+  }
+
+  // If the opts are not this year
+  if (opts.sinceYear) {
+    let year = opts.sinceYear
+    // Return all of the ones we haven't gone to
+    hotspots = hotspots.filter(x => {
+      if (x['Last visited']) {
+        let visitedthisYear = moment(x['Last visited'], momentFormat(x['Last visited'])).format('YYYY') >= year
+        return !visitedthisYear
+      } else {
+        return true
+      }
+   })
+  }
+
+  let result = hotspots.filter(hotspot => {
+    return !data.find(checklist => checklist['Location ID'] === hotspot.ID)
+  })
+
+  // console.log(result.map(x => `${x.Name}, ${x['Last visited']}`))
+
+  // Print out the most unrecent in your county, basically
+  console.log(result.filter(x => x.Region === 'US-VT-023').sort((a,b) => {
+    if (a['Last visited'] && b['Last visited']) {
+      let check = moment(a['Last visited']).diff(moment(b['Last visited']))
+      return check
+    } else {
+      // Not really sure how to deal with this, doesn't seem to work well.
+      return 0
+    }
+  }).map(x => `${x.Name}, ${x['Last visited']}`))
+
+  // TODO Add to the map
+  // TODO Find closest to you
+
 }
 
 // Show which hotspots are in which towns
@@ -1048,5 +1106,6 @@ module.exports = {
   townHotspots,
   isSpeciesSightingRare,
   getLatLngCenterofTown,
-  csvToJsonHotspots
+  csvToJsonHotspots,
+  unbirdedHotspots
 }
