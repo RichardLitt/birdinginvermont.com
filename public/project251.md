@@ -10,6 +10,7 @@ Contributors:
 [Jeffrey J. Allen](https://ebird.org/vt/profile/Mjc3MjE/world),
 [Cherrie Corey](https://ebird.org/profile/MTQ3Mjg2/US-VT-025),
 [Susan Elliott](https://ebird.org/profile/MjQzNw/US-VT-021),
+[Kyle Jones](https://ebird.org/vt/profile/MTM5Nzgz/world),
 [Richard Littauer](https://ebird.org/vt/profile/Mjg0MTUx/US-VT),
 [Susan Paradis](https://ebird.org/profile/MTEwMDU3Mw/world),
 Rich Kelley,
