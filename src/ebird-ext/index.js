@@ -15,6 +15,7 @@ const difference = require('compare-latlong')
 const appearsDuringExpectedDates = require('./appearsDuringExpectedDates.js')
 const provinces = require('provinces')
 const polygonCenter = require('geojson-polygon-center')
+const helpers = require('./helpers')
 // Why eBird uses this format I have no idea.
 const eBirdCountyIds = {
   '1': 'Addison',
@@ -110,29 +111,6 @@ async function getData (input) {
   return removeSpuh(input)
 }
 
-function parseDateformat (timespan) {
-  let dateFormat
-  if (timespan === 'year') {
-    dateFormat = 'YYYY'
-  } else if (timespan === 'month') {
-    dateFormat = 'YYYY-MM'
-  } else if (timespan === 'day') {
-    dateFormat = 'YYYY-MM-DD'
-  } else if (timespan) {
-    throw new Error('Unable to parse timespan. Must be: year, month, or day.')
-  }
-  return dateFormat
-}
-
-function momentFormat (dateStr) {
-  if (dateStr.includes('-')) {
-    return 'YYYY-MM-DD'
-  } else if (dateStr.includes('/')) {
-    return 'MM/DD/YYYY'
-  } else {
-    throw new Error('Invalid Date String')
-  }
-}
 
 function createPeriodArray (data) {
   const periodArray = []
@@ -146,13 +124,9 @@ function createPeriodArray (data) {
   return _.sortBy(periodArray, 'SpeciesTotal').reverse()
 }
 
-function capitalizeFirstLetters(string) {
-  return string.toLowerCase().split(' ').map(x => x.charAt(0).toUpperCase() + x.slice(1)).join(' ')
-}
-
 function locationFilter (list, opts) {
   const filterList = ['Country', 'State', 'Region', 'County', 'Town']
-  const intersection = _.intersection(Object.keys(opts).map(x => capitalizeFirstLetters(x)), filterList)
+  const intersection = _.intersection(Object.keys(opts).map(x => helpers.capitalizeFirstLetters(x)), filterList)
 
   return list.filter(checklist => {
     if (!checklist.Latitude) {
@@ -198,7 +172,7 @@ function dateFilter (list, opts) {
     return list
   }
   return list.filter(x => {
-    return moment(x.Date, momentFormat(x.Date)).format('YYYY') === opts.year.toString()
+    return moment(x.Date, helpers.momentFormat(x.Date)).format('YYYY') === opts.year.toString()
   })
 }
 
@@ -215,17 +189,17 @@ function completeChecklistFilter (list, opts) {
 }
 
 function orderByDate (arr) {
-  return _.orderBy(arr, (e) => moment(e.Date, momentFormat(e.Date)).format())
+  return _.orderBy(arr, (e) => moment(e.Date, helpers.momentFormat(e.Date)).format())
 }
 
 async function biggestTime (timespan, opts) {
-  const dateFormat = parseDateformat(timespan)
+  const dateFormat = helpers.parseDateFormat(timespan)
   const data = await getData(opts.input)
   const dataByDate = {}
 
   // Sort by the amount of unique entries per day
   data.forEach((e) => {
-    const period = moment(e.Date, momentFormat(e.Date)).format(dateFormat)
+    const period = moment(e.Date, helpers.momentFormat(e.Date)).format(dateFormat)
     if (!dataByDate[period]) {
       dataByDate[period] = [e]
     } else {
@@ -237,14 +211,14 @@ async function biggestTime (timespan, opts) {
 }
 
 async function firstTimes (timespan, opts) {
-  const dateFormat = parseDateformat(timespan)
+  const dateFormat = helpers.parseDateFormat(timespan)
   const data = orderByDate(await getData(opts.input)) // Sort by the date, instead
   const dataByDate = {}
   const speciesIndex = {}
 
   // Sort by the amount of unique entries per day
   data.forEach((e) => {
-    const period = moment(e.Date, momentFormat(e.Date)).format(dateFormat)
+    const period = moment(e.Date, helpers.momentFormat(e.Date)).format(dateFormat)
     if (!speciesIndex[e['Scientific Name']]) {
       if (!dataByDate[period]) {
         dataByDate[period] = [e]
@@ -261,7 +235,7 @@ async function firstTimes (timespan, opts) {
 
 async function firstTimeList (opts) {
   // TODO Fix
-  // const dateFormat = parseDateformat('day')
+  // const dateFormat = helpers.parseDateFormat('day')
   // const data = orderByDate(dateFilter(locationFilter(await getData(opts.input), opts), opts))
   // const dataByDate = {}
   // const speciesIndex = {}
@@ -283,7 +257,7 @@ function countUniqueSpecies (data, dateFormat) {
   const speciesIndex = {}
   const dataByDate = {}
   data.forEach((e) => {
-    const period = moment(e.Date, momentFormat(e.Date)).format(dateFormat)
+    const period = moment(e.Date, helpers.momentFormat(e.Date)).format(dateFormat)
     const specie = e['Scientific Name']
     if (!speciesIndex[specie]) {
       if (!dataByDate[period]) {
@@ -315,7 +289,7 @@ async function towns (opts) {
     // We only have towns for this state
     opts.state = 'Vermont'
   }
-  const dateFormat = parseDateformat('day')
+  const dateFormat = helpers.parseDateFormat('day')
   let data = orderByDate(durationFilter(completeChecklistFilter(dateFilter(locationFilter(await getData(opts.input), opts), opts), opts), opts), opts)
   var speciesSeenInVermont = []
   _.forEach(countUniqueSpecies(data, dateFormat), (o) => {
@@ -366,7 +340,7 @@ async function towns (opts) {
 As this is set up, it will currently return only the first time I saw species in each town provided, in Vermont */
 async function counties (opts) {
   opts.state = 'Vermont'
-  const dateFormat = parseDateformat('day')
+  const dateFormat = helpers.parseDateFormat('day')
   let data = orderByDate(dateFilter(locationFilter(await getData(opts.input), opts), opts), opts)
 
   const countySpecies = removeSpuhFromCounties(CountyBarcharts)
@@ -464,7 +438,7 @@ async function winterFinch (opts) {
 As this is set up, it will currently return only the first time I saw species in each town provided, in Vermont */
 async function regions (opts) {
   opts.state = 'Vermont'
-  const dateFormat = parseDateformat('day')
+  const dateFormat = helpers.parseDateFormat('day')
   let data = orderByDate(dateFilter(locationFilter(await getData(opts.input), opts), opts), opts)
 
   function getRegions (geojson) {
@@ -493,7 +467,7 @@ async function regions (opts) {
 }
 
 async function radialSearch (opts) {
-  const dateFormat = parseDateformat('day')
+  const dateFormat = helpers.parseDateFormat('day')
   let radius = opts.distance || 10 // miles
   let lat = opts.coordinates[0]
   let long = opts.coordinates[1]
@@ -553,19 +527,19 @@ async function quadBirds (opts) {
       }
     }
     if (e['Submission ID'] && !speciesIndex[species].seen) {
-      speciesIndex[species].seen = moment(e.Date, momentFormat(e.Date)).format('YYYY-MM-DD')
+      speciesIndex[species].seen = moment(e.Date, helpers.momentFormat(e.Date)).format('YYYY-MM-DD')
     }
     if (e.Format === 'Photo' && !speciesIndex[species].photo) {
-      speciesIndex[species].photo = moment(e.Date, momentFormat(e.Date)).format('YYYY-MM-DD')
+      speciesIndex[species].photo = moment(e.Date, helpers.momentFormat(e.Date)).format('YYYY-MM-DD')
     }
     if (e.Format === 'Audio' && !speciesIndex[species].audio) {
-      speciesIndex[species].audio = moment(e.Date, momentFormat(e.Date)).format('YYYY-MM-DD')
+      speciesIndex[species].audio = moment(e.Date, helpers.momentFormat(e.Date)).format('YYYY-MM-DD')
     }
     if (!speciesIndex[species].completed &&
       speciesIndex[species].audio &&
       speciesIndex[species].photo &&
       speciesIndex[species].seen) {
-      if (moment(speciesIndex[species].audio, momentFormat(speciesIndex[species].audio)).isBefore(speciesIndex[species].photo, momentFormat(speciesIndex[species].audio))) {
+      if (moment(speciesIndex[species].audio, helpers.momentFormat(speciesIndex[species].audio)).isBefore(speciesIndex[species].photo, helpers.momentFormat(speciesIndex[species].audio))) {
         speciesIndex[species].completed = speciesIndex[species].photo
       } else {
         speciesIndex[species].completed = speciesIndex[species].audio
@@ -649,7 +623,7 @@ async function isSpeciesSightingRare (opts) {
     'Town': opts.town,
     // These two are used only for display forms.
     'Common Name': species.Species,
-    'Location': capitalizeFirstLetters(opts.town)
+    'Location': helpers.capitalizeFirstLetters(opts.town)
   }]
   opts.manual = true
   return await rare(opts)
@@ -755,7 +729,7 @@ async function subspecies (opts) {
     data = Papa.parse(input, { header: true }).data
   }
 
-  // const dateFormat = parseDateformat('day')
+  // const dateFormat = helpers.parseDateFormat('day')
   data = orderByDate(dateFilter(locationFilter(data, opts), opts), opts)
   data = removeSpuh(data, true)
   let allIdentifications = _.uniq(data.map(x => x["Scientific Name"]))
@@ -935,7 +909,7 @@ async function norwich(input) {
     // output: `data/vt_town_counts.json`,
     input
   }
-  const dateFormat = parseDateformat('day')
+  const dateFormat = helpers.parseDateFormat('day')
   let data = orderByDate(durationFilter(completeChecklistFilter(dateFilter(locationFilter(await getData(opts.input), opts), opts), opts), opts), opts)
   data = countUniqueSpecies(data.filter(x => x.Town === opts.town.toUpperCase()), dateFormat)
 
