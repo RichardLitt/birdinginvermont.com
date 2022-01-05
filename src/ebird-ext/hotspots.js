@@ -23,8 +23,11 @@ async function csvToJsonHotspots (opts) {
 
 // Show which hotspots you haven't birded in
 async function unbirdedHotspots(opts) {
+  let data
   if (!opts.state) { opts.state = 'Vermont'}
-  let data = await main.getData(opts.input)
+  if (opts.input) {
+    data = await main.getData(opts.input)
+  }
 
   let hotspots = JSON.parse(await fs.readFile('data/hotspots.json', 'utf8'))
 
@@ -48,22 +51,26 @@ async function unbirdedHotspots(opts) {
     // Return all of the ones we haven't gone to
     hotspots = hotspots.filter(x => {
       if (x['Last visited']) {
-        let visitedthisYear = moment(x['Last visited'], helpers.momentFormat(x['Last visited'])).format('YYYY') >= year
+        let date = moment(x['Last visited'], helpers.momentFormat(x['Last visited'])).format('YYYY')
+        let visitedthisYear = year < moment(x['Last visited'], helpers.momentFormat(x['Last visited'])).format('YYYY')
         return !visitedthisYear
       } else {
-        return true
+        return false
       }
    })
   }
 
-  let result = hotspots.filter(hotspot => {
-    return !data.find(checklist => checklist['Location ID'] === hotspot.ID)
-  })
+  if (data) {
+    hotspots = hotspots.filter(hotspot => {
+      return !data.find(checklist => checklist['Location ID'] === hotspot.ID)
+    })
+  }
 
   // console.log(result.map(x => `${x.Name}, ${x['Last visited']}`))
 
+  // .filter(x => x.Region === 'US-VT-023')
   // Print out the most unrecent in your county, basically
-  console.log(result.filter(x => x.Region === 'US-VT-023').sort((a,b) => {
+  console.log(hotspots.sort((a,b) => {
     if (a['Last visited'] && b['Last visited']) {
       let check = moment(a['Last visited']).diff(moment(b['Last visited']))
       return check
@@ -75,7 +82,6 @@ async function unbirdedHotspots(opts) {
 
   // TODO Add to the map
   // TODO Find closest to you
-
 }
 
 // Show which hotspots are in which towns
