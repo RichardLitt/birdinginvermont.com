@@ -3,6 +3,7 @@
 
 const meow = require('meow')
 const main = require('./index')
+const hotspots = require('./hotspots')
 const _ = require('lodash')
 const moment = require('moment')
 
@@ -188,11 +189,11 @@ async function run () {
   } else if (cli.input[0] === 'norwich') {
     await main.norwich(cli.flags.input)
   } else if (cli.input[0] === 'townHotspots') {
-    await main.townHotspots(cli.flags)
+    await hotspots.townHotspots(cli.flags)
   } else if (cli.input[0] === 'unbirdedHotspots') {
-    await main.unbirdedHotspots(cli.flags)
+    await hotspots.unbirdedHotspots(cli.flags)
   } else if (cli.input[0] === 'csvToJsonHotspots') {
-    await main.csvToJsonHotspots(cli.flags)
+    await hotspots.csvToJsonHotspots(cli.flags)
   } else if (cli.input[0] === 'issr') {
     await main.isSpeciesSightingRare(cli.flags)
   } else {
