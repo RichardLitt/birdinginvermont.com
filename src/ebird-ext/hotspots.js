@@ -1,8 +1,9 @@
 const VermontHotspots = require('./data/hotspots.json')
 const Town_boundaries = require('./geojson/vt_towns.json')
+const _ = require('lodash')
 const fs = require('fs').promises
-const Papa = require('papaparse')
 const moment = require('moment')
+const Papa = require('papaparse')
 const main = require('./index')
 const helpers = require('./helpers')
 
@@ -125,8 +126,85 @@ async function townHotspots(opts) {
   }
 }
 
+async function daysYouveBirdedAtHotspot (opts) {
+  if (!opts.id) {
+    console.log('Get the ID for this location first, manually. Send it as --id.')
+  }
+
+  // Note - this assumes the location is a hotspot
+  console.log(`
+You have not birded in ${VermontHotspots.find(h => h.ID === opts.id).Name} on:`)
+
+  let data = await main.getData(opts.input)
+  let observedDates = {}
+  let fullYearChart = {}
+  let unbirdedDates = {}
+
+  // Create keys in observedDates for months
+  Array.from({length: 12}, (_, i) => (i+1).toString().padStart(2, '0')).forEach(key => observedDates[key] = [])
+
+  // Filter and add all days observed to the chart
+  data.filter(x => x['Location ID'] === opts.id).forEach(x => {
+    let [month, day] = x.Date.split('-').slice(1)
+    if (observedDates[month].indexOf(Number(day)) === -1) {
+      observedDates[month].push(Number(day))
+    }
+  })
+
+  // Create a full year chart, and then find days that weren't in days observed
+  Object.keys(observedDates).forEach(month => {
+    fullYearChart[month.toString().padStart(2, '0')] = Array.from({length: moment().month(month-1).daysInMonth()}, (_, i) => i + 1)
+    unbirdedDates[month] = _.difference(fullYearChart[month], observedDates[month].sort((a,b) => a-b))
+  })
+
+  // Print
+  Object.keys(unbirdedDates).sort((a,b) => Number(a)-Number(b)).forEach(month => {
+    console.log(`${moment().month(Number(month)-1).format('MMMM')}: ${unbirdedDates[month].join(', ')}`)
+  })
+}
+
+async function weeksYouveBirdedAtHotspot (opts) {
+  if (!opts.id) {
+    console.log('Get the ID for this location first, manually. Send it as --id.')
+  }
+
+  let data = await main.getData(opts.input)
+  let observedDates = []
+  let unbirdedDates = Array.from({length: 52}, (_, i) => i + 1)
+
+  // Filter and add all days observed to the chart
+  data.filter(x => x['Location ID'] === opts.id).forEach(x => {
+    let week = moment(x.Date).week()
+    if (observedDates.indexOf(week) === -1) {
+      observedDates.push(week)
+    }
+  })
+
+  let unbirdedWeeks = _.difference(unbirdedDates, observedDates.sort((a,b) => Number(a)-Number(b)))
+
+  console.log()
+
+  if (observedDates.length === 52){
+    // Note - this assumes the location is a hotspot
+    if (VermontHotspots.find(h => h.ID === opts.id).Name) {
+      console.log(`
+You've birded at ${VermontHotspots.find(h => h.ID === opts.id).Name} every week of the calendar year!`)
+    } else {
+      console.log(`You've birded at this location every week of the year!`)
+    }
+
+  } else {
+    console.log(`You've not birded here on weeks: ${unbirdedWeeks.join(', ')}.`)
+    console.log(`The next unbirded week (#${unbirdedWeeks[0]}) starts on ${moment().startOf('year').week(unbirdedWeeks[0]).startOf('week').format('dddd, MMMM Do')}.`)
+  }
+  console.log('Note this only takes into account your bird sightings, not the databases.')
+  console.log()
+}
+
 module.exports = {
   csvToJsonHotspots,
   unbirdedHotspots,
-  townHotspots
+  townHotspots,
+  daysYouveBirdedAtHotspot,
+  weeksYouveBirdedAtHotspot
 }

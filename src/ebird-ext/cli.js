@@ -194,6 +194,10 @@ async function run () {
     await hotspots.unbirdedHotspots(cli.flags)
   } else if (cli.input[0] === 'csvToJsonHotspots') {
     await hotspots.csvToJsonHotspots(cli.flags)
+  } else if (cli.input[0] === 'daysYouveBirdedAtHotspot') {
+    await hotspots.daysYouveBirdedAtHotspot(cli.flags)
+  } else if (cli.input[0] === 'weeksYouveBirdedAtHotspot') {
+    await hotspots.weeksYouveBirdedAtHotspot(cli.flags)
   } else if (cli.input[0] === 'issr') {
     await main.isSpeciesSightingRare(cli.flags)
   } else {
