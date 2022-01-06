@@ -15,6 +15,7 @@ import CountiesText from './Counties'
 import seenInVT from './ebird-ext/taxonomies/eBird_Taxonomy_2020_VT.json'
 import rewind from "@turf/rewind"
 import ebirdExt from './ebird-ext/index.js'
+import ebirdExtHotspots from './ebird-ext/hotspots.js'
 // const d3ScaleChromatic = require('d3-scale-chromatic')
 const d3 = require('d3')
 const d3Geo = require('d3-geo')
@@ -227,7 +228,7 @@ class Map extends Component {
       Counties.features = Counties.features.map(feature => rewind(feature, {reverse: true}))
       vermont = Counties
 
-      unvisitedHotspots = await ebirdExt.townHotspots({noVisits: true})
+      unvisitedHotspots = await ebirdExtHotspots.townHotspots({noVisits: true})
     }
 
     // Define map projection

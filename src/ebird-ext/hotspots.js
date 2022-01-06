@@ -51,8 +51,7 @@ async function unbirdedHotspots(opts) {
     // Return all of the ones we haven't gone to
     hotspots = hotspots.filter(x => {
       if (x['Last visited']) {
-        let date = moment(x['Last visited'], helpers.momentFormat(x['Last visited'])).format('YYYY')
-        let visitedthisYear = year < moment(x['Last visited'], helpers.momentFormat(x['Last visited'])).format('YYYY')
+        let visitedthisYear = moment(x['Last visited'], helpers.momentFormat(x['Last visited'])).format('YYYY') > year
         return !visitedthisYear
       } else {
         return false
