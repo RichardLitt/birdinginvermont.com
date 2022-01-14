@@ -932,6 +932,12 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
+"@babel/runtime@^7.12.0", "@babel/runtime@^7.13.10":
+  version "7.16.7"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.16.7.tgz#03ff99f64106588c9c403c6ecb8c3bafbbdff1fa"
+  dependencies:
+    regenerator-runtime "^0.13.4"
+
 "@babel/template@^7.12.13", "@babel/template@^7.4.0", "@babel/template@^7.8.6":
   version "7.12.13"
   resolved "https://registry.npmjs.org/@babel/template/-/template-7.12.13.tgz"
@@ -976,6 +982,62 @@
 "@csstools/normalize.css@^10.1.0":
   version "10.1.0"
   resolved "https://registry.npmjs.org/@csstools/normalize.css/-/normalize.css-10.1.0.tgz"
+
+"@emotion/cache@^11.4.0", "@emotion/cache@^11.7.1":
+  version "11.7.1"
+  resolved "https://registry.yarnpkg.com/@emotion/cache/-/cache-11.7.1.tgz#08d080e396a42e0037848214e8aa7bf879065539"
+  dependencies:
+    "@emotion/memoize" "^0.7.4"
+    "@emotion/sheet" "^1.1.0"
+    "@emotion/utils" "^1.0.0"
+    "@emotion/weak-memoize" "^0.2.5"
+    stylis "4.0.13"
+
+"@emotion/hash@^0.8.0":
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/@emotion/hash/-/hash-0.8.0.tgz#bbbff68978fefdbe68ccb533bc8cbe1d1afb5413"
+
+"@emotion/memoize@^0.7.4":
+  version "0.7.5"
+  resolved "https://registry.yarnpkg.com/@emotion/memoize/-/memoize-0.7.5.tgz#2c40f81449a4e554e9fc6396910ed4843ec2be50"
+
+"@emotion/react@^11.1.1":
+  version "11.7.1"
+  resolved "https://registry.yarnpkg.com/@emotion/react/-/react-11.7.1.tgz#3f800ce9b20317c13e77b8489ac4a0b922b2fe07"
+  dependencies:
+    "@babel/runtime" "^7.13.10"
+    "@emotion/cache" "^11.7.1"
+    "@emotion/serialize" "^1.0.2"
+    "@emotion/sheet" "^1.1.0"
+    "@emotion/utils" "^1.0.0"
+    "@emotion/weak-memoize" "^0.2.5"
+    hoist-non-react-statics "^3.3.1"
+
+"@emotion/serialize@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@emotion/serialize/-/serialize-1.0.2.tgz#77cb21a0571c9f68eb66087754a65fa97bfcd965"
+  dependencies:
+    "@emotion/hash" "^0.8.0"
+    "@emotion/memoize" "^0.7.4"
+    "@emotion/unitless" "^0.7.5"
+    "@emotion/utils" "^1.0.0"
+    csstype "^3.0.2"
+
+"@emotion/sheet@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@emotion/sheet/-/sheet-1.1.0.tgz#56d99c41f0a1cda2726a05aa6a20afd4c63e58d2"
+
+"@emotion/unitless@^0.7.5":
+  version "0.7.5"
+  resolved "https://registry.yarnpkg.com/@emotion/unitless/-/unitless-0.7.5.tgz#77211291c1900a700b8a78cfafda3160d76949ed"
+
+"@emotion/utils@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@emotion/utils/-/utils-1.0.0.tgz#abe06a83160b10570816c913990245813a2fd6af"
+
+"@emotion/weak-memoize@^0.2.5":
+  version "0.2.5"
+  resolved "https://registry.yarnpkg.com/@emotion/weak-memoize/-/weak-memoize-0.2.5.tgz#8eed982e2ee6f7f4e44c253e12962980791efd46"
 
 "@fortawesome/fontawesome-common-types@^0.2.34":
   version "0.2.34"
@@ -1187,6 +1249,10 @@
 "@popperjs/core@^2.5.3":
   version "2.6.0"
   resolved "https://registry.npmjs.org/@popperjs/core/-/core-2.6.0.tgz"
+
+"@popperjs/core@^2.9.2":
+  version "2.11.2"
+  resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.11.2.tgz#830beaec4b4091a9e9398ac50f865ddea52186b9"
 
 "@restart/context@^2.1.4":
   version "2.1.4"
@@ -2081,11 +2147,11 @@ aws4@^1.8.0:
   version "1.11.0"
   resolved "https://registry.npmjs.org/aws4/-/aws4-1.11.0.tgz"
 
-axios@^0.21.1:
-  version "0.21.1"
-  resolved "https://registry.yarnpkg.com/axios/-/axios-0.21.1.tgz#22563481962f4d6bde9a76d516ef0e5d3c09b2b8"
+axios@^0.21.4:
+  version "0.21.4"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-0.21.4.tgz#c67b90dc0568e5c1cf2b0b858c43ba28e2eda575"
   dependencies:
-    follow-redirects "^1.10.0"
+    follow-redirects "^1.14.0"
 
 axobject-query@^2.0.2:
   version "2.2.0"
@@ -3587,6 +3653,10 @@ data-urls@^1.0.0, data-urls@^1.1.0:
     whatwg-mimetype "^2.2.0"
     whatwg-url "^7.0.0"
 
+date-fns@^2.24.0:
+  version "2.28.0"
+  resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-2.28.0.tgz#9570d656f5fc13143e50c975a3b6bbeb46cd08b2"
+
 debug@2.6.9, debug@^2.2.0, debug@^2.3.3, debug@^2.6.0, debug@^2.6.9:
   version "2.6.9"
   resolved "https://registry.npmjs.org/debug/-/debug-2.6.9.tgz"
@@ -4622,9 +4692,9 @@ flush-write-stream@^1.0.0:
     inherits "^2.0.3"
     readable-stream "^2.3.6"
 
-follow-redirects@^1.0.0, follow-redirects@^1.10.0:
-  version "1.13.3"
-  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.13.3.tgz#e5598ad50174c1bc4e872301e82ac2cd97f90267"
+follow-redirects@^1.0.0, follow-redirects@^1.14.0:
+  version "1.14.7"
+  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.14.7.tgz#2004c02eb9436eee9a21446a6477debf17e81685"
 
 for-in@^0.1.3:
   version "0.1.8"
@@ -4796,6 +4866,10 @@ geojson-geometries-lookup@^0.3.1:
 geojson-geometries@^1.1.1:
   version "1.1.2"
   resolved "https://registry.npmjs.org/geojson-geometries/-/geojson-geometries-1.1.2.tgz"
+
+geojson-polygon-center@0.0.0:
+  version "0.0.0"
+  resolved "https://registry.yarnpkg.com/geojson-polygon-center/-/geojson-polygon-center-0.0.0.tgz#f97b839ac996654bffd30abacbd728cb0f8bd305"
 
 get-caller-file@^1.0.1:
   version "1.0.3"
@@ -5103,7 +5177,7 @@ hmac-drbg@^1.0.1:
     minimalistic-assert "^1.0.0"
     minimalistic-crypto-utils "^1.0.1"
 
-hoist-non-react-statics@^3.1.0:
+hoist-non-react-statics@^3.1.0, hoist-non-react-statics@^3.3.1:
   version "3.3.2"
   resolved "https://registry.npmjs.org/hoist-non-react-statics/-/hoist-non-react-statics-3.3.2.tgz"
   dependencies:
@@ -6560,6 +6634,10 @@ lodash.uniq@^4.5.0:
   version "4.17.20"
   resolved "https://registry.npmjs.org/lodash/-/lodash-4.17.20.tgz"
 
+lodash@^4.17.21:
+  version "4.17.21"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
+
 loglevel@^1.6.6:
   version "1.7.1"
   resolved "https://registry.npmjs.org/loglevel/-/loglevel-1.7.1.tgz"
@@ -6682,6 +6760,10 @@ mem@^4.0.0:
     map-age-cleaner "^0.1.1"
     mimic-fn "^2.0.0"
     p-is-promise "^2.0.0"
+
+memoize-one@^5.0.0:
+  version "5.2.1"
+  resolved "https://registry.yarnpkg.com/memoize-one/-/memoize-one-5.2.1.tgz#8337aa3c4335581839ec01c3d594090cebe8f00e"
 
 memory-fs@^0.4.1:
   version "0.4.1"
@@ -8355,6 +8437,14 @@ prop-types-extra@^1.1.0:
     react-is "^16.3.2"
     warning "^4.0.0"
 
+prop-types@^15.6.0:
+  version "15.8.1"
+  resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.8.1.tgz#67d87bf1a694f48435cf332c24af10214a3140b5"
+  dependencies:
+    loose-envify "^1.4.0"
+    object-assign "^4.1.1"
+    react-is "^16.13.1"
+
 prop-types@^15.6.2, prop-types@^15.7.2:
   version "15.7.2"
   resolved "https://registry.npmjs.org/prop-types/-/prop-types-15.7.2.tgz"
@@ -8549,6 +8639,17 @@ react-csv-reader@^3.0.5:
     "@types/papaparse" "^5.2.4"
     papaparse "^5.3.0"
 
+react-datepicker@^4.5.0:
+  version "4.6.0"
+  resolved "https://registry.yarnpkg.com/react-datepicker/-/react-datepicker-4.6.0.tgz#10fc7c5b9c72df5c3e29712d559cb3fe73fd9f62"
+  dependencies:
+    "@popperjs/core" "^2.9.2"
+    classnames "^2.2.6"
+    date-fns "^2.24.0"
+    prop-types "^15.7.2"
+    react-onclickoutside "^6.12.0"
+    react-popper "^2.2.5"
+
 react-dev-utils@^10.2.1:
   version "10.2.1"
   resolved "https://registry.npmjs.org/react-dev-utils/-/react-dev-utils-10.2.1.tgz"
@@ -8591,9 +8692,9 @@ react-error-overlay@^6.0.7:
   version "6.0.9"
   resolved "https://registry.npmjs.org/react-error-overlay/-/react-error-overlay-6.0.9.tgz"
 
-react-fast-compare@^3.1.1:
+react-fast-compare@^3.0.1, react-fast-compare@^3.1.1:
   version "3.2.0"
-  resolved "https://registry.npmjs.org/react-fast-compare/-/react-fast-compare-3.2.0.tgz"
+  resolved "https://registry.yarnpkg.com/react-fast-compare/-/react-fast-compare-3.2.0.tgz#641a9da81b6a6320f270e89724fb45a0b39e43bb"
 
 react-helmet@^6.1.0:
   version "6.1.0"
@@ -8604,7 +8705,7 @@ react-helmet@^6.1.0:
     react-fast-compare "^3.1.1"
     react-side-effect "^2.1.0"
 
-react-is@^16.12.0, react-is@^16.3.2, react-is@^16.6.0, react-is@^16.7.0, react-is@^16.8.1, react-is@^16.8.4, react-is@^16.8.6:
+react-is@^16.12.0, react-is@^16.13.1, react-is@^16.3.2, react-is@^16.6.0, react-is@^16.7.0, react-is@^16.8.1, react-is@^16.8.4, react-is@^16.8.6:
   version "16.13.1"
   resolved "https://registry.npmjs.org/react-is/-/react-is-16.13.1.tgz"
 
@@ -8625,6 +8726,10 @@ react-markdown@^4.3.1:
     unist-util-visit "^1.3.0"
     xtend "^4.0.1"
 
+react-onclickoutside@^6.12.0:
+  version "6.12.1"
+  resolved "https://registry.yarnpkg.com/react-onclickoutside/-/react-onclickoutside-6.12.1.tgz#92dddd28f55e483a1838c5c2930e051168c1e96b"
+
 react-overlays@^4.1.0:
   version "4.1.1"
   resolved "https://registry.npmjs.org/react-overlays/-/react-overlays-4.1.1.tgz"
@@ -8637,6 +8742,13 @@ react-overlays@^4.1.0:
     prop-types "^15.7.2"
     uncontrollable "^7.0.0"
     warning "^4.0.3"
+
+react-popper@^2.2.5:
+  version "2.2.5"
+  resolved "https://registry.yarnpkg.com/react-popper/-/react-popper-2.2.5.tgz#1214ef3cec86330a171671a4fbcbeeb65ee58e96"
+  dependencies:
+    react-fast-compare "^3.0.1"
+    warning "^4.0.2"
 
 react-router-dom@^5.2.0:
   version "5.2.0"
@@ -8724,9 +8836,30 @@ react-scripts@3.4.1:
   optionalDependencies:
     fsevents "2.1.2"
 
+react-select@^5.2.1:
+  version "5.2.2"
+  resolved "https://registry.yarnpkg.com/react-select/-/react-select-5.2.2.tgz#3d5edf0a60f1276fd5f29f9f90a305f0a25a5189"
+  dependencies:
+    "@babel/runtime" "^7.12.0"
+    "@emotion/cache" "^11.4.0"
+    "@emotion/react" "^11.1.1"
+    "@types/react-transition-group" "^4.4.0"
+    memoize-one "^5.0.0"
+    prop-types "^15.6.0"
+    react-transition-group "^4.3.0"
+
 react-side-effect@^2.1.0:
   version "2.1.1"
   resolved "https://registry.npmjs.org/react-side-effect/-/react-side-effect-2.1.1.tgz"
+
+react-transition-group@^4.3.0:
+  version "4.4.2"
+  resolved "https://registry.yarnpkg.com/react-transition-group/-/react-transition-group-4.4.2.tgz#8b59a56f09ced7b55cbd53c36768b922890d5470"
+  dependencies:
+    "@babel/runtime" "^7.5.5"
+    dom-helpers "^5.0.1"
+    loose-envify "^1.4.0"
+    prop-types "^15.6.2"
 
 react-transition-group@^4.4.1:
   version "4.4.1"
@@ -9891,6 +10024,10 @@ stylehacks@^4.0.0:
     postcss "^7.0.0"
     postcss-selector-parser "^3.0.0"
 
+stylis@4.0.13:
+  version "4.0.13"
+  resolved "https://registry.yarnpkg.com/stylis/-/stylis-4.0.13.tgz#f5db332e376d13cc84ecfe5dace9a2a51d954c91"
+
 supports-color@^2.0.0:
   version "2.0.0"
   resolved "https://registry.npmjs.org/supports-color/-/supports-color-2.0.0.tgz"
@@ -10515,7 +10652,7 @@ walker@^1.0.7, walker@~1.0.5:
   dependencies:
     makeerror "1.0.x"
 
-warning@^4.0.0, warning@^4.0.3:
+warning@^4.0.0, warning@^4.0.2, warning@^4.0.3:
   version "4.0.3"
   resolved "https://registry.npmjs.org/warning/-/warning-4.0.3.tgz"
   dependencies:
