@@ -13,9 +13,10 @@ Contributors:
 [Kyle Jones](https://ebird.org/vt/profile/MTM5Nzgz/world),
 [Richard Littauer](https://ebird.org/vt/profile/Mjg0MTUx/US-VT),
 [Susan Paradis](https://ebird.org/profile/MTEwMDU3Mw/world),
+Barbara Powers,
 Rich Kelley,
 Rita Pitkin,
 and Ruth Stewart.
 
 Last updated:
-January 9th, 2022
+January 25th, 2022
