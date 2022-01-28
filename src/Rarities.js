@@ -261,7 +261,7 @@ class Rarities extends Component {
 
           <div className="row">
             <div className="col-md-8">
-              <p>The <a href="https://vtecostudies.org/wildlife/wildlife-watching/vbrc/" target="_blank" rel="noopener noreferrer" >Vermont Birds Records Committee</a> depends upon birders in the field submitting rare bird reports in the state. Below are some tools to see whether or not your bird sighting warrants a rare bird report.</p>
+              <p>The <a href="https://vtecostudies.org/wildlife/wildlife-watching/vbrc/" target="_blank" rel="noopener noreferrer" >Vermont Bird Records Committee</a> depends upon birders in the field submitting rare bird reports in the state. Below are some tools to see whether or not your bird sighting warrants a rare bird report.</p>
               <p>Please report bugs to me at <a href="mailto:richard@birdinginvermont.com">richard@birdinginvermont.com</a>.</p>
             </div>
           </div>
