@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import UploadButton from './UploadButton'
+import { Helmet } from 'react-helmet'
 import { Table } from 'react-bootstrap'
 import DatePicker from "react-datepicker";
 import Select from 'react-select';
@@ -255,14 +256,21 @@ class Rarities extends Component {
     let rarities = (this.state.singleBirdForm !== '') ? this.state.rarities : this.props.data.rarities
     return (
       <div id="rarities" className="container-md">
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>VBRC Checker | Birding In Vermont</title>
+          <link rel="canonical" href="https://birdinginvermont.com/251" />
+          <meta name="description" content="Vermont Bird Records Committee Rare Bird Reports checker" />
+        </Helmet>
         <div className="row">
           <div className="col-sm-12">
           <h1>Vermont Bird Records Checker</h1>
 
           <div className="row">
             <div className="col-md-8">
-              <p>The <a href="https://vtecostudies.org/wildlife/wildlife-watching/vbrc/" target="_blank" rel="noopener noreferrer" >Vermont Bird Records Committee</a> depends upon birders in the field submitting rare bird reports in the state. Below are some tools to see whether or not your bird sighting warrants a rare bird report.</p>
-              <p>Please report bugs to me at <a href="mailto:richard@birdinginvermont.com">richard@birdinginvermont.com</a>.</p>
+              <p>The <a href="https://vtecostudies.org/wildlife/wildlife-watching/vbrc/" target="_blank" rel="noopener noreferrer" >Vermont Bird Records Committee</a> depends upon birders in the field submitting rare bird reports in the state. Below are some tools to see whether or not your bird sighting warrants a rare bird report. If you're unsure or if you think that someone else may have also submitted a report of the same bird, contact your eBird reviewer.</p>
+
+              <p>Please report bugs or send questions to me at <a href="mailto:richard@birdinginvermont.com">richard@birdinginvermont.com</a>.</p>
             </div>
           </div>
 
