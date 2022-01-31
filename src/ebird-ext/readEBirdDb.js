@@ -1,6 +1,6 @@
 // This function reads only the eBird database files, requestable from eBird.
 
-const fs = require('fs').promises
+const fs = require('fs')
 const readline = require('readline')
 const csv = require('csv-parse')
 const Town_boundaries = require('./geojson/vt_towns.json')
@@ -31,8 +31,9 @@ const parser = csv({
     'SUBSPECIES COMMON NAME',
     'SUBSPECIES SCIENTIFIC NAME',
     'OBSERVATION COUNT',
-    'BREEDING BIRD ATLAS CODE',
-    'BREEDING BIRD ATLAS CATEGORY',
+    'BREEDING CODE',
+    'BREEDING CATEGORY',
+    'BEHAVIOR CODE',
     'AGE/SEX',
     'COUNTRY',
     'COUNTRY CODE',
@@ -58,7 +59,8 @@ const parser = csv({
     'PROJECT CODE',
     'DURATION MINUTES',
     'EFFORT DISTANCE KM',
-    'EFFORT AREA HANUMBER OBSERVERS',
+    'EFFORT AREA HA',
+    'NUMBER OBSERVERS',
     'ALL SPECIES REPORTED',
     'GROUP IDENTIFIER',
     'HAS MEDIA',
@@ -125,30 +127,60 @@ function addStringstoCommonName (input) {
   }
 }
 
-
 const filepaths = [
-  '/Users/richard/Dropbox/ebd_US-VT_relNov-2020/001.txt',
-  '/Users/richard/Dropbox/ebd_US-VT_relNov-2020/003.txt',
-  '/Users/richard/Dropbox/ebd_US-VT_relNov-2020/005.txt',
-  '/Users/richard/Dropbox/ebd_US-VT_relNov-2020/007.txt',
-  '/Users/richard/Dropbox/ebd_US-VT_relNov-2020/009.txt',
-  '/Users/richard/Dropbox/ebd_US-VT_relNov-2020/011.txt',
-  '/Users/richard/Dropbox/ebd_US-VT_relNov-2020/013.txt',
-  '/Users/richard/Dropbox/ebd_US-VT_relNov-2020/015.txt',
-  '/Users/richard/Dropbox/ebd_US-VT_relNov-2020/017.txt',
-  '/Users/richard/Dropbox/ebd_US-VT_relNov-2020/019.txt',
-  '/Users/richard/Dropbox/ebd_US-VT_relNov-2020/021.txt',
-  '/Users/richard/Dropbox/ebd_US-VT_relNov-2020/023.txt',
-  '/Users/richard/Dropbox/ebd_US-VT_relNov-2020/025.txt',
-  '/Users/richard/Dropbox/ebd_US-VT_relNov-2020/027.txt'
+  // '/Users/richard/Dropbox/ebd_US-VT_relNov-2021/001.txt',
+  // '/Users/richard/Dropbox/ebd_US-VT_relNov-2021/003.txt',
+  // '/Users/richard/Dropbox/ebd_US-VT_relNov-2021/005.txt',
+  // '/Users/richard/Dropbox/ebd_US-VT_relNov-2021/007.txt',
+  // '/Users/richard/Dropbox/ebd_US-VT_relNov-2021/009.txt',
+  // '/Users/richard/Dropbox/ebd_US-VT_relNov-2021/011.txt',
+  // '/Users/richard/Dropbox/ebd_US-VT_relNov-2021/013.txt',
+  // '/Users/richard/Dropbox/ebd_US-VT_relNov-2021/015.txt',
+  // '/Users/richard/Dropbox/ebd_US-VT_relNov-2021/017.txt',
+  // '/Users/richard/Dropbox/ebd_US-VT_relNov-2021/019.txt',
+  // '/Users/richard/Dropbox/ebd_US-VT_relNov-2021/021.txt',
+  '/Users/richard/Downloads/ebd_US-VT_relNov-2021/hitchcock.txt',
+  // '/Users/richard/Dropbox/ebd_US-VT_relNov-2021/025.txt',
+  // '/Users/richard/Dropbox/ebd_US-VT_relNov-2021/027.txt'
 ]
 
 filepaths.forEach(async filepath => {
-  let string = filepath.match(/0\d\d\.txt/g)[0].match(/\d+/g)[0]
+  // let string = filepath.match(/0\d\d\.txt/g)[0].match(/\d+/g)[0]
+  let string = filepath[0]
   // console.log(filepath)
   await runFile(filepath, string)
   console.log(`Analyzed ${filepath}.`)
 })
+
+// TODO Make a mapping to these fields for some exports
+function shimData (row) {
+  return {
+    "Submission ID": row['SAMPLING EVENT IDENTIFIER'],
+    "Common Name": row['COMMON NAME'],
+    "Scientific Name": row['SCIENTIFIC NAME'],
+    "Taxonomic Order": row['TAXONOMIC ORDER'],
+    "Count": row['OBSERVATION COUNT'],
+    "State/Province": row['STATE CODE'],
+    "County": row['COUNTY'],
+    "Location ID": row['LOCALITY ID'],
+    "Location": row['LOCALITY'],
+    "Latitude": row['LATITUDE'],
+    "Longitude": row['LONGITUDE'],
+    "Date": row['OBSERVATION DATE'],
+    "Time": row['TIME OBSERVATIONS STARTED'],
+    "Protocol": row['PROTOCOL TYPE'],
+    "Duration (Min)": row['DURATION MINUTES'],
+    "All Obs Reported": row['ALL SPECIES REPORTED'],
+    "Distance Traveled (km)": row['EFFORT DISTANCE KM'],
+    "Area Covered (ha)": row['EFFORT AREA HA'],
+    "Number of Observers": row['NUMBER OBSERVERS'],
+    "Breeding Code": row['BREEDING CODE'],
+    "Observation Details": row['SPECIES COMMENTS'],
+    "Checklist Comments": row['TRIP COMMENTS'],
+    "ML Catalog Numbers": row['HAS MEDIA']
+  }
+}
+
 
 async function runFile (filepath, string) {
   let boundaries = {}
@@ -169,6 +201,7 @@ async function runFile (filepath, string) {
   // Ideally, we would have an object for each town which shows what species were seen in that town.
   // This should match the result of: node cli.js towns --input=MyEBirdData.csv
 
+  const shimmedRows = []
 
   await fs.createReadStream(filepath)
     .pipe(parser)
@@ -253,43 +286,57 @@ async function runFile (filepath, string) {
       // Delete everything between county code and latitude
       // Match1: US-VT-\d\d\d
       // Match 2: ^(.*)\t^[\t]*\tL\d+.*
+
+      shimmedRows.push(shimData(row))
     })
     .on('error', (e) => {
       console.log('BONK', e)
     })
     .on('end', () => {
-      let totalCount = []
-      Object.keys(boundaryIds).forEach(t => {
-        if (boundaryIds[t].birdCount) {
-          totalCount.push(parseInt(boundaryIds[t].birdCount))
-        }
-        boundaryIds[t].checklists = 0
-        boundaryIds[t].observersCount = 0
-        Object.keys(boundaryIds[t].observers).forEach(v => {
-          if (v.startsWith('obsr')) {
-            boundaryIds[t].checklists += boundaryIds[t].observers[v].length
-            boundaryIds[t].observersCount += 1
-            // No need to keep the checklists, as this just adds rows
-            boundaryIds[t].observers[v] = boundaryIds[t].observers[v].length
+      let shim = true
+      if (!shim) {
+        let totalCount = []
+        Object.keys(boundaryIds).forEach(t => {
+          if (boundaryIds[t].birdCount) {
+            totalCount.push(parseInt(boundaryIds[t].birdCount))
+          }
+          boundaryIds[t].checklists = 0
+          boundaryIds[t].observersCount = 0
+          Object.keys(boundaryIds[t].observers).forEach(v => {
+            if (v.startsWith('obsr')) {
+              boundaryIds[t].checklists += boundaryIds[t].observers[v].length
+              boundaryIds[t].observersCount += 1
+              // No need to keep the checklists, as this just adds rows
+              boundaryIds[t].observers[v] = boundaryIds[t].observers[v].length
+            }
+          })
+          boundaryIds[t].speciesCount = boundaries[t].length
+          boundaryIds[t].species = boundaries[t]
+          boundaryIds[t].averageChecklistsPerBirder = (boundaryIds[t].checklists/boundaryIds[t].observersCount).toFixed(2)
+          boundaryIds[t].averageBirdsOverBirders = (boundaryIds[t].speciesCount/boundaryIds[t].observersCount).toFixed(2)
+          boundaryIds[t].averageChecklistsToBirds = (boundaryIds[t].checklists/boundaryIds[t].speciesCount).toFixed(2)
+        })
+        console.log('Total count: ', _.sum(totalCount))
+        console.log('CSV file successfully processed')
+        fs.writeFile(`vtRegion-${string}.json`, JSON.stringify(boundaryIds), 'utf8', (err) => {
+          if (err)
+          console.log(err);
+          else {
+            console.log("File written successfully.");
           }
         })
-        boundaryIds[t].speciesCount = boundaries[t].length
-        boundaryIds[t].species = boundaries[t]
-        boundaryIds[t].averageChecklistsPerBirder = (boundaryIds[t].checklists/boundaryIds[t].observersCount).toFixed(2)
-        boundaryIds[t].averageBirdsOverBirders = (boundaryIds[t].speciesCount/boundaryIds[t].observersCount).toFixed(2)
-        boundaryIds[t].averageChecklistsToBirds = (boundaryIds[t].checklists/boundaryIds[t].speciesCount).toFixed(2)
-      })
-      console.log('Total count: ', _.sum(totalCount))
-      console.log('CSV file successfully processed')
-      fs.writeFile(`vtRegion-${string}.json`, JSON.stringify(boundaryIds), 'utf8', (err) => {
-        if (err)
+      } else {
+        fs.writeFile(`results.json`, JSON.stringify(shimmedRows), 'utf8', (err) => {
+          if (err)
           console.log(err);
-        else {
-          console.log("File written successfully.");
-        }
-      })
+          else {
+            console.log("File written successfully.");
+          }
+        })
+      }
       // console.log(JSON.stringify(counties))
       // console.log(boundaryIds)
+
   })
   return
 }

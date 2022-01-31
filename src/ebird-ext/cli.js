@@ -198,6 +198,10 @@ async function run () {
     await hotspots.daysYouveBirdedAtHotspot(cli.flags)
   } else if (cli.input[0] === 'weeksYouveBirdedAtHotspot') {
     await hotspots.weeksYouveBirdedAtHotspot(cli.flags)
+  } else if (cli.input[0] === 'datesSpeciesObserved') {
+    await main.datesSpeciesObserved(cli.flags)
+  } else if (cli.input[0] === 'daylistTargets') {
+    await main.daylistTargets(cli.flags)
   } else if (cli.input[0] === 'issr') {
     await main.isSpeciesSightingRare(cli.flags)
   } else {
