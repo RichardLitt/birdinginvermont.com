@@ -11,6 +11,7 @@ Contributors:
 [Cherrie Corey](https://ebird.org/profile/MTQ3Mjg2/US-VT-025),
 [Susan Elliott](https://ebird.org/profile/MjQzNw/US-VT-021),
 [Kyle Jones](https://ebird.org/vt/profile/MTM5Nzgz/world),
+[Rebecca Giroux](https://ebird.org/profile/MTc3ODI0/US-VT),
 [Richard Littauer](https://ebird.org/vt/profile/Mjg0MTUx/US-VT),
 [Susan Paradis](https://ebird.org/profile/MTEwMDU3Mw/world),
 Barbara Powers,
@@ -19,4 +20,4 @@ Rita Pitkin,
 and Ruth Stewart.
 
 Last updated:
-January 31st, 2022
+February 2nd, 2022
