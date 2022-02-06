@@ -1,11 +1,15 @@
+const fetch = require('node-fetch')
 const VermontHotspots = require('./data/hotspots.json')
 const Town_boundaries = require('./geojson/vt_towns.json')
+const BerlinPond = require('./montpelier.json')
 const _ = require('lodash')
 const fs = require('fs').promises
 const moment = require('moment')
 const Papa = require('papaparse')
 const main = require('./index')
 const helpers = require('./helpers')
+const difference = require('compare-latlong')
+
 
 async function csvToJsonHotspots (opts) {
   let input
@@ -131,11 +135,13 @@ async function daysYouveBirdedAtHotspot (opts) {
     console.log('Get the ID for this location first, manually. Send it as --id.')
   }
 
+  let name = (VermontHotspots.find(h => h.ID === opts.id)) ? VermontHotspots.find(h => h.ID === opts.id).Name : opts.id
+
   // Note - this assumes the location is a hotspot
   console.log(`
-You have not birded in ${VermontHotspots.find(h => h.ID === opts.id).Name} on:`)
+You have not birded in ${name} on:`)
 
-  let data = await main.getData(opts.input)
+  let data = BerlinPond //await main.getData(opts.input)
   let observedDates = {}
   let fullYearChart = {}
   let unbirdedDates = {}
@@ -144,7 +150,9 @@ You have not birded in ${VermontHotspots.find(h => h.ID === opts.id).Name} on:`)
   Array.from({length: 12}, (_, i) => (i+1).toString().padStart(2, '0')).forEach(key => observedDates[key] = [])
 
   // Filter and add all days observed to the chart
-  data.filter(x => x['Location ID'] === opts.id).forEach(x => {
+  // EDIT: this breaks for personal locations
+  data.filter(x => x['Location ID'] === opts.id)
+    .forEach(x => {
     let [month, day] = x.Date.split('-').slice(1)
     if (observedDates[month].indexOf(Number(day)) === -1) {
       observedDates[month].push(Number(day))
@@ -161,6 +169,43 @@ You have not birded in ${VermontHotspots.find(h => h.ID === opts.id).Name} on:`)
   Object.keys(unbirdedDates).sort((a,b) => Number(a)-Number(b)).forEach(month => {
     console.log(`${moment().month(Number(month)-1).format('MMMM')}: ${unbirdedDates[month].join(', ')}`)
   })
+}
+
+function dataForThisWeekInHistory (opts) {
+  if (!opts.id) {
+    console.log('Get the ID for this location first, manually. Send it as --id.')
+  }
+
+  let data = BerlinPond
+  let observedDates = []
+  let unbirdedDates = Array.from({length: 52}, (_, i) => i + 1)
+
+  // Filter and add all days observed to the chart
+  data.filter(x => x['Location ID'] === opts.id).forEach(x => {
+    let week = moment(x.Date).week()
+    if (observedDates.indexOf(week) === -1) {
+      observedDates.push(week)
+    }
+  })
+
+  // Last observations are almost certainly not in the downloaded db.
+  let lastBirdedWeek = moment(opts.latestObsDt.split(' ')[0]).week()
+  if (!observedDates.includes(lastBirdedWeek)) {
+    observedDates.push(lastBirdedWeek)
+  }
+
+  let unbirdedWeeks = _.difference(unbirdedDates, observedDates.sort((a,b) => Number(a)-Number(b)))
+  // Returns next unbirded week
+  if (unbirdedWeeks.length === 0) {
+    return ''
+  } else {
+    let nextWeek = unbirdedWeeks.filter(w => w >= moment().week())[0]
+    if (moment().week() === nextWeek) {
+      return 'No data'
+    } else {
+      return '' // moment().startOf('year').week(nextWeek).startOf('week').format('YYYY-MM-DD')
+    }
+  }
 }
 
 async function weeksYouveBirdedAtHotspot (opts) {
@@ -201,10 +246,64 @@ You've birded at ${VermontHotspots.find(h => h.ID === opts.id).Name} every week 
   console.log()
 }
 
+/*
+  A really useful function that won't be useful for anyone else - given the local
+  hotspots in my area, which ones should I go to today to maximally fill out
+  those hotspots?
+*/
+async function findMontpelierHotspotNeedsToday (opts) {
+  console.log('')
+  console.log('These hotspots have not been birded on this date:')
+  console.log(`${'Hotspot'.padEnd(50)} Last        This Week`)
+  console.log(`${'-----'.padEnd(72, '-')}`)
+  const lat = '44.2587866'
+  const lng = '-72.5740852'
+  let today = moment().format('MM-DD')
+  let data = BerlinPond
+  let ids = [...new Set(data.map(item => item['Location ID']))]
+  let unbirded = []
+  ids.forEach(id => {
+    data.filter(entry => entry['Location ID'] === id).forEach(entry => {
+      if (entry.Date.slice(5) === today && !unbirded.includes(id)) {
+        unbirded.push(id)
+      }
+    })
+  })
+  let unbirdedToday = ids.filter(x => !unbirded.includes(x))
+  const response = await fetch(`https://api.ebird.org/v2/ref/hotspot/geo?lat=${lat}&lng=${lng}&dist=10&fmt=json`)
+  const body = JSON.parse(await response.text())
+
+  body
+    .map((d) => {
+      d.distance = difference.distance(lat, lng, d.lat, d.lng, 'M')
+      d.nextUnbirdedWeek = dataForThisWeekInHistory({id: d.locId, latestObsDt: d.latestObsDt})
+      return d
+    })
+    .filter(d => unbirdedToday.includes(d.locId))
+    .filter(d => d.distance < 3)
+    .sort((a, b) => parseFloat(a.distance) - parseFloat(b.distance))
+    .forEach(d => {
+      console.log(`${d.locName.padEnd(50)} ${d.latestObsDt.split(' ')[0]}    ${d.nextUnbirdedWeek}`)
+    })
+  console.log('')
+
+  function hasBerlinPondBeenBirdedThisWeeK () {
+    let lastDate = body.find(d => d.locId === 'L150998').latestObsDt.split(' ')[0]
+    if (moment(lastDate).week() >= moment().week()) {
+      return 'Yes'
+    } else {
+      return 'No'
+    }
+  }
+
+  console.log(`Was Berlin Pond birded this week, this year: ${hasBerlinPondBeenBirdedThisWeeK()}.`)
+}
+
 module.exports = {
   csvToJsonHotspots,
   unbirdedHotspots,
   townHotspots,
   daysYouveBirdedAtHotspot,
-  weeksYouveBirdedAtHotspot
+  weeksYouveBirdedAtHotspot,
+  findMontpelierHotspotNeedsToday
 }
