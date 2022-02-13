@@ -276,7 +276,6 @@ Diamond Run Mall Nature Trail
 Dillenbeck Bay Fishing Access
 Dog River Field
 Donahue Sea Caves
-Dorset Park (Wheeler Nature Park)
 Dorset Peak
 Doughty Pond - Orwell (17 acres)
 Dow Pond - Middlebury (11 acres)
@@ -594,9 +593,9 @@ Long Trail--Lincoln Gap to Mount Abraham
 Long Trail--Middlebury Gap to Skylight Pond Shelter
 Long Trail--Mount Abraham to Mount Ellen
 Long Trail--Mount Ellen to Appalachian Gap
-Long Trail--Nebraska Notch to Mt. Mansfield "Forehead"
+Long Trail--Nebraska Notch to Mt. Mansfield \Forehead\
 Long Trail--Notch Road to Bolton Mountain
-Long Trail--Rte. 108 to Mt. Mansfield "Adam's Apple"
+Long Trail--Rte. 108 to Mt. Mansfield \Adam's Apple\
 Long Trail--Skylight Pond Shelter to Cooley Glen Shelter
 Long Trail--Wind Gap to Camels Hump summit
 Long Trail--Winooski River to Notch Road
@@ -1186,7 +1185,7 @@ Wheeler Pond - Brunswick (66 acres)
 Whipple Hollow WMA
 Whipstock Hill WMA
 Whiskey Bay (Cove)
-White River Junction
+White River Junction (village)
 White River WMA
 White Rock Mountain
 White Rocks National Recreation Area
