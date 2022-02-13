@@ -926,6 +926,97 @@ async function norwich(input) {
   })
 }
 
+async function datesSpeciesObserved (opts) {
+  // Note - this assumes the location is a hotspot
+//   console.log(`
+// You have not seen ${opts.id} on:`)
+
+  let data = await getData(opts.input)
+
+  let speciesList = data.filter(x => x['State/Province'] === 'US-VT').map(x => x['Common Name']).filter((v, i, a) => a.indexOf(v) === i)
+  let speciesArray = []
+
+  speciesList.forEach(species => {
+    let observedDates = {}
+    let fullYearChart = {}
+    let unbirdedDates = {}
+    let totalDates = 0
+
+    // Create keys in observedDates for months
+    Array.from({length: 12}, (_, i) => (i+1).toString().padStart(2, '0')).forEach(key => observedDates[key] = [])
+    // Filter and add all days observed to the chart
+    data.filter(x => x['Common Name'] === species)
+    .forEach(x => {
+      let [month, day] = x.Date.split('-').slice(1)
+      if (observedDates[month].indexOf(Number(day)) === -1) {
+        observedDates[month].push(Number(day))
+      }
+    })
+
+    // Create a full year chart, and then find days that weren't in days observed
+    Object.keys(observedDates).forEach(month => {
+      fullYearChart[month.toString().padStart(2, '0')] = Array.from({length: moment().month(month-1).daysInMonth()}, (_, i) => i + 1)
+      unbirdedDates[month] = _.difference(fullYearChart[month], observedDates[month].sort((a,b) => a-b))
+      totalDates += unbirdedDates[month].length
+    })
+
+    speciesArray.push([species, totalDates])
+
+    // Print
+    // Object.keys(unbirdedDates).sort((a,b) => Number(a)-Number(b)).forEach(month => {
+    //   console.log(`${moment().month(Number(month)-1).format('MMMM')}: ${unbirdedDates[month].join(', ')}`)
+    // })
+  })
+
+  console.log(speciesArray.sort(function(a, b) {
+      return a[1] - b[1];
+  }).map(x => `${x[0]}: ${365-x[1]}`).slice(0,20))
+}
+
+
+async function daylistTargets (opts) {
+  let data = locationFilter(await getData(opts.input), opts)
+
+  // Should probably have a bigger wanring on it.
+  let speciesList = data.filter(x => x['State/Province'] === 'US-VT').map(x => x['Common Name']).filter((v, i, a) => a.indexOf(v) === i)
+  let speciesArray = {}
+
+  speciesList.forEach(species => {
+    let observedDates = {}
+    let fullYearChart = {}
+    let unbirdedDates = {}
+
+    // Create keys in observedDates for months
+    Array.from({length: 12}, (_, i) => (i+1).toString().padStart(2, '0')).forEach(key => observedDates[key] = [])
+    // Filter and add all days observed to the chart
+    data.filter(x => x['Common Name'] === species)
+    .forEach(x => {
+      let [month, day] = x.Date.split('-').slice(1)
+      if (observedDates[month].indexOf(Number(day)) === -1) {
+        observedDates[month].push(Number(day))
+      }
+    })
+
+    // Create a full year chart, and then find days that weren't in days observed
+    Object.keys(observedDates).forEach(month => {
+      fullYearChart[month.toString().padStart(2, '0')] = Array.from({length: moment().month(month-1).daysInMonth()}, (_, i) => i + 1)
+      unbirdedDates[month] = _.difference(fullYearChart[month], observedDates[month].sort((a,b) => a-b))
+    })
+
+    speciesArray[species] = unbirdedDates
+  })
+
+  if (opts.today) {
+    let month = moment().format('MM')
+    let date = Number(moment().format('DD'))
+    Object.keys(speciesArray).forEach(species => {
+      if (speciesArray[species][month].indexOf(date) === -1) {
+        console.log(species)
+      }
+    })
+  }
+}
+
 
 // async function today (opts) {
   // I want to know:
@@ -968,4 +1059,6 @@ module.exports = {
   locationFilter,
   eBirdCountyIds,
   getAllTowns
+  ,datesSpeciesObserved
+  ,daylistTargets
 }

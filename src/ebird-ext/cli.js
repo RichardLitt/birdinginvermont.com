@@ -198,6 +198,8 @@ async function run () {
     await hotspots.daysYouveBirdedAtHotspot(cli.flags)
   } else if (cli.input[0] === 'weeksYouveBirdedAtHotspot') {
     await hotspots.weeksYouveBirdedAtHotspot(cli.flags)
+  } else if (cli.input[0] === 'findMontpelierHotspotNeedsToday') {
+    await hotspots.findMontpelierHotspotNeedsToday(cli.flags)
   } else if (cli.input[0] === 'datesSpeciesObserved') {
     await main.datesSpeciesObserved(cli.flags)
   } else if (cli.input[0] === 'daylistTargets') {
