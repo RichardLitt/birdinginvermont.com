@@ -170,7 +170,7 @@ class Map extends Component {
       if (data.counties && this.state.mapView === '2') {
         speciesView = Object.keys(data.counties).map(c => data.counties[c].speciesTotal)
       } else if (data.counties && this.state.mapView === '3') {
-        const dataThisYear = await ebirdExt.counties({all: true, year: 2021, input: data.input})
+        const dataThisYear = await ebirdExt.counties({all: true, year: 2022, input: data.input})
         speciesView = Object.keys(dataThisYear).map(c => dataThisYear[c].speciesTotal)
         vermont.features.forEach(feature => {
           feature.properties.species = dataThisYear[feature.properties.name].species

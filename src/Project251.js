@@ -14,7 +14,7 @@ const matter = require('gray-matter')
   if (checklists.vermont.length!== 0) {
     return (
       <div>
-        <ChecklistTableRow title={"Your checklists"} data={checklists.vermont} text={"Here are all of your complete checklists from 2021 in Vermont."} />
+        <ChecklistTableRow title={"Your checklists"} data={checklists.vermont} text={"Here are all of your complete checklists from 2022 in Vermont."} />
       </div>
     )
   } else {
@@ -76,7 +76,7 @@ class Project251 extends Component {
           <div className="col-md-10 text-left">
             <h1>Project 251</h1>
             <ReactMarkdown source={this.state.text} escapeHtml={false} />
-            <p>If you'd like to contribute to the Vermont Center for Ecostudies <a href="https://vtecostudies.org/wildlife/wildlife-watching/vermont-county-bird-quest/norwich-quest-2021/">Norwich Quest</a>, go <Link to="/norwich">here</Link>.</p>
+            <p>If you'd like to contribute to the Vermont Center for Ecostudies <a href="https://vtecostudies.org/wildlife/wildlife-watching/vermont-county-bird-quest/norwich-quest-2022/">Norwich Quest</a>, go <Link to="/norwich">here</Link>.</p>
           </div>
         </div>
         <div className="row">

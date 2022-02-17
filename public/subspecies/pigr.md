@@ -66,8 +66,8 @@ To date, there are no records of other subspecies in Vermont. The [record listed
 - https://ebird.org/checklist/S76190268
 
 **Local subspecies records**:
-- **Washington County Records:** [100+](https://ebird.org/map/pingro6?neg=true&env.minX=&env.minY=&env.maxX=&env.maxY=&zh=false&gp=false&ev=Z&mr=1-12&bmo=1&emo=12&yr=all&byr=1900&eyr=2021)
-- **Vermont Records:** [100+](https://ebird.org/map/pingro6?neg=true&env.minX=&env.minY=&env.maxX=&env.maxY=&zh=false&gp=false&ev=Z&mr=1-12&bmo=1&emo=12&yr=all&byr=1900&eyr=2021)
+- **Washington County Records:** [100+](https://ebird.org/map/pingro6?neg=true&env.minX=&env.minY=&env.maxX=&env.maxY=&zh=false&gp=false&ev=Z&mr=1-12&bmo=1&emo=12&yr=all&byr=1900&eyr=2022)
+- **Vermont Records:** [100+](https://ebird.org/map/pingro6?neg=true&env.minX=&env.minY=&env.maxX=&env.maxY=&zh=false&gp=false&ev=Z&mr=1-12&bmo=1&emo=12&yr=all&byr=1900&eyr=2022)
 - **Vermont Photos:** [271](https://ebird.org/media/catalog?taxonCode=pingro6&mediaType=p&q=Pine%20Grosbeak%20(Taiga)%20-%20Pinicola%20enucleator%20leucura)
 - **Vermont Audio:** [33](https://ebird.org/media/catalog?taxonCode=pingro6&mediaType=a&q=Pine%20Grosbeak%20(Taiga)%20-%20Pinicola%20enucleator%20leucura)
 

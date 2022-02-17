@@ -77,7 +77,7 @@ async function getNorwichHotspots () {
 // Only usefulf for the Norwich County Quest account
 async function norwich(input) {
   const opts = {
-    year: 2021,
+    year: 2022,
     state: 'Vermont',
     town: 'Norwich',
     all: false,

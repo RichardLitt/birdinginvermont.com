@@ -7,7 +7,7 @@ function AllRows (props) {
   if (checklists.norwich.length !== 0) {
     return (
       <div>
-        <ChecklistTableRow title={"Your checklists"} data={checklists.norwich} text={"Here are all of your checklists from 2021 in Norwich, VT."} />
+        <ChecklistTableRow title={"Your checklists"} data={checklists.norwich} text={"Here are all of your checklists from 2022 in Norwich, VT."} />
       </div>
     )
   } else {
@@ -28,7 +28,7 @@ class Norwich extends Component {
       <div id="rarities" className="container-md">
         <div className="row">
           <h1>Norwich Checklists</h1>
-          <p>This tool will tell you what checklists you've submitted in Norwich. This is useful for the <a href="https://vtecostudies.org/wildlife/wildlife-watching/vermont-county-bird-quest/norwich-quest-2021/">Norwich Quest</a>, which accepts any checklists from Norwich, Vermont. While this tool won't tell you if you've already shared these checklists, it should help you find out which ones you should share.</p>
+          <p>This tool will tell you what checklists you've submitted in Norwich. This is useful for the <a href="https://vtecostudies.org/wildlife/wildlife-watching/vermont-county-bird-quest/norwich-quest-2022/">Norwich Quest</a>, which accepts any checklists from Norwich, Vermont. While this tool won't tell you if you've already shared these checklists, it should help you find out which ones you should share.</p>
           <p>First, <a href="https://ebird.org/downloadMyData" target="_blank" rel="noopener noreferrer" >download your data from eBird.</a> Then, load the unzipped .csv file here. Your data is not stored on this site in any way.</p>
           {checklists !== '' ?
             <AllRows data={checklists} /> :

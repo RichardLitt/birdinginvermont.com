@@ -49,8 +49,8 @@ class App extends Component {
     let regions = await ebird.regions({all: true, input: e})
     let counties = await ebird.counties({all: true, input: e})
     let checklists = {
-      vermont: await ebird.checklists({state: 'Vermont', year: '2021', input: e, complete: true}),
-      norwich: await ebird.checklists({town: 'Norwich', year: '2021', input: e})
+      vermont: await ebird.checklists({state: 'Vermont', year: '2022', input: e, complete: true}),
+      norwich: await ebird.checklists({town: 'Norwich', year: '2022', input: e})
     }
     // let radial = await ebird.radialSearch({input: e, coordinates: [44.259548, -72.575882]})
     this.setState((prevState, props) => ({
