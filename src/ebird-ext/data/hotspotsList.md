@@ -211,6 +211,7 @@ Collins Pond - Hyde Park (16 acres)
 Colton Pond - Killington (27 acres)
 Common Ground Center
 Concord Woods (UVM Natural Area)
+Confluence River Park
 Connecticut River Floodplain - Barnet
 Converse Bay
 Cooks Pond - Shrewsbury (12 acres)
@@ -329,6 +330,7 @@ Felchner Pond - Northfield (12 acres)
 Ferdinand Bog - West Mountain WMA
 Fern Lake - Leicester (69 acres)
 Ferrisburgh Town Beach
+Ferrisburgh Town Forest
 Fields (Kellogg) Bay / Kellogg Bay Road
 Fisher Covered Railroad Bridge
 Five Tree Hill Country Park
@@ -431,11 +433,13 @@ Hubbard Park
 Hubbard Recreation & Natural Area
 Hubbardton Battlefield WMA and State Historic Site
 Hunger Mountain
+Huntington Community Forest
 Huntington Falls
 Huntington Gap WMA
 Hurd Grassland
 I-91 Northbound Rest Stop, Bradford Information Center
 Indian Brook Reservoir - Essex (50 acres)
+Indian Point Picnic Area
 Inman Pond - Fair Haven (85 acres)
 Intervale WMA
 Irish Hill Trails
@@ -593,9 +597,9 @@ Long Trail--Lincoln Gap to Mount Abraham
 Long Trail--Middlebury Gap to Skylight Pond Shelter
 Long Trail--Mount Abraham to Mount Ellen
 Long Trail--Mount Ellen to Appalachian Gap
-Long Trail--Nebraska Notch to Mt. Mansfield \Forehead\
+Long Trail--Nebraska Notch to Mt. Mansfield "Forehead"
 Long Trail--Notch Road to Bolton Mountain
-Long Trail--Rte. 108 to Mt. Mansfield \Adam's Apple\
+Long Trail--Rte. 108 to Mt. Mansfield "Adam's Apple"
 Long Trail--Skylight Pond Shelter to Cooley Glen Shelter
 Long Trail--Wind Gap to Camels Hump summit
 Long Trail--Winooski River to Notch Road
