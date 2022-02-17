@@ -26,6 +26,16 @@ async function csvToJsonHotspots (opts) {
   await fs.writeFile('data/hotspotsList.md', list)
 }
 
+async function hotspotsForTown(opts) {
+  let hotspots = JSON.parse(await fs.readFile('data/hotspots.json', 'utf8'))
+  return main.locationFilter(hotspots.map(x => {
+    x.Latitude = x.lat
+    x.Longitude = x.lng
+    x.State = 'Vermont'
+    return x
+  }), opts)
+}
+
 // Show which hotspots you haven't birded in
 async function unbirdedHotspots(opts) {
   let data
@@ -305,5 +315,6 @@ module.exports = {
   townHotspots,
   daysYouveBirdedAtHotspot,
   weeksYouveBirdedAtHotspot,
-  findMontpelierHotspotNeedsToday
+  findMontpelierHotspotNeedsToday,
+  hotspotsForTown
 }

@@ -897,35 +897,6 @@ async function countTheBirds(opts) {
   console.log(sum)
 }
 
-// Only usefulf for the Norwich County Quest account
-async function norwich(input) {
-  const opts = {
-    year: 2022,
-    state: 'Vermont',
-    town: 'Norwich',
-    all: false,
-    complete: false,
-    // output: `data/vt_town_counts.json`,
-    input
-  }
-  const dateFormat = helpers.parseDateFormat('day')
-  let data = orderByDate(durationFilter(completeChecklistFilter(dateFilter(locationFilter(await getData(opts.input), opts), opts), opts), opts), opts)
-  data = countUniqueSpecies(data.filter(x => x.Town === opts.town.toUpperCase()), dateFormat)
-
-  if (opts.output) {
-    fs.writeFile(`${opts.output.toString().replace('.json', '')}.json`, JSON.stringify(data), 'utf8')
-  }
-
-  let i = 1
-  _.sortBy(createPeriodArray(data), 'Date').forEach((e) => {
-    e.Species.forEach((specie) => {
-      // TODO Ask Nathaniel if this is the output he would like.
-      console.log(`${i} | ${specie['Common Name']} | ${specie.Location} | <a href="https://ebird.org/vt/checklist/${specie['Submission ID']}">${e.Date}</a>`)
-      i++
-    })
-  })
-}
-
 async function datesSpeciesObserved (opts) {
   // Note - this assumes the location is a hotspot
 //   console.log(`
@@ -1050,7 +1021,6 @@ module.exports = {
   getLastDate,
   pointLookup,
   countTheBirds,
-  norwich,
   isSpeciesSightingRare,
   getLatLngCenterofTown,
 
@@ -1061,4 +1031,10 @@ module.exports = {
   getAllTowns
   ,datesSpeciesObserved
   ,daylistTargets
+  ,orderByDate
+  ,durationFilter
+  ,completeChecklistFilter
+  ,dateFilter
+  ,countUniqueSpecies
+  ,createPeriodArray
 }

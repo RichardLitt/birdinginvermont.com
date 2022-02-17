@@ -31,7 +31,6 @@ const cli = meow(`
     checklists    Show checklists for a given region and time
     getLastDate   Show most recent date from checklist
     countTheBirds Show the sum of all individual birds counted
-    norwich       Output for the Norwich quest
     townHotspots  Show which hotspots are in which towns
     csvToJsonHotspots Create hotspots file
     unbirdedHotspots  Show which hotspots haven't been birded
@@ -186,8 +185,6 @@ async function run () {
     await main.getLastDate(cli.flags)
   } else if (cli.input[0] === 'countTheBirds') {
     await main.countTheBirds(cli.flags)
-  } else if (cli.input[0] === 'norwich') {
-    await main.norwich(cli.flags.input)
   } else if (cli.input[0] === 'townHotspots') {
     await hotspots.townHotspots(cli.flags)
   } else if (cli.input[0] === 'unbirdedHotspots') {
