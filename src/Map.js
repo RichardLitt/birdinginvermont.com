@@ -63,7 +63,7 @@ class Map extends Component {
     // This seems to speed it up, but I'm sure there's a loss
     d3.selectAll("svg > *").remove();
 
-    function colorArea (speciesTotal) {
+    function colorArea (speciesTotal, color) {
       return (speciesTotal) ? color(speciesTotal) : '#ddd'
     }
 
@@ -149,10 +149,14 @@ class Map extends Component {
           if (data.vt251data[i].town.toUpperCase() === VermontTowns.features[j].properties.town) {
             VermontTowns.features[j].properties.speciesTotal = speciesTotals
             VermontTowns.features[j].properties.species = data.vt251data[i].species
+            if (data.vt251localdata.includes(VermontTowns.features[j].properties.town)) {
+              VermontTowns.features[j].properties.local = true
+            }
             break
           }
         }
       }
+
     } else if (this.props.location.pathname === '/counties') {
       Counties.features = Counties.features.map(feature => rewind(feature, {reverse: true}))
       vermont = Counties
@@ -395,8 +399,25 @@ class Map extends Component {
     // }
 
     function townsView () {
+
+      function differentColorScale(property, colorObj) {
+        if (property === true) {
+          color = d3.scaleOrdinal(d3.schemeGreens[7]).domain([domainMin, domainMax])
+          return colorArea(colorObj, color)
+        } else {
+          color = d3
+            .scaleQuantize()
+            .domain([domainMin, domainMax])
+            .range(['#fff7ec', '#fee8c8', '#fdd49e', '#fdbb84', '#fc8d59', '#ef6548', '#d7301f', '#b30000', '#7f0000'])
+          return colorArea(colorObj, color)
+        }
+      }
+
+
       paths
-        .style('fill', (d) => colorArea(d.properties.speciesTotal))
+        .style('fill', (d) => {
+          return differentColorScale(d.properties.local, d.properties.speciesTotal)
+        })
         .on('click', function (d) {
           if (!townSelected) {
             townSelected = d3.select(this)
@@ -404,7 +425,9 @@ class Map extends Component {
               .style('fill', 'yellow')
           } else {
             townSelected
-              .style('fill', colorArea(townSelected.data()[0].properties.speciesTotal))
+              .style('fill', (d) => {
+                return differentColorScale(d.properties.local, townSelected.data()[0].properties.speciesTotal)
+              })
 
             townSelected = false
           }
@@ -515,7 +538,9 @@ class Map extends Component {
             d3.select(this)
               .transition()
               .duration(250)
-              .style('fill', (d) => (d.properties.speciesTotal) ? color(d.properties.speciesTotal) : '#ddd')
+              .style('fill', (d) => {
+                return differentColorScale(d.properties.local, d.properties.speciesTotal)
+              })
 
             totalTownsText()
             // if (pathname === '/251') {

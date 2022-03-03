@@ -1,0 +1,3 @@
+[submodule "src/ebird-ext"]
+	path = src/ebird-ext
+	url = https://github.com/RichardLitt/ebird-ext
