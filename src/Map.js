@@ -73,6 +73,8 @@ class Map extends Component {
     const height = data.height
     const pathname = this.props.location.pathname
 
+    let vt251localdata = data.vt251localdata.map(t => t.toUpperCase())
+
     var vermont, i, j, color, speciesTotals, speciesView
     let totalTowns = 0
     let unseenTowns
@@ -149,7 +151,7 @@ class Map extends Component {
           if (data.vt251data[i].town.toUpperCase() === VermontTowns.features[j].properties.town) {
             VermontTowns.features[j].properties.speciesTotal = speciesTotals
             VermontTowns.features[j].properties.species = data.vt251data[i].species
-            if (data.vt251localdata.includes(VermontTowns.features[j].properties.town)) {
+            if (vt251localdata.includes(VermontTowns.features[j].properties.town)) {
               VermontTowns.features[j].properties.local = true
             }
             break
