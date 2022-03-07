@@ -195,20 +195,6 @@ class Map extends Component {
 
       domainMax = Math.max(...speciesView)
       domainMin = Math.min(...speciesView)
-    } else if (this.props.location.pathname === '/2100') {
-      Counties.features = Counties.features.map(feature => rewind(feature, {reverse: true}))
-      vermont = Counties
-
-      Object.keys(data.vt2100data).forEach(county => {
-        const index = vermont.features.map(x => x.properties.CNTYNAME).indexOf(data.vt2100data[county].county.toUpperCase())
-        data.vt2100data[county].name = data.vt2100data[county].county
-        Object.assign(vermont.features[index].properties, data.vt2100data[county])
-        // vermont.features[index].name = capitalizeFirstLetters(data.vt2100data[county].county)
-        // console.log(vermont.features[index])
-      })
-
-      domainMax = Math.max(150)
-      domainMin = Math.min(0)
     } else if (this.props.location.pathname === '/regions') {
       vermont = BiophysicalRegions
       // TODO Large feature: Get the eBird data and find all out all of the species seen in each bioregion
@@ -436,21 +422,8 @@ class Map extends Component {
         })
         .on('mouseover', function (d) {
           if (!townSelected) {
-            var xPosition = d3.mouse(this)[0]
-            var yPosition = d3.mouse(this)[1] - 30
-
-            if (pathname !== '/2100') {
-              svg.append('text')
-                .attr('id', 'tooltip')
-                .attr('x', xPosition)
-                .attr('y', yPosition)
-                .attr('text-anchor', 'middle')
-                .attr('font-family', 'sans-serif')
-                .attr('font-size', '11px')
-                .attr('font-weight', 'bold')
-                .attr('fill', 'black')
-                .text(`${capitalizeFirstLetters(d.properties.town || d.properties.name)}${d.properties.speciesTotal ? ': ' + d.properties.speciesTotal : ''}`)
-            }
+            // var xPosition = d3.mouse(this)[0]
+            // var yPosition = d3.mouse(this)[1] - 30
 
             d3.select(this)
               .style('fill', '#509e2f')
@@ -467,7 +440,7 @@ class Map extends Component {
               d3.select('#locale')
                 .text(townHeading)
 
-            } else if (['/counties', '/2100'].includes(pathname)) {
+            } else if (['/counties'].includes(pathname)) {
               d3.select('#locale')
               .text([capitalizeFirstLetters(d.properties.name) + ` (${d.properties.speciesTotal})`])
             } else {
@@ -513,7 +486,7 @@ class Map extends Component {
                 .enter()
                 .append('li')
                 .html(String)
-            } else if (['/regions', '/2100', '/251'].includes(pathname) && d.properties.species) {
+            } else if (['/regions', '/251'].includes(pathname) && d.properties.species) {
               if (d.properties.species.length === 0) {
                 if (pathname === '/251') {
                   d3.select('#list')
@@ -562,20 +535,6 @@ class Map extends Component {
       .style('stroke-width', '1px')
       .style('fill', '#b6d2f5')
 
-
-    if (this.props.location.pathname === '/2100') {
-      svg.selectAll(".place-label")
-        .data(vermont.features)
-        .enter().append("text")
-        .attr("class", "place-label")
-        .attr("transform", function(d) { return "translate(" + path.centroid(d) + ")"; })
-        // .attr("dy", ".35em")
-        .text(function(d) { return `${(d.properties.speciesTotal/150*100).toFixed(0)}%` })
-        .style('fill', 'blue')
-        .attr('font-size', '13px')
-        .attr('font-weight', 'bold')
-    }
-
     // var coordinates = projection([-72.5766799, 44.2581012])
 
     // svg.append('svg:circle')
@@ -601,7 +560,7 @@ class Map extends Component {
           {this.props.location.pathname === '/towns' && <TownsText />}
           {this.props.location.pathname === '/counties' && <CountiesText />}
           {this.props.location.pathname === '/hotspots' && <HotspotsText />}
-          {!['/251', '/2100', '/hotspots'].includes(this.props.location.pathname) &&
+          {!['/251', '/hotspots'].includes(this.props.location.pathname) &&
           <UploadButton handleChange={this.props.handleChange} data={this.props.data} />}
           <div id="map" className="col-sm">
             <svg ref={node => this.node = node} width={this.props.data.width} height={this.props.data.height}></svg>

@@ -7,14 +7,12 @@ import Map from './Map'
 import NavBar from './NavBar'
 import Footer from './Footer'
 import ContentPage from './ContentPage'
-import Project2100 from './Project2100'
 import Project251 from './Project251'
 import Rarities from './Rarities'
 import Norwich from './Norwich'
 import NoMatchPage from './NoMatchPage'
 import vt251data from './ebird-ext/data/vt_town_counts.json'
 import vt251localdata from './ebird-ext/data/vt_local_towns.json'
-import vt2100data from './ebird-ext/data/2100.json'
 import ebird from './ebird-ext/index.js'
 
 const history = createBrowserHistory()
@@ -35,7 +33,6 @@ class App extends Component {
         checklists: '',
         vt251data,
         vt251localdata,
-        vt2100data,
         loaded: false,
         width: 520,
         height: 800
@@ -82,7 +79,7 @@ class App extends Component {
             <Route exact path='/regions' render={(props) => (<Map {...props} data={this.state.data} handleChange={this.handleChange} />)} />
             <Route exact path='/hotspots' render={(props) => (<Map {...props} data={this.state.data} handleChange={this.handleChange} />)} />
             <Route exact path='/251' render={(props) => (<Project251 {...props} data={this.state.data} handleChange={this.handleChange} />)} />
-            <Route exact path='/2100' render={(props) => (<Project2100 {...props} data={this.state.data} handleChange={this.handleChange} />)} />
+            <Route exact path='/2100' component={About} />
             <Route exact path='/female-birdsong' render={(props) => (<ContentPage {...props} key={randomGen()} />)} />
             <Route exact path="/nfc-species/:code?" render={(props) => <ContentPage {...props} key={randomGen()} />} />
             <Route exact path="/subspecies/:code?" render={(props) => <ContentPage {...props} key={randomGen()} />} />
