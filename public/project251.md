@@ -29,5 +29,5 @@ Rita Pitkin,
 Ruth Stewart,
 and [Richard Littauer](https://ebird.org/vt/profile/Mjg0MTUx/US-VT).
 
-Last updated:
+Last updated on:
 March 6th, 2022
