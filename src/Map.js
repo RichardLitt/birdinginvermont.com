@@ -14,6 +14,7 @@ import HotspotsText from './Hotspots'
 import CountiesText from './Counties'
 import seenInVT from './ebird-ext/taxonomies/eBird_Taxonomy_2020_VT.json'
 import rewind from "@turf/rewind"
+import banding from './ebird-ext/bandingCodes.js'
 import ebirdExt from './ebird-ext/index.js'
 import ebirdExtHotspots from './ebird-ext/hotspots.js'
 // const d3ScaleChromatic = require('d3-scale-chromatic')
@@ -21,6 +22,12 @@ const d3 = require('d3')
 const d3Geo = require('d3-geo')
 const taxonomicSort = require('./ebird-ext/taxonomicSort.js')
 const _ = require('lodash')
+
+// Shim from Banding Codes
+const townSightings = {}
+Object.keys(TownSightings).forEach(town => {
+  townSightings[town] = TownSightings[town].map(code => banding.codeToCommonName(code))
+})
 
 // To Do - make this a method of the string class
 function capitalizeFirstLetters(string) {
@@ -89,9 +96,9 @@ class Map extends Component {
     })).map(x => x.PRIMARY_COM_NAME)
 
     if (this.props.location.pathname === '/towns') {
-      vermont = VermontTowns //%
+      vermont = VermontTowns
 
-      speciesTotals = TownSightings
+      speciesTotals = townSightings
 
       // All towns collectively
       if (data.towns) {
