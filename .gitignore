@@ -24,3 +24,4 @@ yarn-error.log*
 
 *.csv
 private-data
+src/ebird-ext/node_modules
