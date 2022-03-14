@@ -32,4 +32,5 @@ Ruth Stewart,
 Walter Medwid,
 and [Richard Littauer](https://ebird.org/vt/profile/Mjg0MTUx/US-VT).
 
-March 12th, 2022
+Last updated on:
+March 14th, 2022
