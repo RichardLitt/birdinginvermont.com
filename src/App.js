@@ -12,7 +12,7 @@ import Rarities from './Rarities'
 import Norwich from './Norwich'
 import NoMatchPage from './NoMatchPage'
 import vt251data from './ebird-ext/data/vt_town_counts.json'
-import vt251localdata from './ebird-ext/data/vt_local_towns.json'
+import vt251localdata from './vt_local_towns.json'
 import ebird from './ebird-ext/index.js'
 
 const history = createBrowserHistory()
