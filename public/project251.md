@@ -23,11 +23,13 @@ Contributors:
 Barbara Powers,
 David Hoag,
 Grace Nelson,
+Jeanne Elias,
 Louanne Nielsen,
+Miranda Clemson,
 Rich Kelley,
 Rita Pitkin,
 Ruth Stewart,
+Walter Medwid,
 and [Richard Littauer](https://ebird.org/vt/profile/Mjg0MTUx/US-VT).
 
-Last updated on:
-March 6th, 2022
+March 12th, 2022
