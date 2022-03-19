@@ -397,7 +397,10 @@ class Map extends Component {
 
       function differentColorScale(property, colorObj) {
         if (property === true) {
-          color = d3.scaleOrdinal(d3.schemeGreens[7]).domain([domainMin, domainMax])
+          color = d3
+            .scaleQuantize()
+            .domain([domainMin, domainMax])
+            .range(d3.schemeGreens[9])
           return colorArea(colorObj, color)
         } else {
           color = d3
