@@ -90,7 +90,7 @@ class Map extends Component {
     let domainMin = 0
     let domainMax = 0
 
-    let allSeen = ebirdExt.removeSpuh(seenInVT.map(x => {
+    let allSeen = ebirdExt.f.removeSpuh(seenInVT.map(x => {
       x['Scientific Name'] = x.SCI_NAME
       return x
     })).map(x => x.PRIMARY_COM_NAME)
@@ -170,7 +170,7 @@ class Map extends Component {
       Counties.features = Counties.features.map(feature => rewind(feature, {reverse: true}))
       vermont = Counties
 
-      speciesTotals = ebirdExt.removeSpuhFromCounties(CountyBarcharts)
+      speciesTotals = ebirdExt.f.removeSpuhFromCounties(CountyBarcharts)
 
       // This solution is more elegant than the ones applied in /towns or /regions
       if (data.counties) {
