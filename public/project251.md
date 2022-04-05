@@ -11,6 +11,7 @@ Why are there **green** towns? Those are towns which people birded in without a 
 Contributors:
 [Chelsea Carroll](https://ebird.org/profile/NjQ1MjQy/US-VT-021),
 [Cherrie Corey](https://ebird.org/profile/MTQ3Mjg2/US-VT-025),
+[Charles Kahle](https://ebird.org/profile/Mjg1NTU/world),
 [Chris Rimmer](https://ebird.org/vt/profile/Mjc3NzU/world),
 [Henry Trombley](https://ebird.org/profile/MzUzMDc/world),
 [Jeffrey J. Allen](https://ebird.org/vt/profile/Mjc3MjE/world),
@@ -33,4 +34,4 @@ Walter Medwid,
 and [Richard Littauer](https://ebird.org/vt/profile/Mjg0MTUx/US-VT).
 
 Last updated on:
-March 31st, 2022
+April 5th, 2022
