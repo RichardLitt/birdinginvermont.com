@@ -5,6 +5,7 @@ import Counties from './ebird-ext/geojson/VT_Data_-_County_Boundaries.json'
 import BiophysicalRegions from './ebird-ext/geojson/Polygon_VT_Biophysical_Regions.json'
 import CountyBarcharts from './ebird-ext/data/countyBarcharts.json'
 import TownSightings from './ebird-ext/data/townsightings.json'
+import RegionSightings from './ebird-ext/data/regionssightings.json'
 import { select } from 'd3-selection'
 import { withRouter } from 'react-router'
 import UploadButton from './UploadButton'
@@ -12,6 +13,7 @@ import CountyButton from './CountyButton'
 import TownsText from './Towns'
 import HotspotsText from './Hotspots'
 import CountiesText from './Counties'
+import RegionsText from './Regions'
 import seenInVT from './ebird-ext/taxonomies/eBird_Taxonomy_2020_VT.json'
 import rewind from "@turf/rewind"
 import banding from './ebird-ext/bandingCodes.js'
@@ -22,12 +24,6 @@ const d3 = require('d3')
 const d3Geo = require('d3-geo')
 const taxonomicSort = require('./ebird-ext/taxonomicSort.js')
 const _ = require('lodash')
-
-// Shim from Banding Codes
-const townSightings = {}
-Object.keys(TownSightings).forEach(town => {
-  townSightings[town] = TownSightings[town].map(code => banding.codeToCommonName(code))
-})
 
 // To Do - make this a method of the string class
 function capitalizeFirstLetters(string) {
@@ -97,8 +93,7 @@ class Map extends Component {
 
     if (this.props.location.pathname === '/towns') {
       vermont = VermontTowns
-
-      speciesTotals = townSightings
+      speciesTotals = banding.unfurlObjToSpecies(TownSightings)
 
       // All towns collectively
       if (data.towns) {
@@ -172,7 +167,6 @@ class Map extends Component {
 
       speciesTotals = ebirdExt.f.removeSpuhFromCounties(CountyBarcharts)
 
-      // This solution is more elegant than the ones applied in /towns or /regions
       if (data.counties) {
         Object.keys(data.counties).forEach(county => {
           const index = vermont.features.map(x => x.properties.CNTYNAME).indexOf(county.toUpperCase())
@@ -203,26 +197,40 @@ class Map extends Component {
       domainMax = Math.max(...speciesView)
       domainMin = Math.min(...speciesView)
     } else if (this.props.location.pathname === '/regions') {
+      // TODO Add text to top of regions view
+      // TODO Find a nicer way of displaying the data, more like eBird's tables
+      // TODO Elm by Clever Girl
       vermont = BiophysicalRegions
-      // TODO Large feature: Get the eBird data and find all out all of the species seen in each bioregion
+      speciesTotals = banding.unfurlObjToSpecies(RegionSightings)
 
-      // Add region counts to regions
-      for (i = 0; i < data.regions.length; i++) {
-        var dataRegion = data.regions[i].region
-        speciesTotals = parseFloat(data.regions[i].speciesTotal)
-        if (speciesTotals > domainMax) {
-          domainMax = speciesTotals
-        }
-
-        for (j = 0; j < vermont.features.length; j++) {
-          var jsonRegion = vermont.features[j].properties.name
-          if (dataRegion === jsonRegion) {
-            vermont.features[j].properties.speciesTotal = speciesTotals
-            vermont.features[j].properties.species = data.regions[i].species
-            break
-          }
-        }
+      if (data.regions) {
+        Object.keys(data.regions).forEach(region => {
+          const index = vermont.features.map(x => x.properties.name).indexOf(region)
+          Object.assign(vermont.features[index].properties, data.regions[region])
+        })
       }
+
+      if (data.regions && this.state.mapView === '2') {
+        speciesView = Object.keys(data.regions).map(region => data.regions[region].speciesTotal)
+      } else if (data.regions && this.state.mapView === '3') {
+        const dataThisYear = await ebirdExt.regions({all: true, year: 2022, input: data.input})
+        speciesView = Object.keys(dataThisYear).map(r => dataThisYear[r].speciesTotal)
+        vermont.features.forEach(feature => {
+          feature.properties.species = dataThisYear[feature.properties.name].species
+          feature.properties.speciesTotal = dataThisYear[feature.properties.name].speciesTotal
+          feature.properties.notSeen = _.difference(allSeen, dataThisYear[feature.properties.name].species)
+        })
+      } else {
+        speciesView = Object.keys(speciesTotals).map(t => speciesTotals[t].length)
+        vermont.features.forEach(feature => {
+          feature.properties.species = speciesTotals[feature.properties.name]
+          feature.properties.speciesTotal = speciesTotals[feature.properties.name].length
+          feature.properties.notSeen = _.difference(allSeen, speciesTotals[feature.properties.name])
+        })
+      }
+
+      domainMax = Math.max(...speciesView)
+      domainMin = Math.min(...speciesView)
     } else if (this.props.location.pathname === '/hotspots') {
       Counties.features = Counties.features.map(feature => rewind(feature, {reverse: true}))
       vermont = Counties
@@ -450,12 +458,12 @@ class Map extends Component {
               d3.select('#locale')
                 .text(townHeading)
 
-            } else if (['/counties'].includes(pathname)) {
+            } else if (['/counties', '/regions'].includes(pathname)) {
               d3.select('#locale')
               .text([capitalizeFirstLetters(d.properties.name) + ` (${d.properties.speciesTotal})`])
             } else {
               d3.select('#locale')
-                .text([`Region: ` + capitalizeFirstLetters(d.properties.name)])
+                .text([capitalizeFirstLetters(d.properties.name)])
             }
 
             if (d.properties.species) {
@@ -477,8 +485,6 @@ class Map extends Component {
                 //   speciesMaps()
                 // })
             }
-
-            console.log(d.properties)
 
             if (d.properties.notSeen) {
               d3.select('#list')
@@ -569,6 +575,7 @@ class Map extends Component {
           {/* TODO Could we move these into their own pages? */}
           {this.props.location.pathname === '/towns' && <TownsText />}
           {this.props.location.pathname === '/counties' && <CountiesText />}
+          {this.props.location.pathname === '/regions' && <RegionsText />}
           {this.props.location.pathname === '/hotspots' && <HotspotsText />}
           {!['/251', '/hotspots'].includes(this.props.location.pathname) &&
           <UploadButton handleChange={this.props.handleChange} data={this.props.data} />}
@@ -576,7 +583,9 @@ class Map extends Component {
             <svg ref={node => this.node = node} width={this.props.data.width} height={this.props.data.height}></svg>
           </div>
           <div className="col-sm" id="list-container">
-            {['/counties', '/towns'].includes(this.props.location.pathname) && this.props.data.counties && this.props.data.towns && <CountyButton
+            {['/counties', '/towns', '/regions'].includes(this.props.location.pathname)
+              // I am not sure why these three checks are necessary, looking at them now.
+              && this.props.data.counties && this.props.data.regions && this.props.data.towns && <CountyButton
               data={this.state.mapView}
               handleToggleVisibility={this.handleToggleVisibility}
             />}
