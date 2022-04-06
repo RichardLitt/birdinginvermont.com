@@ -24,7 +24,7 @@ class Regions extends Component {
             bioregions in Vermont, by anyone, as of January 2022 using the eBird database.
             These regions come from the VCE Vermont Atlas of Life.
             You can also see what species you've seen
-            in any given county by uploading your eBird data.</p>
+            in any given region by uploading your eBird data.</p>
             <p>First, <a href="https://ebird.org/downloadMyData" target="_blank" rel="noopener noreferrer" >download your data from eBird.</a> Then, load the unzipped .csv file here. Your data is not stored on this site in any way. Depending on the size of your data, it may take a few seconds.</p>
           </div>
         </div>
