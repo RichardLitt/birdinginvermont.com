@@ -16,6 +16,7 @@ Contributors:
 [Chris Rimmer](https://ebird.org/vt/profile/Mjc3NzU/world),
 [Henry Trombley](https://ebird.org/profile/MzUzMDc/world),
 [Jeffrey J. Allen](https://ebird.org/vt/profile/Mjc3MjE/world),
+[Jim Sparrell](https://ebird.org/profile/MzUwMjAw/world),
 [JoAnne Russo](https://ebird.org/vt/profile/MTUyNTc5),
 [Joshua Phillips](https://ebird.org/vt/profile/MTUyNTc5),
 [Kyle Jones](https://ebird.org/vt/profile/MTM5Nzgz/world),
@@ -35,4 +36,4 @@ Walter Medwid,
 and [Richard Littauer](https://ebird.org/vt/profile/Mjg0MTUx/US-VT).
 
 Last updated on:
-May 26th, 2022
+June 9th, 2022
