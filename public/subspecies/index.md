@@ -2,6 +2,7 @@
 
 A page for each subspecies is forthcoming, as is better styling.
 
+- [Greater White-fronted Goose](/subspecies/gwfg)
 - [Great Blue Heron](/subspecies/gbhe)
 - [Broad-winged Hawk](/subspecies/bwha)
 - [Northern Saw-whet Owl](/subspecies/nswo)
