@@ -78,7 +78,7 @@ class Map extends Component {
 
     let vt251localdata = data.vt251localdata.map(t => t.toUpperCase())
 
-    var vermont, i, j, color, speciesTotals, speciesView
+    var vermont, j, color, speciesTotals, speciesView
     let totalTowns = 0
     let unseenTowns
     let unvisitedHotspots
@@ -97,9 +97,11 @@ class Map extends Component {
 
       // All towns collectively
       if (data.towns) {
-        data.towns.forEach(town => {
-          const index = vermont.features.map(x => x.properties.town).indexOf(town.town)
-          Object.assign(vermont.features[index].properties, town)
+        Object.keys(data.towns).forEach(town => {
+          const index = vermont.features.map(x => x.properties.town).indexOf(town)
+          vermont.features[index].properties.town = town
+          vermont.features[index].properties.species = data.towns[town]
+          vermont.features[index].properties.speciesTotal = data.towns[town].length
         })
       }
 
@@ -107,19 +109,19 @@ class Map extends Component {
       if (data.towns && this.state.mapView === '2') {
         speciesView = Object.keys(data.towns).map(c => data.towns[c].speciesTotal)
         totalTowns = Object.keys(data.towns).filter(c => data.towns[c].speciesTotal !== 0).length
-        unseenTowns = Object.keys(data.towns).filter(c => !data.towns[c].speciesTotal).map(x => data.towns[x].town)
+        unseenTowns = Object.keys(data.towns).filter(c => !data.towns[c].speciesTotal)
       // Sightings for the current year
       } else if (data.towns && this.state.mapView === '3') {
         // Add complete: true, duration: 3 to limit this down
         const dataThisYear = await ebirdExt.towns({all: true, year: 2022, input: data.input})
-        totalTowns = Object.keys(dataThisYear).filter(c => dataThisYear[c].speciesTotal).length
-        unseenTowns = Object.keys(dataThisYear).filter(c => !dataThisYear[c].speciesTotal).map(x => dataThisYear[x].town)
-        speciesView = Object.keys(dataThisYear).map(c => dataThisYear[c].speciesTotal)
+        totalTowns = Object.keys(dataThisYear).filter(c => dataThisYear[c].length !== 0).length
+        unseenTowns = Object.keys(dataThisYear).filter(c => dataThisYear[c].length === 0)
+        speciesView = Object.keys(dataThisYear).map(c => dataThisYear[c].length)
         vermont.features.forEach(feature => {
-          const index = dataThisYear.map(x => x.town).indexOf(feature.properties.town)
-          feature.properties.species = dataThisYear[index].species
-          feature.properties.speciesTotal = dataThisYear[index].speciesTotal
-          feature.properties.notSeen = _.difference(allSeen, dataThisYear[index].species)
+          const index = feature.properties.town
+          feature.properties.species = dataThisYear[index]
+          feature.properties.speciesTotal = dataThisYear[index].length
+          feature.properties.notSeen = _.difference(allSeen, dataThisYear[index])
         })
       } else {
         totalTowns = null
@@ -137,12 +139,12 @@ class Map extends Component {
       vermont = VermontTowns
       var emptyTowns = []
 
-      for (i = 0; i < data.vt251data.length; i++) {
-        speciesTotals = parseFloat(data.vt251data[i].speciesTotal)
+      Object.keys(data.vt251data).forEach(town => {
+        speciesTotals = data.vt251data[town].length
         if (speciesTotals > 0) {
           totalTowns += 1
         } else {
-          emptyTowns.push(data.vt251data[i].town)
+          emptyTowns.push(town)
         }
         // Calculate{} the highest town, for use in coloring
         if (speciesTotals > domainMax) {
@@ -150,17 +152,16 @@ class Map extends Component {
         }
 
         for (j = 0; j < VermontTowns.features.length; j++) {
-          if (data.vt251data[i].town.toUpperCase() === VermontTowns.features[j].properties.town) {
+          if (town.toUpperCase() === VermontTowns.features[j].properties.town) {
             VermontTowns.features[j].properties.speciesTotal = speciesTotals
-            VermontTowns.features[j].properties.species = data.vt251data[i].species
+            VermontTowns.features[j].properties.species = data.vt251data[town].map(x => banding.codeToCommonName(x))
             if (vt251localdata.includes(VermontTowns.features[j].properties.town)) {
               VermontTowns.features[j].properties.local = true
             }
             break
           }
         }
-      }
-
+      })
     } else if (this.props.location.pathname === '/counties') {
       Counties.features = Counties.features.map(feature => rewind(feature, {reverse: true}))
       vermont = Counties
@@ -422,7 +423,7 @@ class Map extends Component {
 
       paths
         .style('fill', (d) => {
-          return differentColorScale(d.properties.local, d.properties.speciesTotal)
+          return differentColorScale(pathname === '/251' && d.properties.local, d.properties.speciesTotal)
         })
         .on('click', function (d) {
           if (!townSelected) {
@@ -432,7 +433,7 @@ class Map extends Component {
           } else {
             townSelected
               .style('fill', (d) => {
-                return differentColorScale(d.properties.local, townSelected.data()[0].properties.speciesTotal)
+                return differentColorScale(pathname === '/251' && d.properties.local, townSelected.data()[0].properties.speciesTotal)
               })
 
             townSelected = false
