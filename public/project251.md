@@ -38,4 +38,4 @@ Walter Medwid,
 and [Richard Littauer](https://ebird.org/vt/profile/Mjg0MTUx/US-VT).
 
 Last updated on:
-August 11th, 2022
+August 17th, 2022
