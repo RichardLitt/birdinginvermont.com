@@ -17,7 +17,7 @@ This site is very much a **work in progress**. If you have any thoughts, comment
 
 Get in touch by emailing [richard@birdinginvermont.com](mailto:richard@birdinginvermont.com). Alternatively, swing by Montpelier, and let's go birding.
 
-There are other sites which are worth checking out, most notable [https://ebirdhotspots.com/birding-in-vermont/](https://ebirdhotspots.com/birding-in-vermont/), which has information on hotspots in Vermont.
+There are other sites which are worth checking out, most notably [https://birdinghotspots.org/us/vermont](https://birdinghotspots.org/us/vermont), which has information on hotspots in Vermont.
 
 We also have a nascent <a href="https://birding.substack.com/p/coming-soon?r=clpzw&utm_campaign=post&utm_medium=web&utm_source=copy">mailing list.</a>
 
