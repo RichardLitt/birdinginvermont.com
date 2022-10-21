@@ -137,14 +137,14 @@ class Map extends Component {
       domainMin = Math.min(...speciesView)
     } else if (this.props.location.pathname === '/251') {
       vermont = VermontTowns
-      var emptyTowns = []
+      const allVermontTowns = new Set()
+      var townsInData = []
 
       Object.keys(data.vt251data).forEach(town => {
         speciesTotals = data.vt251data[town].length
+        townsInData.push(town)
         if (speciesTotals > 0) {
           totalTowns += 1
-        } else {
-          emptyTowns.push(town)
         }
         // Calculate{} the highest town, for use in coloring
         if (speciesTotals > domainMax) {
@@ -152,16 +152,25 @@ class Map extends Component {
         }
 
         for (j = 0; j < VermontTowns.features.length; j++) {
+          allVermontTowns.add(VermontTowns.features[j].properties.town)
           if (town.toUpperCase() === VermontTowns.features[j].properties.town) {
             VermontTowns.features[j].properties.speciesTotal = speciesTotals
             VermontTowns.features[j].properties.species = data.vt251data[town].map(x => banding.codeToCommonName(x))
             if (vt251localdata.includes(VermontTowns.features[j].properties.town)) {
               VermontTowns.features[j].properties.local = true
             }
+
             break
           }
         }
       })
+
+      var emptyTowns = []
+      for (const x of allVermontTowns) {
+        if (townsInData.indexOf(x) === -1 ) {
+          emptyTowns.push(x)
+        }
+      }
     } else if (this.props.location.pathname === '/counties') {
       Counties.features = Counties.features.map(feature => rewind(feature, {reverse: true}))
       vermont = Counties
@@ -276,9 +285,9 @@ class Map extends Component {
     function totalTownsText () {
       if (totalTowns) {
         d3.select('#locale').text(`Towns birded: ${totalTowns}`)
-        // if (pathname === '/251') {
-        //   d3.select('#list').text(`Towns with no checklists:\n` + emptyTowns.map(x => capitalizeFirstLetters(x)).sort().join(', '))
-        // }
+        if (pathname === '/251') {
+          d3.select('#list').text(`Towns with no checklists:\n` + emptyTowns.map(x => capitalizeFirstLetters(x)).sort().join(', '))
+        }
       } else {
         d3.select('#locale').text('')
       }
@@ -440,6 +449,12 @@ class Map extends Component {
           }
         })
         .on('mouseover', function (d) {
+
+          if (!d.properties.species) {
+            d.properties.species = []
+            d.properties.speciesTotal = 0
+          }
+
           if (!townSelected) {
             // var xPosition = d3.mouse(this)[0]
             // var yPosition = d3.mouse(this)[1] - 30
@@ -504,7 +519,7 @@ class Map extends Component {
                 .append('li')
                 .html(String)
             } else if (['/regions', '/251'].includes(pathname) && d.properties.species) {
-              if (d.properties.species.length === 0) {
+              if (!d.properties.species || d.properties.species.length === 0) {
                 if (pathname === '/251') {
                   d3.select('#list')
                     .html(`No one has logged any species here yet this year.`)
@@ -535,11 +550,11 @@ class Map extends Component {
               })
 
             totalTownsText()
-            // if (pathname === '/251') {
-            //   d3.select('#list').text(`Towns with no checklists:\n` + emptyTowns.map(x => capitalizeFirstLetters(x)).sort().join(', '))
-            // } else {
-            d3.select('#list').text('')
-            // }
+            if (pathname === '/251') {
+              d3.select('#list').text(`Towns with no checklists:\n` + emptyTowns.map(x => capitalizeFirstLetters(x)).sort().join(', '))
+            } else {
+              d3.select('#list').text('')
+            }
           }
         })
       }
