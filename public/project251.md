@@ -22,7 +22,6 @@ Contributors:
 [JoAnne Russo](https://ebird.org/vt/profile/MTUyNTc5),
 [Joshua Phillips](https://ebird.org/vt/profile/MTUyNTc5),
 [Kyle Jones](https://ebird.org/vt/profile/MTM5Nzgz/world),
-[Nathaniel Sharp](https://ebird.org/profile/MTgxNDYz/US),
 [Rebecca Giroux](https://ebird.org/profile/MTc3ODI0/US-VT),
 [Susan Elliott](https://ebird.org/profile/MjQzNw/US-VT-021),
 [Susan Paradis](https://ebird.org/profile/MTEwMDU3Mw/world),
@@ -39,4 +38,4 @@ Walter Medwid,
 and [Richard Littauer](https://ebird.org/vt/profile/Mjg0MTUx/US-VT).
 
 Last updated on:
-October 21st, 2022
+September 28th, 2022
