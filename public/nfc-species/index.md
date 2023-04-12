@@ -24,11 +24,13 @@ My goal for this website is to showcase what birds we've seen, what birds we hav
 
 ## Unidentifiable to Species
 
-Species given here in the same grouping are unable to be sufficiently separated from each other for a clear identification, given what we know now.
+Species given here in the same grouping are generally unable to be sufficiently separated from each other for a clear identification, given what we know now.
 
 - Magnolia, Connecticut and Blackpoll Warbler (Evans and O'Brien 2002)
 - Golden-winged and Blue-Winged Warbler (Evans and O'Brien 2002)
 - Ovenbird, _Seiurus aurocapilla_; Tennessee Warbler, _Oreothlypis peregrina_; Orange-crowned Warbler, _Oreothlypis celata_; Nashville Warbler, _Oreothlypis ruficapilla_; Mourning Warbler, _Geothlypis philadelphia_; Yellow-rumped Warbler, _Setophaga coronata_; Black-throated Green Warbler, _Setophaga virens_; White-crowned Sparrow, _Zonotrichia leucophrys_; and Vesper Sparrow, _Pooecetes gramineus_. (Blaine 2019, Sanders and Mennill 2014)
+- Fox Sparrow from Song Sparrow (see Joe Gyekis's comment [here](https://www.facebook.com/groups/NocturnalFlightCalls/posts/10167927380755436/?comment_id=10167927422600436)).
+- Bicknell's from Gray-cheeked Thrush (see discussion [here](https://www.facebook.com/groups/NocturnalFlightCalls/posts/10166752669525436/))
 
 ## List of NFCs identified in Vermont
 

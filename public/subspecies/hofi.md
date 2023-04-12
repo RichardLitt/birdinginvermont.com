@@ -2,7 +2,7 @@
 
 <iframe width="640" height="518" src="https://macaulaylibrary.org/asset/277532211/embed/640" frameborder="0" allowfullscreen style="width:640px;max-width:100%;"></iframe>
 
-The House Finch is an introduced bird to Vermont, first breeding here in 1976 (Renfrew 2013). All introduced birds are from the same subspecies, _Haemorhous mexicanus frontalis_. This makes identification within the state rather simple. However, it is difficult to distringuish the House Finch from other subspecies based on qualities other than range. The House Finch has many subspecies - 11 are currently recognized by Birds of the World (Badyaevm, Belloni, and Hill 2020).
+The House Finch is an introduced bird to Vermont, first breeding here in 1976 (Renfrew 2013). All introduced birds are from the same subspecies, _Haemorhous mexicanus frontalis_. This makes identification within the state rather simple. However, it is difficult to distinguish the House Finch from other subspecies based on qualities other than range. The House Finch has many subspecies - 11 are currently recognized by Birds of the World (Badyaevm, Belloni, and Hill 2020).
 
 On eBird, all of the House Finch subspecies are lumped into a single grouping, House Finch (Common). However, there is one other grouping - House Finch (McGregor). This subspecies used to live on a couple of islands off of the coast of Baja. It is now extinct, and there are no observations for it on eBird, which makes the grouping seem somewhat arbitrary.
 
