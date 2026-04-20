@@ -10,7 +10,7 @@ class About extends Component {
     this.state = { text: null }
   }
 
-  componentWillMount() {
+  componentDidMount() {
     const path = aboutPath
     fetch(path).then((response) => response.text()).then((text) => {
       this.setState({ text: text })
