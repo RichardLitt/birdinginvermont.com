@@ -50,7 +50,6 @@ class App extends Component {
       vermont: await ebird.checklists({state: 'Vermont', year: '2022', input: e, complete: true}),
       norwich: await ebird.checklists({town: 'Norwich', year: '2022', input: e})
     }
-    // let radial = await ebird.radialSearch({input: e, coordinates: [44.259548, -72.575882]})
     this.setState((prevState, props) => ({
       data: {
         ...prevState.data,
@@ -86,7 +85,6 @@ class App extends Component {
             <Route exact path='/vbrc-checker' render={(props) =>(<Rarities {...props} data={this.state.data} handleChange={this.handleChange} />)} />
             <Route exact path='/norwich' render={(props) =>(<Norwich {...props} data={this.state.data} handleChange={this.handleChange} />)} />
             <Route exact path='/terms' render={(props) =>(<ContentPage {...props} key={randomGen()}/>)} />
-            {/* <Route exact path='/10-mile' component={RadialView} data={this.state.data.radial} /> */}
             <Route component={NoMatchPage} />
             <Redirect from="/nfc" to="/nfc-species" />
           </Switch>
