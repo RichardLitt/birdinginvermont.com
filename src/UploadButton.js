@@ -14,6 +14,12 @@ class UploadButton extends Component {
     if (!this.props.data.counties) {
       return (
         <div className="container-md csv-container">
+          <p>
+            <a href="https://ebird.org/downloadMyData" target="_blank" rel="noopener noreferrer">
+              Download your eBird data
+            </a> from ebird.org, then load the unzipped <code>MyEBirdData.csv</code> file below.
+            Your data is not stored on this site in any way.
+          </p>
           <CSVReader
             onFileLoaded={this.props.handleChange}
             label={label}
