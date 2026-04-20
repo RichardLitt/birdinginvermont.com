@@ -46,7 +46,9 @@ class Map extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    this.createMap()
+    if (this.props.data !== prevProps.data || this.props.location.pathname !== prevProps.location.pathname) {
+      this.createMap()
+    }
     if (this.props.location !== prevProps.location) {
       this.onRouteChanged()
     }
