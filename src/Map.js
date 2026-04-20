@@ -113,7 +113,7 @@ class Map extends Component {
       // Sightings for the current year
       } else if (data.towns && this.state.mapView === '3') {
         // Add complete: true, duration: 3 to limit this down
-        const dataThisYear = await ebirdExt.towns({all: true, year: 2022, input: data.input})
+        const dataThisYear = await ebirdExt.towns({all: true, year: new Date().getFullYear(), input: data.input})
         totalTowns = Object.keys(dataThisYear).filter(c => dataThisYear[c].length !== 0).length
         unseenTowns = Object.keys(dataThisYear).filter(c => dataThisYear[c].length === 0)
         speciesView = Object.keys(dataThisYear).map(c => dataThisYear[c].length)
@@ -187,7 +187,7 @@ class Map extends Component {
       if (data.counties && this.state.mapView === '2') {
         speciesView = Object.keys(data.counties).map(c => data.counties[c].speciesTotal)
       } else if (data.counties && this.state.mapView === '3') {
-        const dataThisYear = await ebirdExt.counties({all: true, year: 2022, input: data.input})
+        const dataThisYear = await ebirdExt.counties({all: true, year: new Date().getFullYear(), input: data.input})
         speciesView = Object.keys(dataThisYear).map(c => dataThisYear[c].speciesTotal)
         vermont.features.forEach(feature => {
           feature.properties.species = dataThisYear[feature.properties.name].species
@@ -223,7 +223,7 @@ class Map extends Component {
       if (data.regions && this.state.mapView === '2') {
         speciesView = Object.keys(data.regions).map(region => data.regions[region].speciesTotal)
       } else if (data.regions && this.state.mapView === '3') {
-        const dataThisYear = await ebirdExt.regions({all: true, year: 2022, input: data.input})
+        const dataThisYear = await ebirdExt.regions({all: true, year: new Date().getFullYear(), input: data.input})
         speciesView = Object.keys(dataThisYear).map(r => dataThisYear[r].speciesTotal)
         vermont.features.forEach(feature => {
           feature.properties.species = dataThisYear[feature.properties.name].species
