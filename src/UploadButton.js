@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-// import Spinner from 'react-bootstrap/Spinner'
+import Spinner from 'react-bootstrap/Spinner'
 import CSVReader from 'react-csv-reader'
 
 const papaparseOptions = {
@@ -11,7 +11,13 @@ const papaparseOptions = {
 class UploadButton extends Component {
   render() {
     let label = (this.props.label) ? this.props.label : "Select your MyEbirdData.csv file"
-    if (!this.props.data.counties) {
+    if (this.props.data.loading) {
+      return (
+        <Spinner animation="border" role="status">
+          <span className="sr-only">Loading...</span>
+        </Spinner>
+      )
+    } else if (!this.props.data.counties) {
       return (
         <div className="container-md csv-container">
           <CSVReader
@@ -22,12 +28,6 @@ class UploadButton extends Component {
           />
         </div>
       )
-    // } else if (this.loader) {
-    //   return (
-    //     <Spinner animation="border" role="status">
-    //       <span className="sr-only">Loading...</span>
-    //     </Spinner>
-    //   )
     } else {
       return null
     }
