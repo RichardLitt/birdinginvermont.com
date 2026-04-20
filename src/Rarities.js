@@ -78,7 +78,7 @@ class NameForm extends React.Component {
         label: capitalizeFirstLetters(town)
       }
     })
-  }f
+  }
 
   render() {
     return (
