@@ -42,7 +42,10 @@ class App extends Component {
   }
 
   async handleChange(e) {
-    this.setState(prevState => ({ data: { ...prevState.data, loading: true } }))
+    await new Promise(resolve => {
+      this.setState(prevState => ({ data: { ...prevState.data, loading: true } }), resolve)
+    })
+    await new Promise(resolve => setTimeout(resolve, 0))
     let rarities = await ebird.rare({input: e}) // Input?
     let towns = await ebird.towns({all: true, input: e})
     let regions = await ebird.regions({all: true, input: e})
