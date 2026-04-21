@@ -42,6 +42,10 @@ class App extends Component {
   }
 
   async handleChange(e) {
+    await new Promise(resolve => {
+      this.setState(prevState => ({ data: { ...prevState.data, loading: true } }), resolve)
+    })
+    await new Promise(resolve => setTimeout(resolve, 0))
     let rarities = await ebird.rare({input: e}) // Input?
     let towns = await ebird.towns({all: true, input: e})
     let regions = await ebird.regions({all: true, input: e})
@@ -59,6 +63,7 @@ class App extends Component {
         counties,
         checklists,
         loaded: true,
+        loading: false,
         input: e,
         singleBirdForm: false // Toggles various forms on the Rarities pages
       }
