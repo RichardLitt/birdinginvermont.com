@@ -15,9 +15,7 @@ class LatLongForm extends Component {
   }
 
   handleSubmit(event) {
-    // alert('A name was submitted: ' + this.state.coordinates);
     this.setState({coordinates: this.state.coordinates})
-    console.log(this.state)
     event.preventDefault();
   }
 

@@ -45,8 +45,14 @@ class Map extends Component {
     this.createMap()
   }
 
-  componentDidUpdate(prevProps) {
-    this.createMap()
+  componentDidUpdate(prevProps, prevState) {
+    if (
+      this.props.data !== prevProps.data ||
+      this.props.location.pathname !== prevProps.location.pathname ||
+      this.state.mapView !== prevState.mapView
+    ) {
+      this.createMap()
+    }
     if (this.props.location !== prevProps.location) {
       this.onRouteChanged()
     }
@@ -107,9 +113,9 @@ class Map extends Component {
 
       // Your personal sightings
       if (data.towns && this.state.mapView === '2') {
-        speciesView = Object.keys(data.towns).map(c => data.towns[c].speciesTotal)
-        totalTowns = Object.keys(data.towns).filter(c => data.towns[c].speciesTotal !== 0).length
-        unseenTowns = Object.keys(data.towns).filter(c => !data.towns[c].speciesTotal)
+        speciesView = Object.keys(data.towns).map(c => data.towns[c].length)
+        totalTowns = Object.keys(data.towns).filter(c => data.towns[c].length !== 0).length
+        unseenTowns = Object.keys(data.towns).filter(c => data.towns[c].length === 0)
       // Sightings for the current year
       } else if (data.towns && this.state.mapView === '3') {
         // Add complete: true, duration: 3 to limit this down

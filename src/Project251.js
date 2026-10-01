@@ -2,49 +2,9 @@ import React, { Component } from 'react'
 import { Helmet } from 'react-helmet'
 import Map from './Map'
 import { withRouter } from 'react-router'
-// import UploadButton from './UploadButton'
-// import ChecklistTableRow from './Checklists'
 import { Link } from 'react-router-dom'
 const ReactMarkdown = require('react-markdown')
 const matter = require('gray-matter')
-
-
-/* function AllRows (props) {
-  let checklists = props.data
-  if (checklists.vermont.length!== 0) {
-    return (
-      <div>
-        <ChecklistTableRow title={"Your checklists"} data={checklists.vermont} text={"Here are all of your complete checklists from 2022 in Vermont."} />
-      </div>
-    )
-  } else {
-    return (
-      <div>
-        <hr />
-        <h2>You're all set!</h2>
-        <p>You haven't submitted any checklists in Vermont this year! Get out there and bird!</p>
-      </div>
-    )
-  }
-}
-
-function Checklists (props) {
-  let checklists = props.data.checklists
-  return (
-    <div id="rarities" className="container-md">
-      <div className="row">
-        {checklists !== '' ?
-          <AllRows data={checklists} /> :
-          <>
-            <p>If you're interested in contributing, this site can show you what complete checklists you've submitted in Vermont this year.  While it can't tell if you've already shared these checklists, it should help you find out which ones you should share. Open each in a new tab and ensure it has been shared with <b>vermont251</b>.</p>
-            <p>First, <a href="https://ebird.org/downloadMyData" target="_blank" rel="noopener noreferrer" >download your data from eBird.</a> Then, load the unzipped .csv file here. Your data is not stored on this site in any way.</p>
-            <UploadButton handleChange={props.handleChange} data={props.data} />
-          </>
-        }
-      </div>
-    </div>
-  )
-} */
 
 
 class Project251 extends Component {
