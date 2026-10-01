@@ -1,9 +1,62 @@
-import React from 'react';
-import { render } from '@testing-library/react';
-import App from './App';
+// Smoke tests: render the whole site at each kind of page, so a dependency
+// update that breaks rendering (React, the router, react-bootstrap,
+// react-select, react-datepicker, Leaflet, d3, react-markdown) fails here,
+// not in production.
 
-test('renders learn react link', () => {
-  const { getByText } = render(<App />);
-  const linkElement = getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
-});
+beforeEach(() => {
+  // Pages load their text from markdown files at runtime
+  global.fetch = jest.fn(() => Promise.resolve({
+    ok: true,
+    text: () => Promise.resolve('# Test page\n\nSome *markdown* text.'),
+    json: () => Promise.resolve({})
+  }))
+})
+
+// App.js creates its browser history when it is first imported, so load a
+// fresh copy (with its own React) after moving to the page under test. The
+// pure build of Testing Library doesn't register its own cleanup hook, which
+// can't be added from inside a test; this file cleans up instead.
+let cleanup
+afterEach(() => cleanup && cleanup())
+
+function renderAt (path) {
+  window.history.pushState({}, '', path)
+  let lib
+  jest.isolateModules(() => {
+    lib = {
+      React: require('react'),
+      App: require('./App').default,
+      ...require('@testing-library/react/pure')
+    }
+  })
+  cleanup = lib.cleanup
+  return { ...lib, ...lib.render(lib.React.createElement(lib.App)) }
+}
+
+test('renders the home page, with the navigation bar and its markdown', async () => {
+  const { screen } = renderAt('/')
+  expect(screen.getByRole('link', { name: 'VBRC Checker' })).toBeInTheDocument()
+  expect(await screen.findByRole('heading', { name: 'Test page' })).toBeInTheDocument()
+})
+
+test('renders the VBRC checker with its forms', () => {
+  const { screen } = renderAt('/vbrc-checker')
+  expect(screen.getByRole('heading', { name: 'Vermont Bird Records Checker' })).toBeInTheDocument()
+  expect(screen.getByLabelText('County:')).toBeInTheDocument()
+  expect(screen.getByLabelText('eBird Basic Dataset file:')).toBeInTheDocument()
+})
+
+test('renders the towns map page', () => {
+  const { container } = renderAt('/towns')
+  expect(container.querySelector('svg, .leaflet-container, canvas')).not.toBeNull()
+})
+
+test('renders the Project 251 page and its markdown', async () => {
+  const { screen } = renderAt('/251')
+  expect(await screen.findByRole('heading', { name: 'Test page' })).toBeInTheDocument()
+})
+
+test('renders a markdown content page', async () => {
+  const { screen } = renderAt('/terms')
+  expect(await screen.findByRole('heading', { name: 'Test page' })).toBeInTheDocument()
+})

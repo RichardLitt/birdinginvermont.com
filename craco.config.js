@@ -12,6 +12,12 @@ module.exports = {
     // is linted in its own repo.
     enable: false
   },
+  jest: {
+    configure: {
+      // ebird-ext's tests use node:test and run in its own repo (npm test there)
+      testPathIgnorePatterns: ['/node_modules/', '<rootDir>/src/ebird-ext/']
+    }
+  },
   webpack: {
     configure: (config) => {
       // ebird-ext only touches the filesystem when given a file path (the CLI);
