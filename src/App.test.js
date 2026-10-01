@@ -51,10 +51,11 @@ test('renders the towns map page', () => {
   expect(container.querySelector('svg, .leaflet-container, canvas')).not.toBeNull()
 })
 
+// Draws every town; takes 4s locally and over 12s on GitHub's runners
 test('renders the Project 251 page and its markdown', async () => {
   const { screen } = renderAt('/251')
-  expect(await screen.findByRole('heading', { name: 'Test page' })).toBeInTheDocument()
-})
+  expect(await screen.findByRole('heading', { name: 'Test page' }, { timeout: 20000 })).toBeInTheDocument()
+}, 30000)
 
 test('renders a markdown content page', async () => {
   const { screen } = renderAt('/terms')
