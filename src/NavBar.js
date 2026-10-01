@@ -48,12 +48,7 @@ class NavBar extends Component {
               </Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link eventKey="8" as={Link} to="/female-birdsong">
-                Female Birdsong
-              </Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-              <Nav.Link eventKey="9" as={Link} to="/hotspots">
+              <Nav.Link eventKey="8" as={Link} to="/hotspots">
                 Unbirded Hotspots
               </Nav.Link>
             </Nav.Item>
