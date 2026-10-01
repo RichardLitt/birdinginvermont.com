@@ -552,7 +552,7 @@ class Map extends Component {
               .transition()
               .duration(250)
               .style('fill', (d) => {
-                return differentColorScale(d.properties.local, d.properties.speciesTotal)
+                return differentColorScale(pathname === '/251' && d.properties.local, d.properties.speciesTotal)
               })
 
             totalTownsText()
