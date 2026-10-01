@@ -512,11 +512,16 @@ class Map extends Component {
               d3.select('#list')
                 .append('hr')
 
-              d3.select('#list')
+              // Collapsed by default: it's usually hundreds of species. Click
+              // a town to pin it, then open this.
+              const notSeenDetails = d3.select('#list')
+                .append('details')
+              notSeenDetails
+                .append('summary')
                 .append('b')
-                .text('No records:')
+                .text(`No records (${d.properties.notSeen.length})`)
 
-              let notSeenUl = d3.select('#list')
+              let notSeenUl = notSeenDetails
                 .append('ul')
 
               notSeenUl.selectAll('li')
