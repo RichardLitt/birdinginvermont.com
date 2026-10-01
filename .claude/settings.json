@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//Users/richard/src/birdingermont.com/src/**)",
+      "Bash(git -C /Users/richard/src/birdinginvermont.com log --oneline)",
+      "Bash(git checkout *)",
+      "mcp__github__issue_write",
+      "mcp__github__create_branch",
+      "Bash(gh auth *)",
+      "Bash(gh issue create *)",
+      "Bash(git add *)",
+      "Bash(git commit -m *)"
+    ]
+  }
+}

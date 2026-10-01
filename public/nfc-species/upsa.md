@@ -77,6 +77,8 @@ These two species would seem to benefit from inclusion here.
 
 Another consideration is that the [Spotted](./spsa) and [Solitary Sandpipers](./sosa) are very common night migrants in Vermont, with a mildly similar call of three notes. Disambiguating these nominally here would be useful.
 
+Finally, it is also possible to confuse Gray Treefrogs for Upland Sandpipers. See calls [here](https://xeno-canto.org/species/Dryophytes-versicolor).
+
 ##### Wilson's Plover (Pieplow 2017)
 
 The _piddip_ sounds similar to UPSA, but it is also not known as a nocturnal flight call currently. No listed NFC in Pieplow (2017). Note that this information has a sample size of 1 recording, with three calls in it. Call assessments eyeballed from Pieplow (2017).
