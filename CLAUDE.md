@@ -20,7 +20,7 @@ npm run deploy   # deploy to GitHub Pages
 - **src/App.js** — root component, routing, top-level state. `handleChange(e)` is the main data-loading callback; `e` is the eBird CSV file input.
 - **src/Map.js** — D3/Leaflet map. Re-renders on prop change via `componentDidUpdate`.
 - **src/Rarities.js** — VBRC checker with single-bird form and batch upload.
-- **src/ebird-ext/** — git submodule ([github.com/RichardLitt/ebird-ext](https://github.com/RichardLitt/ebird-ext)). Contains all data-processing logic, GeoJSON boundaries, and JSON data files. Do not commit changes to this directory here; changes go in the submodule's own repo.
+- **src/ebird-ext/** — git submodule ([github.com/RichardLitt/ebird-ext](https://github.com/RichardLitt/ebird-ext)). Contains all data-processing logic, GeoJSON boundaries, and JSON data files. Do not commit changes to this directory here; changes go in the submodule's own repo. After merging ebird-ext changes, run `npm run update-ebird-ext` to move the pointer to ebird-ext `main` and commit it (pass a ref to point elsewhere, `--push` to push).
 
 ## Conventions
 
