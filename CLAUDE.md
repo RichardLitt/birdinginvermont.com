@@ -25,6 +25,6 @@ npm run deploy   # deploy to GitHub Pages
 ## Conventions
 
 - **No co-author lines in commits.** Do not add `Co-Authored-By:` trailers to commit messages.
-- The build tool is Craco (wraps Create React App). Config in `craco.config.js` and `babel.config.js` — these exist to handle CommonJS modules from ebird-ext.
+- The build tool is Craco (wraps Create React App 5). `craco.config.js` lets the build bundle ebird-ext's ESM sources. It adds the import-attributes Babel syntax for its JSON imports, empty fallbacks for Node built-ins, and Buffer/process polyfills. Netlify builds on Node 22 (`netlify.toml`, `.nvmrc`).
 - Pure JavaScript (no TypeScript).
 - Styling: SCSS + Bootstrap 4. Component-level `.scss` files alongside their `.js` files.

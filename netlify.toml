@@ -1,3 +1,7 @@
+[build.environment]
+  # react-scripts 5 and the ebird-ext submodule need a current Node
+  NODE_VERSION = "22"
+
 [[redirects]]
   from = "/*"
   to = "/index.html"
