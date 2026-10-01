@@ -7,7 +7,7 @@ function AllRows (props) {
   if (checklists.norwich.length !== 0) {
     return (
       <div>
-        <ChecklistTableRow title={"Your checklists"} data={checklists.norwich} text={"Here are all of your checklists from 2022 in Norwich, VT."} />
+        <ChecklistTableRow title={"Your checklists"} data={checklists.norwich} text={`Here are all of your checklists from ${new Date().getFullYear()} in Norwich, VT.`} />
       </div>
     )
   } else {
