@@ -4,6 +4,9 @@ import { Helmet } from 'react-helmet'
 import { Table } from 'react-bootstrap'
 import DatePicker from "react-datepicker";
 import Select from 'react-select';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons'
+import JSZip from 'jszip'
 import ebird from './ebird-ext/index.js'
 import { parseEBD } from './ebird-ext/ebd.js'
 
@@ -130,9 +133,9 @@ function SpeciesRow (props) {
       {(props.sbf) ? undefined : <td>{index+1}</td>}
       <td>{species['Common Name']}</td>
       <td><i>{species['Scientific Name']}</i></td>
-      <td>{species.Location}</td>
+      <td>{species.County ? `${species.Location}, ${species.County}` : species.Location}</td>
       <td>{species.Date}</td>
-      {(props.observer) ? <td><a target="_blank" rel="noopener noreferrer" href={`https://ebird.org/profile/${species['Observer ID']}`} >{species['Observer ID']}</a></td> : undefined}
+      {(props.observer) ? <td className="text-center"><a target="_blank" rel="noopener noreferrer" href={`https://ebird.org/profile/${species['Observer ID']}`} title="View observer profile"><FontAwesomeIcon icon={faExternalLinkAlt} /></a></td> : undefined}
       {(props.sbf) ? undefined : <td><a target="_blank" rel="noopener noreferrer" href={`https://ebird.org/checklist/${species['Submission ID']}`} >{species['Submission ID']}</a></td>}
     </tr>
   )
@@ -146,9 +149,9 @@ function SubspeciesRow (props) {
       {(props.sbf) ? undefined : <td>{index+1}</td>}
       <td>{species['Common Name']}</td>
       <td><i>{species['Subspecies']}</i></td>
-      <td>{species.Location}</td>
+      <td>{species.County ? `${species.Location}, ${species.County}` : species.Location}</td>
       <td>{species.Date}</td>
-      {(props.observer) ? <td><a target="_blank" rel="noopener noreferrer" href={`https://ebird.org/profile/${species['Observer ID']}`} >{species['Observer ID']}</a></td> : undefined}
+      {(props.observer) ? <td className="text-center"><a target="_blank" rel="noopener noreferrer" href={`https://ebird.org/profile/${species['Observer ID']}`} title="View observer profile"><FontAwesomeIcon icon={faExternalLinkAlt} /></a></td> : undefined}
       {(props.sbf) ? undefined : <td><a target="_blank" rel="noopener noreferrer" href={`https://ebird.org/checklist/${species['Submission ID']}`} >{species['Submission ID']}</a></td>}
     </tr>
   )
@@ -262,16 +265,30 @@ class EBDChecker extends Component {
     })
   }
 
+  // Reads the ebd_….txt file directly from inside an eBird download .zip,
+  // skipping the (much larger) sampling event file in the same archive
+  async readZippedFile (file) {
+    const zip = await JSZip.loadAsync(file)
+    const entry = Object.values(zip.files).find(f => /^ebd_.*\.txt$/i.test(f.name.split('/').pop()) && !/sampling/i.test(f.name))
+    if (!entry) {
+      throw new Error('No ebd_….txt file found inside that zip.')
+    }
+    return entry.async('text')
+  }
+
   async handleSubmit () {
     if (!this.state.file) {
-      this.setState({ status: 'Choose an ebd_….txt file first.' })
+      this.setState({ status: 'Choose an ebd_….txt or .zip file first.' })
       return
     }
     this.setState({ status: 'Reading and checking the file. Large files can take a minute…', rarities: '' })
     // Let the status message paint before the (blocking) check starts
     await new Promise(resolve => setTimeout(resolve, 50))
     try {
-      const rows = parseEBD(await this.readFile(this.state.file))
+      const text = (this.state.file.name.toLowerCase().endsWith('.zip'))
+        ? await this.readZippedFile(this.state.file)
+        : await this.readFile(this.state.file)
+      const rows = parseEBD(text)
       if (rows.length === 0) {
         this.setState({ status: "That doesn't look like an eBird Basic Dataset file. It should be the tab-separated ebd_….txt file from inside the download." })
         return
@@ -294,14 +311,14 @@ class EBDChecker extends Component {
         <h3>Check a county's records (eBird Basic Dataset)</h3>
         <div className="row">
           <div className="col-md-8">
-            <p>To check everyone's records for a county or the whole state, not just your own, <a href="https://ebird.org/data/download" target="_blank" rel="noopener noreferrer" >request the eBird Basic Dataset</a> for that region and date range. Unzip the download and load the <code>ebd_….txt</code> file here (not the sampling file). Shared checklists are only listed once. The file is read in your browser and is not uploaded anywhere.</p>
+            <p>To check everyone's records for a county or the whole state, not just your own, <a href="https://ebird.org/data/download" target="_blank" rel="noopener noreferrer" >request the eBird Basic Dataset</a> for that region and date range. Load either the downloaded <code>.zip</code> file directly, or the <code>ebd_….txt</code> file unzipped from it (not the sampling file). Shared checklists are only listed once. The file is read in your browser and is not uploaded anywhere.</p>
           </div>
         </div>
         <form className="col-md-10">
           <div className="form-row">
             <div className="form-group col-md-4">
               <label htmlFor="ebd-file">eBird Basic Dataset file:</label>
-              <input id="ebd-file" type="file" accept=".txt,text/plain" className="form-control-file" onChange={e => this.setState({ file: e.target.files[0] || null })} />
+              <input id="ebd-file" type="file" accept=".txt,.zip,text/plain,application/zip" className="form-control-file" onChange={e => this.setState({ file: e.target.files[0] || null })} />
             </div>
             <div className="form-group col-md-3">
               <label htmlFor="ebd-county">County:</label>
