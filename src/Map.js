@@ -16,13 +16,13 @@ import CountiesText from './Counties'
 import RegionsText from './Regions'
 import seenInVT from './ebird-ext/taxonomies/eBird_Taxonomy_2020_VT.json'
 import rewind from "@turf/rewind"
-import banding from './ebird-ext/bandingCodes.js'
+import * as banding from './ebird-ext/bandingCodes.js'
 import ebirdExt from './ebird-ext/index.js'
 import ebirdExtHotspots from './ebird-ext/hotspots.js'
 // const d3ScaleChromatic = require('d3-scale-chromatic')
 const d3 = require('d3')
 const d3Geo = require('d3-geo')
-const taxonomicSort = require('./ebird-ext/taxonomicSort.js')
+import taxonomicSort from './ebird-ext/taxonomicSort.js'
 const _ = require('lodash')
 
 // To Do - make this a method of the string class

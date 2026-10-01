@@ -5,6 +5,7 @@ import { Table } from 'react-bootstrap'
 import DatePicker from "react-datepicker";
 import Select from 'react-select';
 import ebird from './ebird-ext/index.js'
+import { parseEBD } from './ebird-ext/ebd.js'
 
 // CSS Modules, react-datepicker-cssmodules.css
 import "react-datepicker/dist/react-datepicker.css";
@@ -78,7 +79,7 @@ class NameForm extends React.Component {
         label: capitalizeFirstLetters(town)
       }
     })
-  }f
+  }
 
   render() {
     return (
@@ -131,6 +132,7 @@ function SpeciesRow (props) {
       <td><i>{species['Scientific Name']}</i></td>
       <td>{species.Location}</td>
       <td>{species.Date}</td>
+      {(props.observer) ? <td><a target="_blank" rel="noopener noreferrer" href={`https://ebird.org/profile/${species['Observer ID']}`} >{species['Observer ID']}</a></td> : undefined}
       {(props.sbf) ? undefined : <td><a target="_blank" rel="noopener noreferrer" href={`https://ebird.org/checklist/${species['Submission ID']}`} >{species['Submission ID']}</a></td>}
     </tr>
   )
@@ -146,6 +148,7 @@ function SubspeciesRow (props) {
       <td><i>{species['Subspecies']}</i></td>
       <td>{species.Location}</td>
       <td>{species.Date}</td>
+      {(props.observer) ? <td><a target="_blank" rel="noopener noreferrer" href={`https://ebird.org/profile/${species['Observer ID']}`} >{species['Observer ID']}</a></td> : undefined}
       {(props.sbf) ? undefined : <td><a target="_blank" rel="noopener noreferrer" href={`https://ebird.org/checklist/${species['Submission ID']}`} >{species['Submission ID']}</a></td>}
     </tr>
   )
@@ -153,6 +156,8 @@ function SubspeciesRow (props) {
 
 function SpeciesTable (props) {
   let data = props.data
+  // eBird Basic Dataset rows carry an observer; MyEBirdData rows are all yours
+  const observer = data.some(x => x['Observer ID'])
   return (
     <Table striped bordered hover size="sm">
       <thead>
@@ -161,6 +166,7 @@ function SpeciesTable (props) {
           <th colSpan="2">Species</th>
           <th colSpan="1">Location</th>
           <th colSpan="1">Date</th>
+          {(observer) ? <th colSpan="1">Observer</th> : undefined}
           {(props.sbf) ? undefined : <th colSpan="1">Checklist</th>}
         </tr>
       </thead>
@@ -168,11 +174,11 @@ function SpeciesTable (props) {
         {data.map((data, index) => {
           if (data['Subspecies Notes']) {
             return (
-              <SubspeciesRow data={data} index={index} key={index} sbf={props.sbf} />
+              <SubspeciesRow data={data} index={index} key={index} sbf={props.sbf} observer={observer} />
             )
           } else {
             return (
-              <SpeciesRow data={data} index={index} key={index} sbf={props.sbf} />
+              <SpeciesRow data={data} index={index} key={index} sbf={props.sbf} observer={observer} />
             )
           }
         })}
@@ -231,6 +237,91 @@ function AllRows (props) {
         </div>
       )
     }
+  }
+}
+
+// Checks an eBird Basic Dataset file: everyone's records for a region, not just yours
+class EBDChecker extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      file: null,
+      year: String(new Date().getFullYear()),
+      county: '',
+      status: '',
+      rarities: ''
+    }
+    this.handleSubmit = this.handleSubmit.bind(this)
+  }
+
+  readFile (file) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader()
+      reader.onload = () => resolve(reader.result)
+      reader.onerror = () => reject(reader.error)
+      reader.readAsText(file)
+    })
+  }
+
+  async handleSubmit () {
+    if (!this.state.file) {
+      this.setState({ status: 'Choose an ebd_….txt file first.' })
+      return
+    }
+    this.setState({ status: 'Reading and checking the file. Large files can take a minute…', rarities: '' })
+    // Let the status message paint before the (blocking) check starts
+    await new Promise(resolve => setTimeout(resolve, 50))
+    try {
+      const rows = parseEBD(await this.readFile(this.state.file))
+      if (rows.length === 0) {
+        this.setState({ status: "That doesn't look like an eBird Basic Dataset file. It should be the tab-separated ebd_….txt file from inside the download." })
+        return
+      }
+      const opts = { input: rows }
+      if (this.state.year) opts.year = this.state.year
+      if (this.state.county) opts.county = this.state.county
+      const rarities = await ebird.rare(opts)
+      this.setState({ status: `Checked ${rows.length.toLocaleString()} records.`, rarities })
+    } catch (err) {
+      console.error(err)
+      this.setState({ status: `Something went wrong reading that file: ${err.message}` })
+    }
+  }
+
+  render () {
+    const counties = Object.values(ebird.eBirdCountyIds)
+    return (
+      <div>
+        <h3>Check a county's records (eBird Basic Dataset)</h3>
+        <div className="row">
+          <div className="col-md-8">
+            <p>To check everyone's records for a county or the whole state, not just your own, <a href="https://ebird.org/data/download" target="_blank" rel="noopener noreferrer" >request the eBird Basic Dataset</a> for that region and date range. Unzip the download and load the <code>ebd_….txt</code> file here (not the sampling file). Shared checklists are only listed once. The file is read in your browser and is not uploaded anywhere.</p>
+          </div>
+        </div>
+        <form className="col-md-10">
+          <div className="form-row">
+            <div className="form-group col-md-4">
+              <label htmlFor="ebd-file">eBird Basic Dataset file:</label>
+              <input id="ebd-file" type="file" accept=".txt,text/plain" className="form-control-file" onChange={e => this.setState({ file: e.target.files[0] || null })} />
+            </div>
+            <div className="form-group col-md-3">
+              <label htmlFor="ebd-county">County:</label>
+              <select id="ebd-county" className="form-control" value={this.state.county} onChange={e => this.setState({ county: e.target.value })}>
+                <option value="">All of Vermont</option>
+                {counties.map(c => <option key={c} value={c}>{c}</option>)}
+              </select>
+            </div>
+            <div className="form-group col-md-2">
+              <label htmlFor="ebd-year">Year:</label>
+              <input id="ebd-year" type="number" className="form-control" placeholder="Any" value={this.state.year} onChange={e => this.setState({ year: e.target.value })} />
+            </div>
+          </div>
+          <input type="button" onClick={this.handleSubmit} value="Check" />
+        </form>
+        {(this.state.status) ? <p className="mt-3">{this.state.status}</p> : ''}
+        {(this.state.rarities !== '') ? <AllRows data={this.state.rarities} /> : ''}
+      </div>
+    )
   }
 }
 
@@ -303,6 +394,10 @@ class Rarities extends Component {
           {(rarities !== '') ? <AllRows data={rarities} /> : ''}
 
           <UploadButton handleChange={this.props.handleChange} data={this.props.data} />
+
+          <hr />
+
+          <EBDChecker />
 
           </div>
         </div>
