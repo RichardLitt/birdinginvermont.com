@@ -2,21 +2,25 @@
 # Point the src/ebird-ext submodule at the latest ebird-ext (or a given ref)
 # and commit that on the current branch.
 #
-# Usage: npm run update-ebird-ext [-- [ref] [--push]]
+# Usage: npm run update-ebird-ext [-- [ref] [--push] [--yes]]
 #   ref     ebird-ext branch, tag or commit to point at (default: main)
 #   --push  push the branch afterwards
+#   --yes   don't ask to confirm the branch
 #
-# If you're on main, a new branch is made for the commit first. The submodule
-# checkout (your working copy of ebird-ext) ends up on the ref you asked for.
+# Run it on the branch of the site PR that needs the ebird-ext change, so they
+# ship together. It asks first. On main, a new branch is made for the commit.
+# The submodule checkout (your working copy of ebird-ext) ends up on the ref.
 
 set -euo pipefail
 
 REF=main
 PUSH=false
+YES=false
 for arg in "$@"; do
   case "$arg" in
     --push) PUSH=true ;;
-    -h|--help) sed -n '2,10p' "$0" | sed 's/^# \{0,1\}//'; exit 0 ;;
+    -y|--yes) YES=true ;;
+    -h|--help) sed -n '2,12p' "$0" | sed 's/^# \{0,1\}//'; exit 0 ;;
     -*) echo "Unknown option: $arg" >&2; exit 1 ;;
     *) REF="$arg" ;;
   esac
@@ -24,6 +28,27 @@ done
 
 cd "$(git rev-parse --show-toplevel)"
 SUB=src/ebird-ext
+
+# Check the branch before changing anything
+CURRENT=$(git branch --show-current)
+if [ "$YES" != true ]; then
+  if [ "$CURRENT" = main ] || [ -z "$CURRENT" ]; then
+    echo "You're on ${CURRENT:-a detached HEAD}. The pointer will be committed on a new branch, as its own PR."
+    echo "If a site PR needs this ebird-ext change, stop and switch to that PR's branch first."
+  else
+    echo "The pointer will be committed on branch: $CURRENT"
+  fi
+  if ! { : < /dev/tty; } 2>/dev/null; then
+    echo "No terminal to ask on; rerun with --yes to go ahead." >&2
+    exit 1
+  fi
+  printf "Is this the branch you want? [y/N] "
+  read -r answer < /dev/tty || answer=""
+  case "$answer" in
+    y|Y|yes|YES) ;;
+    *) echo "Stopped. Nothing changed."; exit 1 ;;
+  esac
+fi
 
 if [ -n "$(git -C "$SUB" status --porcelain --untracked-files=no)" ]; then
   echo "src/ebird-ext has uncommitted changes. Commit or discard them first:" >&2
@@ -82,6 +107,11 @@ fi
 BRANCH=$(git branch --show-current)
 if [ "$BRANCH" = main ] || [ -z "$BRANCH" ]; then
   BRANCH="update-ebird-ext-$(date +%Y%m%d)-${NEW:0:7}"
+  N=2
+  while git show-ref --quiet --verify "refs/heads/$BRANCH"; do
+    BRANCH="update-ebird-ext-$(date +%Y%m%d)-${NEW:0:7}-$N"
+    N=$((N + 1))
+  done
   git switch --quiet -c "$BRANCH"
   echo
   echo "Made branch $BRANCH"
