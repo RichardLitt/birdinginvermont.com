@@ -4,8 +4,6 @@ import { Helmet } from 'react-helmet'
 import { Table } from 'react-bootstrap'
 import DatePicker from "react-datepicker";
 import Select from 'react-select';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons'
 import JSZip from 'jszip'
 import ebird from './ebird-ext/index.js'
 import { parseEBD } from './ebird-ext/ebd.js'
@@ -135,7 +133,6 @@ function SpeciesRow (props) {
       <td><i>{species['Scientific Name']}</i></td>
       <td>{species.County ? `${species.Location}, ${species.County}` : species.Location}</td>
       <td>{species.Date}</td>
-      {(props.observer) ? <td className="text-center"><a target="_blank" rel="noopener noreferrer" href={`https://ebird.org/profile/${species['Observer ID']}`} title="View observer profile"><FontAwesomeIcon icon={faExternalLinkAlt} /></a></td> : undefined}
       {(props.sbf) ? undefined : <td><a target="_blank" rel="noopener noreferrer" href={`https://ebird.org/checklist/${species['Submission ID']}`} >{species['Submission ID']}</a></td>}
     </tr>
   )
@@ -151,7 +148,6 @@ function SubspeciesRow (props) {
       <td><i>{species['Subspecies']}</i></td>
       <td>{species.County ? `${species.Location}, ${species.County}` : species.Location}</td>
       <td>{species.Date}</td>
-      {(props.observer) ? <td className="text-center"><a target="_blank" rel="noopener noreferrer" href={`https://ebird.org/profile/${species['Observer ID']}`} title="View observer profile"><FontAwesomeIcon icon={faExternalLinkAlt} /></a></td> : undefined}
       {(props.sbf) ? undefined : <td><a target="_blank" rel="noopener noreferrer" href={`https://ebird.org/checklist/${species['Submission ID']}`} >{species['Submission ID']}</a></td>}
     </tr>
   )
@@ -159,8 +155,6 @@ function SubspeciesRow (props) {
 
 function SpeciesTable (props) {
   let data = props.data
-  // eBird Basic Dataset rows carry an observer; MyEBirdData rows are all yours
-  const observer = data.some(x => x['Observer ID'])
   return (
     <Table striped bordered hover size="sm">
       <thead>
@@ -169,7 +163,6 @@ function SpeciesTable (props) {
           <th colSpan="2">Species</th>
           <th colSpan="1">Location</th>
           <th colSpan="1">Date</th>
-          {(observer) ? <th colSpan="1">Observer</th> : undefined}
           {(props.sbf) ? undefined : <th colSpan="1">Checklist</th>}
         </tr>
       </thead>
@@ -177,11 +170,11 @@ function SpeciesTable (props) {
         {data.map((data, index) => {
           if (data['Subspecies Notes']) {
             return (
-              <SubspeciesRow data={data} index={index} key={index} sbf={props.sbf} observer={observer} />
+              <SubspeciesRow data={data} index={index} key={index} sbf={props.sbf} />
             )
           } else {
             return (
-              <SpeciesRow data={data} index={index} key={index} sbf={props.sbf} observer={observer} />
+              <SpeciesRow data={data} index={index} key={index} sbf={props.sbf} />
             )
           }
         })}
