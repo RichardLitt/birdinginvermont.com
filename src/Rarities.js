@@ -214,7 +214,6 @@ function AllRows (props) {
         <TableRow sbf={props.sbf} title={"Vermont Firsts"} data={rarities.Unknown} text={"These species were not on the VBRC \"Vermont Bird Checklist\" previously; please submit them to the VBRC, if they are birds!"} />
         <TableRow sbf={props.sbf} title={"Vermont Records"} data={rarities.Vermont} text={"Please submit records of these birds if they are seen anywhere in Vermont."}/>
         <TableRow sbf={props.sbf} title={"Nesting Records"} data={rarities.Breeding} text={"Please submit these records if you have noted nesting behavior. This checker looks for any breeding code used for a particular sighting; use your discretion as to which ones are relevant."} />
-        <TableRow sbf={props.sbf} title={"Outside of Burlington"} data={rarities.Burlington} text={"Please submit records for Fish Crows if seen outside of the Burlington area."} />
         <TableRow sbf={props.sbf} title={"Outside of the Champlain Valley"} data={rarities.Champlain} text={"Please submit records for these birds if seen outside of the Champlain Valley bioregion, used in the Vermont Breeding Birds Atlas."} />
         <TableRow sbf={props.sbf} title={"Outside of the NEK"} data={rarities.NEK} text={"Please submit records for these birds if seen outside of the Caledonia, Essex, or Orleans counties."} />
         <TableRow sbf={props.sbf} title={"Outside of expected dates"} data={rarities.OutsideExpectedDates} text={"Please submit records for these birds as they were seen outside of their expected date ranges in Vermont. Some older records in this list might have been in the expected date range at the time of the observation, but now would not be. These do not have to be submitted.  Contact your eBird reviewer if you are uncertain."} />
@@ -383,7 +382,7 @@ class Rarities extends Component {
           <h3>Upload and check eBird Data</h3>
           <div className="row">
             <div className="col-md-8">
-              <p>To check all of your observations from eBird, you can upload your data file below. This will check your eBird checklists for any birds which ought to be reported to the VBRC. This will only check submissions to your eBird account. It checks for Vermont-wide rare birds, breeding birds of note, birds outside of the Burlington Area, Lake Champlain, or the NEK, extreme rarities, subspecies of note, and birds which are present out of season.</p>
+              <p>To check all of your observations from eBird, you can upload your data file below. This will check your eBird checklists for any birds which ought to be reported to the VBRC. This will only check submissions to your eBird account. It checks for Vermont-wide rare birds, breeding birds of note, birds outside of the Champlain Valley or the NEK, extreme rarities, subspecies of note, and birds which are present out of season.</p>
 
               <p>It may be that some of the items listed here do not need to be submitted, such as when the observation is for a 'continuing' bird for which the initial observer made the required submission and/or certain shared checklists within eBird.  Contact your eBird reviewer or VBRC if you are uncertain. Duplicate submissions are welcomed, however - better more people submit rare bird forms than less!</p>
 
