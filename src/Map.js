@@ -82,8 +82,6 @@ class Map extends Component {
     const height = data.height
     const pathname = this.props.location.pathname
 
-    let vt251localdata = data.vt251localdata.map(t => t.toUpperCase())
-
     var vermont, j, color, speciesTotals, speciesView
     let totalTowns = 0
     let unseenTowns
@@ -144,11 +142,9 @@ class Map extends Component {
     } else if (this.props.location.pathname === '/251') {
       vermont = VermontTowns
       const allVermontTowns = new Set()
-      var townsInData = []
 
       Object.keys(data.vt251data).forEach(town => {
         speciesTotals = data.vt251data[town].length
-        townsInData.push(town)
         if (speciesTotals > 0) {
           totalTowns += 1
         }
@@ -162,21 +158,15 @@ class Map extends Component {
           if (town.toUpperCase() === VermontTowns.features[j].properties.town) {
             VermontTowns.features[j].properties.speciesTotal = speciesTotals
             VermontTowns.features[j].properties.species = data.vt251data[town].map(x => banding.codeToCommonName(x))
-            if (vt251localdata.includes(VermontTowns.features[j].properties.town)) {
-              VermontTowns.features[j].properties.local = true
-            }
 
             break
           }
         }
       })
 
-      var emptyTowns = []
-      for (const x of allVermontTowns) {
-        if (townsInData.indexOf(x) === -1 ) {
-          emptyTowns.push(x)
-        }
-      }
+      // Every town is in the data, with an empty list if it has no checklists
+      var emptyTowns = [...allVermontTowns].filter(x => !(data.vt251data[x] || []).length)
+      var townCount = allVermontTowns.size
     } else if (this.props.location.pathname === '/counties') {
       Counties.features = Counties.features.map(feature => rewind(feature, {reverse: true}))
       vermont = Counties
@@ -288,11 +278,27 @@ class Map extends Component {
 
     let townSelected = false
 
+    // The /251 side panel: where nobody has been yet, the towns that most
+    // need a visit, and the towns that already have the most species
+    function summary251 () {
+      const counts = Object.keys(data.vt251data)
+        .filter(town => data.vt251data[town].length)
+        .map(town => ({ town: capitalizeFirstLetters(town), count: data.vt251data[town].length }))
+        .sort((a, b) => a.count - b.count || a.town.localeCompare(b.town))
+      const items = list => list.map(x => `<li>${x.town} (${x.count})</li>`).join('')
+      const none = emptyTowns.map(x => capitalizeFirstLetters(x)).sort()
+      return (none.length ? `<p><strong>No checklists yet:</strong> ${none.join(', ')}</p>` : '<p>Every town has a checklist!</p>') +
+        `<p><strong>Fewest species</strong>, where a visit helps most:</p><ol>${items(counts.slice(0, 15))}</ol>` +
+        `<p><strong>Most species:</strong></p><ol>${items(counts.slice(-5).reverse())}</ol>`
+    }
+
     function totalTownsText () {
       if (totalTowns) {
-        d3.select('#locale').text(`Towns birded: ${totalTowns}`)
         if (pathname === '/251') {
-          d3.select('#list').text(`Towns with no checklists:\n` + emptyTowns.map(x => capitalizeFirstLetters(x)).sort().join(', '))
+          d3.select('#locale').text(`Towns birded: ${totalTowns} of ${townCount}`)
+          d3.select('#list').html(summary251())
+        } else {
+          d3.select('#locale').text(`Towns birded: ${totalTowns}`)
         }
       } else {
         d3.select('#locale').text('')
@@ -419,26 +425,18 @@ class Map extends Component {
 
     function townsView () {
 
-      function differentColorScale(property, colorObj) {
-        if (property === true) {
-          color = d3
-            .scaleQuantize()
-            .domain([domainMin, domainMax])
-            .range(d3.schemeGreens[9])
-          return colorArea(colorObj, color)
-        } else {
-          color = d3
-            .scaleQuantize()
-            .domain([domainMin, domainMax])
-            .range(['#fff7ec', '#fee8c8', '#fdd49e', '#fdbb84', '#fc8d59', '#ef6548', '#d7301f', '#b30000', '#7f0000'])
-          return colorArea(colorObj, color)
-        }
+      function colorScale(colorObj) {
+        color = d3
+          .scaleQuantize()
+          .domain([domainMin, domainMax])
+          .range(['#fff7ec', '#fee8c8', '#fdd49e', '#fdbb84', '#fc8d59', '#ef6548', '#d7301f', '#b30000', '#7f0000'])
+        return colorArea(colorObj, color)
       }
 
 
       paths
         .style('fill', (d) => {
-          return differentColorScale(pathname === '/251' && d.properties.local, d.properties.speciesTotal)
+          return colorScale(d.properties.speciesTotal)
         })
         .on('click', function (d) {
           if (!townSelected) {
@@ -448,7 +446,7 @@ class Map extends Component {
           } else {
             townSelected
               .style('fill', (d) => {
-                return differentColorScale(pathname === '/251' && d.properties.local, townSelected.data()[0].properties.speciesTotal)
+                return colorScale(townSelected.data()[0].properties.speciesTotal)
               })
 
             townSelected = false
@@ -557,12 +555,12 @@ class Map extends Component {
               .transition()
               .duration(250)
               .style('fill', (d) => {
-                return differentColorScale(pathname === '/251' && d.properties.local, d.properties.speciesTotal)
+                return colorScale(d.properties.speciesTotal)
               })
 
             totalTownsText()
             if (pathname === '/251') {
-              d3.select('#list').text(`Towns with no checklists:\n` + emptyTowns.map(x => capitalizeFirstLetters(x)).sort().join(', '))
+              d3.select('#list').html(summary251())
             } else {
               d3.select('#list').text('')
             }

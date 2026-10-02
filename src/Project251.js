@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { Helmet } from 'react-helmet'
 import Map from './Map'
 import { withRouter } from 'react-router'
-import { Link } from 'react-router-dom'
 const ReactMarkdown = require('react-markdown')
 const matter = require('gray-matter')
 
@@ -24,19 +23,23 @@ class Project251 extends Component {
   }
 
   render() {
+    const meta = this.props.data.vt251meta
     return (
       <div className="container-md page">
         <Helmet>
           <meta charSet="utf-8" />
           <title>Project 251 | Birding In Vermont</title>
           <link rel="canonical" href="https://birdinginvermont.com/251" />
-          <meta name="description" content="Attempting to see 150 birds in every county of Vermont, in one year." />
+          <meta name="description" content="Can Vermont birders submit a complete checklist in every town in one year? See which towns still need a visit." />
         </Helmet>
         <div className="row">
           <div className="col-md-10 text-left">
             <h1>Project 251</h1>
             <ReactMarkdown source={this.state.text} escapeHtml={false} />
-            <p>If you'd like to contribute to the Vermont Center for Ecostudies <a href="https://vtecostudies.org/wildlife/wildlife-watching/vermont-county-bird-quest/norwich-quest-2022/">Norwich Quest</a>, go <Link to="/norwich">here</Link>.</p>
+            {meta && <p className="text-muted">
+              Checklists from {meta.year}, from the {meta.release} <a href="https://ebird.org/data/download" target="_blank" rel="noopener noreferrer">eBird Basic Dataset</a>. Last updated {meta.updated}.
+              {' '}Data: eBird Basic Dataset. Version: EBD_rel{meta.release && meta.release.replace(' ', '-')}. Cornell Lab of Ornithology, Ithaca, New York.
+            </p>}
           </div>
         </div>
         <div className="row">
