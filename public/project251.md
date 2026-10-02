@@ -2,40 +2,10 @@
 title: 'Project 251'
 ---
 
-Can we submit a complete checklist in every town in Vermont this year? 2021 was the first year where every town, gore, and grant was birded in - hopefully we can do the same again in 2022!
+Can we submit a complete checklist in every town in Vermont this year? Vermont has 251 towns, and 255 places to bird once you count the gores and grants. 2021 was the first year that every one of them was birded. Let's do it again in 2026!
 
-To participate, share a minimum 5-minute long, [complete checklist](https://support.ebird.org/en/support/solutions/articles/48000967748) with the eBird account **vermont251**.
+The map shows how many species have been reported in each town this year. Grey towns have no checklists yet. The list beside the map shows those towns, and the towns with the fewest species so far: if you can get to one of them, your checklist will make the biggest difference.
 
-Why are there **green** towns? Those are towns which people birded in without a high carbon cost! If you bird at home, or if you bike, walk, canoe, hitch-hike, or otherwise spend no carbon costs going to another town, [send me an email](mailto:richard@birdinginvermont.com) saying which town you'd like to turn green. Hopefully we can bird responsibly and still fill out this map!
+### How to take part
 
-In June, I updated the map to include all of the eBird data on eBird from before June. This was a significant shift - we went from 110 towns birded to 247. This makes it much more likely that we'll manage to bird in every town this year, as there's so few left to cover!
-
-Contributors:
-[Bernard Foy](https://ebird.org/profile/NzU0MA/world),
-[Chelsea Carroll](https://ebird.org/profile/NjQ1MjQy/US-VT-021),
-[Cherrie Corey](https://ebird.org/profile/MTQ3Mjg2/US-VT-025),
-[Charles Kahle](https://ebird.org/profile/Mjg1NTU/world),
-[Chris Rimmer](https://ebird.org/vt/profile/Mjc3NzU/world),
-[Henry Trombley](https://ebird.org/profile/MzUzMDc/world),
-[Jeffrey J. Allen](https://ebird.org/vt/profile/Mjc3MjE/world),
-[Jim Sparrell](https://ebird.org/profile/MzUwMjAw/world),
-[JoAnne Russo](https://ebird.org/vt/profile/MTUyNTc5),
-[Joshua Phillips](https://ebird.org/vt/profile/MTUyNTc5),
-[Kyle Jones](https://ebird.org/vt/profile/MTM5Nzgz/world),
-[Rebecca Giroux](https://ebird.org/profile/MTc3ODI0/US-VT),
-[Susan Elliott](https://ebird.org/profile/MjQzNw/US-VT-021),
-[Susan Paradis](https://ebird.org/profile/MTEwMDU3Mw/world),
-Barbara Powers,
-David Hoag,
-Grace Nelson,
-Jeanne Elias,
-Louanne Nielsen,
-Miranda Clemson,
-Rich Kelley,
-Rita Pitkin,
-Ruth Stewart,
-Walter Medwid,
-and [Richard Littauer](https://ebird.org/vt/profile/Mjg0MTUx/US-VT).
-
-Last updated on:
-September 28th, 2022
+Bird anywhere in Vermont and submit a [complete checklist](https://support.ebird.org/en/support/solutions/articles/48000967748) to eBird that is at least 5 minutes long. That's all: you no longer need to share your checklists with the **vermont251** account. The map is built from the eBird Basic Dataset, which has everyone's checklists, and is updated every few months. New checklists take a while to show up, so don't worry if yours isn't on the map yet.

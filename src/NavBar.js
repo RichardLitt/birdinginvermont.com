@@ -52,6 +52,11 @@ class NavBar extends Component {
                 Unbirded Hotspots
               </Nav.Link>
             </Nav.Item>
+            <Nav.Item>
+              <Nav.Link eventKey="9" as={Link} to="/251">
+                Project 251
+              </Nav.Link>
+            </Nav.Item>
           </Nav>
         </Navbar.Collapse>
       </Navbar>

@@ -12,7 +12,7 @@ import Rarities from './Rarities'
 import Norwich from './Norwich'
 import NoMatchPage from './NoMatchPage'
 import vt251data from './ebird-ext/data/vt_town_counts.json'
-import vt251localdata from './vt_local_towns.json'
+import vt251meta from './ebird-ext/data/vt_town_counts_meta.json'
 import ebird from './ebird-ext/index.js'
 
 const history = createBrowserHistory()
@@ -32,7 +32,7 @@ class App extends Component {
         counties: '',
         checklists: '',
         vt251data,
-        vt251localdata,
+        vt251meta,
         loaded: false,
         width: 520,
         height: 800
