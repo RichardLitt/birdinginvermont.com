@@ -11,3 +11,9 @@ updates:
       security:
         applies-to: security-updates
         patterns: ['*']
+  # A PR to point src/ebird-ext at the latest ebird-ext main, opened within a
+  # day of each ebird-ext merge, so nobody has to run update-ebird-ext by hand
+  - package-ecosystem: gitsubmodule
+    directory: /
+    schedule:
+      interval: daily

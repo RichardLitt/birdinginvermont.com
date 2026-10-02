@@ -3,6 +3,10 @@
   "homepage": "https://birdinginvermont.com",
   "version": "0.1.1",
   "private": true,
+  "engines": {
+    "node": "22.x",
+    "npm": "10.x"
+  },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.30",
     "@fortawesome/free-solid-svg-icons": "^5.14.0",
