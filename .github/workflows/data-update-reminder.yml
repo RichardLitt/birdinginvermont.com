@@ -1,0 +1,36 @@
+# Opens an issue each quarter as a reminder to refresh the eBird data: the
+# town, region and county maps, Project 251, and the Montpelier hotspot dates.
+# The 20th falls after eBird's mid-month EBD release. Run it by hand from the
+# Actions tab to test it.
+name: Data update reminder
+
+on:
+  schedule:
+    # 14:00 UTC on the 20th of March, June, September and December
+    - cron: '0 14 20 3,6,9,12 *'
+  workflow_dispatch:
+
+permissions:
+  issues: write
+
+jobs:
+  remind:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Open the reminder issue
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          cat > body.md <<'EOF'
+          @RichardLitt, time to refresh the site's eBird data. Steps are in ebird-ext's `scripts/README.md` and `docs/project-251.md`.
+
+          - [ ] Download the latest Vermont EBD, with the sampling file: https://ebird.org/data/download
+          - [ ] In ebird-ext, update the town, region and county maps: `node scripts/updateAreaSightings.js <ebd file>`
+          - [ ] Project 251: cut this year's rows from the EBD, then `node cli.js 251 --input=<file> --year=<year>`
+          - [ ] Montpelier hotspots: `node montpelier.js hotspotDates <sampling file>`
+          - [ ] Merge the ebird-ext PR, then run `npm run update-ebird-ext` here (after `nvm use`, so npm matches CI)
+          - [ ] Tell Project 251 birders which towns still need visits
+          EOF
+          gh issue create --repo "$GITHUB_REPOSITORY" \
+            --title "Quarterly eBird data update ($(date -u +'%B %Y'))" \
+            --body-file body.md
