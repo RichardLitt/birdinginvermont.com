@@ -21,7 +21,7 @@ class Regions extends Component {
           <div className="col-md-10 col-sm-12 text-left">
             <h1>Bioregions</h1>
             <p>This map shows all of the birds which have been seen in particular
-            bioregions in Vermont, by anyone, as of January 2022 using the eBird database.
+            bioregions in Vermont, by anyone, as of the August 2026 eBird Basic Dataset.
             These regions come from the VCE Vermont Atlas of Life.
             You can also see what species you've seen
             in any given region by uploading your eBird data.</p>
