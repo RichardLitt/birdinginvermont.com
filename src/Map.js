@@ -5,6 +5,7 @@ import Counties from './ebird-ext/geojson/VT_Data_-_County_Boundaries.json'
 import BiophysicalRegions from './ebird-ext/geojson/Polygon_VT_Biophysical_Regions.json'
 import CountyBarcharts from './ebird-ext/data/countyBarcharts.json'
 import TownSightings from './ebird-ext/data/townsightings.json'
+import vt251data from './ebird-ext/data/vt_town_counts.json'
 import RegionSightings from './ebird-ext/data/regionssightings.json'
 import { select } from 'd3-selection'
 import { withRouter } from 'react-router'
@@ -143,8 +144,8 @@ class Map extends Component {
       vermont = VermontTowns
       const allVermontTowns = new Set()
 
-      Object.keys(data.vt251data).forEach(town => {
-        speciesTotals = data.vt251data[town].length
+      Object.keys(vt251data).forEach(town => {
+        speciesTotals = vt251data[town].length
         if (speciesTotals > 0) {
           totalTowns += 1
         }
@@ -157,7 +158,7 @@ class Map extends Component {
           allVermontTowns.add(VermontTowns.features[j].properties.town)
           if (town.toUpperCase() === VermontTowns.features[j].properties.town) {
             VermontTowns.features[j].properties.speciesTotal = speciesTotals
-            VermontTowns.features[j].properties.species = data.vt251data[town].map(x => banding.codeToCommonName(x))
+            VermontTowns.features[j].properties.species = vt251data[town].map(x => banding.codeToCommonName(x))
 
             break
           }
@@ -165,7 +166,7 @@ class Map extends Component {
       })
 
       // Every town is in the data, with an empty list if it has no checklists
-      var emptyTowns = [...allVermontTowns].filter(x => !(data.vt251data[x] || []).length)
+      var emptyTowns = [...allVermontTowns].filter(x => !(vt251data[x] || []).length)
       var townCount = allVermontTowns.size
     } else if (this.props.location.pathname === '/counties') {
       Counties.features = Counties.features.map(feature => rewind(feature, {reverse: true}))
@@ -281,9 +282,9 @@ class Map extends Component {
     // The /251 side panel: where nobody has been yet, the towns that most
     // need a visit, and the towns that already have the most species
     function summary251 () {
-      const counts = Object.keys(data.vt251data)
-        .filter(town => data.vt251data[town].length)
-        .map(town => ({ town: capitalizeFirstLetters(town), count: data.vt251data[town].length }))
+      const counts = Object.keys(vt251data)
+        .filter(town => vt251data[town].length)
+        .map(town => ({ town: capitalizeFirstLetters(town), count: vt251data[town].length }))
         .sort((a, b) => a.count - b.count || a.town.localeCompare(b.town))
       const items = list => list.map(x => `<li>${x.town} (${x.count})</li>`).join('')
       const none = emptyTowns.map(x => capitalizeFirstLetters(x)).sort()
