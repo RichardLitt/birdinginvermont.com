@@ -410,22 +410,17 @@ class Map extends Component {
       const towns = vermont.features
         .map(f => ({ town: capitalizeFirstLetters(f.properties.town), count: f.properties.speciesTotal || 0 }))
         .sort((a, b) => (townsFewestFirst ? a.count - b.count : b.count - a.count) || a.town.localeCompare(b.town))
-      const orders = [['Most first', false], ['Fewest first', true]]
       list.append('b').text('Towns by species')
+      // One button flips the order: Most ↓ (most first) or Least ↑
       list.append('div')
-        .attr('class', 'list-sort btn-group btn-group-sm')
-        .attr('role', 'group')
-        .attr('aria-label', 'Sort the towns')
-        .selectAll('button')
-        .data(orders)
-        .enter()
+        .attr('class', 'list-sort')
         .append('button')
         .attr('type', 'button')
-        .attr('class', d => `btn btn-outline-secondary${d[1] === townsFewestFirst ? ' active' : ''}`)
-        .attr('aria-pressed', d => String(d[1] === townsFewestFirst))
-        .text(d => d[0])
-        .on('click', d => {
-          townsFewestFirst = d[1]
+        .attr('class', 'btn btn-outline-secondary btn-sm')
+        .attr('aria-label', townsFewestFirst ? 'Fewest species first; click for most first' : 'Most species first; click for fewest first')
+        .text(townsFewestFirst ? 'Least ↑' : 'Most ↓')
+        .on('click', () => {
+          townsFewestFirst = !townsFewestFirst
           drawTownsList()
         })
       list.append('ol')
