@@ -400,17 +400,38 @@ class Map extends Component {
         `<p><strong>Most species:</strong></p><ol>${items(counts.slice(-5).reverse())}</ol>`
     }
 
+    // The /towns side panel, for whichever view is showing: the towns with
+    // the fewest and the most species. Hovering a town replaces it
+    function summaryTowns () {
+      const counts = vermont.features
+        .filter(f => f.properties.speciesTotal)
+        .map(f => ({ town: capitalizeFirstLetters(f.properties.town), count: f.properties.speciesTotal }))
+        .sort((a, b) => a.count - b.count || a.town.localeCompare(b.town))
+      const items = list => list.map(x => `<li>${x.town} (${x.count})</li>`).join('')
+      const none = vermont.features.length - counts.length
+      return (none ? `<p><strong>No species yet:</strong> ${none} towns</p>` : '') +
+        `<p><strong>Fewest species:</strong></p><ol>${items(counts.slice(0, 10))}</ol>` +
+        `<p><strong>Most species:</strong></p><ol>${items(counts.slice(-10).reverse())}</ol>`
+    }
+
+    // What the list shows when no area is hovered or pinned
+    function summary () {
+      if (pathname === '/251') return summary251()
+      if (pathname === '/towns') return summaryTowns()
+      return ''
+    }
+
     function totalTownsText () {
       if (totalTowns) {
         if (pathname === '/251') {
           d3.select('#locale').text(`Towns birded: ${totalTowns} of ${townCount}`)
-          d3.select('#list').html(summary251())
         } else {
           d3.select('#locale').text(`Towns birded: ${totalTowns}`)
         }
       } else {
         d3.select('#locale').text('')
       }
+      d3.select('#list').html(summary())
     }
 
     totalTownsText()
@@ -639,11 +660,6 @@ class Map extends Component {
               })
 
             totalTownsText()
-            if (pathname === '/251') {
-              d3.select('#list').html(summary251())
-            } else {
-              d3.select('#list').text('')
-            }
           }
         })
       }
@@ -657,8 +673,8 @@ class Map extends Component {
         page.restoring = true
         again.dispatch('click')
         page.restoring = false
-      } else if (pathname !== '/251') {
-        d3.select('#list').text('')
+      } else {
+        d3.select('#list').html(summary())
       }
     }
 

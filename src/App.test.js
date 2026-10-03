@@ -63,6 +63,24 @@ test('renders the towns map page', async () => {
   await wait(() => expect(container.querySelector('#map svg, .leaflet-container, canvas')).not.toBeNull())
 })
 
+test('the towns list shows the fewest and most species until a town is hovered', async () => {
+  const { container, wait, fireEvent } = renderAt('/towns')
+  await wait(() => expect(container.querySelectorAll('#map svg path').length).toBeGreaterThan(200))
+  const list = container.querySelector('#list')
+  expect(list.textContent).toContain('Fewest species')
+  expect(list.textContent).toContain('Most species')
+  const lists = list.querySelectorAll('ol')
+  expect(lists).toHaveLength(2)
+  const count = li => Number(li.textContent.match(/\((\d+)\)$/)[1])
+  expect(count(lists[0].firstChild)).toBeLessThanOrEqual(count(lists[1].firstChild))
+
+  const town = [...container.querySelectorAll('#map svg path')].find(p => p.__data__ && p.__data__.properties && p.__data__.properties.town === 'BURLINGTON')
+  fireEvent.mouseOver(town)
+  expect(list.textContent).not.toContain('Fewest species')
+  fireEvent.mouseOut(town)
+  expect(list.textContent).toContain('Fewest species')
+})
+
 test('a town\'s species are numbered by when first seen, and the sort buttons reorder and reverse them', async () => {
   window.localStorage.clear()
   const { container, wait, fireEvent } = renderAt('/towns')
