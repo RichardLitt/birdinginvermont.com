@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { Helmet } from 'react-helmet'
-const ReactMarkdown = require('react-markdown')
+import ReactMarkdown from 'react-markdown'
+// The markdown pages include some HTML (images, embeds)
+import rehypeRaw from 'rehype-raw'
 const matter = require('gray-matter')
 
 class ContentPage extends Component {
@@ -41,7 +43,7 @@ class ContentPage extends Component {
         </Helmet>
         <div className="row">
           <div className="col-md-8 col-sm-12 text-left">
-            <ReactMarkdown source={this.state.text} escapeHtml={false}/>
+            <ReactMarkdown rehypePlugins={[rehypeRaw]}>{this.state.text || ''}</ReactMarkdown>
           </div>
         </div>
       </div>
