@@ -132,6 +132,8 @@ class Map extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
+    // Towns and regions are different areas: forget the pinned one
+    if (this.props.location.pathname !== prevProps.location.pathname) this.pinned = null
     if (
       this.props.data !== prevProps.data ||
       this.props.location.pathname !== prevProps.location.pathname ||
@@ -162,6 +164,9 @@ class Map extends Component {
       return (speciesTotal) ? color(speciesTotal) : '#ddd'
     }
 
+    const page = this
+    // The area a path draws, to find it again after a redraw
+    const areaKey = d => d.properties.town || d.properties.CNTYNAME || d.properties.name
     const data = this.props.data
     const node = this.node
     const width = data.width
@@ -549,11 +554,13 @@ class Map extends Component {
           }
           // Clicking the pinned town unpins it; clicking another switches to it
           // (on a phone, each tap is a click)
+          page.pinned = null
           if (!same) {
             d3.select(this).dispatch('mouseover')
             townSelected = d3.select(this)
             townSelected.style('fill', 'yellow')
-            revealList()
+            page.pinned = areaKey(d)
+            if (!page.restoring) revealList()
           }
         })
         .on('mouseover', function (d) {
@@ -640,6 +647,20 @@ class Map extends Component {
           }
         })
       }
+
+    // Switching views (all birds, personal, this year) redraws the map. Pin the
+    // pinned area again, so its list shows the new view's numbers; with
+    // nothing pinned, don't leave the old view's hover list up (#163)
+    if (pathname !== '/hotspots') {
+      const again = page.pinned ? paths.filter(d => areaKey(d) === page.pinned) : null
+      if (again && !again.empty()) {
+        page.restoring = true
+        again.dispatch('click')
+        page.restoring = false
+      } else if (pathname !== '/251') {
+        d3.select('#list').text('')
+      }
+    }
 
     // Color lakes
     svg.append('path')
