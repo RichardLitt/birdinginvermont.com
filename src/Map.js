@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
-import VermontTowns from './ebird-ext/geojson/vt_towns.json'
-import Lake from './ebird-ext/geojson/lake.json'
-import Counties from './ebird-ext/geojson/VT_Data_-_County_Boundaries.json'
-import BiophysicalRegions from './ebird-ext/geojson/Polygon_VT_Biophysical_Regions.json'
+// Simplified boundaries, for drawing. The precise ones, which decide which
+// town a checklist is in, load with ebird-ext only when someone uploads data.
+import VermontTowns from './ebird-ext/geojson/display/vt_towns.json'
+import Lake from './ebird-ext/geojson/display/lake.json'
+import Counties from './ebird-ext/geojson/display/VT_Data_-_County_Boundaries.json'
+import BiophysicalRegions from './ebird-ext/geojson/display/Polygon_VT_Biophysical_Regions.json'
 import CountyBarcharts from './ebird-ext/data/countyBarcharts.json'
 import TownSightings from './ebird-ext/data/townsightings.json'
 import vt251data from './ebird-ext/data/vt_town_counts.json'
@@ -18,8 +20,7 @@ import RegionsText from './Regions'
 import seenInVT from './ebird-ext/taxonomies/eBird_Taxonomy_VT.json'
 import rewind from "@turf/rewind"
 import * as banding from './ebird-ext/bandingCodes.js'
-import ebirdExt from './ebird-ext/index.js'
-import ebirdExtHotspots from './ebird-ext/hotspots.js'
+import { removeSpuh, removeSpuhFromCounties } from './ebird-ext/spuh.js'
 // const d3ScaleChromatic = require('d3-scale-chromatic')
 const d3 = require('d3')
 const d3Geo = require('d3-geo')
@@ -91,7 +92,7 @@ class Map extends Component {
     let domainMin = 0
     let domainMax = 0
 
-    let allSeen = ebirdExt.f.removeSpuh(seenInVT.map(x => {
+    let allSeen = removeSpuh(seenInVT.map(x => {
       x['Scientific Name'] = x.SCI_NAME
       return x
     })).map(x => x.PRIMARY_COM_NAME)
@@ -118,6 +119,7 @@ class Map extends Component {
       // Sightings for the current year
       } else if (data.towns && this.state.mapView === '3') {
         // Add complete: true, duration: 3 to limit this down
+        const { default: ebirdExt } = await import('./ebird-ext/index.js')
         const dataThisYear = await ebirdExt.towns({all: true, year: new Date().getFullYear(), input: data.input})
         totalTowns = Object.keys(dataThisYear).filter(c => dataThisYear[c].length !== 0).length
         unseenTowns = Object.keys(dataThisYear).filter(c => dataThisYear[c].length === 0)
@@ -172,7 +174,7 @@ class Map extends Component {
       Counties.features = Counties.features.map(feature => rewind(feature, {reverse: true}))
       vermont = Counties
 
-      speciesTotals = ebirdExt.f.removeSpuhFromCounties(CountyBarcharts)
+      speciesTotals = removeSpuhFromCounties(CountyBarcharts)
 
       if (data.counties) {
         Object.keys(data.counties).forEach(county => {
@@ -184,6 +186,7 @@ class Map extends Component {
       if (data.counties && this.state.mapView === '2') {
         speciesView = Object.keys(data.counties).map(c => data.counties[c].speciesTotal)
       } else if (data.counties && this.state.mapView === '3') {
+        const { default: ebirdExt } = await import('./ebird-ext/index.js')
         const dataThisYear = await ebirdExt.counties({all: true, year: new Date().getFullYear(), input: data.input})
         speciesView = Object.keys(dataThisYear).map(c => dataThisYear[c].speciesTotal)
         vermont.features.forEach(feature => {
@@ -220,6 +223,7 @@ class Map extends Component {
       if (data.regions && this.state.mapView === '2') {
         speciesView = Object.keys(data.regions).map(region => data.regions[region].speciesTotal)
       } else if (data.regions && this.state.mapView === '3') {
+        const { default: ebirdExt } = await import('./ebird-ext/index.js')
         const dataThisYear = await ebirdExt.regions({all: true, year: new Date().getFullYear(), input: data.input})
         speciesView = Object.keys(dataThisYear).map(r => dataThisYear[r].speciesTotal)
         vermont.features.forEach(feature => {
@@ -242,6 +246,7 @@ class Map extends Component {
       Counties.features = Counties.features.map(feature => rewind(feature, {reverse: true}))
       vermont = Counties
 
+      const { default: ebirdExtHotspots } = await import('./ebird-ext/hotspots.js')
       unvisitedHotspots = await ebirdExtHotspots.townHotspots({noVisits: true})
     }
 
