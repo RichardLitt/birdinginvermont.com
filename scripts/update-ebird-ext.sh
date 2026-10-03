@@ -95,7 +95,7 @@ MISSING=$(node -e "
   const ext = require('./$SUB/package.json')
   const listed = { ...site.dependencies, ...site.devDependencies }
   // Only the CLI and one-off scripts use these; the site never imports them
-  const cliOnly = new Set(['meow', 'json2csv', 'JSONStream'])
+  const cliOnly = new Set(['meow', 'JSONStream'])
   console.log(Object.keys(ext.dependencies || {}).filter(d => !listed[d] && !cliOnly.has(d)).join(' '))
 ")
 if [ -n "$MISSING" ]; then
