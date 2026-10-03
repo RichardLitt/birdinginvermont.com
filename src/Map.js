@@ -94,6 +94,16 @@ function sortButtons (container, redraw) {
     })
 }
 
+// On a narrow screen the list is below the map: after a tap, scroll to it if
+// it's out of sight
+function revealList () {
+  if (!window.matchMedia || !window.matchMedia('(max-width: 767.98px)').matches) return
+  const list = document.getElementById('list-container')
+  if (list && list.getBoundingClientRect().top > window.innerHeight - 80) {
+    list.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }
+}
+
 // The Seen list and the No records list, in the chosen order. In order seen,
 // each species is numbered by when it was first seen there (1 is the oldest).
 function drawSpeciesLists (props) {
@@ -564,17 +574,18 @@ class Map extends Component {
           return colorScale(d.properties.speciesTotal)
         })
         .on('click', function (d) {
-          if (!townSelected) {
-            townSelected = d3.select(this)
-            townSelected
-              .style('fill', 'yellow')
-          } else {
-            townSelected
-              .style('fill', (d) => {
-                return colorScale(townSelected.data()[0].properties.speciesTotal)
-              })
-
+          const same = townSelected && townSelected.node() === this
+          if (townSelected) {
+            townSelected.style('fill', d => colorScale(d.properties.speciesTotal))
             townSelected = false
+          }
+          // Clicking the pinned town unpins it; clicking another switches to it
+          // (on a phone, each tap is a click)
+          if (!same) {
+            d3.select(this).dispatch('mouseover')
+            townSelected = d3.select(this)
+            townSelected.style('fill', 'yellow')
+            revealList()
           }
         })
         .on('mouseover', function (d) {
@@ -692,14 +703,18 @@ class Map extends Component {
       <div className="container-md">
         <div className="row">
           {/* TODO Could we move these into their own pages? */}
-          {this.props.location.pathname === '/towns' && <TownsText />}
-          {this.props.location.pathname === '/counties' && <CountiesText />}
-          {this.props.location.pathname === '/regions' && <RegionsText />}
-          {this.props.location.pathname === '/hotspots' && <HotspotsText />}
+          {/* The text components are rows: nest them in a column, or their
+              negative margins cancel the page's side padding */}
+          {this.props.location.pathname === '/towns' && <div className="col-12"><TownsText /></div>}
+          {this.props.location.pathname === '/counties' && <div className="col-12"><CountiesText /></div>}
+          {this.props.location.pathname === '/regions' && <div className="col-12"><RegionsText /></div>}
+          {this.props.location.pathname === '/hotspots' && <div className="col-12"><HotspotsText /></div>}
           {!['/251', '/hotspots'].includes(this.props.location.pathname) &&
           <UploadButton handleChange={this.props.handleChange} data={this.props.data} />}
           <div id="map" className="col-sm">
-            <svg ref={node => this.node = node} width={this.props.data.width} height={this.props.data.height}></svg>
+            {/* viewBox: the map scales down to fit a narrow screen */}
+            <svg ref={node => this.node = node} width={this.props.data.width} height={this.props.data.height}
+              viewBox={`0 0 ${this.props.data.width} ${this.props.data.height}`} preserveAspectRatio="xMidYMin meet"></svg>
           </div>
           <div className="col-sm" id="list-container">
             {['/counties', '/towns', '/regions'].includes(this.props.location.pathname)
