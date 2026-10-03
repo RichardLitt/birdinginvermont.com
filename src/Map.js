@@ -185,14 +185,19 @@ class Map extends Component {
       vermont = VermontTowns
       speciesTotals = banding.unfurlObjToSpecies(TownSightings)
 
+      // Your uploaded data: towns() gives banding codes; show common names
+      const toNames = codes => codes.map(code => banding.codeToCommonName(code))
+
       // All towns collectively
       if (data.towns) {
         Object.keys(data.towns).forEach(town => {
           const index = vermont.features.map(x => x.properties.town).indexOf(town)
+          const species = toNames(data.towns[town])
           vermont.features[index].properties.town = town
-          vermont.features[index].properties.species = data.towns[town]
+          vermont.features[index].properties.species = species
           vermont.features[index].properties.undated = []
-          vermont.features[index].properties.speciesTotal = data.towns[town].length
+          vermont.features[index].properties.notSeen = _.difference(allSeen, species)
+          vermont.features[index].properties.speciesTotal = species.length
         })
       }
 
@@ -210,11 +215,11 @@ class Map extends Component {
         unseenTowns = Object.keys(dataThisYear).filter(c => dataThisYear[c].length === 0)
         speciesView = Object.keys(dataThisYear).map(c => dataThisYear[c].length)
         vermont.features.forEach(feature => {
-          const index = feature.properties.town
-          feature.properties.species = dataThisYear[index]
+          const species = toNames(dataThisYear[feature.properties.town])
+          feature.properties.species = species
           feature.properties.undated = []
-          feature.properties.speciesTotal = dataThisYear[index].length
-          feature.properties.notSeen = _.difference(allSeen, dataThisYear[index])
+          feature.properties.speciesTotal = species.length
+          feature.properties.notSeen = _.difference(allSeen, species)
         })
       } else {
         totalTowns = null
