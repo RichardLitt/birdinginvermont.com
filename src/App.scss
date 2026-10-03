@@ -52,6 +52,18 @@ svg {
 #list-container {
   width: 300px;
 }
+.list-sort {
+  display: flex;
+  margin: 0.25rem 0 0.5rem;
+}
+.species-list {
+  list-style: none;
+  padding-left: 0;
+}
+.species-list .seen-number {
+  color: #6c757d;
+  font-variant-numeric: tabular-nums;
+}
 #town-name {
   text-transform: capitalize;
 }
