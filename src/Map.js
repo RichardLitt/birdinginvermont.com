@@ -15,7 +15,7 @@ import TownsText from './Towns'
 import HotspotsText from './Hotspots'
 import CountiesText from './Counties'
 import RegionsText from './Regions'
-import seenInVT from './ebird-ext/taxonomies/eBird_Taxonomy_2020_VT.json'
+import seenInVT from './ebird-ext/taxonomies/eBird_Taxonomy_VT.json'
 import rewind from "@turf/rewind"
 import * as banding from './ebird-ext/bandingCodes.js'
 import ebirdExt from './ebird-ext/index.js'
