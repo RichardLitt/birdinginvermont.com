@@ -39,6 +39,17 @@ test('renders the home page, with the navigation bar and its markdown', async ()
   expect(await screen.findByRole('heading', { name: 'Test page' })).toBeInTheDocument()
 })
 
+test('the menu marks the current page', async () => {
+  let { screen } = renderAt('/towns')
+  expect(screen.getByRole('link', { name: 'Towns' })).toHaveAttribute('aria-current', 'page')
+  expect(screen.getByRole('link', { name: 'Counties' })).not.toHaveAttribute('aria-current')
+  cleanup()
+  ;({ screen } = renderAt('/'))
+  // About is the home page
+  expect(screen.getByRole('link', { name: 'About' })).toHaveAttribute('aria-current', 'page')
+  await screen.findByRole('heading', { name: 'Test page' })
+})
+
 test('renders the VBRC checker with its forms', async () => {
   const { screen } = renderAt('/vbrc-checker')
   expect(await screen.findByRole('heading', { name: 'Vermont Bird Records Checker' })).toBeInTheDocument()
