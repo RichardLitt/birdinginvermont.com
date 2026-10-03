@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Helmet } from 'react-helmet'
 import Map from './Map'
+import vt251meta from './ebird-ext/data/vt_town_counts_meta.json'
 import { withRouter } from 'react-router'
 const ReactMarkdown = require('react-markdown')
 const matter = require('gray-matter')
@@ -23,7 +24,7 @@ class Project251 extends Component {
   }
 
   render() {
-    const meta = this.props.data.vt251meta
+    const meta = vt251meta
     return (
       <div className="container-md page">
         <Helmet>

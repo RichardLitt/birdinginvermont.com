@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import './footer.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEnvelope, faCodeBranch, faBriefcase } from '@fortawesome/free-solid-svg-icons'
+// One file per icon, rather than the index of every icon
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons/faEnvelope'
+import { faCodeBranch } from '@fortawesome/free-solid-svg-icons/faCodeBranch'
+import { faBriefcase } from '@fortawesome/free-solid-svg-icons/faBriefcase'
 
 class Footer extends Component {
   render() {

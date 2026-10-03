@@ -13,22 +13,22 @@ beforeEach(() => {
 })
 
 // App.js creates its browser history when it is first imported, so load a
-// fresh copy (with its own React) after moving to the page under test. The
-// pure build of Testing Library doesn't register its own cleanup hook, which
-// can't be added from inside a test; this file cleans up instead.
+// fresh copy (with its own React) after moving to the page under test. Pages
+// load lazily, after this returns, so reset the module registry rather than
+// isolating it: the pages then get the same React and router as App. The pure
+// build of Testing Library doesn't register its own cleanup hook, which can't
+// be added from inside a test; this file cleans up instead.
 let cleanup
 afterEach(() => cleanup && cleanup())
 
 function renderAt (path) {
   window.history.pushState({}, '', path)
-  let lib
-  jest.isolateModules(() => {
-    lib = {
-      React: require('react'),
-      App: require('./App').default,
-      ...require('@testing-library/react/pure')
-    }
-  })
+  jest.resetModules()
+  const lib = {
+    React: require('react'),
+    App: require('./App').default,
+    ...require('@testing-library/react/pure')
+  }
   cleanup = lib.cleanup
   return { ...lib, ...lib.render(lib.React.createElement(lib.App)) }
 }
@@ -39,16 +39,17 @@ test('renders the home page, with the navigation bar and its markdown', async ()
   expect(await screen.findByRole('heading', { name: 'Test page' })).toBeInTheDocument()
 })
 
-test('renders the VBRC checker with its forms', () => {
+test('renders the VBRC checker with its forms', async () => {
   const { screen } = renderAt('/vbrc-checker')
-  expect(screen.getByRole('heading', { name: 'Vermont Bird Records Checker' })).toBeInTheDocument()
+  expect(await screen.findByRole('heading', { name: 'Vermont Bird Records Checker' })).toBeInTheDocument()
   expect(screen.getByLabelText('County:')).toBeInTheDocument()
   expect(screen.getByLabelText('eBird Basic Dataset file:')).toBeInTheDocument()
 })
 
-test('renders the towns map page', () => {
-  const { container } = renderAt('/towns')
-  expect(container.querySelector('svg, .leaflet-container, canvas')).not.toBeNull()
+test('renders the towns map page', async () => {
+  const { container, wait } = renderAt('/towns')
+  // #map: the footer's icons are SVGs too
+  await wait(() => expect(container.querySelector('#map svg, .leaflet-container, canvas')).not.toBeNull())
 })
 
 // Draws every town; takes 4s locally and over 12s on GitHub's runners

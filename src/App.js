@@ -1,19 +1,19 @@
-import React, { Component } from 'react'
+import React, { Component, Suspense, lazy } from 'react'
 import './App.scss'
 import { Route, Switch, Redirect, Router } from 'react-router-dom'
 import { createBrowserHistory } from "history"
 import About from './About'
-import Map from './Map'
 import NavBar from './NavBar'
 import Footer from './Footer'
-import ContentPage from './ContentPage'
-import Project251 from './Project251'
-import Rarities from './Rarities'
-import Norwich from './Norwich'
-import NoMatchPage from './NoMatchPage'
-import vt251data from './ebird-ext/data/vt_town_counts.json'
-import vt251meta from './ebird-ext/data/vt_town_counts_meta.json'
-import ebird from './ebird-ext/index.js'
+
+// Every page but the home page loads when first visited, so the home page
+// doesn't download the maps' boundaries, data and libraries
+const Map = lazy(() => import('./Map'))
+const ContentPage = lazy(() => import('./ContentPage'))
+const Project251 = lazy(() => import('./Project251'))
+const Rarities = lazy(() => import('./Rarities'))
+const Norwich = lazy(() => import('./Norwich'))
+const NoMatchPage = lazy(() => import('./NoMatchPage'))
 
 const history = createBrowserHistory()
 
@@ -31,8 +31,6 @@ class App extends Component {
         rarities: '',
         counties: '',
         checklists: '',
-        vt251data,
-        vt251meta,
         loaded: false,
         width: 520,
         height: 800
@@ -46,6 +44,8 @@ class App extends Component {
       this.setState(prevState => ({ data: { ...prevState.data, loading: true } }), resolve)
     })
     await new Promise(resolve => setTimeout(resolve, 0))
+    // Only needed once someone uploads their data
+    const { default: ebird } = await import('./ebird-ext/index.js')
     let rarities = await ebird.rare({input: e}) // Input?
     let towns = await ebird.towns({all: true, input: e})
     let regions = await ebird.regions({all: true, input: e})
@@ -76,6 +76,7 @@ class App extends Component {
       <div className="App">
         <Router history={history}>
           <NavBar />
+          <Suspense fallback={<div className="container-md page">Loading…</div>}>
           <Switch>
             <Route exact path='/' component={About} />
             <Route exact path='/about' component={About} />
@@ -94,6 +95,7 @@ class App extends Component {
             <Route component={NoMatchPage} />
             <Redirect from="/nfc" to="/nfc-species" />
           </Switch>
+          </Suspense>
           <Footer />
         </Router>
       </div>
