@@ -79,10 +79,14 @@ test('the towns list ranks every town until a town is hovered', async () => {
   // Every town in Vermont: the map's paths, less the state outline and the lake
   expect(counts()).toHaveLength(container.querySelectorAll('#map svg path').length - 2)
   expect(counts()[0]).toBeGreaterThanOrEqual(counts()[counts().length - 1])
-  const button = label => [...list.querySelectorAll('.list-sort button')].find(b => b.textContent === label)
-  fireEvent.click(button('Fewest first'))
+  const button = () => list.querySelector('.list-sort button')
+  expect(list.querySelectorAll('.list-sort button')).toHaveLength(1)
+  expect(button().textContent).toBe('Most ↓')
+  fireEvent.click(button())
+  expect(button().textContent).toBe('Least ↑')
   expect(counts()[0]).toBeLessThanOrEqual(counts()[counts().length - 1])
-  fireEvent.click(button('Most first'))
+  fireEvent.click(button())
+  expect(button().textContent).toBe('Most ↓')
 
   const town = [...container.querySelectorAll('#map svg path')].find(p => p.__data__ && p.__data__.properties && p.__data__.properties.town === 'BURLINGTON')
   fireEvent.mouseOver(town)
