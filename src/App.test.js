@@ -63,6 +63,14 @@ test('renders the towns map page', async () => {
   await wait(() => expect(container.querySelector('#map svg, .leaflet-container, canvas')).not.toBeNull())
 })
 
+test('drawing the map leaves the footer\'s icons alone', async () => {
+  const { container, wait } = renderAt('/towns')
+  await wait(() => expect(container.querySelectorAll('#map svg path').length).toBeGreaterThan(200))
+  const icons = container.querySelectorAll('.footer svg')
+  expect(icons).toHaveLength(3)
+  icons.forEach(icon => expect(icon.querySelector('path')).not.toBeNull())
+})
+
 test('a town\'s species are numbered by when first seen, and the sort buttons reorder and reverse them', async () => {
   window.localStorage.clear()
   const { container, wait, fireEvent } = renderAt('/towns')
