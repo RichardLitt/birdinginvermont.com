@@ -159,9 +159,9 @@ class Map extends Component {
 
 
   async createMap() {
-    // Some issue with overlaying if I keep calling createMap
-    // This seems to speed it up, but I'm sure there's a loss
-    d3.selectAll("svg > *").remove();
+    // Clear the last drawing so redraws don't stack. Only this map's svg:
+    // a page-wide "svg > *" also emptied the footer's icons
+    select(this.node).selectAll('*').remove()
 
     function colorArea (speciesTotal, color) {
       return (speciesTotal) ? color(speciesTotal) : '#ddd'
@@ -399,7 +399,7 @@ class Map extends Component {
       const items = list => list.map(x => `<li>${x.town} (${x.count})</li>`).join('')
       const none = emptyTowns.map(x => capitalizeFirstLetters(x)).sort()
       return (none.length ? `<p><strong>No checklists yet:</strong> ${none.join(', ')}</p>` : '<p>Every town has a checklist!</p>') +
-        `<p><strong>Fewest species</strong>, where a visit helps most:</p><ol>${items(counts.slice(0, 15))}</ol>` +
+        `<p><strong>Fewest species</strong>:</p><ol>${items(counts.slice(0, 15))}</ol>` +
         `<p><strong>Most species:</strong></p><ol>${items(counts.slice(-5).reverse())}</ol>`
     }
 
