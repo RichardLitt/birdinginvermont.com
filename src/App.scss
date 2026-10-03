@@ -60,6 +60,10 @@ svg {
   list-style: none;
   padding-left: 0;
 }
+.species-list .undated {
+  color: #6c757d;
+  font-style: italic;
+}
 .species-list .seen-number {
   color: #6c757d;
   font-variant-numeric: tabular-nums;
@@ -116,6 +120,11 @@ div.page {
   // color: black;
   .navbar-nav .nav-link {
     color: black;
+  }
+  // The current page (NavLink adds .active and aria-current)
+  .navbar-nav .nav-link.active {
+    font-weight: 600;
+    box-shadow: inset 0 -3px 0 #1f4e6b;
   }
 }
 

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import { Nav, Navbar} from 'react-bootstrap';
 
 class NavBar extends Component {
@@ -13,47 +13,47 @@ class NavBar extends Component {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto mb-2 mb-lg-0">
             <Nav.Item>
-              <Nav.Link eventKey="1" as={Link} to="/about">
+              <Nav.Link eventKey="1" as={NavLink} to="/about" isActive={(match, location) => ['/', '/about', '/2100'].includes(location.pathname)}>
                 About
               </Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link eventKey="2" as={Link} to="/towns">
+              <Nav.Link eventKey="2" as={NavLink} to="/towns">
               Towns
               </Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link eventKey="3" as={Link} to="/counties">
+              <Nav.Link eventKey="3" as={NavLink} to="/counties">
               Counties
               </Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link eventKey="4" as={Link} to="/regions">
+              <Nav.Link eventKey="4" as={NavLink} to="/regions">
               Bioregions
               </Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link eventKey="5" as={Link} to="/nfc-species">
+              <Nav.Link eventKey="5" as={NavLink} to="/nfc-species">
               NFCs
               </Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link eventKey="6" as={Link} to="/subspecies">
+              <Nav.Link eventKey="6" as={NavLink} to="/subspecies">
               Subspecies
               </Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link eventKey="7" as={Link} to="/vbrc-checker">
+              <Nav.Link eventKey="7" as={NavLink} to="/vbrc-checker">
               VBRC Checker
               </Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link eventKey="8" as={Link} to="/hotspots">
+              <Nav.Link eventKey="8" as={NavLink} to="/hotspots">
                 Unbirded Hotspots
               </Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link eventKey="9" as={Link} to="/251">
+              <Nav.Link eventKey="9" as={NavLink} to="/251">
                 Project 251
               </Nav.Link>
             </Nav.Item>
