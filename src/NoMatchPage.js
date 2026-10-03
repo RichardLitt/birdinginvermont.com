@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-const ReactMarkdown = require('react-markdown')
+import ReactMarkdown from 'react-markdown'
 
 const input = `
 # Fly away, little bird
@@ -14,7 +14,7 @@ class NoMatchPage extends Component {
       <div className="container-md page">
         <div className="row">
           <div className="col-md-8 col-sm-12 text-left">
-            <ReactMarkdown source={input} />
+            <ReactMarkdown>{input}</ReactMarkdown>
           </div>
         </div>
       </div>

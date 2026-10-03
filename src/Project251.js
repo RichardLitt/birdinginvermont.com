@@ -3,7 +3,9 @@ import { Helmet } from 'react-helmet'
 import Map from './Map'
 import vt251meta from './ebird-ext/data/vt_town_counts_meta.json'
 import { withRouter } from 'react-router'
-const ReactMarkdown = require('react-markdown')
+import ReactMarkdown from 'react-markdown'
+// The markdown pages include some HTML (images, embeds)
+import rehypeRaw from 'rehype-raw'
 const matter = require('gray-matter')
 
 
@@ -36,7 +38,7 @@ class Project251 extends Component {
         <div className="row">
           <div className="col-md-10 text-left">
             <h1>Project 251</h1>
-            <ReactMarkdown source={this.state.text} escapeHtml={false} />
+            <ReactMarkdown rehypePlugins={[rehypeRaw]}>{this.state.text || ''}</ReactMarkdown>
             {meta && <p className="text-muted">
               Checklists from {meta.year}, from the {meta.release} <a href="https://ebird.org/data/download" target="_blank" rel="noopener noreferrer">eBird Basic Dataset</a>. Last updated {meta.updated}.
               {' '}Data: eBird Basic Dataset. Version: EBD_rel{meta.release && meta.release.replace(' ', '-')}. Cornell Lab of Ornithology, Ithaca, New York.
