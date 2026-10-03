@@ -32,6 +32,81 @@ function capitalizeFirstLetters(string) {
   return string.toLowerCase().split(' ').map(x => x.charAt(0).toUpperCase() + x.slice(1)).join(' ')
 }
 
+// How the species lists beside the map are sorted: in the order the species
+// were first seen there (oldest first), taxonomically, or alphabetically.
+// Remembered between visits.
+const SORTS = [['seen', 'Order seen'], ['taxonomic', 'Taxonomic'], ['alpha', 'A–Z']]
+let listSort = 'seen'
+try {
+  listSort = window.localStorage.getItem('speciesListSort') || 'seen'
+} catch (e) {}
+
+// items: [{ name, n }], in the order first seen
+function sortSpecies (items, sort) {
+  if (sort === 'alpha') return [...items].sort((a, b) => a.name.localeCompare(b.name))
+  if (sort === 'taxonomic') {
+    const rank = new window.Map(taxonomicSort(items.map(x => x.name)).map((name, i) => [name, i]))
+    return [...items].sort((a, b) => rank.get(a.name) - rank.get(b.name))
+  }
+  return items
+}
+
+function sortButtons (container, redraw) {
+  container.append('div')
+    .attr('class', 'list-sort btn-group btn-group-sm')
+    .attr('role', 'group')
+    .attr('aria-label', 'Sort the species')
+    .selectAll('button')
+    .data(SORTS)
+    .enter()
+    .append('button')
+    .attr('type', 'button')
+    .attr('class', d => `btn btn-outline-secondary${d[0] === listSort ? ' active' : ''}`)
+    .attr('aria-pressed', d => String(d[0] === listSort))
+    .text(d => d[1])
+    .on('click', d => {
+      listSort = d[0]
+      try {
+        window.localStorage.setItem('speciesListSort', listSort)
+      } catch (e) {}
+      redraw()
+    })
+}
+
+// The Seen list, each species numbered by when it was first seen there (1 is
+// the oldest), and the No records list, in the chosen order
+function drawSpeciesLists (props) {
+  const list = d3.select('#list')
+  const details = list.select('details')
+  const wasOpen = !details.empty() && details.property('open')
+  list.html('')
+  if (props.species) {
+    list.append('b').text('Seen')
+    sortButtons(list, () => drawSpeciesLists(props))
+    const li = list.append('ul')
+      .attr('class', 'species-list')
+      .selectAll('li')
+      .data(sortSpecies(props.species.map((name, i) => ({ name, n: i + 1 })), listSort))
+      .enter()
+      .append('li')
+    li.append('span').attr('class', 'seen-number').text(x => `${x.n}.`)
+    li.append('span').text(x => ` ${x.name}`)
+  }
+  if (props.notSeen) {
+    list.append('hr')
+    // Collapsed by default: it's usually hundreds of species. Click a town to
+    // pin it, then open this.
+    const notSeen = list.append('details').property('open', wasOpen)
+    notSeen.append('summary').append('b').text(`No records (${props.notSeen.length})`)
+    notSeen.append('ul')
+      .selectAll('li')
+      .data(sortSpecies(props.notSeen.map(name => ({ name })), listSort === 'alpha' ? 'alpha' : 'taxonomic'))
+      .enter()
+      .append('li')
+      .text(x => x.name)
+  }
+}
+
 class Map extends Component {
   constructor(props) {
     super(props)
@@ -492,47 +567,16 @@ class Map extends Component {
                 .text([capitalizeFirstLetters(d.properties.name)])
             }
 
-            if (d.properties.species) {
-              if (d.properties.species.length === 0) {
-                // Don't present a list for all species to see.
-                d.properties.notSeen = null
-              }
-              let ul = d3.select('#list')
-                .html('<b>Seen</b>')
-                .append('ul')
-
-              ul.selectAll('li')
-                .data(taxonomicSort(d.properties.species))
-                .enter()
-                .append('li')
-                .html(String)
-              // .on('click', function (d) {
-                //   species = d
-                //   speciesMaps()
-                // })
+            if (d.properties.species && d.properties.species.length === 0) {
+              // Don't present a list for all species to see.
+              d.properties.notSeen = null
+            }
+            if (d.properties.species || d.properties.notSeen) {
+              drawSpeciesLists(d.properties)
             }
 
             if (d.properties.notSeen) {
-              d3.select('#list')
-                .append('hr')
-
-              // Collapsed by default: it's usually hundreds of species. Click
-              // a town to pin it, then open this.
-              const notSeenDetails = d3.select('#list')
-                .append('details')
-              notSeenDetails
-                .append('summary')
-                .append('b')
-                .text(`No records (${d.properties.notSeen.length})`)
-
-              let notSeenUl = notSeenDetails
-                .append('ul')
-
-              notSeenUl.selectAll('li')
-                .data(taxonomicSort(d.properties.notSeen))
-                .enter()
-                .append('li')
-                .html(String)
+              // drawSpeciesLists drew it
             } else if (['/regions', '/251'].includes(pathname) && d.properties.species) {
               if (!d.properties.species || d.properties.species.length === 0) {
                 if (pathname === '/251') {
