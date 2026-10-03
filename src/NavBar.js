@@ -53,6 +53,11 @@ class NavBar extends Component {
               </Nav.Link>
             </Nav.Item>
             <Nav.Item>
+              <Nav.Link eventKey="10" as={NavLink} to="/radius">
+                5MR / 10MR
+              </Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
               <Nav.Link eventKey="9" as={NavLink} to="/251">
                 Project 251
               </Nav.Link>

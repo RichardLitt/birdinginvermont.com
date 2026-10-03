@@ -52,6 +52,13 @@ svg {
 #list-container {
   width: 300px;
 }
+.radius-map svg {
+  display: block;
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  cursor: crosshair;
+}
 .list-sort {
   display: flex;
   margin: 0.25rem 0 0.5rem;

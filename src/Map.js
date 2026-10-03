@@ -25,28 +25,13 @@ import { removeSpuh, removeSpuhFromCounties } from './ebird-ext/spuh.js'
 const d3 = require('d3')
 const d3Geo = require('d3-geo')
 import taxonomicSort from './ebird-ext/taxonomicSort.js'
+import { SORTS, sortState, chooseSort, sortSpecies, sortLabel, sortAriaLabel } from './speciesSort'
 const _ = require('lodash')
 
 // To Do - make this a method of the string class
 function capitalizeFirstLetters(string) {
   return string.toLowerCase().split(' ').map(x => x.charAt(0).toUpperCase() + x.slice(1)).join(' ')
 }
-
-// How the species lists beside the map are sorted: in the order the species
-// were first seen there, taxonomically, or alphabetically. Clicking the
-// current sort again reverses it. Both are remembered between visits.
-// [key, label, what the normal (up arrow) and reversed (down arrow) orders are]
-const SORTS = [
-  ['seen', 'Order seen', 'oldest first', 'newest first'],
-  ['taxonomic', 'Taxonomic', 'in taxonomic order', 'in reverse taxonomic order'],
-  ['alpha', 'A–Z', 'A to Z', 'Z to A']
-]
-let listSort = 'seen'
-let listReverse = false
-try {
-  listSort = window.localStorage.getItem('speciesListSort') || 'seen'
-  listReverse = window.localStorage.getItem('speciesListReverse') === 'true'
-} catch (e) {}
 
 // eBird leaves sensitive species out of its data downloads, so the all-time
 // lists carry them forward without dates, at the end
@@ -55,19 +40,8 @@ function undatedIn (species) {
   return (species || []).filter(name => SENSITIVE.has(name))
 }
 
-// items: [{ name, n }], in the order first seen
-function sortSpecies (items, sort, reverse) {
-  let sorted = items
-  if (sort === 'alpha') sorted = [...items].sort((a, b) => a.name.localeCompare(b.name))
-  if (sort === 'taxonomic') {
-    const rank = new window.Map(taxonomicSort(items.map(x => x.name)).map((name, i) => [name, i]))
-    sorted = [...items].sort((a, b) => rank.get(a.name) - rank.get(b.name))
-  }
-  return reverse ? [...sorted].reverse() : sorted
-}
-
 function sortButtons (container, redraw) {
-  const active = d => d[0] === listSort
+  const active = d => d[0] === sortState.sort
   container.append('div')
     .attr('class', 'list-sort btn-group btn-group-sm')
     .attr('role', 'group')
@@ -79,17 +53,11 @@ function sortButtons (container, redraw) {
     .attr('type', 'button')
     .attr('class', d => `btn btn-outline-secondary${active(d) ? ' active' : ''}`)
     .attr('aria-pressed', d => String(active(d)))
-    .attr('aria-label', d => `${d[1]}${active(d) ? `, ${listReverse ? d[3] : d[2]}` : ''}`)
+    .attr('aria-label', sortAriaLabel)
     .attr('title', d => active(d) ? 'Click again to reverse' : null)
-    .text(d => `${d[1]}${active(d) ? (listReverse ? ' ↓' : ' ↑') : ''}`)
+    .text(sortLabel)
     .on('click', d => {
-      // The current sort again: reverse it. Another sort: start the right way up
-      listReverse = active(d) ? !listReverse : false
-      listSort = d[0]
-      try {
-        window.localStorage.setItem('speciesListSort', listSort)
-        window.localStorage.setItem('speciesListReverse', String(listReverse))
-      } catch (e) {}
+      chooseSort(d[0])
       redraw()
     })
 }
@@ -105,10 +73,10 @@ function drawSpeciesLists (props) {
     list.append('b').text('Seen')
     sortButtons(list, () => drawSpeciesLists(props))
     const items = props.species.map((name, i) => ({ name, n: i + 1 }))
-    let sorted = sortSpecies(items, listSort, listReverse)
+    let sorted = sortSpecies(items, sortState.sort, sortState.reverse)
     // In order seen, undated species stay at the bottom, whichever way up
     const undated = new Set(props.undated || [])
-    if (listSort === 'seen' && undated.size) {
+    if (sortState.sort === 'seen' && undated.size) {
       sorted = [...sorted.filter(x => !undated.has(x.name)), ...items.filter(x => undated.has(x.name))]
     }
     const li = list.append('ul')
@@ -117,9 +85,9 @@ function drawSpeciesLists (props) {
       .data(sorted)
       .enter()
       .append('li')
-    if (listSort === 'seen') li.append('span').attr('class', 'seen-number').text(x => `${x.n}. `)
+    if (sortState.sort === 'seen') li.append('span').attr('class', 'seen-number').text(x => `${x.n}. `)
     li.append('span').text(x => x.name)
-    if (listSort === 'seen') {
+    if (sortState.sort === 'seen') {
       li.filter(x => undated.has(x.name)).append('span').attr('class', 'undated').text(' (undated)')
     }
   }
@@ -131,7 +99,7 @@ function drawSpeciesLists (props) {
     notSeen.append('summary').append('b').text(`No records (${props.notSeen.length})`)
     notSeen.append('ul')
       .selectAll('li')
-      .data(sortSpecies(props.notSeen.map(name => ({ name })), listSort === 'alpha' ? 'alpha' : 'taxonomic', listReverse))
+      .data(sortSpecies(props.notSeen.map(name => ({ name })), sortState.sort === 'alpha' ? 'alpha' : 'taxonomic', sortState.reverse))
       .enter()
       .append('li')
       .text(x => x.name)
