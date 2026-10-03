@@ -71,6 +71,26 @@ test('drawing the map leaves the footer\'s icons alone', async () => {
   icons.forEach(icon => expect(icon.querySelector('path')).not.toBeNull())
 })
 
+test('the towns list ranks every town until a town is hovered', async () => {
+  const { container, wait, fireEvent } = renderAt('/towns')
+  await wait(() => expect(container.querySelectorAll('#map svg path').length).toBeGreaterThan(200))
+  const list = container.querySelector('#list')
+  const counts = () => [...list.querySelectorAll('.towns-list li')].map(li => Number(li.textContent.match(/\((\d+)\)$/)[1]))
+  // Every town in Vermont: the map's paths, less the state outline and the lake
+  expect(counts()).toHaveLength(container.querySelectorAll('#map svg path').length - 2)
+  expect(counts()[0]).toBeGreaterThanOrEqual(counts()[counts().length - 1])
+  const button = label => [...list.querySelectorAll('.list-sort button')].find(b => b.textContent === label)
+  fireEvent.click(button('Fewest first'))
+  expect(counts()[0]).toBeLessThanOrEqual(counts()[counts().length - 1])
+  fireEvent.click(button('Most first'))
+
+  const town = [...container.querySelectorAll('#map svg path')].find(p => p.__data__ && p.__data__.properties && p.__data__.properties.town === 'BURLINGTON')
+  fireEvent.mouseOver(town)
+  expect(list.querySelector('.towns-list')).toBeNull()
+  fireEvent.mouseOut(town)
+  expect(list.querySelector('.towns-list')).not.toBeNull()
+})
+
 test('a town\'s species are numbered by when first seen, and the sort buttons reorder and reverse them', async () => {
   window.localStorage.clear()
   const { container, wait, fireEvent } = renderAt('/towns')

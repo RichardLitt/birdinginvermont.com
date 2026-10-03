@@ -40,6 +40,9 @@ function undatedIn (species) {
   return (species || []).filter(name => SENSITIVE.has(name))
 }
 
+// The towns list's order, kept across redraws
+let townsFewestFirst = false
+
 function sortButtons (container, redraw) {
   const active = d => d[0] === sortState.sort
   container.append('div')
@@ -400,17 +403,58 @@ class Map extends Component {
         `<p><strong>Most species:</strong></p><ol>${items(counts.slice(-5).reverse())}</ol>`
     }
 
+    // The /towns side panel, for whichever view is showing: every town,
+    // ranked by species, most or fewest first. Hovering a town replaces it
+    function drawTownsList () {
+      const list = d3.select('#list').html('')
+      const towns = vermont.features
+        .map(f => ({ town: capitalizeFirstLetters(f.properties.town), count: f.properties.speciesTotal || 0 }))
+        .sort((a, b) => (townsFewestFirst ? a.count - b.count : b.count - a.count) || a.town.localeCompare(b.town))
+      const orders = [['Most first', false], ['Fewest first', true]]
+      list.append('b').text('Towns by species')
+      list.append('div')
+        .attr('class', 'list-sort btn-group btn-group-sm')
+        .attr('role', 'group')
+        .attr('aria-label', 'Sort the towns')
+        .selectAll('button')
+        .data(orders)
+        .enter()
+        .append('button')
+        .attr('type', 'button')
+        .attr('class', d => `btn btn-outline-secondary${d[1] === townsFewestFirst ? ' active' : ''}`)
+        .attr('aria-pressed', d => String(d[1] === townsFewestFirst))
+        .text(d => d[0])
+        .on('click', d => {
+          townsFewestFirst = d[1]
+          drawTownsList()
+        })
+      list.append('ol')
+        .attr('class', 'towns-list')
+        .selectAll('li')
+        .data(towns)
+        .enter()
+        .append('li')
+        .text(d => `${d.town} (${d.count})`)
+    }
+
+    // What the list shows when no area is hovered or pinned
+    function drawSummary () {
+      if (pathname === '/251') d3.select('#list').html(summary251())
+      else if (pathname === '/towns') drawTownsList()
+      else d3.select('#list').text('')
+    }
+
     function totalTownsText () {
       if (totalTowns) {
         if (pathname === '/251') {
           d3.select('#locale').text(`Towns birded: ${totalTowns} of ${townCount}`)
-          d3.select('#list').html(summary251())
         } else {
           d3.select('#locale').text(`Towns birded: ${totalTowns}`)
         }
       } else {
         d3.select('#locale').text('')
       }
+      drawSummary()
     }
 
     totalTownsText()
@@ -639,11 +683,6 @@ class Map extends Component {
               })
 
             totalTownsText()
-            if (pathname === '/251') {
-              d3.select('#list').html(summary251())
-            } else {
-              d3.select('#list').text('')
-            }
           }
         })
       }
@@ -657,8 +696,8 @@ class Map extends Component {
         page.restoring = true
         again.dispatch('click')
         page.restoring = false
-      } else if (pathname !== '/251') {
-        d3.select('#list').text('')
+      } else {
+        drawSummary()
       }
     }
 
