@@ -33,25 +33,34 @@ function capitalizeFirstLetters(string) {
 }
 
 // How the species lists beside the map are sorted: in the order the species
-// were first seen there (oldest first), taxonomically, or alphabetically.
-// Remembered between visits.
-const SORTS = [['seen', 'Order seen'], ['taxonomic', 'Taxonomic'], ['alpha', 'A–Z']]
+// were first seen there, taxonomically, or alphabetically. Clicking the
+// current sort again reverses it. Both are remembered between visits.
+// [key, label, what the normal (up arrow) and reversed (down arrow) orders are]
+const SORTS = [
+  ['seen', 'Order seen', 'oldest first', 'newest first'],
+  ['taxonomic', 'Taxonomic', 'in taxonomic order', 'in reverse taxonomic order'],
+  ['alpha', 'A–Z', 'A to Z', 'Z to A']
+]
 let listSort = 'seen'
+let listReverse = false
 try {
   listSort = window.localStorage.getItem('speciesListSort') || 'seen'
+  listReverse = window.localStorage.getItem('speciesListReverse') === 'true'
 } catch (e) {}
 
 // items: [{ name, n }], in the order first seen
-function sortSpecies (items, sort) {
-  if (sort === 'alpha') return [...items].sort((a, b) => a.name.localeCompare(b.name))
+function sortSpecies (items, sort, reverse) {
+  let sorted = items
+  if (sort === 'alpha') sorted = [...items].sort((a, b) => a.name.localeCompare(b.name))
   if (sort === 'taxonomic') {
     const rank = new window.Map(taxonomicSort(items.map(x => x.name)).map((name, i) => [name, i]))
-    return [...items].sort((a, b) => rank.get(a.name) - rank.get(b.name))
+    sorted = [...items].sort((a, b) => rank.get(a.name) - rank.get(b.name))
   }
-  return items
+  return reverse ? [...sorted].reverse() : sorted
 }
 
 function sortButtons (container, redraw) {
+  const active = d => d[0] === listSort
   container.append('div')
     .attr('class', 'list-sort btn-group btn-group-sm')
     .attr('role', 'group')
@@ -61,20 +70,25 @@ function sortButtons (container, redraw) {
     .enter()
     .append('button')
     .attr('type', 'button')
-    .attr('class', d => `btn btn-outline-secondary${d[0] === listSort ? ' active' : ''}`)
-    .attr('aria-pressed', d => String(d[0] === listSort))
-    .text(d => d[1])
+    .attr('class', d => `btn btn-outline-secondary${active(d) ? ' active' : ''}`)
+    .attr('aria-pressed', d => String(active(d)))
+    .attr('aria-label', d => `${d[1]}${active(d) ? `, ${listReverse ? d[3] : d[2]}` : ''}`)
+    .attr('title', d => active(d) ? 'Click again to reverse' : null)
+    .text(d => `${d[1]}${active(d) ? (listReverse ? ' ↓' : ' ↑') : ''}`)
     .on('click', d => {
+      // The current sort again: reverse it. Another sort: start the right way up
+      listReverse = active(d) ? !listReverse : false
       listSort = d[0]
       try {
         window.localStorage.setItem('speciesListSort', listSort)
+        window.localStorage.setItem('speciesListReverse', String(listReverse))
       } catch (e) {}
       redraw()
     })
 }
 
-// The Seen list, each species numbered by when it was first seen there (1 is
-// the oldest), and the No records list, in the chosen order
+// The Seen list and the No records list, in the chosen order. In order seen,
+// each species is numbered by when it was first seen there (1 is the oldest).
 function drawSpeciesLists (props) {
   const list = d3.select('#list')
   const details = list.select('details')
@@ -86,11 +100,11 @@ function drawSpeciesLists (props) {
     const li = list.append('ul')
       .attr('class', 'species-list')
       .selectAll('li')
-      .data(sortSpecies(props.species.map((name, i) => ({ name, n: i + 1 })), listSort))
+      .data(sortSpecies(props.species.map((name, i) => ({ name, n: i + 1 })), listSort, listReverse))
       .enter()
       .append('li')
-    li.append('span').attr('class', 'seen-number').text(x => `${x.n}.`)
-    li.append('span').text(x => ` ${x.name}`)
+    if (listSort === 'seen') li.append('span').attr('class', 'seen-number').text(x => `${x.n}. `)
+    li.append('span').text(x => x.name)
   }
   if (props.notSeen) {
     list.append('hr')
@@ -100,7 +114,7 @@ function drawSpeciesLists (props) {
     notSeen.append('summary').append('b').text(`No records (${props.notSeen.length})`)
     notSeen.append('ul')
       .selectAll('li')
-      .data(sortSpecies(props.notSeen.map(name => ({ name })), listSort === 'alpha' ? 'alpha' : 'taxonomic'))
+      .data(sortSpecies(props.notSeen.map(name => ({ name })), listSort === 'alpha' ? 'alpha' : 'taxonomic', listReverse))
       .enter()
       .append('li')
       .text(x => x.name)
