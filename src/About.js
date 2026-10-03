@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import aboutPath from './About.md'
 import { Helmet } from 'react-helmet'
-const ReactMarkdown = require('react-markdown')
+import ReactMarkdown from 'react-markdown'
+// The markdown pages include some HTML (images, embeds)
+import rehypeRaw from 'rehype-raw'
 
 class About extends Component {
   constructor(props) {
@@ -29,7 +31,7 @@ class About extends Component {
         <div className="row">
           <div className="col-md-8 col-sm-12 text-left">
             <img className="banner-image" src="rbgr.png" alt="Rose-breasted Grosbeak. © 2020 Richard Littauer"/>
-            <ReactMarkdown source={this.state.text} escapeHtml={false} />
+            <ReactMarkdown rehypePlugins={[rehypeRaw]}>{this.state.text || ''}</ReactMarkdown>
           </div>
         </div>
       </div>
