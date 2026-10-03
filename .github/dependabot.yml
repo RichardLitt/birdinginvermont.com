@@ -7,6 +7,11 @@ updates:
     schedule:
       interval: weekly
     open-pull-requests-limit: 0
+    ignore:
+      # react-markdown 5 and later need React 18 and change its API (#145
+      # bumped it to 10 and broke the install). Upgrade it by hand.
+      - dependency-name: react-markdown
+        update-types: ['version-update:semver-major']
     groups:
       security:
         applies-to: security-updates
