@@ -2,75 +2,53 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/31311bd3-9f06-4054-978f-84c0143e3fc6/deploy-status)](https://app.netlify.com/sites/birdinginvermont/deploys)
 
-My work on building a VT birding helper. 
+The code for [birdinginvermont.com](https://birdinginvermont.com): maps and tools for birding in Vermont.
 
-## Deployment instructions
+- **Towns, Counties, Bioregions**: every species recorded in each area, from the eBird Basic Dataset. Upload your own eBird data to see your lists instead.
+- **Project 251**: which towns have had a complete checklist this year, and which still need one.
+- **Unbirded Hotspots**: eBird hotspots with no checklists.
+- **VBRC Checker**: whether a sighting, your eBird data, or an EBD download has records the Vermont Bird Records Committee wants reported.
+- **NFCs, Subspecies, Female Birdsong**: reference pages written in markdown.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The data and the code that works it out live in [ebird-ext](https://github.com/RichardLitt/ebird-ext), included here as a git submodule at `src/ebird-ext`.
 
-## Available Scripts
+## Setup
 
-In the project directory, you can run:
+```sh
+git clone --recurse-submodules https://github.com/RichardLitt/birdinginvermont.com
+cd birdinginvermont.com
+nvm use          # Node 22 (.nvmrc)
+npm install
+npm start        # http://localhost:3000
+```
 
-### `yarn start`
+The site needs **Node 22 with npm 10**, the same as CI and Netlify. `npm install` refuses other versions (`engines` in `package.json`, `engine-strict` in `.npmrc`): npm 11 writes a lockfile that CI's `npm ci` rejects. If your Node 22 came with npm 11, run `npm install -g npm@10` once after `nvm use`.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+If you cloned without `--recurse-submodules`, run `git submodule update --init`.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Commands
 
-### `yarn test`
+| Command | Does |
+|---|---|
+| `npm start` | Development server on http://localhost:3000 |
+| `npm test` | Smoke tests (Jest and Testing Library): renders each kind of page, and checks the species lists' numbering and sorting |
+| `npm run build` | Production build in `build/` |
+| `npm run update-ebird-ext` | Points `src/ebird-ext` at ebird-ext `main`, or at a ref you pass, and commits that |
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Netlify builds and deploys `main`, and builds a preview for every pull request.
 
-### `yarn build`
+## How it fits together
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- `src/App.js`: routes. Every page except the home page loads its code when first visited (`React.lazy`), and ebird-ext loads only when someone uploads data.
+- `src/Map.js`: the maps (d3). They draw simplified boundaries from `src/ebird-ext/geojson/display/`; the precise boundaries, which decide which town a checklist is in, load only when needed.
+- `src/Rarities.js`: the VBRC checker. `src/Project251.js`, `src/Norwich.js`: those pages.
+- `src/ContentPage.js`: pages written in markdown, fetched from `public/`: `terms.md`, `female-birdsong.md`, `nfc-species/*.md`, `subspecies/*.md`, plus `project251.md` for the Project 251 page.
+- The build uses Craco, which wraps Create React App 5 (`craco.config.js`), so that it can bundle ebird-ext's ES modules and JSON imports.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## The ebird-ext submodule
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Changes to the data or the code that works it out go to [ebird-ext](https://github.com/RichardLitt/ebird-ext), not to `src/ebird-ext` here. After an ebird-ext pull request is merged, Dependabot opens a pull request here, within a day, that moves the submodule pointer; merge it once its checks pass. Run `npm run update-ebird-ext <ref>` yourself only when a branch here needs an ebird-ext change that isn't merged yet.
 
-### `yarn eject`
+## Updating the data
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+The town, region and county lists, Project 251 and the hotspot dates are refreshed about every three months from a new eBird Basic Dataset download. The steps are in ebird-ext's [scripts/README.md](https://github.com/RichardLitt/ebird-ext/blob/main/scripts/README.md) and [docs/project-251.md](https://github.com/RichardLitt/ebird-ext/blob/main/docs/project-251.md). `scripts/data-update-reminder.sh` can email a reminder from cron; its header explains how.
