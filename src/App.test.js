@@ -52,10 +52,11 @@ test('renders the towns map page', async () => {
   await wait(() => expect(container.querySelector('#map svg, .leaflet-container, canvas')).not.toBeNull())
 })
 
-test('a town\'s species are numbered by when first seen, and the sort buttons reorder them', async () => {
+test('a town\'s species are numbered by when first seen, and the sort buttons reorder and reverse them', async () => {
+  window.localStorage.clear()
   const { container, wait, fireEvent } = renderAt('/towns')
   await wait(() => expect(container.querySelectorAll('#map svg path').length).toBeGreaterThan(200))
-  // Burlington has hundreds of species; any path with a list will do
+  // Any town with a long list will do
   const town = [...container.querySelectorAll('#map svg path')].find(p => {
     fireEvent.mouseOver(p)
     return container.querySelectorAll('#list .species-list li').length > 50
@@ -63,18 +64,35 @@ test('a town\'s species are numbered by when first seen, and the sort buttons re
   expect(town).toBeTruthy()
   const items = () => [...container.querySelectorAll('#list .species-list li')].map(li => li.textContent)
   const numbers = () => items().map(t => Number(t.split('.')[0]))
-  const names = () => items().map(t => t.replace(/^\d+\. /, ''))
-  // Order seen: 1, 2, 3, ...
-  expect(numbers().slice(0, 3)).toEqual([1, 2, 3])
-  const byNumber = Object.fromEntries(items().map(t => [t.replace(/^\d+\. /, ''), t]))
+  const button = label => [...container.querySelectorAll('.list-sort button')].find(b => b.textContent.startsWith(label))
+  const click = label => fireEvent.click(button(label))
 
-  fireEvent.click([...container.querySelectorAll('.list-sort button')].find(b => b.textContent === 'A–Z'))
-  expect(names()).toEqual([...names()].sort((a, b) => a.localeCompare(b)))
-  // Each species keeps its number
-  for (const t of items()) expect(byNumber[t.replace(/^\d+\. /, '')]).toBe(t)
-
-  fireEvent.click([...container.querySelectorAll('.list-sort button')].find(b => b.textContent === 'Order seen'))
+  // Order seen: 1, 2, 3, ... with an up arrow on the active button
   expect(numbers().slice(0, 3)).toEqual([1, 2, 3])
+  expect(button('Order seen').textContent).toBe('Order seen ↑')
+  const count = items().length
+
+  // Clicking it again reverses it: newest first
+  click('Order seen')
+  expect(button('Order seen').textContent).toBe('Order seen ↓')
+  expect(numbers().slice(0, 2)).toEqual([count, count - 1])
+
+  // A-Z starts the right way up, without numbers
+  click('A–Z')
+  expect(button('A–Z').textContent).toBe('A–Z ↑')
+  expect(button('Order seen').textContent).toBe('Order seen')
+  expect(container.querySelector('#list .seen-number')).toBeNull()
+  const az = items()
+  expect(az).toEqual([...az].sort((a, b) => a.localeCompare(b)))
+
+  // and reverses to Z-A
+  click('A–Z')
+  expect(button('A–Z').textContent).toBe('A–Z ↓')
+  expect(items()).toEqual([...az].reverse())
+
+  // Taxonomic: no numbers either
+  click('Taxonomic')
+  expect(container.querySelector('#list .seen-number')).toBeNull()
 })
 
 // Draws every town; takes 4s locally and over 12s on GitHub's runners
