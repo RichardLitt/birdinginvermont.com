@@ -56,12 +56,9 @@ test('a town\'s species are numbered by when first seen, and the sort buttons re
   window.localStorage.clear()
   const { container, wait, fireEvent } = renderAt('/towns')
   await wait(() => expect(container.querySelectorAll('#map svg path').length).toBeGreaterThan(200))
-  // Any town with a long list will do
-  const town = [...container.querySelectorAll('#map svg path')].find(p => {
-    fireEvent.mouseOver(p)
-    return container.querySelectorAll('#list .species-list li').length > 50
-  })
-  expect(town).toBeTruthy()
+  // Burlington: a long list, ending with sensitive species carried forward undated
+  const town = [...container.querySelectorAll('#map svg path')].find(p => p.__data__ && p.__data__.properties && p.__data__.properties.town === 'BURLINGTON')
+  fireEvent.mouseOver(town)
   const items = () => [...container.querySelectorAll('#list .species-list li')].map(li => li.textContent)
   const numbers = () => items().map(t => Number(t.split('.')[0]))
   const button = label => [...container.querySelectorAll('.list-sort button')].find(b => b.textContent.startsWith(label))
@@ -71,17 +68,24 @@ test('a town\'s species are numbered by when first seen, and the sort buttons re
   expect(numbers().slice(0, 3)).toEqual([1, 2, 3])
   expect(button('Order seen').textContent).toBe('Order seen ↑')
   const count = items().length
+  // Undated species come last, numbered, and say so
+  expect(items().at(-1)).toMatch(new RegExp(`^${count}\\. .* \\(undated\\)$`))
+  const undatedCount = items().filter(t => t.endsWith('(undated)')).length
+  expect(undatedCount).toBeGreaterThan(0)
 
   // Clicking it again reverses it: newest first
   click('Order seen')
   expect(button('Order seen').textContent).toBe('Order seen ↓')
-  expect(numbers().slice(0, 2)).toEqual([count, count - 1])
+  // Newest dated species first; the undated ones stay at the bottom
+  expect(numbers()[0]).toBe(count - undatedCount)
+  expect(items().slice(-undatedCount).every(t => t.endsWith('(undated)'))).toBe(true)
 
   // A-Z starts the right way up, without numbers
   click('A–Z')
   expect(button('A–Z').textContent).toBe('A–Z ↑')
   expect(button('Order seen').textContent).toBe('Order seen')
   expect(container.querySelector('#list .seen-number')).toBeNull()
+  expect(container.querySelector('#list .undated')).toBeNull()
   const az = items()
   expect(az).toEqual([...az].sort((a, b) => a.localeCompare(b)))
 

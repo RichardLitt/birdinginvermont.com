@@ -48,6 +48,13 @@ try {
   listReverse = window.localStorage.getItem('speciesListReverse') === 'true'
 } catch (e) {}
 
+// eBird leaves sensitive species out of its data downloads, so the all-time
+// lists carry them forward without dates, at the end
+const SENSITIVE = new Set(banding.SENSITIVE_CODES.map(code => banding.codeToCommonName(code)))
+function undatedIn (species) {
+  return (species || []).filter(name => SENSITIVE.has(name))
+}
+
 // items: [{ name, n }], in the order first seen
 function sortSpecies (items, sort, reverse) {
   let sorted = items
@@ -97,14 +104,24 @@ function drawSpeciesLists (props) {
   if (props.species) {
     list.append('b').text('Seen')
     sortButtons(list, () => drawSpeciesLists(props))
+    const items = props.species.map((name, i) => ({ name, n: i + 1 }))
+    let sorted = sortSpecies(items, listSort, listReverse)
+    // In order seen, undated species stay at the bottom, whichever way up
+    const undated = new Set(props.undated || [])
+    if (listSort === 'seen' && undated.size) {
+      sorted = [...sorted.filter(x => !undated.has(x.name)), ...items.filter(x => undated.has(x.name))]
+    }
     const li = list.append('ul')
       .attr('class', 'species-list')
       .selectAll('li')
-      .data(sortSpecies(props.species.map((name, i) => ({ name, n: i + 1 })), listSort, listReverse))
+      .data(sorted)
       .enter()
       .append('li')
     if (listSort === 'seen') li.append('span').attr('class', 'seen-number').text(x => `${x.n}. `)
     li.append('span').text(x => x.name)
+    if (listSort === 'seen') {
+      li.filter(x => undated.has(x.name)).append('span').attr('class', 'undated').text(' (undated)')
+    }
   }
   if (props.notSeen) {
     list.append('hr')
@@ -196,6 +213,7 @@ class Map extends Component {
           const index = vermont.features.map(x => x.properties.town).indexOf(town)
           vermont.features[index].properties.town = town
           vermont.features[index].properties.species = data.towns[town]
+          vermont.features[index].properties.undated = []
           vermont.features[index].properties.speciesTotal = data.towns[town].length
         })
       }
@@ -216,6 +234,7 @@ class Map extends Component {
         vermont.features.forEach(feature => {
           const index = feature.properties.town
           feature.properties.species = dataThisYear[index]
+          feature.properties.undated = []
           feature.properties.speciesTotal = dataThisYear[index].length
           feature.properties.notSeen = _.difference(allSeen, dataThisYear[index])
         })
@@ -224,6 +243,7 @@ class Map extends Component {
         speciesView = Object.keys(speciesTotals).map(t => speciesTotals[t].length)
         vermont.features.forEach(feature => {
           feature.properties.species = speciesTotals[feature.properties.town]
+          feature.properties.undated = undatedIn(feature.properties.species)
           feature.properties.speciesTotal = speciesTotals[feature.properties.town].length
           feature.properties.notSeen = _.difference(allSeen, speciesTotals[feature.properties.town])
         })
@@ -250,6 +270,7 @@ class Map extends Component {
           if (town.toUpperCase() === VermontTowns.features[j].properties.town) {
             VermontTowns.features[j].properties.speciesTotal = speciesTotals
             VermontTowns.features[j].properties.species = vt251data[town].map(x => banding.codeToCommonName(x))
+            VermontTowns.features[j].properties.undated = []
 
             break
           }
@@ -280,6 +301,7 @@ class Map extends Component {
         speciesView = Object.keys(dataThisYear).map(c => dataThisYear[c].speciesTotal)
         vermont.features.forEach(feature => {
           feature.properties.species = dataThisYear[feature.properties.name].species
+          feature.properties.undated = []
           feature.properties.speciesTotal = dataThisYear[feature.properties.name].speciesTotal
           feature.properties.notSeen = _.difference(allSeen, dataThisYear[feature.properties.name].species)
         })
@@ -288,6 +310,7 @@ class Map extends Component {
         vermont.features.forEach(feature => {
           feature.properties.name = capitalizeFirstLetters(feature.properties.CNTYNAME)
           feature.properties.species = speciesTotals[feature.properties.name]
+          feature.properties.undated = undatedIn(feature.properties.species)
           feature.properties.speciesTotal = speciesTotals[feature.properties.name].length
           feature.properties.notSeen = _.difference(allSeen, speciesTotals[feature.properties.name])
         })
@@ -317,6 +340,7 @@ class Map extends Component {
         speciesView = Object.keys(dataThisYear).map(r => dataThisYear[r].speciesTotal)
         vermont.features.forEach(feature => {
           feature.properties.species = dataThisYear[feature.properties.name].species
+          feature.properties.undated = []
           feature.properties.speciesTotal = dataThisYear[feature.properties.name].speciesTotal
           feature.properties.notSeen = _.difference(allSeen, dataThisYear[feature.properties.name].species)
         })
@@ -324,6 +348,7 @@ class Map extends Component {
         speciesView = Object.keys(speciesTotals).map(t => speciesTotals[t].length)
         vermont.features.forEach(feature => {
           feature.properties.species = speciesTotals[feature.properties.name]
+          feature.properties.undated = undatedIn(feature.properties.species)
           feature.properties.speciesTotal = speciesTotals[feature.properties.name].length
           feature.properties.notSeen = _.difference(allSeen, speciesTotals[feature.properties.name])
         })

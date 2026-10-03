@@ -60,6 +60,10 @@ svg {
   list-style: none;
   padding-left: 0;
 }
+.species-list .undated {
+  color: #6c757d;
+  font-style: italic;
+}
 .species-list .seen-number {
   color: #6c757d;
   font-variant-numeric: tabular-nums;
