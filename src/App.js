@@ -14,6 +14,7 @@ const Project251 = lazy(() => import('./Project251'))
 const Rarities = lazy(() => import('./Rarities'))
 const Norwich = lazy(() => import('./Norwich'))
 const NoMatchPage = lazy(() => import('./NoMatchPage'))
+const RadiusPage = lazy(() => import('./RadiusPage'))
 
 const history = createBrowserHistory()
 
@@ -90,6 +91,7 @@ class App extends Component {
             <Route exact path="/nfc-species/:code?" render={(props) => <ContentPage {...props} key={randomGen()} />} />
             <Route exact path="/subspecies/:code?" render={(props) => <ContentPage {...props} key={randomGen()} />} />
             <Route exact path='/vbrc-checker' render={(props) =>(<Rarities {...props} data={this.state.data} handleChange={this.handleChange} />)} />
+            <Route exact path='/radius' render={(props) => (<RadiusPage {...props} data={this.state.data} handleChange={this.handleChange} />)} />
             <Route exact path='/norwich' render={(props) =>(<Norwich {...props} data={this.state.data} handleChange={this.handleChange} />)} />
             <Route exact path='/terms' render={(props) =>(<ContentPage {...props} key={randomGen()}/>)} />
             <Route component={NoMatchPage} />

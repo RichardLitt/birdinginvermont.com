@@ -63,6 +63,13 @@ svg {
 #list-container {
   width: 300px;
 }
+.radius-map svg {
+  display: block;
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  cursor: crosshair;
+}
 // Phones: the map fills the width, and the list goes underneath
 @media (max-width: 767.98px) {
   #map, #list-container {

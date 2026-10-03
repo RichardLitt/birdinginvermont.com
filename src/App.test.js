@@ -110,6 +110,16 @@ test('a town\'s species are numbered by when first seen, and the sort buttons re
   expect(container.querySelector('#list .seen-number')).toBeNull()
 })
 
+test('the radius page lists the species within 5 miles of typed coordinates', async () => {
+  const { container, screen, fireEvent } = renderAt('/radius')
+  const input = await screen.findByLabelText('Latitude, longitude')
+  fireEvent.change(input, { target: { value: '44.2601, -72.5754' } })
+  // Text queries: role queries on this page are slow in jsdom
+  fireEvent.click(screen.getByText('Show'))
+  expect(await screen.findByText(/^\d+ species within 5 miles$/, {}, { timeout: 15000 })).toBeInTheDocument()
+  expect(container.querySelectorAll('.species-list li').length).toBeGreaterThan(100)
+}, 30000)
+
 // Draws every town; takes 4s locally and over 12s on GitHub's runners
 test('renders the Project 251 page and its markdown', async () => {
   const { screen } = renderAt('/251')
