@@ -49,6 +49,17 @@ svg {
   display: inline-block;
   float: left;
 }
+#map {
+  // Full size beside the list on wider screens; its column would otherwise
+  // squeeze it. 550 = the 520px map + the column's 15px padding each side
+  flex: 0 0 550px;
+  max-width: 550px;
+  svg {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+}
 #list-container {
   width: 300px;
 }
@@ -58,6 +69,18 @@ svg {
   max-width: 520px;
   height: auto;
   cursor: crosshair;
+}
+// Phones: the map fills the width, and the list goes underneath
+@media (max-width: 767.98px) {
+  #map, #list-container {
+    float: none;
+    display: block;
+    width: 100%;
+    flex: 0 0 100%;
+  }
+  #map {
+    max-width: 520px;
+  }
 }
 .list-sort {
   display: flex;
