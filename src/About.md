@@ -20,8 +20,6 @@ Get in touch by emailing [richard@birdinginvermont.com](mailto:richard@birdingin
 
 There are other sites which are worth checking out, most notably [https://birdinghotspots.org/us/vermont](https://birdinghotspots.org/us/vermont), which has information on hotspots in Vermont.
 
-We also have a nascent <a href="https://birding.substack.com/p/coming-soon?r=clpzw&utm_campaign=post&utm_medium=web&utm_source=copy">mailing list.</a>
-
 ### Updates
 
 - **October 4, 2026**: Updated all of the data, enabled 5/10 Mile Radius view, fixed a lot of bugs, and made the site load much faster. Added in the town lists for what you've seen. 
