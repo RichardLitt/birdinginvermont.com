@@ -3,6 +3,10 @@
 // react-select, react-datepicker, Leaflet, d3, react-markdown) fails here,
 // not in production.
 
+// Each test loads the whole app afresh, data files and all, which takes
+// several seconds on CI's runners: more than Jest's default 5
+jest.setTimeout(30000)
+
 beforeEach(() => {
   // Pages load their text from markdown files at runtime
   global.fetch = jest.fn(() => Promise.resolve({
@@ -150,13 +154,13 @@ test('the radius page lists the species within 5 miles of typed coordinates', as
   fireEvent.click(screen.getByText('Show'))
   expect(await screen.findByText(/^\d+ species within 5 miles$/, {}, { timeout: 15000 })).toBeInTheDocument()
   expect(container.querySelectorAll('.species-list li').length).toBeGreaterThan(100)
-}, 30000)
+})
 
 // Draws every town; takes 4s locally and over 12s on GitHub's runners
 test('renders the Project 251 page and its markdown', async () => {
   const { screen } = renderAt('/251')
   expect(await screen.findByRole('heading', { name: 'Test page' }, { timeout: 20000 })).toBeInTheDocument()
-}, 30000)
+})
 
 test('renders a markdown content page', async () => {
   const { screen } = renderAt('/terms')
