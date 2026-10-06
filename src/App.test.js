@@ -162,7 +162,8 @@ test('renders the Project 251 page and its markdown', async () => {
   expect(await screen.findByRole('heading', { name: 'Test page' }, { timeout: 20000 })).toBeInTheDocument()
 })
 
+// Over 8s on GitHub's runners, right after the Project 251 page
 test('renders a markdown content page', async () => {
   const { screen } = renderAt('/terms')
-  expect(await screen.findByRole('heading', { name: 'Test page' })).toBeInTheDocument()
-})
+  expect(await screen.findByRole('heading', { name: 'Test page' }, { timeout: 20000 })).toBeInTheDocument()
+}, 30000)
