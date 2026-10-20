@@ -69,6 +69,11 @@ module.exports = {
       config.plugins.push(new webpack.NormalModuleReplacementPlugin(/^node:/, (resource) => {
         resource.request = resource.request.replace(/^node:/, '')
       }))
+      // bandingCodes.js reads every North American bird's code (330 kB); the
+      // site only needs Vermont's, which ebird-ext keeps in siteBandingCodes.json
+      config.plugins.push(new webpack.NormalModuleReplacementPlugin(/[\\/]ibpAlphaCodes2021\.json$/, (resource) => {
+        resource.request = resource.request.replace(/ibpAlphaCodes2021\.json$/, 'siteBandingCodes.json')
+      }))
       // Bootstrap 4's CSS uses the deprecated color-adjust; harmless, but CI
       // builds treat every warning as an error
       config.ignoreWarnings = [...(config.ignoreWarnings || []), /color-adjust/]

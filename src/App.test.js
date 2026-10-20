@@ -146,6 +146,19 @@ test('a town\'s species are numbered by when first seen, and the sort buttons re
   expect(container.querySelector('#list .seen-number')).toBeNull()
 })
 
+test('a county\'s species are listed by name, one per code in its list', async () => {
+  window.localStorage.clear()
+  const { container, wait, fireEvent } = renderAt('/counties')
+  const counties = () => [...container.querySelectorAll('#map svg path')].filter(p => p.__data__ && p.__data__.properties && p.__data__.properties.CNTYNAME)
+  await wait(() => expect(counties().length).toBe(14))
+  fireEvent.mouseOver(counties().find(p => p.__data__.properties.name === 'Washington'))
+  const items = [...container.querySelectorAll('#list .species-list li')].map(li => li.textContent)
+  expect(items).toHaveLength(require('./ebird-ext/data/countysightings.json').Washington.length)
+  expect(items.some(t => t.includes('Black-capped Chickadee'))).toBe(true)
+  // Names, not banding codes
+  expect(items.filter(t => /\b[A-Z]{4}\b/.test(t))).toEqual([])
+})
+
 test('the radius page lists the species within 5 miles of typed coordinates', async () => {
   const { container, screen, fireEvent } = renderAt('/radius')
   const input = await screen.findByLabelText('Latitude, longitude')
