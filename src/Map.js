@@ -5,7 +5,7 @@ import VermontTowns from './ebird-ext/geojson/display/vt_towns.json'
 import Lake from './ebird-ext/geojson/display/lake.json'
 import Counties from './ebird-ext/geojson/display/VT_Data_-_County_Boundaries.json'
 import BiophysicalRegions from './ebird-ext/geojson/display/Polygon_VT_Biophysical_Regions.json'
-import CountyBarcharts from './ebird-ext/data/countyBarcharts.json'
+import CountySightings from './ebird-ext/data/countysightings.json'
 import TownSightings from './ebird-ext/data/townsightings.json'
 import vt251data from './ebird-ext/data/vt_town_counts.json'
 import RegionSightings from './ebird-ext/data/regionssightings.json'
@@ -20,7 +20,7 @@ import RegionsText from './Regions'
 import seenInVT from './ebird-ext/taxonomies/eBird_Taxonomy_VT.json'
 import rewind from "@turf/rewind"
 import * as banding from './ebird-ext/bandingCodes.js'
-import { removeSpuh, removeSpuhFromCounties } from './ebird-ext/spuh.js'
+import { removeSpuh } from './ebird-ext/spuh.js'
 // const d3ScaleChromatic = require('d3-scale-chromatic')
 const d3 = require('d3')
 const d3Geo = require('d3-geo')
@@ -275,7 +275,7 @@ class Map extends Component {
       Counties.features = Counties.features.map(feature => rewind(feature, {reverse: true}))
       vermont = Counties
 
-      speciesTotals = removeSpuhFromCounties(CountyBarcharts)
+      speciesTotals = banding.unfurlObjToSpecies(CountySightings)
 
       if (data.counties) {
         Object.keys(data.counties).forEach(county => {

@@ -39,6 +39,11 @@ module.exports = {
       ...jestConfig,
       // ebird-ext's tests use node:test and run in its own repo (npm test there)
       testPathIgnorePatterns: ['/node_modules/', '<rootDir>/src/ebird-ext/'],
+      // The site's code table, as in the build (see webpack below)
+      moduleNameMapper: {
+        ...jestConfig.moduleNameMapper,
+        '^(.*)/ibpAlphaCodes2021\\.json$': '$1/siteBandingCodes.json'
+      },
       transformIgnorePatterns: [
         // Script files only, as react-scripts' own pattern: CSS in node_modules
         // (react-datepicker's) still needs its stub transform
@@ -68,6 +73,11 @@ module.exports = {
       // Webpack 5 doesn't resolve the `node:` scheme for browser builds
       config.plugins.push(new webpack.NormalModuleReplacementPlugin(/^node:/, (resource) => {
         resource.request = resource.request.replace(/^node:/, '')
+      }))
+      // bandingCodes.js reads every North American bird's code (330 kB); the
+      // site only needs Vermont's, which ebird-ext keeps in siteBandingCodes.json
+      config.plugins.push(new webpack.NormalModuleReplacementPlugin(/[\\/]ibpAlphaCodes2021\.json$/, (resource) => {
+        resource.request = resource.request.replace(/ibpAlphaCodes2021\.json$/, 'siteBandingCodes.json')
       }))
       // Bootstrap 4's CSS uses the deprecated color-adjust; harmless, but CI
       // builds treat every warning as an error

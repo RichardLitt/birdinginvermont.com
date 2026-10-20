@@ -146,6 +146,47 @@ test('a town\'s species are numbered by when first seen, and the sort buttons re
   expect(container.querySelector('#list .seen-number')).toBeNull()
 })
 
+test('a county\'s species are listed by name, one per code in its list', async () => {
+  window.localStorage.clear()
+  const { container, wait, fireEvent } = renderAt('/counties')
+  const counties = () => [...container.querySelectorAll('#map svg path')].filter(p => p.__data__ && p.__data__.properties && p.__data__.properties.CNTYNAME)
+  await wait(() => expect(counties().length).toBe(14))
+  fireEvent.mouseOver(counties().find(p => p.__data__.properties.name === 'Washington'))
+  const items = [...container.querySelectorAll('#list .species-list li')].map(li => li.textContent)
+  expect(items).toHaveLength(require('./ebird-ext/data/countysightings.json').Washington.length)
+  expect(items.some(t => t.includes('Black-capped Chickadee'))).toBe(true)
+  // Names, not banding codes
+  expect(items.filter(t => /\b[A-Z]{4}\b/.test(t))).toEqual([])
+})
+
+test('an upload with a bird new to Vermont asks for a VBRC report, without an error', async () => {
+  // Steller's Sea-Eagle has a banding code, but not in the site's Vermont-only
+  // table; the Testbird, a stand-in for a future eBird split, has none at all.
+  // Neither is on the VBRC list.
+  const csv = [
+    'Submission ID,Common Name,Scientific Name,Count,State/Province,County,Location,Latitude,Longitude,Date,Time,Protocol,Duration (Min),All Obs Reported,Breeding Code',
+    'S900000001,Black-capped Chickadee,Poecile atricapillus,2,US-VT,Washington,Fake Hubbard Park,44.2668,-72.5833,2026-05-01,08:00 AM,Stationary,30,1,',
+    'S900000001,Steller\'s Sea-Eagle,Haliaeetus pelagicus,1,US-VT,Washington,Fake Hubbard Park,44.2668,-72.5833,2026-05-01,08:00 AM,Stationary,30,1,',
+    'S900000001,Vermont Testbird,Testornis vermontensis,1,US-VT,Washington,Fake Hubbard Park,44.2668,-72.5833,2026-05-01,08:00 AM,Stationary,30,1,'
+  ].join('\n')
+  const consoleError = jest.spyOn(console, 'error')
+  const { container, screen, fireEvent, wait } = renderAt('/vbrc-checker')
+  // Jest uses the site's table, as the build does: no Highland Tinamou
+  expect(require('./ebird-ext/bandingCodes.js').isBandingCode('HITI')).toBeFalsy()
+  expect(require('./ebird-ext/bandingCodes.js').isBandingCode('BCCH')).toBeTruthy()
+  await wait(() => expect(container.querySelector('.csv-container input[type=file]')).not.toBeNull())
+  fireEvent.change(container.querySelector('.csv-container input[type=file]'), {
+    target: { files: [new File([csv], 'MyEBirdData.csv', { type: 'text/csv' })] }
+  })
+  await wait(() => expect(screen.getByText('Vermont Firsts')).toBeTruthy(), { timeout: 20000 })
+  const firsts = screen.getByText('Vermont Firsts').closest('.table-row').textContent
+  expect(firsts).toContain('Steller\'s Sea-Eagle')
+  expect(firsts).toContain('Vermont Testbird')
+  expect(firsts).not.toContain('Black-capped Chickadee')
+  expect(consoleError.mock.calls.filter(([message]) => !/Warning:/.test(String(message)))).toEqual([])
+  consoleError.mockRestore()
+})
+
 test('the radius page lists the species within 5 miles of typed coordinates', async () => {
   const { container, screen, fireEvent } = renderAt('/radius')
   const input = await screen.findByLabelText('Latitude, longitude')
