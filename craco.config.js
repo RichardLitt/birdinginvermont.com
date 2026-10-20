@@ -39,6 +39,11 @@ module.exports = {
       ...jestConfig,
       // ebird-ext's tests use node:test and run in its own repo (npm test there)
       testPathIgnorePatterns: ['/node_modules/', '<rootDir>/src/ebird-ext/'],
+      // The site's code table, as in the build (see webpack below)
+      moduleNameMapper: {
+        ...jestConfig.moduleNameMapper,
+        '^(.*)/ibpAlphaCodes2021\\.json$': '$1/siteBandingCodes.json'
+      },
       transformIgnorePatterns: [
         // Script files only, as react-scripts' own pattern: CSS in node_modules
         // (react-datepicker's) still needs its stub transform
