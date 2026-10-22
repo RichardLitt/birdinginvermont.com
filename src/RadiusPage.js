@@ -125,7 +125,6 @@ class RadiusPage extends Component {
         <Helmet>
           <meta charSet="utf-8" />
           <title>5- and 10-Mile Radius | Birding In Vermont</title>
-          <link rel="canonical" href="https://birdinginvermont.com/radius" />
           <meta name="description" content="Every bird recorded within 5 or 10 miles of a spot in Vermont, and which of them you've seen there." />
         </Helmet>
         <div className="row">

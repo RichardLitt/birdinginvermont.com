@@ -362,7 +362,6 @@ class Rarities extends Component {
         <Helmet>
           <meta charSet="utf-8" />
           <title>VBRC Checker | Birding In Vermont</title>
-          <link rel="canonical" href="https://birdinginvermont.com/251" />
           <meta name="description" content="Vermont Bird Records Committee Rare Bird Reports checker" />
         </Helmet>
         <div className="row">

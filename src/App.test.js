@@ -208,3 +208,37 @@ test('renders a markdown content page', async () => {
   const { screen } = renderAt('/terms')
   expect(await screen.findByRole('heading', { name: 'Test page' }, { timeout: 20000 })).toBeInTheDocument()
 }, 30000)
+
+test('each page names one canonical URL, whatever path variant loaded it', () => {
+  const { canonicalUrl } = require('./App')
+  expect(canonicalUrl('/towns')).toBe('https://birdinginvermont.com/towns')
+  expect(canonicalUrl('/towns/')).toBe('https://birdinginvermont.com/towns')
+  expect(canonicalUrl('/subspecies/rthu')).toBe('https://birdinginvermont.com/subspecies/rthu')
+  expect(canonicalUrl('/')).toBe('https://birdinginvermont.com/')
+  expect(canonicalUrl('/index.html')).toBe('https://birdinginvermont.com/')
+  expect(canonicalUrl('/about')).toBe('https://birdinginvermont.com/')
+  expect(canonicalUrl('/2100/')).toBe('https://birdinginvermont.com/')
+})
+
+test('the towns page sets its own canonical link, and an unknown page is noindex', async () => {
+  let { container, wait } = renderAt('/towns/')
+  const canonicals = () => document.head.querySelectorAll('link[rel="canonical"]')
+  await wait(() => expect(canonicals()).toHaveLength(1))
+  expect(canonicals()[0]).toHaveAttribute('href', 'https://birdinginvermont.com/towns')
+  await wait(() => expect(container.querySelector('#map svg, .leaflet-container, canvas')).not.toBeNull())
+  cleanup()
+  ;({ wait } = renderAt('/no-such-page'))
+  await wait(() => expect(document.head.querySelector('meta[name="robots"]')).toHaveAttribute('content', 'noindex'))
+})
+
+test('/nfc, /index.html and paths with a trailing slash redirect', async () => {
+  let { wait } = renderAt('/nfc')
+  await wait(() => expect(window.location.pathname).toBe('/nfc-species'))
+  cleanup()
+  ;({ wait } = renderAt('/index.html'))
+  await wait(() => expect(window.location.pathname).toBe('/'))
+  cleanup()
+  ;({ wait } = renderAt('/subspecies/rthu/?x=1'))
+  await wait(() => expect(window.location.pathname).toBe('/subspecies/rthu'))
+  expect(window.location.search).toBe('?x=1')
+})
