@@ -32,7 +32,6 @@ class Project251 extends Component {
         <Helmet>
           <meta charSet="utf-8" />
           <title>Project 251 | Birding In Vermont</title>
-          <link rel="canonical" href="https://birdinginvermont.com/251" />
           <meta name="description" content="Can Vermont birders submit a complete checklist in every town in one year? See which towns still need a visit." />
         </Helmet>
         <div className="row">

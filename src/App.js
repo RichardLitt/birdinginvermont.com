@@ -2,6 +2,7 @@ import React, { Component, Suspense, lazy } from 'react'
 import './App.scss'
 import { Route, Switch, Redirect, Router } from 'react-router-dom'
 import { createBrowserHistory } from "history"
+import { Helmet } from 'react-helmet'
 import About from './About'
 import NavBar from './NavBar'
 import Footer from './Footer'
@@ -20,6 +21,15 @@ const history = createBrowserHistory()
 
 function randomGen () {
   return Math.random()
+}
+
+// Netlify serves the app at any path, so /towns/, /towns?x=1 and
+// /index.html all load a page. Name one URL per page for search engines.
+// /about and /2100 show the home page.
+export function canonicalUrl (pathname) {
+  let path = pathname.replace(/\/index\.html$/, '/').replace(/\/+$/, '') || '/'
+  if (['/about', '/2100'].includes(path)) path = '/'
+  return `https://birdinginvermont.com${path}`
 }
 
 class App extends Component {
@@ -77,8 +87,18 @@ class App extends Component {
       <div className="App">
         <Router history={history}>
           <NavBar />
+          <Route render={({ location }) => (
+            <Helmet>
+              <link rel="canonical" href={canonicalUrl(location.pathname)} />
+            </Helmet>
+          )} />
           <Suspense fallback={<div className="container-md page">Loading…</div>}>
           <Switch>
+            {/* Pages match their paths exactly, so drop a trailing slash */}
+            <Route exact strict path='/:path+/' render={({ location }) => (
+              <Redirect to={{ ...location, pathname: location.pathname.replace(/\/+$/, '') }} />
+            )} />
+            <Redirect exact from='/index.html' to='/' />
             <Route exact path='/' component={About} />
             <Route exact path='/about' component={About} />
             <Route exact path='/towns' render={(props) => (<Map {...props} data={this.state.data} handleChange={this.handleChange} />)} />
@@ -94,8 +114,8 @@ class App extends Component {
             <Route exact path='/radius' render={(props) => (<RadiusPage {...props} data={this.state.data} handleChange={this.handleChange} />)} />
             <Route exact path='/norwich' render={(props) =>(<Norwich {...props} data={this.state.data} handleChange={this.handleChange} />)} />
             <Route exact path='/terms' render={(props) =>(<ContentPage {...props} key={randomGen()}/>)} />
+            <Redirect exact from="/nfc" to="/nfc-species" />
             <Route component={NoMatchPage} />
-            <Redirect from="/nfc" to="/nfc-species" />
           </Switch>
           </Suspense>
           <Footer />

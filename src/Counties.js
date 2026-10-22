@@ -16,7 +16,6 @@ class Counties extends Component {
           <Helmet>
             <meta charSet="utf-8" />
             <title>Counties | Birding In Vermont</title>
-            <link rel="canonical" href="https://birdinginvermont.com/" />
             <meta name="description" content="Showing birds which have been seen in different counties in Vermont" />
           </Helmet>
           <div className="col-md-10 col-sm-12 text-left">

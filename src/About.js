@@ -25,7 +25,6 @@ class About extends Component {
         <Helmet>
           <meta charSet="utf-8" />
           <title>About | Birding In Vermont</title>
-          <link rel="canonical" href="https://birdinginvermont.com/" />
           <meta name="description" content="Helping birders in Vermont by providing tools and resources on how to bird, better, in Vermont." />
         </Helmet>
         <div className="row">
