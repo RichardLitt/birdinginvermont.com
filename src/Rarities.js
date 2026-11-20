@@ -6,6 +6,8 @@ import DatePicker from "react-datepicker";
 import Select from 'react-select';
 import { eBirdCountyIds } from './ebird-ext/helpers.js'
 import { parseEBD } from './ebird-ext/ebd.js'
+// The VBRC check without the town and region boundaries, so it loads with the page
+import { isSpeciesSightingRare } from './ebird-ext/rarity.js'
 
 // CSS Modules, react-datepicker-cssmodules.css
 import "react-datepicker/dist/react-datepicker.css";
@@ -25,7 +27,9 @@ class NameForm extends React.Component {
     this.state = {
       species: '',
       town: '',
-      date: new Date()
+      date: new Date(),
+      checking: false,
+      error: ''
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -56,11 +60,19 @@ class NameForm extends React.Component {
       'town': this.state.town.value
     }
 
-    if (opts.species && opts.date && opts.town) {
-      // ebird-ext, with the town boundaries, loads only when it's needed
-      const { default: ebird } = await import('./ebird-ext/index.js')
-      let result = await ebird.isSpeciesSightingRare(opts)
+    if (!(opts.species && opts.date && opts.town)) {
+      this.setState({ error: 'Choose a species, a town and a date.' })
+      return
+    }
+
+    this.setState({ checking: true, error: '' })
+    try {
+      const result = await isSpeciesSightingRare(opts)
       this.props.rerenderParentCallback(result)
+    } catch (err) {
+      this.setState({ error: `Couldn't check that sighting: ${err.message}` })
+    } finally {
+      this.setState({ checking: false })
     }
   }
 
@@ -88,8 +100,9 @@ class NameForm extends React.Component {
       <form className="col-md-10">
         <div className="form-row">
           <div className="form-group col-md-6">
-            <label>Species:</label>
+            <label htmlFor="sighting-species">Species:</label>
             <Select
+              inputId="sighting-species"
               name="form-field-species"
               value={this.state.species}
               onChange={this.handleSpecies}
@@ -97,8 +110,9 @@ class NameForm extends React.Component {
             />
           </div>
           <div className="form-group col-md-6">
-            <label>Town:</label>
+            <label htmlFor="sighting-town">Town:</label>
             <Select
+              inputId="sighting-town"
               name="form-field-town"
               value={this.state.town}
               onChange={this.handleTown}
@@ -108,8 +122,9 @@ class NameForm extends React.Component {
         </div>
         <div className="form-row">
           <div className="form-group col-md-6">
-            <label>Date:</label>
+            <label htmlFor="sighting-date">Date:</label>
             <DatePicker
+                id="sighting-date"
                 name="date"
                 className="form-control"
                 selected={this.state.date}
@@ -117,7 +132,10 @@ class NameForm extends React.Component {
             />
           </div>
         </div>
-        <input type="button" onClick={this.handleSubmit} value="Submit" />
+        <button type="button" onClick={this.handleSubmit} disabled={this.state.checking} aria-busy={this.state.checking}>
+          {this.state.checking ? 'Checking…' : 'Check sighting'}
+        </button>
+        {(this.state.error) ? <p className="mt-3 text-danger" role="alert">{this.state.error}</p> : ''}
       </form>
     );
   }
@@ -340,23 +358,20 @@ class EBDChecker extends Component {
 class Rarities extends Component {
   constructor(props) {
     super(props);
+    // The single-sighting form's result; an upload's comes in props.data.rarities
     this.state = {
-      singleBirdForm: '',
-      rarities: this.props.data.rarities
+      sighting: ''
     }
     this.rerenderParentCallback = this.rerenderParentCallback.bind(this);
   }
 
-  rerenderParentCallback(props) {
-    this.setState({
-      rarities: props,
-      singleBirdForm: true
-    })
-    this.forceUpdate();
+  rerenderParentCallback(sighting) {
+    this.setState({ sighting })
   }
 
   render() {
-    let rarities = (this.state.singleBirdForm !== '') ? this.state.rarities : this.props.data.rarities
+    const { sighting } = this.state
+    const uploaded = this.props.data.rarities
     return (
       <div id="rarities" className="container-md">
         <Helmet>
@@ -386,8 +401,7 @@ class Rarities extends Component {
 
           <NameForm class="col-md-8" rerenderParentCallback={this.rerenderParentCallback} />
 
-          {(rarities !== '' && this.state.singleBirdForm) ?
-            <AllRows data={rarities} sbf={this.state.singleBirdForm} /> : '' }
+          {(sighting !== '') ? <AllRows data={sighting} sbf={true} /> : ''}
 
           <hr />
 
@@ -402,7 +416,7 @@ class Rarities extends Component {
             </div>
           </div>
 
-          {(rarities !== '') ? <AllRows data={rarities} /> : ''}
+          {(uploaded !== '') ? <AllRows data={uploaded} /> : ''}
 
           <UploadButton handleChange={this.props.handleChange} data={this.props.data} />
 
