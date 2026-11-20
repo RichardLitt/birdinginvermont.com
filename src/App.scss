@@ -104,8 +104,14 @@ svg {
 
 #rarities {
   max-width: 1000px;
+  padding-bottom: 50px;
   >.row {
     padding: 0px 20px;
+  }
+  // react-datepicker's wrapper is inline-block, which put the date field on
+  // the label's line; the species and town fields sit below theirs
+  .react-datepicker-wrapper {
+    display: block;
   }
 }
 

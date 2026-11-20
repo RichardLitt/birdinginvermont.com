@@ -61,6 +61,34 @@ test('renders the VBRC checker with its forms', async () => {
   expect(screen.getByLabelText('eBird Basic Dataset file:')).toBeInTheDocument()
 })
 
+test('the single-sighting check says it is checking, then reports a Garganey in Burlington', async () => {
+  const { screen, fireEvent } = renderAt('/vbrc-checker')
+  await screen.findByRole('heading', { name: 'Vermont Bird Records Checker' })
+  // react-select: type, then Enter picks the first match
+  const pick = (label, text) => {
+    const input = screen.getByLabelText(label)
+    fireEvent.focus(input)
+    fireEvent.change(input, { target: { value: text } })
+    fireEvent.keyDown(input, { key: 'Enter', keyCode: 13 })
+  }
+  pick('Species:', 'Garganey')
+  pick('Town:', 'Burlington')
+  const button = screen.getByRole('button', { name: 'Check sighting' })
+  fireEvent.click(button)
+  expect(button).toBeDisabled()
+  expect(button).toHaveTextContent('Checking…')
+  expect(await screen.findByRole('heading', { name: 'Vermont Records' })).toBeInTheDocument()
+  expect(screen.getByText('Burlington, Chittenden')).toBeInTheDocument()
+  expect(screen.getByRole('button', { name: 'Check sighting' })).toBeEnabled()
+})
+
+test('the single-sighting check asks for a species and town when they are missing', async () => {
+  const { screen, fireEvent } = renderAt('/vbrc-checker')
+  await screen.findByRole('heading', { name: 'Vermont Bird Records Checker' })
+  fireEvent.click(screen.getByRole('button', { name: 'Check sighting' }))
+  expect(screen.getByRole('alert')).toHaveTextContent('Choose a species, a town and a date.')
+})
+
 test('renders the towns map page', async () => {
   const { container, wait } = renderAt('/towns')
   // #map: the footer's icons are SVGs too
